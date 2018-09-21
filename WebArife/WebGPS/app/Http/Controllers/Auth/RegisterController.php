@@ -1,10 +1,9 @@
 <?php
 
-namespace webGps\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use webGps\User;
-use webGps\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -59,14 +58,14 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \webGps\User
+     * @return \App\User
      */
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => bcrypt($data['password']),
         ]);
     }
 }
