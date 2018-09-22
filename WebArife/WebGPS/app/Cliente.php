@@ -10,11 +10,12 @@ class Cliente extends Model
 
     protected $primarykey = 'IdCliente';
 
-    protected $foreingkey = 'IdActor';
+    //protected $foreingkey = 'IdActor';
 
     public $timetamps=false;
 
     protected $fillable =[
+      'IdActor'
     	'FchCrea',
     	'UsrCrea',
     	'WksCrea',
