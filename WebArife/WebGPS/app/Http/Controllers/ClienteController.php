@@ -54,8 +54,8 @@ class ClienteController extends Controller
     	$cliente->UsrMod=$request->get('UsrMod');
     	$cliente->WksMod=$request->get('WksMod');
     	$cliente->FglEli=$request->get('FglEli');
-    	$categoria->update();
-    	return Redirect::to('cliente');	
+    	$cliente->update();
+    	return Redirect::to('cliente');
     }
     public function destroy($id){
 

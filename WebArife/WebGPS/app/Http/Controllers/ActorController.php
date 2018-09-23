@@ -49,24 +49,34 @@ class ActorController extends Controller
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FglEli=$request->get('FglEli');
       $actor->save;
-      return Redirect::to('cliente');
+      return Redirect::to('actor');
     }
     public function show($id){
-      return view("cliente.show", ["cliente"=>cliente::findOrFail($id)]);
+      return view("actor.show", ["actor"=>actor::findOrFail($id)]);
     }
     public function edit($id){
-      return view("cliente.edit", ["cliente"=>cliente::findOrFail($id)]);
+      return view("actor.edit", ["actor"=>actor::findOrFail($id)]);
     }
-    public function update(ClienteFormRequest $request,$id){
-      $cliente=cliente::findOrFail($id);
-      $cliente->FchCrea=$request->get('FchCrea');
-      $cliente->UsrCrea=$request->get('UsrCrea');
-      $cliente->WksCrea=$request->get('WksCrea');
-      $cliente->FchMod=$request->get('FchMod');
-      $cliente->UsrMod=$request->get('UsrMod');
-      $cliente->WksMod=$request->get('WksMod');
-      $cliente->FglEli=$request->get('FglEli');
-      $categoria->update();
+    public function update(ActorFormRequest $request,$id){
+      $actor=actor::findOrFail($id);
+      $actor->TipoPersona=$request->get('TipoPersona');
+      $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
+      $actor->Apellido_Materno=$request->get('Apellido_Materno');
+      $actor->PrimerNombre=$request->get('PrimerNombre');
+      $actor->SegundoNombre=$request->get('SegundoNombre');
+      $actor->RazonSocial=$request->get('RazonSocial');
+      $actor->TipoDocumento=$request->get('TipoDocumento');
+      $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
+      $actor->RUC=$request->get('RUC');
+      $actor->IdEmpresa=$request->get('IdEmpresa');
+      $actor->FchCrea=$request->get('FchCrea');
+      $actor->UsrCrea=$request->get('UsrCrea');
+      $actor->WksCrea=$request->get('WksCrea');
+      $actor->FchMod=$request->get('FchMod');
+      $actor->WksMod=$request->get('WksMod');
+      $actor->UsrMod=$request->get('UsrMod');
+      $actor->FglEli=$request->get('FglEli');
+      $actor->update();
       return Redirect::to('cliente');
     }
     public function destroy($id){
