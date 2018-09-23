@@ -77,7 +77,7 @@ class ActorController extends Controller
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FglEli=$request->get('FglEli');
       $actor->update();
-      return Redirect::to('cliente');
+      return Redirect::to('actor');
     }
     public function destroy($id){
 
