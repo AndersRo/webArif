@@ -31,7 +31,7 @@ class UsuarioController extends Controller
   public function store(UsuarioFormRequest $request){
     $usuario=new user;
     $usuario->login=$request->get('login');
-    $usuario->password=$request->get('password');
+    $usuario->password=bcrypt($request->get('password'));
     $usuario->createt_at=$request->('createt_at');
     $usuario->updated_at=$request->('updated_at');
     $usuario->IdEmpresa=$request->('IdEmpresa');
@@ -39,4 +39,23 @@ class UsuarioController extends Controller
     $usuario->save();
     return Redirect::to('seguridad/usuario');
   }
+  public function edit($id){
+    return view("seguridad.usuario.edit",["usuario"=>User::findOrFail($id)]);
+  }
+  public function update(UsuarioFormRequest $request, $id){
+    $usuario=User::findOrFail($id);
+    usuario->login=$request->get('login');
+    $usuario->password=bcrypt($request->get('password'));
+    $usuario->createt_at=$request->('createt_at');
+    $usuario->updated_at=$request->('updated_at');
+    $usuario->IdEmpresa=$request->('IdEmpresa');
+    $usuario->IdActor=$request->('IdActor');
+    $usuario->update();
+    return Redirect::to('seguridad/usuario');
+  }
+  public function destroy($id){
+    $usuario = DB::table('users')->where('id','=',$id)->delete();
+    return Redirect::to('seguridad/usuarios');
+  }
+  
 }
