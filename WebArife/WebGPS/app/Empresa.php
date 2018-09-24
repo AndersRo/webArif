@@ -28,7 +28,7 @@ class Empresa extends Model
     'FlgEli',
     'Respresentante'
   ];
-
+  
   protected $guarded[
 
   ];
