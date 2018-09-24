@@ -28,4 +28,15 @@ class UsuarioController extends Controller
   public function create(){
     return view("seguridad.usuario.create");
   }
+  public function store(UsuarioFormRequest $request){
+    $usuario=new user;
+    $usuario->login=$request->get('login');
+    $usuario->password=$request->get('password');
+    $usuario->createt_at=$request->('createt_at');
+    $usuario->updated_at=$request->('updated_at');
+    $usuario->IdEmpresa=$request->('IdEmpresa');
+    $usuario->IdActor=$request->('IdActor');
+    $usuario->save();
+    return Redirect::to('seguridad/usuario');
+  }
 }
