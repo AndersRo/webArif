@@ -18,7 +18,7 @@ class ClienteController extends Controller
     	if ($request) {
     		$query=trim($request->get('searchText'));
     		$cliente=DB::table('cliente')->where('UsrCrea','LIKE','%'.$query.'%')
-    		
+
     		->orderBy('IdCliente','desc')
     		->paginate(7);
     		return view ('cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
