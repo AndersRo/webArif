@@ -13,29 +13,22 @@ class ModeloController extends Controller
     public function__construct(){
 
 }
-public function index(Request $request){
+
+}
   if ($request) {
     $query=trim($request->get('searchText'));
-    $modelo=DB::table('modelo')->where('NroSim','LIKE','%'.$query.'%')
-    ->where ('FlgEli','=','1')
-    ->orderBy('IdModelo','desc')
-    ->paginate(7);
-    return view ('modelo.index',["modelo"=>$modelo,"searchText"=>$query]);
-  }
+  $dispositivo=DB::table('dispositivo')->where('IMEI','LIKE','%'.$query.'%')
+  ->where ('FlgEli','=','1')
+  ->orderBy('IdDispositivo','desc')
+  ->paginate(7);
+  return view ('dispositivo.index',["dispositivo"=>$dispositivo,"searchText"=>$query]);
 }
+
 public function create(){
   return view("modelo.create");
 }
 public function store(ModeloFormRequest $request){
-  'Descripcion',
-  'FchCrea',
-  'UsrCrea',
-  'WksCrea',
-  'FchMod',
-  'WksMod',
-  'FlgEli',
-  'FotoReferencial',
-  'idMarca',
+  
   $modelo=new modelo;
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=$request->get('FchCrea');

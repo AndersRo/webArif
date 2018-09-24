@@ -18,7 +18,7 @@ class DispositivosController extends Controller
     public function index(Request $request){
       if ($request) {
         $query=trim($request->get('searchText'));
-        $dispositivo=DB::table('dispositivo')->where('NroSim','LIKE','%'.$query.'%')
+        $dispositivo=DB::table('dispositivo')->where('IMEI','LIKE','%'.$query.'%')
         ->where ('FlgEli','=','1')
         ->orderBy('IdDispositivo','desc')
         ->paginate(7);
@@ -44,7 +44,7 @@ class DispositivosController extends Controller
       return view("dispositivo.show", ["dispositivo"=>"dispositivo"::findOrFail($id)]);
     }
     public function edit($id){
-      return view("dispositivo.edit", ["dispositivo"=>dispositvo::findOrFail($id)]);
+      return view("dispositivo.edit", ["dispositivo"=>dispositivo::findOrFail($id)]);
     }
     public function update(dispositivoFormRequest $request,$id){
       $dispositivo=dispositivo::findOrFail($id);

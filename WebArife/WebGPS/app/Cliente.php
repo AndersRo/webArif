@@ -12,6 +12,8 @@ class Cliente extends Model
 
     //protected $foreingkey = 'IdActor';
 
+
+
     public $timetamps=false;
 
     protected $fillable =[
