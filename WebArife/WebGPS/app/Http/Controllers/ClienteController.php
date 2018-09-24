@@ -4,7 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
-use webGps\app\cliente;
+use webGps\app\Cliente;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\ClienteFormRequest;
 use DB;
@@ -18,7 +18,7 @@ class ClienteController extends Controller
     	if ($request) {
     		$query=trim($request->get('searchText'));
     		$cliente=DB::table('cliente')->where('UsrCrea','LIKE','%'.$query.'%')
-    		->where('IdActor','=','1')
+    		
     		->orderBy('IdCliente','desc')
     		->paginate(7);
     		return view ('cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
