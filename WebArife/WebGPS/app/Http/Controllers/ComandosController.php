@@ -12,10 +12,9 @@ use DB;
 
 class ComandosController extends Controller
 {
-   public function__construct(){
+   public function __construct(){
 }
-public function__construct(){    //
-}
+
 public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));

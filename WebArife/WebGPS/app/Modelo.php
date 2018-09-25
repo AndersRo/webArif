@@ -14,7 +14,6 @@ class Modelo extends Model
   public $timestamps = false;
 
   protected $fillable =[
-<<<<<<< HEAD
       'Descripcion',
       'FchCrea',
       'UsrCrea',
@@ -24,19 +23,7 @@ class Modelo extends Model
       'FlgEli',
       'FotoReferencial',
       'IdMarca',
-=======
 
-        'Descripcion',
-        'FchCrea',
-        'UsrCrea',
-        'WksCrea',
-        'FchMod',
-        'UsrMod',
-        'WksMod',
-        'FlgEli',
-        'FotoReferencial',
-        'idMarca'
->>>>>>> 19fa0cf9cdfeaf118450d3df9563d1e00d6b5e1b
 
   ];
  protected $guarded = [

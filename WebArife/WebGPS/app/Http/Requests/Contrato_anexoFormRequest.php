@@ -13,7 +13,7 @@ class Contrato_anexoFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class Contrato_anexoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+          'CodTipoServicio'=>'required|max:6',
+          'IdContrato ',
+          'CodDocumentoAnexo',
+          'RutaDocumento',
+          'FchCrea',
+          'UsrCrea',
+          'WksCrea',
+          'FchMod',
+          'UsrMod',
+          'WksMod',
+          'FlgEli'
         ];
     }
 }

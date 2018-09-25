@@ -24,21 +24,21 @@ class ContratoFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'CodTipoServicio=>required|max:6',
-          'Fechainicio=>required|max:10'.
-          'Fechafin=>required|max:10',
-          'IdCliente=>required|max:11',
-          'CodTipoContrato=>required|max:6',
-          'idEmpresa=>required|max:11',
-          'idVehiculo=>required|max:11',
-          'EstadoContrato=>required|max:6',
-          'FchCrea=>required|max:10',
-          'UsrCrea=>required|max:30',
-          'WksCrea=>required|max:30',
-          'FchMod=>required|max:10',
-          'UsrMod=>required|max:30',
-          'WksMod=>required|max:30',
-          'FlgEli=>required|max:1'
+          'CodTipoServicio'=>'required|max:6',
+          'Fechainicio'=>'required|max:10'.
+          'Fechafin'=>'required|max:10',
+          'IdCliente'=>'required|max:11',
+          'CodTipoContrato'=>'required|max:6',
+          'idEmpresa'=>'required|max:11',
+          'idVehiculo'=>'required|max:11',
+          'EstadoContrato'=>'required|max:6',
+          'FchCrea'=>'required|max:10',
+          'UsrCrea'=>'required|max:30',
+          'WksCrea'=>'required|max:30',
+          'FchMod'=>'required|max:10',
+          'UsrMod'=>'required|max:30',
+          'WksMod'=>'required|max:30',
+          'FlgEli'=>'required|max:1'
         ];
     }
 }

@@ -12,7 +12,7 @@ use DB;
 
 class ContratoController extends Controller
 {
-    public function__construct(){
+    public function __construct(){
 }
 public function index(Request $request){
   if ($request) {
