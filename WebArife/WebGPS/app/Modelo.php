@@ -22,7 +22,7 @@ class Modelo extends Model
       'WksMod',
       'FlgEli',
       'FotoReferencial',
-      'idMarca',
+      'IdMarca',
 
   ];
  protected $guarded = [

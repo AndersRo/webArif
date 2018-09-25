@@ -8,18 +8,16 @@ class Dispositivos extends Model
 {
     protected $table = 'dispositivos';
 
-
-
     protected $primarykey='IdDispositivo';
     public $timestamps = false;
 
     protected $fillable =[
         'Serie',
         'IMEI',
-        'idModelo',
+        'IdModelo',
         'NroSim',
         'NroIDN',
-        'idEmpresa',
+        'IdEmpresa',
     ];
    protected $guarded = [
 

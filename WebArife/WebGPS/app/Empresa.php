@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Empresa extends Model
 {
   protected $table = 'empresa';
-
   protected $primarykey = 'IdEmpresa';
-
-  //protected $foreingkey = 'IdActor';
 
   public $timetamps=false;
 
@@ -28,7 +25,7 @@ class Empresa extends Model
     'FlgEli',
     'Respresentante'
   ];
-  
+
   protected $guarded[
 
   ];

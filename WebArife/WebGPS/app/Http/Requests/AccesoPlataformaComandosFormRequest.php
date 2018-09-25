@@ -4,7 +4,7 @@ namespace webGps\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MarcaFormRequest extends FormRequest
+class AccesoPlataformaComandoFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class MarcaFormRequest extends FormRequest
     public function rules()
     {
         return [
-              'Descripcion'=>'required|max:100',
-              'UsrCrea'=>'required|max:30',
-              'WksCrea'=>'required|max:30',
-              'FchMod'=>'required|max:10',
-              'UsrMod'=>'required|max:30',
-              'WksMod'=>'required|max:30'
-              'FlgEli'=>'required|max:1',
-              'FchCrea'=>'required|max:10'
+          'IdAccesoDetalle'=>'required|max:11',
+          'FchCrea'=>'required|max:10',
+          'UsrCrea'=>'required|max:30',
+          'WksCrea'=>'required|max:30',
+          'FchMod'=>'required|max:10',
+          'UsrMod'=>'required|max:30',
+          'WksMod'=>'required|max:30',
+          'FlgEli'=>'required|max:1'
         ];
     }
 }

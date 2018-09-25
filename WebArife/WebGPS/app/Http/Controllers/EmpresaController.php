@@ -43,13 +43,13 @@ class EmpresaController extends Controller
       $empresa->FlgEli=$request->get('FlgEli');
       $empresa->Respresentante=$request->get('Respresentante');
       $empresa->save();
-      return Redirect::to('representante');
+      return Redirect::to('empresa');
     }
     public function show($id){
-      return view("representante.show", ["representante"=>representante::findOrFail($id)]);
+      return view("empresa.show", ["empresa"=>empresa::findOrFail($id)]);
     }
     public function edit($id){
-      return view("representante.edit", ["representante"=>representante::findOrFail($id)]);
+      return view("empresa.edit", ["empresa"=>empresa::findOrFail($id)]);
     }
     public function update(ClienteFormRequest $request,$id){
       $empresa=empresa::findOrFail($id);

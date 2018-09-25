@@ -8,18 +8,14 @@ class Comandos extends Model
 {
 
       protected $table = 'comandos';
-
-
       protected $primarykey = 'IdComandos';
 
-      //protected $foreingkey = 'IdActor';
-
       public $timetamps=true;
-      protected $fillable =[
 
+      protected $fillable =[
           'CodTipoComandos',
           'comandos',
-          'idModelo'
+          'IdModelo'
       ];
 
       protected $guarded[

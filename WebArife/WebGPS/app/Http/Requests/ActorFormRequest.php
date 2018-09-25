@@ -40,7 +40,7 @@ class ActorFormRequest extends FormRequest
             'FchMod'=>'required',
             'WksMod'=>'required|MAX:30',
             'UsrMod'=>'required|MAX:30',
-            'FlgEli'=>'MAX:1',
+            'FlgEli'=>'MAX:1'
         ];
     }
 }

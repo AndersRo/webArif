@@ -4,7 +4,7 @@ namespace webGps\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ModeloFormRequest extends FormRequest
+class AccesosPlataformaFormRequets extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,22 @@ class ModeloFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'Descripcion'=>'required|max:100',
+          'IdCliente'=>'required|max:11',
+          'FlgAccesoApp'=>'required|max:1',
+          'FlgAccesoWeb'=>'required|max:1',
+          'IdEmpresa'=>'required|max:11',
+          'MaxConexiones'=>'required|max:11',
+          'LoginAcceso'=>'required|max:30',
+          'ContrasnaPlataforma'=>'required|max:30',
+          'ContrasenaComandos'=>'required|max:30',
           'FchCrea'=>'required|max:10',
-          'UsrCrea'=>'required|max:30',
           'WksCrea'=>'required|max:30',
+          'UsrCrea'=>'required|max:30',
           'FchMod'=>'required|max:10',
+          'WksMod'=>'required|max:30',
           'UsrMod'=>'required|max:30',
-          'WksMod'=>'required|max:30'
           'FlgEli'=>'required|max:1',
-          'FotoReferencial'=>'required|max:250',
-          'idMarca'=>'required|max:11'
+          'EstadoAcceso'=>'required|max:18'
         ];
     }
 }

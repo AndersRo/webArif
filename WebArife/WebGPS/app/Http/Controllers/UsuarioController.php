@@ -44,7 +44,7 @@ class UsuarioController extends Controller
   }
   public function update(UsuarioFormRequest $request, $id){
     $usuario=User::findOrFail($id);
-    usuario->login=$request->get('login');
+    $usuario->login=$request->get('login');
     $usuario->password=bcrypt($request->get('password'));
     $usuario->createt_at=$request->('createt_at');
     $usuario->updated_at=$request->('updated_at');
@@ -57,5 +57,5 @@ class UsuarioController extends Controller
     $usuario = DB::table('users')->where('id','=',$id)->delete();
     return Redirect::to('seguridad/usuarios');
   }
-  
+
 }

@@ -10,52 +10,55 @@ use webGps\Http\Requests\ModeloFormRequest;
 use DB;
 class ModeloController extends Controller
 {
-    public function__construct(){
+    public function __construct(){
 
-}
-
-}
+    }
+public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
-  $dispositivo=DB::table('dispositivo')->where('IMEI','LIKE','%'.$query.'%')
-  ->where ('FlgEli','=','1')
-  ->orderBy('IdDispositivo','desc')
-  ->paginate(7);
-  return view ('dispositivo.index',["dispositivo"=>$dispositivo,"searchText"=>$query]);
+    $modelo=DB::table('modelo')->where('Descripcion','LIKE','%'.$query.'%')
+    ->where ('FlgEli','=','1')
+    ->orderBy('IdModelo','desc')
+    ->paginate(7);
+    return view ('modelo.index',["modelo"=>$modelo,"searchText"=>$query]);
 }
 
 public function create(){
   return view("modelo.create");
 }
 public function store(ModeloFormRequest $request){
-  
+
   $modelo=new modelo;
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=$request->get('FchCrea');
-  $modelo->UsrCrea=$request->get('idModelo');
-  $modelo->WksCrea=$request->get('NroSim');
-  $modelo->FchMod=$request->get('NroIDN');
-  $modelo->WksMod=$request->get('idEmpresa');
+  $modelo->UsrCrea=$request->get('UsrCrea');
+  $modelo->WksCrea=$request->get('WksCrea');
+  $modelo->FchMod=$request->get('FchMod');
+  $modelo->UsrMod=$request->get('UsrMod');
+  $modelo->WksMod=$request->get('WksMod');
   $modelo->FlgEli-$request->get('FlgEli');
   $modelo->FotoReferencial->get('FotoReferencial');
-  $modelo->idMarca->get('idMarca');
+  $modelo->IdMarca->get('IdMarca');
   return Redirect::to('modelo');
 }
 public function show($id){
-  return view("modelo.show", ["modelo"=>"modelo"::findOrFail($id)]);
+  return view("modelo.show", ["modelo"=>modelo::findOrFail($id)]);
 }
 public function edit($id){
-  return view("modelo.edit", ["modelo"=>modelo::findOrFaimodelo
-public function update(modeloFormRequest $request,$id){
+  return view("modelo.edit", ["modelo"=>modelo::findOrFail($id)]);
+}
+public function update(ModeloFormRequest $request,$id){
+  $modelo=modelo::findOrFail($id);
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=$request->get('FchCrea');
-  $modelo->UsrCrea=$request->get('idModelo');
-  $modelo->WksCrea=$request->get('NroSim');
-  $modelo->FchMod=$request->get('NroIDN');
-  $modelo->WksMod=$request->get('idEmpresa');
+  $modelo->UsrCrea=$request->get('UsrCrea');
+  $modelo->WksCrea=$request->get('WksCrea');
+  $modelo->FchMod=$request->get('FchMod');
+  $modelo->UsrMod=$request->get('UsrMod');
+  $modelo->WksMod=$request->get('WksMod');
   $modelo->FlgEli-$request->get('FlgEli');
   $modelo->FotoReferencial->get('FotoReferencial');
-  $modelo->idMarca->get('idMarca');
+  $modelo->IdMarca->get('IdMarca');
   $modelo->update();
   return Redirect::to('modelo');
 }

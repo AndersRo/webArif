@@ -18,49 +18,49 @@ class DispositivosController extends Controller
     public function index(Request $request){
       if ($request) {
         $query=trim($request->get('searchText'));
-        $dispositivo=DB::table('dispositivo')->where('IMEI','LIKE','%'.$query.'%')
+        $dispositivos=DB::table('dispositivos')->where('IMEI','LIKE','%'.$query.'%')
         ->where ('FlgEli','=','1')
         ->orderBy('IdDispositivo','desc')
         ->paginate(7);
-        return view ('dispositivo.index',["dispositivo"=>$dispositivo,"searchText"=>$query]);
+        return view ('dispositivos.index',["dispositivos"=>$dispositivos,"searchText"=>$query]);
       }
     }
     public function create(){
-      return view("dispositivo.create");
+      return view("dispositivos.create");
     }
     public function store(DispositivosFormRequest $request){
-      $dispositivo=new dispositvo;
-      $dispositivo->Serie=$request->get(Serie'');
-      $dispositivo->IMEI=$request->get('IMEI');
-      $dispositivo->idModelo=$request->get('idModelo');
-      $dispositivo->NroSim=$request->get('NroSim');
-      $dispositivo->NroIDN=$request->get('NroIDN');
-      $dispositivo->idEmpresa=$request->get('idEmpresa');
-      $dispositivo->save;
+      $dispositivos=new dispositivos;
+      $dispositivos->Serie=$request->get('Serie');
+      $dispositivos->IMEI=$request->get('IMEI');
+      $dispositivos->IdModelo=$request->get('IdModelo');
+      $dispositivos->NroSim=$request->get('NroSim');
+      $dispositivos->NroIDN=$request->get('NroIDN');
+      $dispositivos->IdEmpresa=$request->get('IdEmpresa');
+      $dispositivos->save;
 
-      return Redirect::to('dispositivo');
+      return Redirect::to('dispositivos');
     }
-    public function show($id){2
-      return view("dispositivo.show", ["dispositivo"=>"dispositivo"::findOrFail($id)]);
+    public function show($id){
+      return view("dispositivos.show", ["dispositivos"=>dispositivos::findOrFail($id)]);
     }
     public function edit($id){
-      return view("dispositivo.edit", ["dispositivo"=>dispositivo::findOrFail($id)]);
+      return view("dispositivos.edit", ["dispositivos"=>dispositivos::findOrFail($id)]);
     }
-    public function update(dispositivoFormRequest $request,$id){
-      $dispositivo=dispositivo::findOrFail($id);
-      $dispositivo->Serie=$request->get('Serie');
-      $dispositivo->IMEI=$request->get('IMEI');
-      $dispositivo->idModelo=$request->get('idModelo');
-      $dispositivo->NroSim=$request->get('NroSim');
-      $dispositivo->NroIDN=$request->get('NroIDN');
-      $dispositivo->idEmpresa=$request->get('idEmpresa');
-      $dispositivo->update();
+    public function update(DispositivosFormRequest $request,$id){
+      $dispositivos=dispositivos::findOrFail($id);
+      $dispositivos->Serie=$request->get('Serie');
+      $dispositivos->IMEI=$request->get('IMEI');
+      $dispositivos->IdModelo=$request->get('IdModelo');
+      $dispositivos->NroSim=$request->get('NroSim');
+      $dispositivos->NroIDN=$request->get('NroIDN');
+      $dispositivos->IdEmpresa=$request->get('IdEmpresa');
+      $dispositivos->update();
       return Redirect::to('dispositivo');
     }
     public function destroy($id){
-    $dispositivo=Dispositivos::findOrFail($id);
-    $dispositivo->FlgEli='0';
-    $dispositivo->update();
+    $dispositivos=Dispositivos::findOrFail($id);
+    $dispositivos->FlgEli='0';
+    $dispositivos->update();
     return Redirect::to('dispositivo');
     }
 }

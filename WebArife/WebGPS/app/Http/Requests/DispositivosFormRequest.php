@@ -24,14 +24,12 @@ class DispositivosFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'Serie => required|max:100',
-          'IMEI => required|max:100',
-          'idModelo => required|max:11',
-          'NroSim => required|max:15',
-          'NroIDN => required|max:50',
-          'idEmpresa => required|max:11'
+          'Serie'=>'required|max:100',
+          'IMEI'=>'required|max:100',
+          'IdModelo'=>'required|max:11',
+          'NroSim'=>'required|max:15',
+          'NroIDN'=>'required|max:50',
+          'IdEmpresa'=>'required|max:11'
       ];
-
-        ];
     }
 }
