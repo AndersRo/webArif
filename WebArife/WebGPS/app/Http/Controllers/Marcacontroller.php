@@ -55,7 +55,7 @@ public function update(modeloFormRequest $request,$id){
   $marca->FlgEli=$request->get('FlgEli');
   $marca->FchCrea=$request->get('FchCrea');
   $marca->update();
-  return Redirect::to('marca');
+  return Redirect::to('marca')
 public function destroy($id){
 $marca=marca::findOrFail($id);
 $marca->FlgEli='0';
