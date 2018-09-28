@@ -26,9 +26,12 @@ class EmpresaController extends Controller
       }
     }
     public function create(){
+
       return view("empresa.create");
+
     }
     public function store(EmpresaFormRequest $request){
+
       $empresa=new empresa;
       $empresa->RUC=$request->get('RUC');
       $empresa->RazonSocial=$request->get('RazonSocial');
@@ -42,9 +45,12 @@ class EmpresaController extends Controller
       $empresa->WksMod=$request->get('WksMod');
       $empresa->FlgEli=$request->get('FlgEli');
       $empresa->Respresentante=$request->get('Respresentante');
-      $empresa->save();
+      $empresa->sav e();
+
       return Redirect::to('empresa');
+
     }
+
     public function show($id){
       return view("empresa.show", ["empresa"=>empresa::findOrFail($id)]);
     }

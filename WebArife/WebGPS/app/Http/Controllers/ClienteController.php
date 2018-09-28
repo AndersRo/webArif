@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\ClienteFormRequest;
 use DB;
 
+
 class ClienteController extends Controller
 {
 	public function __construct(){
-
-	}
+}
     public function index(Request $request){
     	if ($request) {
     		$query=trim($request->get('searchText'));

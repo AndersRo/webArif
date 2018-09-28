@@ -4,7 +4,7 @@ namespace webGps\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Contrato_anexoFormRequest extends FormRequest
+class Tablas_DetalleFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,16 @@ class Contrato_anexoFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'CodTipoServicio'=>'required|max:6',
-          'IdContrato '=>'required|max:11',
-          'CodDocumentoAnexo'=>'required|max:6',
-          'RutaDocumento'=>'required|max:250',
+          'IdTabla'=>'required|max:3',
+          'Descripcion'=>'required|max:200',
           'FchCrea'=>'required|max:10',
           'UsrCrea'=>'required|max:30',
           'WksCrea'=>'required|max:30',
-          'FchMod'=>'required|max: 10' ,
+          'FchMod'=>'required|max:10',
           'UsrMod'=>'required|max:30',
           'WksMod'=>'required|max:30',
           'FlgEli'=>'required|max:1'
+
         ];
     }
 }

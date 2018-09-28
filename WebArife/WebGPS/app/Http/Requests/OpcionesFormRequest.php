@@ -4,7 +4,7 @@ namespace webGps\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ComandosFormRequest extends FormRequest
+class OpcionesFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,11 @@ class ComandosFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'CodTipoComandos' => 'required|max:6',
-            'Comandos'=>'required|max:50',
-            'idModelo'=>'requiredmax=11'
+          'Idparent' => 'required|max:18',
+          'Nombre' => 'required|max:18',
+          'Ruta' => 'required|max:18',
+          'Icono ' => 'required|max:18'
+
         ];
     }
 }

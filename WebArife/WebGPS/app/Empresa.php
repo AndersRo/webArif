@@ -15,7 +15,6 @@ class Empresa extends Model
     'RUC'
     'RazonSocial',
     'NombreComercial',
-    'RutaLogo',
     'UsrCrea',
     'WksCrea',
     'FchCrea',
