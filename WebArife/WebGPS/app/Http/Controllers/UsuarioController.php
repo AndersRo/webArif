@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 
 use webGps\User;
+use Illuminate\Support\Facades\input;
 use Illuminate\Support\Facades\Redirect;
+
 use webGps\Http\Requests\UsuarioFormRequest;
 use DB;
 
@@ -19,7 +21,8 @@ class UsuarioController extends Controller
   public function index(Request $request){
     if ($request) {
       $query=trim($request->get('searchText'));
-      $usuarios=DB::table('users')->where('login','LIKE','%',.$query."%")
+      $usuarios=DB::table('users')->where('login','LIKE','%'.$query."%")
+      ->where('FlgEli','=','1')
       ->orderBy('id','desc')
       ->paginate(7);
       return view('seguridad.usuario.index',["usuarios"=>$usuarios,"searchText"=>$query]);
@@ -29,13 +32,13 @@ class UsuarioController extends Controller
     return view("seguridad.usuario.create");
   }
   public function store(UsuarioFormRequest $request){
-    $usuario=new user;
+    $usuario=new User;
     $usuario->login=$request->get('login');
     $usuario->password=bcrypt($request->get('password'));
-    $usuario->createt_at=$request->('createt_at');
-    $usuario->updated_at=$request->('updated_at');
-    $usuario->IdEmpresa=$request->('IdEmpresa');
-    $usuario->IdActor=$request->('IdActor');
+    $usuario->createt_at=$request->get('createt_at');
+    $usuario->updated_at=$request->get('updated_at');
+    $usuario->IdEmpresa=$request->get('IdEmpresa');
+    $usuario->IdActor=$request->get('IdActor');
     $usuario->save();
     return Redirect::to('seguridad/usuario');
   }
@@ -46,16 +49,16 @@ class UsuarioController extends Controller
     $usuario=User::findOrFail($id);
     $usuario->login=$request->get('login');
     $usuario->password=bcrypt($request->get('password'));
-    $usuario->createt_at=$request->('createt_at');
-    $usuario->updated_at=$request->('updated_at');
-    $usuario->IdEmpresa=$request->('IdEmpresa');
-    $usuario->IdActor=$request->('IdActor');
+    $usuario->createt_at=$request->get('createt_at');
+    $usuario->updated_at=$request->get('updated_at');
+    $usuario->IdEmpresa=$request->get('IdEmpresa');
+    $usuario->IdActor=$request->get('IdActor');
     $usuario->update();
     return Redirect::to('seguridad/usuario');
   }
   public function destroy($id){
     $usuario = DB::table('users')->where('id','=',$id)->delete();
-    return Redirect::to('seguridad/usuarios');
+    return Redirect::to('seguridad/usuario');
   }
 
 }

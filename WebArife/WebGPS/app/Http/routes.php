@@ -5,4 +5,5 @@ Route::get('/', function(){
 	return view('welcome');
 });
 
-Route::resource('Cliente','ClienteController');
+Route::resource('cliente','ClienteController');
+Route::resource('seguridad/usuario','UsuarioController');
