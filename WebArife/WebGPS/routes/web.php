@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('cliente','ClienteController');
+Route::resource('seguridad/usuario','UsuarioController');

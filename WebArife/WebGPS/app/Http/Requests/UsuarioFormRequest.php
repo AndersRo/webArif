@@ -24,9 +24,15 @@ class UsuarioFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'name' => 'required|string|max:255',
-          'login' => 'required|string|email|max:255|unique:users',
-          'password' => 'required|string|min:6|confirmed'
+          /*'name' => 'required|string|max:255',
+          'login' => 'required|string|login|max:255|unique:users',
+          'password' => 'required|string|min:6|confirmed'*/
+          'login'=>'required|max:30'
+          'password'=>'required|string|login|max:255|unique:users',
+          'createt_at'=>'required|max:10',
+          'updated_at'=>'required|max:10',
+          'IdEmpresa'=>'required|max:11',
+          'IdActor'=>'required|max:11'
         ];
     }
 }
