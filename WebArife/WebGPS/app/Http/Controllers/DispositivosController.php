@@ -19,14 +19,13 @@ class DispositivosController extends Controller
       if ($request) {
         $query=trim($request->get('searchText'));
         $dispositivos=DB::table('dispositivos')->where('IMEI','LIKE','%'.$query.'%')
-        ->where ('FlgEli','=','1')
         ->orderBy('IdDispositivo','desc')
         ->paginate(7);
-        return view ('dispositivos.index',["dispositivos"=>$dispositivos,"searchText"=>$query]);
+        return view ('Dispositivos/dispositivo.index',["dispositivos"=>$dispositivos,"searchText"=>$query]);
       }
     }
     public function create(){
-      return view("dispositivos.create");
+      return view("Dispositivos/dispositivo.create");
     }
     public function store(DispositivosFormRequest $request){
       $dispositivos=new dispositivos;
@@ -58,9 +57,6 @@ class DispositivosController extends Controller
       return Redirect::to('dispositivo');
     }
     public function destroy($id){
-    $dispositivos=Dispositivos::findOrFail($id);
-    $dispositivos->FlgEli='0';
-    $dispositivos->update();
-    return Redirect::to('dispositivo');
+
     }
 }

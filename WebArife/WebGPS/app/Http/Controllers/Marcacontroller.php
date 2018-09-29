@@ -21,11 +21,11 @@ public function index(Request $request){
     ->where ('FlgEli','=','1')
     ->orderBy('IdMarca','desc')
     ->paginate(7);
-    return view ('marca.index',["marca"=>$marca,"searchText"=>$query]);
+    return view ('Dispositivos/marca.index',["marca"=>$marca,"searchText"=>$query]);
   }
 }
 public function create(){
-  return view("marca.create");
+  return view("Dispositivos/marca.create");
 }
 public function store(MarcaFormRequest $request){
   $marca=new marca;
@@ -37,13 +37,13 @@ public function store(MarcaFormRequest $request){
   $marca->WksMod=$request->get('WksMod');
   $marca->FlgEli=$request->get('FlgEli');
   $marca->FchCrea=$request->get('FchCrea');
-  return Redirect::to('marca');
+  return Redirect::to('Dispositivos/marca');
 }
 public function show($id){
-  return view("marca.show", ["marca"=>marca::findOrFail($id)]);
+  return view("Dispositivos/marca.show", ["marca"=>marca::findOrFail($id)]);
 }
 public function edit($id){
-  return view("marca.edit", ["marca"=>marca::findOrFail($id)]);
+  return view("Dispositivos/marca.edit", ["marca"=>marca::findOrFail($id)]);
 }
 public function update(MarcaFormRequest $request,$id){
   $marca->Descripcion=$request->get('Descripcion');
@@ -55,12 +55,12 @@ public function update(MarcaFormRequest $request,$id){
   $marca->FlgEli=$request->get('FlgEli');
   $marca->FchCrea=$request->get('FchCrea');
   $marca->update();
-  return Redirect::to('marca');
+  return Redirect::to('Dispositivos/marca');
 }
 public function destroy($id){
   $marca=marca::findOrFail($id);
   $marca->FlgEli='0';
   $marca->update();
-  return Redirect::to('marca');
+  return Redirect::to('Dispositivos/marca');
  }
 }

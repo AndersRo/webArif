@@ -20,11 +20,11 @@ public function index(Request $request){
     ->where ('FlgEli','=','1')
     ->orderBy('IdModelo','desc')
     ->paginate(7);
-    return view ('modelo.index',["modelo"=>$modelo,"searchText"=>$query]);
+    return view ('Dispositivos/modelo.index',["modelo"=>$modelo,"searchText"=>$query]);
 }
-
+}
 public function create(){
-  return view("modelo.create");
+  return view("Dispositivos/modelo.create");
 }
 public function store(ModeloFormRequest $request){
 
@@ -36,16 +36,16 @@ public function store(ModeloFormRequest $request){
   $modelo->FchMod=$request->get('FchMod');
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
-  $modelo->FlgEli-$request->get('FlgEli');
-  $modelo->FotoReferencial->get('FotoReferencial');
-  $modelo->IdMarca->get('IdMarca');
-  return Redirect::to('modelo');
+  $modelo->FlgEli=$request->get('FlgEli');
+  $modelo->FotoReferencial=$request->get('FotoReferencial');
+  $modelo->IdMarca=$request->get('IdMarca');
+  return Redirect::to('Dispositivos/modelo');
 }
 public function show($id){
-  return view("modelo.show", ["modelo"=>modelo::findOrFail($id)]);
+  return view("Dispositivos/modelo.show", ["modelo"=>modelo::findOrFail($id)]);
 }
 public function edit($id){
-  return view("modelo.edit", ["modelo"=>modelo::findOrFail($id)]);
+  return view("Dispositivos/modelo.edit", ["modelo"=>modelo::findOrFail($id)]);
 }
 public function update(ModeloFormRequest $request,$id){
   $modelo=modelo::findOrFail($id);
@@ -56,16 +56,16 @@ public function update(ModeloFormRequest $request,$id){
   $modelo->FchMod=$request->get('FchMod');
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
-  $modelo->FlgEli-$request->get('FlgEli');
-  $modelo->FotoReferencial->get('FotoReferencial');
-  $modelo->IdMarca->get('IdMarca');
+  $modelo->FlgEli=$request->get('FlgEli');
+  $modelo->FotoReferencial=$request->get('FotoReferencial');
+  $modelo->IdMarca=$request->get('IdMarca');
   $modelo->update();
-  return Redirect::to('modelo');
+  return Redirect::to('Dispositivos/modelo');
 }
 public function destroy($id){
 $modelo=modelo::findOrFail($id);
 $modelo->FlgEli='0';
 $modelo->update();
-return Redirect::to('modelo');
+return Redirect::to('Dispositivos/modelo');
  }
 }

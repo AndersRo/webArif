@@ -18,19 +18,19 @@ class ActorController extends Controller
       if ($request) {
         $query=trim($request->get('searchText'));
         $actor=DB::table('actor as a')
-        ->join('cliente as c', 'a.IdCliente','=', 'c.IdCliente')
+        ->join('cliente as c', 'a.IdActor','=', 'c.IdActor')
         ->select('a.IdActor', 'a.PrimerNombre', 'a.Apellido_Paterno', 'a.RUC', 'c.FchCrea')
         ->where('a.UsrCrea','LIKE','%'.$query.'%')
-        ->orderBy('IActor','desc')
+        ->orderBy('IdActor','desc')
         ->paginate(7);
-        return view ('actor.index',["actor"=>$actor,"searchText"=>$query]);
+        return view ('datos/actor.index',["actor"=>$actor,"searchText"=>$query]);
       }
     }
     public function create(){
-      return view("actor.create");
+      return view("datos/actor.create");
     }
     public function store(ActorFormRequest $request){
-      $actor=new actor;
+      $actor=new Actor;
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
       $actor->Apellido_Materno=$request->get('Apellido_Materno');
@@ -49,16 +49,16 @@ class ActorController extends Controller
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FglEli=$request->get('FglEli');
       $actor->save;
-      return Redirect::to('actor');
+      return Redirect::to('datos/actor');
     }
     public function show($id){
-      return view("actor.show", ["actor"=>actor::findOrFail($id)]);
+      return view("datos/actor.show", ["actor"=>actor::findOrFail($id)]);
     }
     public function edit($id){
-      return view("actor.edit", ["actor"=>actor::findOrFail($id)]);
+      return view("datos/actor.edit", ["actor"=>actor::findOrFail($id)]);
     }
     public function update(ActorFormRequest $request,$id){
-      $actor=actor::findOrFail($id);
+      $actor=Actor::findOrFail($id);
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
       $actor->Apellido_Materno=$request->get('Apellido_Materno');
@@ -77,7 +77,7 @@ class ActorController extends Controller
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FglEli=$request->get('FglEli');
       $actor->update();
-      return Redirect::to('actor');
+      return Redirect::to('datos/actor');
     }
     public function destroy($id){
 

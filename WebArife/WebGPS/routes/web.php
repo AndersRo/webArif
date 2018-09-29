@@ -16,4 +16,13 @@ Route::get('/', function () {
 });
 
 Route::resource('cliente','ClienteController');
+Route::resource('Dispositivos/dispositivo','DispositivosController');
+Route::resource('Dispositivos/marca','MarcaController');
+Route::resource('Dispositivos/modelo','ModeloController');
+Route::resource('Dispositivos/comandos','ComandosController');
+Route::resource('datos/actor','ActorController');
 Route::resource('seguridad/usuario','UsuarioController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
