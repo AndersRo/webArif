@@ -4,18 +4,11 @@ namespace webGps;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Contrato_anexo extends Model
+class Contrato_Anexo extends Model
 {
 
   protected $table = 'contrato_anexo';
-
-
-
   protected $primarykey = 'IdContrato_Anexo';
-
-  //protected $foreingkey = 'IdActor';
-
-
 
   public $timetamps=false;
 

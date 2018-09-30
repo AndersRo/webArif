@@ -21,11 +21,11 @@ class AccesoPlataformaDetalleController extends Controller
         ->where('FlgEli','=','1')
         ->orderBy('IdAccesoDetalle','desc')
         ->paginate(7);
-        return view ('seguridad.accesoplataformadetalle.index',["accesoplataformadetalle"=>$accesoplataformadetalle,"searchText"=>$query]);
+        return view ('plataforma.AccesoPlataformaDetalle.index',["accesoplataformadetalle"=>$accesoplataformadetalle,"searchText"=>$query]);
       }
     }
     public function create(){
-      return view("seguridad.accesoplataformadetalle.create");
+      return view("plataforma.AccesoPlataformaDetalle.create");
     }
     public function store(AccesoPlataformaDetalleFormRequest $request){
       $accesoplataformadetalle=new accesoplataformadetalle;
@@ -39,13 +39,13 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
       $accesoplataformadetalle->FlgEli=$request->get('FlgEli');
       $accesoplataformadetalle->save;
-      return Redirect::to('seguridad/accesoplataformadetalle');
+      return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
     public function show($id){
-      return view("seguridad.accesoplataformadetalle.show", ["accesoplataformadetalle"=>accesoplataformadetalle::findOrFail($id)]);
+      return view("plataforma.AccesoPlataformaDetalle.show", ["accesoplataformadetalle"=>accesoplataformadetalle::findOrFail($id)]);
     }
     public function edit($id){
-      return view("seguridad.accesoplataformadetalle.edit", ["accesoplataformadetalle"=>accesoplataformadetalle::findOrFail($id)]);
+      return view("plataforma.AccesoPlataformaDetalle.edit", ["accesoplataformadetalle"=>accesoplataformadetalle::findOrFail($id)]);
     }
     public function update(AccesoPlataformaDetalleFormRequest $request,$id){
       $accesoplataformadetalle=accesoplataformadetalle::findOrFail($id);
@@ -59,7 +59,7 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
       $accesoplataformadetalle->FlgEli=$request->get('FlgEli');
       $accesoplataformadetalle->update();
-      return Redirect::to('seguridad/accesoplataformadetalle');
+      return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
     public function destroy($id){
 

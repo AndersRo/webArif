@@ -17,10 +17,9 @@ class ActorController extends Controller
     public function index(Request $request){
       if ($request) {
         $query=trim($request->get('searchText'));
-        $actor=DB::table('actor as a')
-        ->join('cliente as c', 'a.IdActor','=', 'c.IdActor')
-        ->select('a.IdActor', 'a.PrimerNombre', 'a.Apellido_Paterno', 'a.RUC', 'c.FchCrea')
-        ->where('a.UsrCrea','LIKE','%'.$query.'%')
+        $actor=DB::table('actor')
+        
+        ->where('TipoPersona','LIKE','%'.$query.'%')
         ->orderBy('IdActor','desc')
         ->paginate(7);
         return view ('datos/actor.index',["actor"=>$actor,"searchText"=>$query]);

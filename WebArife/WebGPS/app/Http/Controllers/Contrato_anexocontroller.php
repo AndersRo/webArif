@@ -11,7 +11,7 @@ use DB;
 
 
 
-class Contrato_anexocontroller extends Controller
+class Contrato_AnexoController extends Controller
 {
   public function __construct(){
 }
@@ -22,25 +22,14 @@ public function index(Request $request){
     ->where('FlgEli','=','1')
     ->orderBy('IdContrato_Anexo','desc')
     ->paginate(7);
-    return view ('contrato_anexo.index',[""=>$contrato_anexo,"searchText"=>$query]);
-  }-
+    return view ('documentos/contrato_anexo.index',["contrato_anexo"=>$contrato_anexo,"searchText"=>$query]);
+  }
 }
 public function create(){
-  return view("contrato_anexo.create");
+  return view("documentos/contrato_anexo.create");
 }
-public function store(contrato_anexoFormRequest $request){
-
-  'IdContrato',
-  'CodDocumentoAnexo',
-  'RutaDocumento',
-  'FchCrea',
-  'UsrCrea',
-  'WksCrea',
-  'FchMod',
-  'UsrMod',
-  'WksMod',
-  'FlgEli'
-
+public function store(Contrato_AnexoFormRequest $request){
+  $contrato_anexo=new contrato_anexo;
   $contrato_anexo->IdContrato=$request->get('IdContrato');
   $contrato_anexo->CodDocumentoAnexo=$request->get('CodDocumentoAnexo');
   $contrato_anexo->RutaDocumento=$request->get('RutaDocumento');
@@ -48,13 +37,13 @@ public function store(contrato_anexoFormRequest $request){
   $contrato_anexo->UsrCrea=$request->get('UsrCrea');
   $contrato_anexo->FchCrea=$request->get('FchCrea');
   $contrato_anexo->UsrCrea=$request->get('UsrCrea');
-  <return Redirect::to('contrato_anexo');
+  return Redirect::to('documentos/contrato_anexo');
 }
-pub |||||||||||||||lic function show($id){
-  return view("contrato_anexo.show", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
+public function show($id){
+  return view("documentos/contrato_anexo.show", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
 }
 public function edit($id){
-  return view("contrato_anexo.edit", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
+  return view("documentos/contrato_anexo.edit", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
 }
 public function update(ClienteFormRequest $request,$id){
   $contrato_anexo=contrato_anexo::findOrFail($id);
@@ -66,12 +55,12 @@ public function update(ClienteFormRequest $request,$id){
   $contrato_anexo->WksMod=$request->get('WksMod');
   $contrato_anexo->FglEli=$request->get('FglEli');
   $contrato_anexo->update();
-  return Redirect::to('contrato_anexo');
+  return Redirect::to('documentos/contrato_anexo');
 }
 public function destroy($id){
     $contrato_anexo=contrato_anexo::findOrFail($id);
     $contrato_anexo->FlgEli='0';
     $contrato_anexo->update();
-  return Redirect::to('contrato_anexo');
+  return Redirect::to('documentos/contrato_anexo');
   }
 }

@@ -21,6 +21,13 @@ Route::resource('Dispositivos/marca','MarcaController');
 Route::resource('Dispositivos/modelo','ModeloController');
 Route::resource('Dispositivos/comandos','ComandosController');
 Route::resource('datos/actor','ActorController');
+Route::resource('datos/empresa','EmpresaController');
+Route::resource('documentos/contrato','ContratoController');
+Route::resource('documentos/contrato_anexo','Contrato_AnexoController');
+Route::resource('documentos/contrato_ordenes','Contrato_OrdenesController');
+Route::resource('plataforma/AccesoPlataformaComandos','AccesoPlataformaComandosController');
+Route::resource('plataforma/AccesoPlataformaDetalle','AccesoPlataformaDetalleController');
+
 Route::resource('seguridad/usuario','UsuarioController');
 
 Auth::routes();

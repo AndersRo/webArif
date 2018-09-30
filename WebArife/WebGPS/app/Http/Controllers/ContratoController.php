@@ -21,11 +21,11 @@ public function index(Request $request){
     ->where ('FlgEli','=','1')
     ->orderBy('idContrato','desc')
     ->paginate(7);
-    return view ('contrato.index',["contrato"=>$contrato,"searchText"=>$query]);
+    return view ('documentos/contrato.index',["contrato"=>$contrato,"searchText"=>$query]);
   }
 }
 public function create(){
-  return view("contrato.create");
+  return view("documentos/contrato.create");
 }
 public function store(ModeloFormRequest $request){
 
@@ -45,13 +45,14 @@ public function store(ModeloFormRequest $request){
   $contrato->UsrMod=$request->get('UsrMod');
   $contrato->WksMod=$request->get('WksMod');
   $contrato->FlgEli=$request->get('FlgEli');
-  return Redirect::to('contrato');
+  return Redirect::to('documentos/contrato');
 }
 public function show($id){
-  return view("contrato.show", ["contrato"=>"contrato"::findOrFail($id)]);
+  return view("documentos/contrato.show", ["contrato"=>"contrato"::findOrFail($id)]);
 }
 public function edit($id){
-  return view("contrato.edit", ["contrato"=>contrato::findOrFaicontrato
+  return view("documentos/contrato.edit", ["contrato"=>contrato::findOrFail($id)]);
+}
 public function update(modeloFormRequest $request,$id){
 
  $modelo=new contrato;
@@ -71,11 +72,12 @@ public function update(modeloFormRequest $request,$id){
  $contrato->WksMod=$request->get('WksMod');
  $contrato->FlgEli=$request->get('FlgEli');
  $contrato->update();
-  return Redirect::to('contrato')
+  return Redirect::to('documentos/contrato');
+}
 public function destroy($id){
-$contrato=contrato::findOrFail($id);
-$contrato->FlgEli='0';
-$contrato->update();
-return Redirect::to('contrato');
+  $contrato=contrato::findOrFail($id);
+  $contrato->FlgEli='0';
+  $contrato->update();
+  return Redirect::to('documentos/contrato');
  }
 }

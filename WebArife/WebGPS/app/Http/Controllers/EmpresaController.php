@@ -22,12 +22,12 @@ class EmpresaController extends Controller
         ->where('FlgEli','=','1')
         ->orderBy('IdEmpresa','desc')
         ->paginate(7);
-        return view ('empresa.index',["empresa"=>$empresa,"searchText"=>$query]);
+        return view ('datos/empresa.index',["empresa"=>$empresa,"searchText"=>$query]);
       }
     }
     public function create(){
 
-      return view("empresa.create");
+      return view("datos/empresa.create");
 
     }
     public function store(EmpresaFormRequest $request){
@@ -45,17 +45,17 @@ class EmpresaController extends Controller
       $empresa->WksMod=$request->get('WksMod');
       $empresa->FlgEli=$request->get('FlgEli');
       $empresa->Respresentante=$request->get('Respresentante');
-      $empresa->sav e();
+      $empresa->save();
 
-      return Redirect::to('empresa');
+      return Redirect::to('datos/empresa');
 
     }
 
     public function show($id){
-      return view("empresa.show", ["empresa"=>empresa::findOrFail($id)]);
+      return view("datos/empresa.show", ["empresa"=>empresa::findOrFail($id)]);
     }
     public function edit($id){
-      return view("empresa.edit", ["empresa"=>empresa::findOrFail($id)]);
+      return view("datos/empresa.edit", ["empresa"=>empresa::findOrFail($id)]);
     }
     public function update(ClienteFormRequest $request,$id){
       $empresa=empresa::findOrFail($id);
@@ -72,12 +72,12 @@ class EmpresaController extends Controller
       $empresa->FlgEli=$request->get('FlgEli');
       $empresa->Respresentante=$request->get('Respresentante');
       $empresa->update();
-      return Redirect::to('empresa');
+      return Redirect::to('datos/empresa');
     }
     public function destroy($id){
        $empresa=Empresa::findOrFail($id);
        $empresa->FlgEli='0';
        $empresa->update();
-       return Redirect::to('empresa');
+       return Redirect::to('datos/empresa');
     }
 }
