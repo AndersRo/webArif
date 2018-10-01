@@ -3,10 +3,12 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
+use webGps\Http\Requests;
+use webGps\app\Actor;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\input;
 use webGps\Http\Requests\ActorFormRequest;
-use webGps\Actor;
+
 use DB;
 
 class ActorController extends Controller
@@ -46,7 +48,7 @@ class ActorController extends Controller
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FglEli=$request->get('FglEli');
-      $actor->save;
+      $actor->save();
       return Redirect::to('datos/actor');
     }
     public function show($id){

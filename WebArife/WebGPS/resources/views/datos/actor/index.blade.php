@@ -53,6 +53,10 @@
 							<td>{{$cat->FchCrea}}</td>
 							<td>{{$cat->UsrCrea}}</td>
 							<td>{{$cat->FlgEli}}</td>
+							<td>
+								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+							</td>
 						</tr>
 					@endforeach
 				</table>

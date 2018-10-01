@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\app\Cliente;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\ClienteFormRequest;
+use webGps\Http\Requests\ClienteFormRequest;
 use DB;
 
 

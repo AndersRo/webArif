@@ -23,6 +23,10 @@
 							<td>{{$cat->CodTipoComandos}}</td>
 							<td>{{$cat->Comandos}}</td>
 							<td>{{$cat->IdModelo}}</td>
+							<td>
+								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+							</td>
 						</tr>
 					@endforeach
 

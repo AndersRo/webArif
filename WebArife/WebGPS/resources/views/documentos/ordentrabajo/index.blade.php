@@ -47,6 +47,10 @@
 							<td>{{$cat->Obsvacion}}</td>
 							<td>{{$cat->FechaRegistro}}</td>
 							<th>{{$cat->FechaProgramada}}</th>
+							<td>
+								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+							</td>
 						</tr>
 					@endforeach
 				</table>
