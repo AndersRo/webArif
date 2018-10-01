@@ -7,14 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Actor extends Model
 {
   protected $table = 'actor';
-
   protected $primarykey = 'IdActor';
+  public $timestamps=false;
 
-  //protected $foreingkey = 'IdEmpresa';
-
-  public $timetamps=false;
-
-  protected $fillable =[
+  protected $fillable=[
+    'IdActor',
     'TipoPersona',
     'Apellido_Paterno',
     'Apellido_Materno',
@@ -34,7 +31,7 @@ class Actor extends Model
     'FlgEli'
   ];
 
-  protected $guarded[
+  protected $guarded=[
 
   ];
 }

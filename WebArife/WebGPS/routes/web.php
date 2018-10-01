@@ -36,8 +36,8 @@ Route::resource('plataforma/AccesoPlataformaComandos','AccesoPlataformaComandosC
 Route::resource('plataforma/AccesoPlataformaDetalle','AccesoPlataformaDetalleController');
 Route::resource('plataforma/AccesosPlataforma','AccesosPlataformaController');
 
-Route::resource('seguridad/usuario','UsuarioController');
+//Route::resource('seguridad/usuario','UsuarioController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

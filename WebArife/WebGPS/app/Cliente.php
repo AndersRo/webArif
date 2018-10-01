@@ -10,7 +10,7 @@ class Cliente extends Model
     protected $primarykey = 'IdCliente';
     public $timetamps=false;
 
-    protected $fillable =[
+    protected $fillable=[
       'IdActor',
     	'FchCrea',
     	'UsrCrea',

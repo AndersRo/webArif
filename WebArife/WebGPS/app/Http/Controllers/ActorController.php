@@ -3,12 +3,11 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
-use webGps\Http\Requests;
-use webGps\app\Actor;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\input;
-use webGps\Http\Requests\ActorFormRequest;
 
+use webGps\Http\Requests;
+use webGps\Actor;
+use Illuminate\Support\Facades\Redirect;
+use webGps\Http\Requests\ActorFormRequest;
 use DB;
 
 class ActorController extends Controller
@@ -31,6 +30,7 @@ class ActorController extends Controller
     }
     public function store(ActorFormRequest $request){
       $actor=new Actor;
+      $actor->IdActor=$request->get('IdActor');
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
       $actor->Apellido_Materno=$request->get('Apellido_Materno');
@@ -47,18 +47,19 @@ class ActorController extends Controller
       $actor->FchMod=$request->get('FchMod');
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
-      $actor->FglEli=$request->get('FglEli');
+      $actor->FlgEli=1;
       $actor->save();
       return Redirect::to('datos/actor');
     }
     public function show($id){
-      return view("datos/actor.show", ["actor"=>actor::findOrFail($id)]);
+      return view("datos/actor.show", ["actor"=>Actor::findOrFail($id)]);
     }
     public function edit($id){
-      return view("datos/actor.edit", ["actor"=>actor::findOrFail($id)]);
+      return view("datos/actor.edit", ["actor"=>Actor::findOrFail($id)]);
     }
     public function update(ActorFormRequest $request,$id){
       $actor=Actor::findOrFail($id);
+      $actor->IdActor=$request->get('IdActor');
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
       $actor->Apellido_Materno=$request->get('Apellido_Materno');
@@ -75,7 +76,7 @@ class ActorController extends Controller
       $actor->FchMod=$request->get('FchMod');
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
-      $actor->FglEli=$request->get('FglEli');
+      $actor->FlgEli=$request->get('FglEli');
       $actor->update();
       return Redirect::to('datos/actor');
     }

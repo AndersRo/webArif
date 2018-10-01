@@ -24,20 +24,21 @@ class ActorFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'IdActor'=>'required|MAX:11',
             'TipoPersona'=>'required|MAX:6',
             'Apellido_Paterno'=>'required|MAX:80',
             'Apellido_Materno'=>'required|MAX:80',
             'PrimerNombre'=>'required|MAX:80',
-            'SegundoNombre'=>'requided|MAX:80',
+            'SegundoNombre'=>'MAX:80',
             'RazonSocial'=>'MAX:100',
             'TipoDocumento'=>'MAX:6',
             'CodigoIdentificacion'=>'MAX:15',
             'RUC'=>'MAX:11',
-            'IdEmpresa'=>'required',
-            'FchCrea'=>'required',
+            'IdEmpresa'=>'required|MAX:11',
+            'FchCrea'=>'required|MAX:10',
             'UsrCrea'=>'required|MAX:30',
             'WksCrea'=>'required|MAX:30',
-            'FchMod'=>'required',
+            'FchMod'=>'required|MAX:10',
             'WksMod'=>'required|MAX:30',
             'UsrMod'=>'required|MAX:30',
             'FlgEli'=>'MAX:1'

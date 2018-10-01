@@ -26,8 +26,8 @@ class UsersFormRequest extends FormRequest
         return [
           'login'=>'required|max:30',
           'password'=>'required|max:255',
-          'createt_at'=>'required|max:10',
-          'updated_at'=>'required|max:10',
+          'createt_at'=>'max:10',
+          'updated_at'=>'max:10',
           'IdEmpresa'=>'required|max:11',
           'IdActor'=>'required|max:11',
         ];

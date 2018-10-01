@@ -29,8 +29,8 @@ class UsuarioFormRequest extends FormRequest
           'password' => 'required|string|min:6|confirmed'*/
           'login'=>'required|max:30'
           'password'=>'required|string|login|max:255|unique:users',
-          'createt_at'=>'required|max:10',
-          'updated_at'=>'required|max:10',
+          'createt_at'=>'max:10',
+          'updated_at'=>'max:10',
           'IdEmpresa'=>'required|max:11',
           'IdActor'=>'required|max:11'
         ];
