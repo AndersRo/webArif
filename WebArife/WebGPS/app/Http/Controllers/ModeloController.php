@@ -27,7 +27,6 @@ public function create(){
   return view("Dispositivos/modelo.create");
 }
 public function store(ModeloFormRequest $request){
-
   $modelo=new modelo;
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=$request->get('FchCrea');
@@ -39,6 +38,7 @@ public function store(ModeloFormRequest $request){
   $modelo->FlgEli=$request->get('FlgEli');
   $modelo->FotoReferencial=$request->get('FotoReferencial');
   $modelo->IdMarca=$request->get('IdMarca');
+  $modelo->save();
   return Redirect::to('Dispositivos/modelo');
 }
 public function show($id){

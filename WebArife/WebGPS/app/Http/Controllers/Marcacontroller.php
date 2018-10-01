@@ -37,6 +37,7 @@ public function store(MarcaFormRequest $request){
   $marca->WksMod=$request->get('WksMod');
   $marca->FlgEli=$request->get('FlgEli');
   $marca->FchCrea=$request->get('FchCrea');
+  $marca->save();
   return Redirect::to('Dispositivos/marca');
 }
 public function show($id){
@@ -46,6 +47,7 @@ public function edit($id){
   return view("Dispositivos/marca.edit", ["marca"=>marca::findOrFail($id)]);
 }
 public function update(MarcaFormRequest $request,$id){
+  $marca=marca::findOrFail($id);
   $marca->Descripcion=$request->get('Descripcion');
   $marca->UsrCrea=$request->get('UsrCrea');
   $marca->WksCrea=$request->get(' WksCrea');

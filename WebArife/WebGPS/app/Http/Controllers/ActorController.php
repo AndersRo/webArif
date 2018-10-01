@@ -18,7 +18,6 @@ class ActorController extends Controller
       if ($request) {
         $query=trim($request->get('searchText'));
         $actor=DB::table('actor')
-        
         ->where('TipoPersona','LIKE','%'.$query.'%')
         ->orderBy('IdActor','desc')
         ->paginate(7);

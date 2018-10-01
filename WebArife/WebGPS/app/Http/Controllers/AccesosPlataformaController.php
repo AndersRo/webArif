@@ -5,8 +5,8 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\input;
-use webGps\Http\Requests\AccesosPlataformaFormRequet;
-use webGps\AccesosPlataforma;
+use webGps\app\AccesosPlataforma;
+use webGps\Http\Requests\AccesosPlataformaFormRequest;
 use DB;
 
 class AccesosPlataformaController extends Controller
@@ -17,15 +17,15 @@ class AccesosPlataformaController extends Controller
     public function index(Request $request){
       if ($request) {
     		$query=trim($request->get('searchText'));
-    		$accesosplataforma=DB::table('accesosplataforma')->where('LoginAcceso','LIKE','%'.$query.'%')
+    		$accesosplataforma=DB::table('accesosplataforma')->where('IdAcceso','LIKE','%'.$query.'%')
 				->where('FlgEli','=','1')
     		->orderBy('IdAcceso','desc')
     		->paginate(7);
-    		return view ('seguridad.accesosplataforma.index',["accesosplataforma"=>$accesosplataforma,"searchText"=>$query]);
+    		return view ('plataforma.AccesosPlataforma.index',["accesosplataforma"=>$accesosplataforma,"searchText"=>$query]);
     	}
     }
     public function create(){
-      return view("seguridad.accesosplataforma.create");
+      return view("plataforma.accesosplataforma.create");
     }
     public function store(AccesosPlataformaFormRequest $request){
       $accesosplataforma=new accesosplataforma;
@@ -45,17 +45,17 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->UsrMod=$request->get('UsrMod');
       $accesosplataforma->FglEli=$request->get('FglEli');
       $accesosplataforma->EstadoAcceso=$request->get('EstadoAcceso');
-      $accesosplataforma->save;
-      return Redirect::to('seguridad/accesosplataforma');
+      $accesosplataforma->save();
+      return Redirect::to('accesosplataforma/accesosplataforma');
     }
     public function show($id){
-      return view("seguridad.accesosplataforma.show", ["accesosplataforma"=>accesosplataforma::findOrFail($id)]);
+      return view("accesosplataforma.accesosplataforma.show", ["accesosplataforma"=>AccesosPlataforma::findOrFail($id)]);
     }
     public function edit($id){
-      return view("seguridad.accesosplataforma.edit", ["accesosplataforma"=>accesosplataforma::findOrFail($id)]);
+      return view("accesosplataforma.accesosplataforma.edit", ["accesosplataforma"=>AccesosPlataforma::findOrFail($id)]);
     }
     public function update(AccesosPlataformaFormRequest $request,$id){
-      $accesosplataforma=accesosplataforma::findOrFail($id);
+      $accesosplataforma=AccesosPlataforma::findOrFail($id);
       $accesosplataforma->IdCliente=$request->get('IdCliente');
       $accesosplataforma->FlgAccesoApp=$request->get('FlgAccesoApp');
       $accesosplataforma->FlgAccesoWeb=$request->get('FlgAccesoWeb');
@@ -73,7 +73,7 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->FglEli=$request->get('FglEli');
       $accesosplataforma->EstadoAcceso=$request->get('EstadoAcceso');
       $accesosplataforma->update();
-      return Redirect::to('seguridad/accesosplataforma');
+      return Redirect::to('accesosplataforma/accesosplataforma');
     }
     public function destroy($id){
 

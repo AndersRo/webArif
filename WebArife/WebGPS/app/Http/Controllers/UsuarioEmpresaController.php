@@ -21,10 +21,9 @@ public function index(Request $request){
 public function create(){
   return view("IdUsuarioEmpresa.create");
 }
-public function store(ClienteFormRequest $request){
+public function store(UsuarioEmpresaFormRequest $request){
   $usuarioempresa=new usuarioempresa;
   $usuarioempresa->Id=$request->get('Id');
-
   $usuarioempresa->save;
   return Redirect::to('usuarioempresa');
 }
@@ -34,10 +33,9 @@ public function show($id){
 public function edit($id){
   return view("usuarioempresa.edit", ["usuarioempresa"=>usuarioempresa::findOrFail($id)]);
 }
-public function update(ClienteFormRequest $request,$id){
+public function update(UsuarioEmpresaFormRequest $request,$id){
   $usuarioempresa=usuarioempresa::findOrFail($id);
   $usuarioempresa->Id=$request->get('Id');
-
   $usuarioempresa->update();
   return Redirect::to('usuarioempresa');
 }

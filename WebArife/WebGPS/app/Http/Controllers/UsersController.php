@@ -5,13 +5,12 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
 use webGps\Http\Requests;
-use webGps\app\users;
+use webGps\app\Users;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\usersFormRequest;
+use webGps\Http\Request\UsersFormRequest;
 use DB;
 
-
-class UsersControllerRequest extends Controller
+class UsersController extends Controller
 {
     public function __construc(){
 }
@@ -28,8 +27,7 @@ public function index(Request $request){
 public function create(){
   return view("users.create");
 }
-public function store(usersFormRequest $request){
-
+public function store(UsersFormRequest $request){
   $users=new users;
   $users->login=$request->get('login');
   $users->password=$request->get('password');
@@ -37,7 +35,7 @@ public function store(usersFormRequest $request){
   $users->updated_at=$request->get('updated_at');
   $users->IdEmpresa=$request->get('IdEmpresa');
   $users->IdActor=$request->get('IdActor');
-  $users->save;
+  $users->save();
   return Redirect::to('users');
 }
 public function show($id){
@@ -46,7 +44,7 @@ public function show($id){
 public function edit($id){
   return view("users.edit", ["users"=>users::findOrFail($id)]);
 }
-public function update(usersFormRequest $request,$id){
+public function update(UsersFormRequest $request,$id){
   $users=users::findOrFail($id);
   $users->login=$request->get('login');
   $users->password=$request->get('password');

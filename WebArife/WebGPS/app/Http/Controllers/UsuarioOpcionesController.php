@@ -3,14 +3,12 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use webGps\Http\Requests;
 
 use webGps\User;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\UsuarioOpcionesFormRequest;
 use DB;
-
 
 class UsuarioOpcionesController extends Controller
 {
@@ -28,24 +26,20 @@ public function index(Request $request){
 public function create(){
   return view("seguridad.usuario.create");
 }
-public function store(usuarioopcionesFormRequest $request){
+public function store(UsuarioOpcionesFormRequest $request){
   $usuarioopciones=new usuarioopciones;
   $usuarioopciones->login=$request->get('IdOpciones');
   $usuarioopciones->password=bcrypt($request->get('Id'));
-
   $usuario->save();
   return Redirect::to('seguridad/usuario');
 }
 public function edit($id){
   return view("seguridad.usuario.edit",["usuario"=>User::findOrFail($id)]);
 }
-public function update(UsuarioFormRequest $request, $id){
+public function update(UsuarioOpcionesFormRequest $request, $id){
   $usuarioopciones=usuarioopciones::findOrFail($id);
-
   $usuarioopciones->login=$request->get('IdOpciones');
   $usuarioopciones->password=bcrypt($request->get('Id'));
-
-
   $usuarioopciones->update();
   return Redirect::to('seguridad/usuario');
 }

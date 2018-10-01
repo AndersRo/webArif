@@ -19,7 +19,7 @@ class AccesosPlataforma extends Model
       'MaxConexiones',
       'LoginAcceso',
       'ContrasnaPlataforma',
-      'ContrasenaComandos',
+      'ContrasenaComados',
       'FchCrea',
       'WksCrea',
       'UsrCrea',

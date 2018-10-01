@@ -21,11 +21,11 @@ class ClienteController extends Controller
 				->where('FlgEli','=','1')
     		->orderBy('IdCliente','desc')
     		->paginate(7);
-    		return view ('cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
+    		return view ('datos/cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
     	}
     }
     public function create(){
-    	return view("cliente.create");
+    	return view("datos/cliente.create");
     }
     public function store(ClienteFormRequest $request){
     	$cliente=new cliente;
@@ -36,14 +36,14 @@ class ClienteController extends Controller
     	$cliente->UsrMod=$request->get('UsrMod');
     	$cliente->WksMod=$request->get('WksMod');
     	$cliente->FglEli=$request->get('FglEli');
-    	$cliente->save;
-    	return Redirect::to('cliente');
+    	$cliente->save();
+    	return Redirect::to('datos/cliente');
     }
     public function show($id){
-    	return view("cliente.show", ["cliente"=>cliente::findOrFail($id)]);
+    	return view("datos/cliente.show", ["cliente"=>Cliente::findOrFail($id)]);
     }
     public function edit($id){
-    	return view("cliente.edit", ["cliente"=>cliente::findOrFail($id)]);
+    	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)]);
     }
     public function update(ClienteFormRequest $request,$id){
     	$cliente=cliente::findOrFail($id);
@@ -55,12 +55,12 @@ class ClienteController extends Controller
     	$cliente->WksMod=$request->get('WksMod');
     	$cliente->FglEli=$request->get('FglEli');
     	$cliente->update();
-    	return Redirect::to('cliente');
+    	return Redirect::to('datos/cliente');
     }
     public function destroy($id){
 			$cliente=Cliente::findOrFail($id);
 			$cliente->FlgEli='0';
 			$cliente->update();
-			return Redirect::to('cliente');
+			return Redirect::to('datos/cliente');
     }
 }

@@ -18,9 +18,9 @@ class Contrato_AnexoController extends Controller
 public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
-    $contrato_anexo=DB::table('contrato_anexo')->where('UsrCrea','LIKE','%'.$query.'%')
+    $contrato_anexo=DB::table('contrato_anexo')->where('CodDocumentoAnexo','LIKE','%'.$query.'%')
     ->where('FlgEli','=','1')
-    ->orderBy('IdContrato_Anexo','desc')
+    ->orderBy('IdContratoAnexo','desc')
     ->paginate(7);
     return view ('documentos/contrato_anexo.index',["contrato_anexo"=>$contrato_anexo,"searchText"=>$query]);
   }
@@ -45,7 +45,7 @@ public function show($id){
 public function edit($id){
   return view("documentos/contrato_anexo.edit", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
 }
-public function update(ClienteFormRequest $request,$id){
+public function update(Contrato_AnexoFormRequest $request,$id){
   $contrato_anexo=contrato_anexo::findOrFail($id);
   $contrato_anexo->FchCrea=$request->get('FchCrea');
   $contrato_anexo->UsrCrea=$request->get('UsrCrea');

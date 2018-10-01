@@ -47,7 +47,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <small class="bg-red">Online</small>
-                  <span class="hidden-xs">Jose Fernandez</span>
+                  <span class="hidden-xs">Anders Romero</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -87,12 +87,15 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>Almacén</span>
+                <span>Datos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="../datos/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="../datos/empresa"><i class="fa fa-circle-o"></i> Empresa</a></li>
+                <li><a href="../datos/mecanico"><i class="fa fa-circle-o"></i> Mecanicos</a></li>
+                <li><a href="../datos/taller"><i class="fa fa-circle-o"></i> Tallerres</a></li>
+                <li><a href="../datos/vehiculo"><i class="fa fa-circle-o"></i> Vehiculos</a></li>
               </ul>
             </li>
 

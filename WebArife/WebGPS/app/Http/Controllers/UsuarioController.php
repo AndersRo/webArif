@@ -16,16 +16,16 @@ use DB;
 class UsuarioController extends Controller
 {
   public function __construct(){
-  
+
   }
   public function index(Request $request){
     if ($request) {
       $query=trim($request->get('searchText'));
-      $usuarios=DB::table('users')->where('login','LIKE','%'.$query."%")
+      $usuario=DB::table('users')->where('login','LIKE','%'.$query."%")
       ->where('FlgEli','=','1')
       ->orderBy('id','desc')
       ->paginate(7);
-      return view('seguridad.usuario.index',["usuarios"=>$usuarios,"searchText"=>$query]);
+      return view('seguridad.usuario.index',["usuarios"=>$usuario,"searchText"=>$query]);
     }
   }
   public function create(){

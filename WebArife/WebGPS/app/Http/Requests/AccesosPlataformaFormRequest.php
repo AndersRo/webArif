@@ -31,7 +31,7 @@ class AccesosPlataformaFormRequets extends FormRequest
           'MaxConexiones'=>'required|max:11',
           'LoginAcceso'=>'required|max:30',
           'ContrasnaPlataforma'=>'required|max:30',
-          'ContrasenaComandos'=>'required|max:30',
+          'ContrasenaComados'=>'required|max:30',
           'FchCrea'=>'required|max:10',
           'WksCrea'=>'required|max:30',
           'UsrCrea'=>'required|max:30',

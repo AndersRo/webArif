@@ -24,7 +24,7 @@ class MecanicoFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'idActor'=>'required|max:11',
+          'IdActor'=>'required|max:11',
           'FchCrea'=>'required|max:10',
           'UsrCrea'=>'required|max:30',
           'WksCrea'=>'required|max:30',

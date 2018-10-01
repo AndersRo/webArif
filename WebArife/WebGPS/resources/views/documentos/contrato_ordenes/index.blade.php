@@ -25,7 +25,7 @@
 					</thead>
 					@foreach ($contrato_ordenes as $cat):
 						<tr>
-							<td>{{$cat->IdContratoAnexo}}</td>
+							<td>{{$cat->IdContratoOrdenes}}</td>
 							<td>{{$cat->IdContrato}}</td>
 							<td>{{$cat->IdOrden}}</td>
 							<td>{{$cat->FchCrea}}</td>

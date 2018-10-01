@@ -16,9 +16,9 @@ class Contrato_OrdenesController extends Controller
 public function index(Request $request){
 if ($request) {
   $query=trim($request->get('searchText'));
-  $Contrato_Ordenes=DB::table('Contrato_Ordenes')->where('UsrCrea','LIKE','%'.$query.'%')
+  $Contrato_Ordenes=DB::table('contrato_ordenes')->where('IdOrden','LIKE','%'.$query.'%')
   ->where('FlgEli','=','1')
-  ->orderBy('IdContrato_Ordenes','desc')
+  ->orderBy('IdContratoOrdenes','desc')
   ->paginate(7);
   return view ('documentos/contrato_ordenes.index',["contrato_ordenes"=>$Contrato_Ordenes,"searchText"=>$query]);
 }
@@ -27,7 +27,6 @@ public function create(){
   return view("documentos/contrato_ordenes.create");
 }
 public function store(Contrato_OrdenesFormRequest $request){
-
   $Contrato_Ordenes=new Contrato_Ordenes;
   $Contrato_Ordenes->IdContrato=$request->get('IdContrato');
   $Contrato_Ordenes->IdOrden=$request->get('IdOrden');
@@ -39,7 +38,7 @@ public function store(Contrato_OrdenesFormRequest $request){
   $Contrato_Ordenes->UsrMod=$request->get('UsrMod');
   $Contrato_Ordenes->FglEli=$request->get('FglEli');
   $Contrato_Ordenes->save;
-  return Redirect::to('documentos/Contrato_Ordenes');
+  return Redirect::to('documentos/contrato_ordenes');
 }
 public function show($id){
 return view("documentos/contrato_ordenes.show", ["Contrato_Ordenes"=>Contrato_Ordenes::findOrFail($id)]);

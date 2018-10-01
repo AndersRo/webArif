@@ -19,7 +19,7 @@ public function index(Request $request){
     $query=trim($request->get('searchText'));
     $contrato=DB::table('contrato')->where('CodTipoServicio','LIKE','%'.$query.'%')
     ->where ('FlgEli','=','1')
-    ->orderBy('idContrato','desc')
+    ->orderBy('IdContrato','desc')
     ->paginate(7);
     return view ('documentos/contrato.index',["contrato"=>$contrato,"searchText"=>$query]);
   }
@@ -27,9 +27,8 @@ public function index(Request $request){
 public function create(){
   return view("documentos/contrato.create");
 }
-public function store(ModeloFormRequest $request){
-
-  $modelo=new contrato;
+public function store(ContratoFormRequest $request){
+  $contrato=new contrato;
   $contrato->CodTipoServicio=$request->get('CodTipoServicio');
   $contrato->Fechainicio=$request->get('Fechainicio');
   $contrato->Fechafin=$request->get('Fechafin');
@@ -45,6 +44,7 @@ public function store(ModeloFormRequest $request){
   $contrato->UsrMod=$request->get('UsrMod');
   $contrato->WksMod=$request->get('WksMod');
   $contrato->FlgEli=$request->get('FlgEli');
+  $contrato->save();
   return Redirect::to('documentos/contrato');
 }
 public function show($id){
@@ -53,9 +53,8 @@ public function show($id){
 public function edit($id){
   return view("documentos/contrato.edit", ["contrato"=>contrato::findOrFail($id)]);
 }
-public function update(modeloFormRequest $request,$id){
-
- $modelo=new contrato;
+public function update(ContratoFormRequest $request,$id){
+ $contrato=new contrato;
  $contrato->CodTipoServicio=$request->get('CodTipoServicio');
  $contrato->Fechainicio=$request->get('Fechainicio');
  $contrato->Fechafin=$request->get('Fechafin');

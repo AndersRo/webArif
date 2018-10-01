@@ -31,13 +31,13 @@ public function index(Request $request){
 public function create(){
   return view("opciones.create");
 }
-public function store(opcionesFormRequest $request){
+public function store(OpcionesFormRequest $request){
   $opciones=new opciones;
   $opciones->Idparent=$request->get('Idparent');
   $opciones->Nombre=$request->get('Nombre');
   $opciones->Ruta=$request->get('Ruta');
   $opciones->Icono=$request->get('Icono');
-  $opciones->save;
+  $opciones->save();
   return Redirect::to('opciones');
 }
 public function show($id){
@@ -46,16 +46,17 @@ public function show($id){
 public function edit($id){
   return view("opciones.edit", ["opciones"=>opciones::findOrFail($id)]);
 }
-public function update(opcionesFormRequest $request,$id){
-$opciones=opciones::findOrFail($id);
-$opciones->Idparent=$request->get('Idparent')
-$opciones->Nombre=$request->get('Nombre');
-$opciones->Ruta=$request->get('Ruta');
-$opciones->Icono=$request->get('Icono');
+public function update(OpcionesFormRequest $request,$id){
+  $opciones=opciones::findOrFail($id);
+  $opciones->Idparent=$request->get('Idparent')
+  $opciones->Nombre=$request->get('Nombre');
+  $opciones->Ruta=$request->get('Ruta');
+  $opciones->Icono=$request->get('Icono');
+  $opciones->update();
   return Redirect::to('opciones');
 }
 public function destroy($id){
-  $opciones=Opciones::findOrFail($id);
+  $opciones=opciones::findOrFail($id);
   $opciones->FlgEli='0';
   $opciones->update();
   return Redirect::to('opciones');

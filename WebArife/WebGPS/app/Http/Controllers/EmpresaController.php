@@ -26,12 +26,10 @@ class EmpresaController extends Controller
       }
     }
     public function create(){
-
       return view("datos/empresa.create");
 
     }
     public function store(EmpresaFormRequest $request){
-
       $empresa=new empresa;
       $empresa->RUC=$request->get('RUC');
       $empresa->RazonSocial=$request->get('RazonSocial');
@@ -46,7 +44,6 @@ class EmpresaController extends Controller
       $empresa->FlgEli=$request->get('FlgEli');
       $empresa->Respresentante=$request->get('Respresentante');
       $empresa->save();
-
       return Redirect::to('datos/empresa');
 
     }
@@ -57,7 +54,7 @@ class EmpresaController extends Controller
     public function edit($id){
       return view("datos/empresa.edit", ["empresa"=>empresa::findOrFail($id)]);
     }
-    public function update(ClienteFormRequest $request,$id){
+    public function update(EmpresaFormRequest $request,$id){
       $empresa=empresa::findOrFail($id);
       $empresa->RUC=$request->get('RUC');
       $empresa->RazonSocial=$request->get('RazonSocial');
@@ -75,7 +72,7 @@ class EmpresaController extends Controller
       return Redirect::to('datos/empresa');
     }
     public function destroy($id){
-       $empresa=Empresa::findOrFail($id);
+       $empresa=empresa::findOrFail($id);
        $empresa->FlgEli='0';
        $empresa->update();
        return Redirect::to('datos/empresa');

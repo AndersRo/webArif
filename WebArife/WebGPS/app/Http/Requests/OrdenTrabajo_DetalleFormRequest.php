@@ -24,8 +24,6 @@ class OrdenTrabajo_DetalleFormRequest extends FormRequest
     public function rules()
     {
         return [
-          
-            //
             'IdOrden',=>'required|MAX:11',
             'IdDispositivo'=>'required|MAX:11',,
             'CodTipoTrabajo'=>'required|MAX:6',,

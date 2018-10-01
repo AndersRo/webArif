@@ -28,7 +28,7 @@ public function create(){
   return view("Dispositivos/comandos.create");
 }
 public function store(ComandosFormRequest $request){
-  $modelo=new comandos;
+  $comandos=new comandos;
   $comandos->CodTipoComandos=$request->get('CodTipoComandos');
   $comandos->UsrCrea=$request->get('comandos');
   $comandos->WksCrea=$request->get('idModelo');
@@ -42,8 +42,8 @@ public function edit($id){
 
     return view("Dispositivos/comandos.edit", ["comandos"=>comandos::findOrFail($id)]);
 }
-public function update(modeloFormRequest $request,$id){
-  $actor=actor::findOrFail($id);
+public function update(ComandosFormRequest $request,$id){
+  $comandos=comandos::findOrFail($id);
   $comandos->UsrCrea=$request->get('comandos');
   $comandos->CodTipoComandos=$request->get('CodTipoComandos');
   $comandos->WksCrea=$request->get('idModelo');

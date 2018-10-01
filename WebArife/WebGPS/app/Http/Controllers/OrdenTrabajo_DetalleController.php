@@ -2,7 +2,6 @@
 
 namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
-use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\app\OrdenTrabajo_Detalle;
 use Illuminate\Support\Facades\Redirect;
@@ -19,16 +18,15 @@ public function index(Request $request){
     $query=trim($request->get('searchText'));
     $OrdenTrabajo_Detalle=DB::table('ordentrabajo_detalle')->where('UsrCrea','LIKE','%'.$query.'%')
     ->where('FlgEli','=','1')
-    ->orderBy('IdOrdenTrabajo_Detalle','desc')
+    ->orderBy('IdOrdenDetalle','desc')
     ->paginate(7);
-    return view ('OrdenTrabajo_Detalle.index',["OrdenTrabajo_Detalle"=>$OrdenTrabajo_Detalle,"searchText"=>$query]);
+    return view ('documentos/ordentrabajo_detalle.index',["ordentrabajo_detalle"=>$OrdenTrabajo_Detalle,"searchText"=>$query]);
   }
 }
 public function create(){
-  return view("OrdenTrabajo_Detalle.create");
+  return view("documentos/ordentrabajo_detalle.create");
 }
-public function store(ClienteFormRequest $request){
- 
+public function store(OrdenTrabajo_DetalleFormRequest $request){
   $OrdenTrabajo_Detalle=new OrdenTrabajo_Detalle;
   $OrdenTrabajo_Detalle->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo_Detalle->IdDispositivo=$request->get('IdDispositivo');
@@ -41,17 +39,17 @@ public function store(ClienteFormRequest $request){
   $OrdenTrabajo_Detalle->FlgEli=$request->get('FglEli');
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
-  $OrdenTrabajo_Detalle->save;
-  return Redirect::to('OrdenTrabajo_Detalle');
+  $OrdenTrabajo_Detalle->save();
+  return Redirect::to('documentos/ordentrabajo_detalle');
 }
 public function show($id){
-  return view("OrdenTrabajo_Detalle.show", ["OrdenTrabajo_Detalle"=>OrdenTrabajo_Detalle::findOrFail($id)]);
+  return view("documentos/ordentrabajo_detalle.show", ["ordentrabajo_detalle"=>OrdenTrabajo_Detalle::findOrFail($id)]);
 }
 public function edit($id){
-  return view("OrdenTrabajo_Detalle.edit", ["OrdenTrabajo_Detalle"=>OrdenTrabajo_Detalle::findOrFail($id)]);
+  return view("documentos/ordentrabajo_detalle.edit", ["ordentrabajo_detalle"=>OrdenTrabajo_Detalle::findOrFail($id)]);
 }
 
-public function update(ClienteFormRequest $request,$id){
+public function update(OrdenTrabajo_DetalleFormRequest $request,$id){
   $OrdenTrabajo_Detalle=OrdenTrabajo_Detalle::findOrFail($id);
   $OrdenTrabajo_Detalle->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo_Detalle->IdDispositivo=$request->get('IdDispositivo');
@@ -65,12 +63,12 @@ public function update(ClienteFormRequest $request,$id){
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
   $OrdenTrabajo_Detalle->update();
-  return Redirect::to('OrdenTrabajo_Detalle');
+  return Redirect::to('documentos/ordentrabajo_detalle');
 }
 public function destroy($id){
    $OrdenTrabajo_Detalle=OrdenTrabajo_Detalle::findOrFail($id);
    $OrdenTrabajo_Detalle->FlgEli='0';
    $OrdenTrabajo_Detalle->update();
-   return Redirect::to('OrdenTrabajo_Detalle');
+   return Redirect::to('documentos/ordentrabajo_detalle');
   }
 }
