@@ -37,7 +37,7 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle->FchMod=$request->get('FchMod');
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
-      $accesoplataformadetalle->FlgEli=$request->get('FlgEli');
+      $accesoplataformadetalle->FlgEli=1;
       $accesoplataformadetalle->save;
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }

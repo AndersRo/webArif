@@ -6,30 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Taller extends Model
 {
-
-  protected $table='Taller',
-
-
-  protected $primarykey='IdTaller',
-
-  publis $timetamps='false',
+  protected $table='taller';
+  protected $primarykey='IdTaller';
+  public $timestamps=false;
 
   protected $fillable=[
-
-
+      'IdTaller',
+      'Descripcion',
+      'FchCrea',
+      'UsrCrea',
+      'WksCrea',
+      'FchMod',
+      'UsrMod',
+      'WksMod',
+      'FlgEli'
 
      ];
-     protected $guarded[
-
-       'Descripcion',
-       'FchCrea',
-       'UsrCrea',
-       'WksCrea',
-       'FchMod',
-       'UsrMod',
-       'WksMod',
-       'FlgEli'
+     protected $guarded=[
 
     ];
-  }
-  }
+}

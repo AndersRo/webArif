@@ -28,6 +28,7 @@ public function create(){
 }
 public function store(MecanicoFormRequest $request){
   $mecanico=new mecanico;
+  $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
   $mecanico->FchCrea=$request->get('FchCrea');
   $mecanico->UsrCrea=$request->get('UsrCrea');
@@ -35,7 +36,7 @@ public function store(MecanicoFormRequest $request){
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->get('WksMod');
   $mecanico->FchMod=$request->get('FchMod');
-  $mecanico->FlgEli=$request->get('FlgEli');
+  $mecanico->FlgEli=1;
   $mecanico->save();
   return Redirect::to('datos/mecanico');
 }
@@ -47,6 +48,7 @@ public function edit($id){
 }
 public function update(MecanicoFormRequest $request,$id){
   $mecanico=mecanico::findOrFail($id);
+  $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
   $mecanico->FchCrea=$request->get('FchCrea');
   $mecanico->UsrCrea=$request->get('UsrCrea');

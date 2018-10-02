@@ -7,11 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Vehiculo extends Model
 {
     protected $table='vehiculo';
-
-    $primarykey='IdVehiculo';
-
-  public $timetamps=false;
-
+    protected $primarykey='IdVehiculo';
+    public $timestamps=false;
 
   protected $fillable=[
   'Placa',
@@ -31,8 +28,7 @@ class Vehiculo extends Model
   'IdEmpresa'
 ];
 
-protected $guarded[
+protected $guarded=[
 
     ];
-  }
 }

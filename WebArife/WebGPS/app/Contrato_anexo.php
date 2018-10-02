@@ -10,7 +10,7 @@ class Contrato_Anexo extends Model
   protected $table = 'contrato_anexo';
   protected $primarykey = 'IdContrato_Anexo';
 
-  public $timetamps=false;
+  public $timestamps=false;
 
   protected $fillable =[
       'IdContrato',
@@ -25,8 +25,7 @@ class Contrato_Anexo extends Model
       'FlgEli'
   ];
 
-  protected $guarded[
+  protected $guarded=[
 
     ];
-  }
 }

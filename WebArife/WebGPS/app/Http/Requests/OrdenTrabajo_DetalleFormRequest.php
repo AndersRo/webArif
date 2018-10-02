@@ -24,17 +24,17 @@ class OrdenTrabajo_DetalleFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'IdOrden',=>'required|MAX:11',
-            'IdDispositivo'=>'required|MAX:11',,
-            'CodTipoTrabajo'=>'required|MAX:6',,
-            'FchCrea'=>'required|MAX:10',,
-            'UsrCrea'=>'required|MAX:30',,
-            'WksCrea'=>'required|MAX:30',,
-            'FchMod'=>'required|MAX:10',,
-            'UsrMod'=>'required|MAX:30',,
-            'WksMod'=>'required|MAX:30',,
-            'FlgEli'=>'required|MAX:1',,
-            'FechaInicio'=>'required|MAX:10',,
+            'IdOrden'=>'required|MAX:11',
+            'IdDispositivo'=>'required|MAX:11',
+            'CodTipoTrabajo'=>'required|MAX:6',
+            'FchCrea'=>'required|MAX:10',
+            'UsrCrea'=>'required|MAX:30',
+            'WksCrea'=>'required|MAX:30',
+            'FchMod'=>'required|MAX:10',
+            'UsrMod'=>'required|MAX:30',
+            'WksMod'=>'required|MAX:30',
+            'FlgEli'=>'MAX:1',
+            'FechaInicio'=>'required|MAX:10',
             'FechaFin'=>'required|MAX:10'
         ];
     }

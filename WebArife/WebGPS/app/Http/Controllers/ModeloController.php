@@ -35,7 +35,7 @@ public function store(ModeloFormRequest $request){
   $modelo->FchMod=$request->get('FchMod');
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
-  $modelo->FlgEli=$request->get('FlgEli');
+  $modelo->FlgEli=1;
   $modelo->FotoReferencial=$request->get('FotoReferencial');
   $modelo->IdMarca=$request->get('IdMarca');
   $modelo->save();

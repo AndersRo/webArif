@@ -5,7 +5,7 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
 use webGps\Http\Requests;
-use webGps\app\ Tablas;
+use webGps\Tablas;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\TablasFormRequest;
 use DB;
@@ -36,7 +36,7 @@ public function store(TablasFormRequest $request){
   $tablas->FchMod=$request->get('FchMod');
   $tablas->UsrMod=$request->get('UsrMod');
   $tablas->WksMod=$request->get('WksMod');
-  $tablas->FlgEli=$request->get('FlgEli');
+  $tablas->FlgEli=1;
   $tablas->save();
   return Redirect::to('tablas/tablas');
 }

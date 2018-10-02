@@ -5,7 +5,7 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\input;
-use webGps\app\AccesosPlataforma;
+use webGps\AccesosPlataforma;
 use webGps\Http\Requests\AccesosPlataformaFormRequest;
 use DB;
 
@@ -43,7 +43,7 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->FchMod=$request->get('FchMod');
       $accesosplataforma->WksMod=$request->get('WksMod');
       $accesosplataforma->UsrMod=$request->get('UsrMod');
-      $accesosplataforma->FglEli=$request->get('FglEli');
+      $accesosplataforma->FglEli=1;
       $accesosplataforma->EstadoAcceso=$request->get('EstadoAcceso');
       $accesosplataforma->save();
       return Redirect::to('accesosplataforma/accesosplataforma');

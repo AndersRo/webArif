@@ -36,7 +36,7 @@ class AccesoPlataformaComandosController extends Controller
       $accesoplataformacomandos->FchMod=$request->get('FchMod');
       $accesoplataformacomandos->UsrMod=$request->get('UsrMod');
       $accesoplataformacomandos->WksMod=$request->get('WksMod');
-      $accesoplataformacomandos->FlgEli=$request->get('FlgEli');
+      $accesoplataformacomandos->FlgEli=1;
       $accesoplataformacomandos->save;
       return Redirect::to('plataforma/AccesoPlataformaComandos');
     }

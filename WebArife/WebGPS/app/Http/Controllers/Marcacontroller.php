@@ -35,7 +35,7 @@ public function store(MarcaFormRequest $request){
   $marca->FchMod=$request->get('FchMod');
   $marca->UsrMod=$request->get('UsrMod');
   $marca->WksMod=$request->get('WksMod');
-  $marca->FlgEli=$request->get('FlgEli');
+  $marca->FlgEli=$1;
   $marca->FchCrea=$request->get('FchCrea');
   $marca->save();
   return Redirect::to('Dispositivos/marca');

@@ -8,15 +8,8 @@ class Users extends Model
 {
 
   protected $table = 'users';
-
-
   protected $primarykey = 'Id';
-
-  //protected $foreingkey = 'IdActor';
-
-
-
-  public $timetamps=false;
+  public $timestamps=false;
 
   protected $fillable =[
     'login'.
@@ -27,8 +20,7 @@ class Users extends Model
     'IdActor',
   ];
 
-  protected $guarded[
+  protected $guarded=[
 
   ];
-}
 }

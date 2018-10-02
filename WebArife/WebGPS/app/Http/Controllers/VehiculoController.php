@@ -5,7 +5,7 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
 use webGps\Http\Requests;
-use webGps\app\ Vehiculo;
+use webGps\Vehiculo;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\VehiculoFormRequest;
 use DB;
@@ -28,7 +28,7 @@ public function create(){
   return view("datos/vehiculo.create");
 }
 public function store(VehiculoFormRequest $request){
-  $vehiculo=new vehiculo;
+  $vehiculo=new Vehiculo;
   $vehiculo->Placa=$request->get('Placa');
   $vehiculo->Chasis=$request->get('Chasis');
   $vehiculo->Motor=$request->get('Motor');
@@ -40,7 +40,7 @@ public function store(VehiculoFormRequest $request){
   $vehiculo->FchMod=$request->get('FchMod');
   $vehiculo->UsrMod=$request->get('UsrMod');
   $vehiculo->WksMod=$request->get('WksMod');
-  $vehiculo->FlgEli=$request->get('FlgEli');
+  $vehiculo->FlgEli=1;
   $vehiculo->RutaReferencia=$request->get('RutaReferencia');
   $vehiculo->RutaTarjeta=$request->get('RutaTarjeta');
   $vehiculo->IdEmpresa=$request->get('IdEmpresa');
@@ -48,13 +48,13 @@ public function store(VehiculoFormRequest $request){
   return Redirect::to('datos/vehiculo');
 }
 public function show($id){
-  return view("datos/vehiculo.show", ["vehiculo"=>vehiculo::findOrFail($id)]);
+  return view("datos/vehiculo.show", ["vehiculo"=>Vehiculo::findOrFail($id)]);
 }
 public function edit($id){
-  return view("datos/vehiculo.edit", ["vehiculo"=>vehiculo::findOrFail($id)]);
+  return view("datos/vehiculo.edit", ["vehiculo"=>Vehiculo::findOrFail($id)]);
 }
 public function update(VehiculoFormRequest $request,$id){
-  $vehiculo=vehiculo::findOrFail($id);
+  $vehiculo=Vehiculo::findOrFail($id);
   $vehiculo->Placa=$request->get('Placa');
   $vehiculo->Chasis=$request->get('Chasis');
   $vehiculo->Motor=$request->get('Motor');

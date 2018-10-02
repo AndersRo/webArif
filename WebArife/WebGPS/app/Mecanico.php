@@ -6,16 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mecanico extends Model
 {
-
   protected $table = 'mecanico';
-
-
-
-  protected $primarykey='idMecanico';
+  protected $primarykey='IdMecanico';
   public $timestamps = false;
 
   protected $fillable =[
-       'idActor',
+       'IdMecanico',
+       'IdActor',
        'FchCrea',
        'UsrCrea',
        'WksCrea',
@@ -23,10 +20,6 @@ class Mecanico extends Model
        'FchMod',
        'WksMod',
        'FlgEli'
-
-
-
-
   ];
   protected $guarded = [
 

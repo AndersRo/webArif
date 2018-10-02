@@ -13,7 +13,7 @@ class Contrato_Ordenes extends Model
   protected $primarykey = 'IdContrato';
 
   //protected $foreingkey = 'IdActor';
-  public $timetamps=false;
+  public $timestamps=false;
 
 
 
@@ -29,7 +29,7 @@ class Contrato_Ordenes extends Model
     'FlgEli'
   ];
 
-  protected $guarded[
+  protected $guarded=[
 
   ];
 

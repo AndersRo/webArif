@@ -9,7 +9,7 @@ class AccesosPlataforma extends Model
     protected $table = 'accesosplataforma';
     protected $primarykey = 'IdAcceso';
 
-    public $timetamps=false;
+    public $timestamps=false;
 
     protected $fillable=[
       'IdCliente',
@@ -29,7 +29,7 @@ class AccesosPlataforma extends Model
       'FlgEli',
       'EstadoAcceso'
     ];
-    protected $guarded[
+    protected $guarded=[
 
     ];
 }

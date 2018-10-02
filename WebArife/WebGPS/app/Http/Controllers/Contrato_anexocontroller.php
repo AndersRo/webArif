@@ -4,7 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
-use webGps\app\Contrato_anexo;
+use webGps\Contrato_anexo;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\Contrato_anexoFormRequest;
 use DB;

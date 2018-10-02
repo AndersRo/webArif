@@ -18,8 +18,8 @@ class Cliente extends Model
     	'WksCrea',
     	'FchMod',
     	'WksMod',
-    	'UsrMod'
-    	//'FlgEli'
+    	'UsrMod',
+    	'FlgEli'
     ];
 
     protected $guarded=[

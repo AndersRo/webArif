@@ -8,14 +8,8 @@ class OrdenTrabajo_Detalle extends Model
 {
     //
     protected $table = 'ordentrabajo_detalle';
-
     protected $primarykey = 'IdOrdenDetalle';
-
-    //protected $foreingkey = 'IdActor';
-
-
-
-    public $timetamps=false;
+    public $timestamps=false;
 
     protected $fillable =[
       'IdOrden',
@@ -29,11 +23,10 @@ class OrdenTrabajo_Detalle extends Model
       'WksMod',
       'FlgEli',
       'FechaInicio',
-      'FechaFin'      
+      'FechaFin'
     ];
 
-    protected $guarded[
+    protected $guarded=[
 
     ];
-  }
   }

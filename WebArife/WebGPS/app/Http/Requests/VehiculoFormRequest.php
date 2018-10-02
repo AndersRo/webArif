@@ -36,7 +36,7 @@ class VehiculoFormRequest extends FormRequest
             'FchMod'=>'required|max:10',
             'UsrMod'=>'required|max:30',
             'WksMod'=>'required|max:30',
-            'FlgEli'=>'required|max:1',
+            'FlgEli'=>'max:1',
             'RutaReferencia'=>'required|max:18',
             'RutaTarjeta'=>'required|max:18',
             'IdEmpresa'=>'required|max:11'

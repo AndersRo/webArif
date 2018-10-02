@@ -8,21 +8,10 @@ class OrdenTrabajo extends Model
 {
     //
     protected $table = 'ordentrabajo';
-
-
     protected $primarykey = 'IdOrden';
-
-    //protected $foreingkey = 'IdActor';
-
-
-
-    public $timetamps=false;
+    public $timestamps=false;
 
     protected $fillable =[
-
-
-
-
           'IdEmpresa',
           'IdMecanico',
           'IdCliente',
@@ -43,8 +32,7 @@ class OrdenTrabajo extends Model
 
      ];
 
-    protected $guarded[
+    protected $guarded=[
 
     ];
-  }
   }

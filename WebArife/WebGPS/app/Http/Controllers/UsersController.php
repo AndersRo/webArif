@@ -5,7 +5,7 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
 use webGps\Http\Requests;
-use webGps\app\Users;
+use webGps\Users;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\UsersFormRequest;
 use DB;
@@ -28,7 +28,7 @@ public function create(){
   return view("users.create");
 }
 public function store(UsersFormRequest $request){
-  $users=new users;
+  $users=new Users;
   $users->login=$request->get('login');
   $users->password=$request->get('password');
   $users->createt_at=$request->get('createt_at');
@@ -39,13 +39,13 @@ public function store(UsersFormRequest $request){
   return Redirect::to('users');
 }
 public function show($id){
-  return view("users.show", ["users"=>users::findOrFail($id)]);
+  return view("users.show", ["users"=>Users::findOrFail($id)]);
 }
 public function edit($id){
-  return view("users.edit", ["users"=>users::findOrFail($id)]);
+  return view("users.edit", ["users"=>Users::findOrFail($id)]);
 }
 public function update(UsersFormRequest $request,$id){
-  $users=users::findOrFail($id);
+  $users=Users::findOrFail($id);
   $users->login=$request->get('login');
   $users->password=$request->get('password');
   $users->createt_at=$request->get('createt_at');

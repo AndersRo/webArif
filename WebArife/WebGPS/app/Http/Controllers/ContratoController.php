@@ -43,7 +43,7 @@ public function store(ContratoFormRequest $request){
   $contrato->FchMod=$request->get('FchMod');
   $contrato->UsrMod=$request->get('UsrMod');
   $contrato->WksMod=$request->get('WksMod');
-  $contrato->FlgEli=$request->get('FlgEli');
+  $contrato->FlgEli=1;
   $contrato->save();
   return Redirect::to('documentos/contrato');
 }

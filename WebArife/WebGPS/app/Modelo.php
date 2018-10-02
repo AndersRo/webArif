@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Modelo extends Model
 {
   protected $table = 'modelo';
-
-
-  protected $primarykey='idActor';
+  protected $primarykey='IdActor';
 
   public $timestamps = false;
 
@@ -22,9 +20,7 @@ class Modelo extends Model
       'WksMod',
       'FlgEli',
       'FotoReferencial',
-      'IdMarca',
-
-
+      'IdMarca'
   ];
  protected $guarded = [
 

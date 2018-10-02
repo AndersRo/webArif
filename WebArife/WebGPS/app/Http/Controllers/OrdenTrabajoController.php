@@ -4,7 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
-use webGps\app\ OrdenTrabajo;
+use webGps\OrdenTrabajo;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\ OrdenTrabajoFormRequest;
 use DB;

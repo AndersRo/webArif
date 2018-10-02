@@ -25,14 +25,14 @@ class TablasFormRequest extends FormRequest
     {
         return [
 
-        'Descripcion'=>'required|max:30|',
-        'FchCrea'=>'required|max:10|',
-        'UsrCrea'=>'required|max:30|',
-        'WksCrea'=>'required|max:30|',
-        'FchMod'=>'required|max:10|',
-        'UsrMod'=>'required|max:30|',
-        'WksMod'=>'required|max:30|',
-        'FlgEli'=>'required|max:1|'
+        'Descripcion'=>'required|max:30',
+        'FchCrea'=>'required|max:10',
+        'UsrCrea'=>'required|max:30',
+        'WksCrea'=>'required|max:30',
+        'FchMod'=>'required|max:10',
+        'UsrMod'=>'required|max:30',
+        'WksMod'=>'required|max:30',
+        'FlgEli'=>'max:1'
         ];
     }
 }

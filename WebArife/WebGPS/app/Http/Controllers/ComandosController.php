@@ -31,12 +31,11 @@ public function store(ComandosFormRequest $request){
   $comandos=new comandos;
   $comandos->CodTipoComandos=$request->get('CodTipoComandos');
   $comandos->UsrCrea=$request->get('comandos');
-  $comandos->WksCrea=$request->get('idModelo');
-
+  $comandos->WksCrea=$request->get('IdModelo');
   return Redirect::to('Dispositivos/comandos');
 }
 public function show($id){
-  return view("Dispositivos/comandos.show", ["comandos"=>"comandos"::findOrFail($id)]);
+  return view("Dispositivos/comandos.show", ["comandos"=>comandos::findOrFail($id)]);
 }
 public function edit($id){
 
@@ -46,7 +45,7 @@ public function update(ComandosFormRequest $request,$id){
   $comandos=comandos::findOrFail($id);
   $comandos->UsrCrea=$request->get('comandos');
   $comandos->CodTipoComandos=$request->get('CodTipoComandos');
-  $comandos->WksCrea=$request->get('idModelo');
+  $comandos->WksCrea=$request->get('IdModelo');
   $comandos->update();
   return Redirect::to('Dispositivos/comandos');
 }

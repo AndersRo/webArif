@@ -26,7 +26,7 @@ class ComandosFormRequest extends FormRequest
         return [
             'CodTipoComandos' => 'required|max:6',
             'Comandos'=>'required|max:50',
-            'idModelo'=>'requiredmax=11'
+            'IdModelo'=>'required|max=11'
         ];
     }
 }

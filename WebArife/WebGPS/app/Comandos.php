@@ -10,7 +10,7 @@ class Comandos extends Model
       protected $table = 'comandos';
       protected $primarykey = 'IdComandos';
 
-      public $timetamps=true;
+      public $timestamps=true;
 
       protected $fillable =[
           'CodTipoComandos',
@@ -18,8 +18,7 @@ class Comandos extends Model
           'IdModelo'
       ];
 
-      protected $guarded[
+      protected $guarded=[
 
       ];
-  }
-  }
+}

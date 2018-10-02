@@ -8,24 +8,17 @@ class Opciones extends Model
 {
     //
     protected $table = 'opciones';
-
     protected $primarykey = 'IdOpciones';
-
-    //protected $foreingkey = 'IdActor';
-
-
-
-    public $timetamps=false;
+    public $timestamps=false;
 
     protected $fillable =[
       'IdParent',
       'Nombre',
       'Ruta',
-      'Icono'      
+      'Icono'
     ];
 
-    protected $guarded[
+    protected $guarded=[
 
     ];
-  }
-  }
+}

@@ -36,7 +36,7 @@ public function store(Contrato_OrdenesFormRequest $request){
   $Contrato_Ordenes->FchMod=$request->get('FchMod');
   $Contrato_Ordenes->WksMod=$request->get('WksMod');
   $Contrato_Ordenes->UsrMod=$request->get('UsrMod');
-  $Contrato_Ordenes->FglEli=$request->get('FglEli');
+  $Contrato_Ordenes->FglEli=1;
   $Contrato_Ordenes->save;
   return Redirect::to('documentos/contrato_ordenes');
 }

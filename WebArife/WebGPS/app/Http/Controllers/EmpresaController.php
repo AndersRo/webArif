@@ -41,7 +41,6 @@ class EmpresaController extends Controller
         $file->move(public_path().'/imagenes/empresa/',$file->getClientOriginalName());
         $empresa->RutaLogo=$file->getClientOriginalName();
       }
-      //$empresa->RutaLogo=$request->get('RutaLogo');
       $empresa->UsrCrea=$request->get('UsrCrea');
       $empresa->WksCrea=$request->get('WksCrea');
       $empresa->FchCrea=$request->get('FchCrea');

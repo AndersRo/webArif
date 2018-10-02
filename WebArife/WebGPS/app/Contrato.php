@@ -8,15 +8,10 @@ class Contrato extends Model
 {
 
   protected $table = 'contrato';
-
-
-  protected $primarykey='idContrato';
-
+  protected $primarykey='IdContrato';
   public $timestamps = false;
 
   protected $fillable =[
-
-
 
     'CodTipoServicio',
     'Fechainicio'.
@@ -33,7 +28,6 @@ class Contrato extends Model
     'UsrMod',
     'WksMod',
     'FlgEli'
-
 
   ];
       protected $guarded = [

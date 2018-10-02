@@ -31,7 +31,7 @@ class ModeloFormRequest extends FormRequest
           'FchMod'=>'required|max:10',
           'UsrMod'=>'required|max:30',
           'WksMod'=>'required|max:30'
-          'FlgEli'=>'required|max:1',
+          'FlgEli'=>'max:1',
           'FotoReferencial'=>'required|max:250',
           'idMarca'=>'required|max:11'
         ];

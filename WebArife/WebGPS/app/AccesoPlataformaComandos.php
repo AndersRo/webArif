@@ -8,8 +8,7 @@ class AccesoPlataformaComando extends Model
 {
     protected $table='accesoplataformacomandos';
     protected $primarykey='IdAccesoComandos';
-
-    public $timetamps=false;
+    public $timestamps=false;
 
     protected $fillable=[
       'IdAccesoDetalle',
@@ -22,7 +21,7 @@ class AccesoPlataformaComando extends Model
       'FlgEli'
     ];
 
-    protected $guarded[
+    protected $guarded=[
 
     ];
 }

@@ -6,23 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tablas extends Model
 {
-
-      //
-
-
       protected $table = 'tablas';
-
-
       protected $primarykey = 'IdTabla';
-
-      //protected $foreingkey = 'IdActor';
-
-
-
-      public $timetamps=false;
+      public $timestamps=false;
 
       protected $fillable =[
-
         'Descripcion',
         'FchCrea',
         'UsrCrea',
@@ -31,12 +19,9 @@ class Tablas extends Model
         'UsrMod',
         'WksMod',
         'FlgEli'
-
-
        ];
 
-        protected $guarded[
+        protected $guarded=[
 
        ];
-     }
-  }
+}

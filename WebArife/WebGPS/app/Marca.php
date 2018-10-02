@@ -13,7 +13,7 @@ class Marca extends Model
   //protected $foreingkey = 'IdActor';
 
 
-  public $timetamps=false;
+  public $timestamps=false;
 
   protected $fillable =[
     'Descripcion'
@@ -26,7 +26,7 @@ class Marca extends Model
     'FchCrea'
   ];
 
-  protected $guarded[
+  protected $guarded=[
 
   ];
 }

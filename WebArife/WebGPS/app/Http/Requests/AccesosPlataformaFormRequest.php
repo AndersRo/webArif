@@ -38,7 +38,7 @@ class AccesosPlataformaFormRequets extends FormRequest
           'FchMod'=>'required|max:10',
           'WksMod'=>'required|max:30',
           'UsrMod'=>'required|max:30',
-          'FlgEli'=>'required|max:1',
+          'FlgEli'=>'max:1',
           'EstadoAcceso'=>'required|max:18'
         ];
     }

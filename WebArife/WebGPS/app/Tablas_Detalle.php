@@ -8,28 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Tablas_Detalle extends Model
 {
     protected $table='tablas_detalle',
-
-
     protected $primarykey='IdTablaDetalle',
-
-    publis $timetamps='false',
+    public $timestamps=false,
 
     protected $fillable=[
-
-
-
+        'IdTabla'
+        'Descripcion',
+        'FchCrea',
+        'UsrCrea',
+        'WksCrea',
+        'FchMod',
+        'UsrMod',
+        'WksMod',
+        'FlgEli'
        ];
-       protected $guarded[
-         'IdTabla'
-         'Descripcion',
-         'FchCrea',
-         'UsrCrea',
-         'WksCrea',
-         'FchMod',
-         'UsrMod',
-         'WksMod',
-         'FlgEli'
+    protected $guarded=[
 
-      ];
-    }
- }
+    ];
+}
