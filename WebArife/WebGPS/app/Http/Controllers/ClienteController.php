@@ -3,12 +3,12 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use webGps\Http\Requests;
-use webGps\app\Cliente;
+use webGps\Cliente;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\ClienteFormRequest;
 use DB;
-
 
 class ClienteController extends Controller
 {
@@ -28,14 +28,16 @@ class ClienteController extends Controller
     	return view("datos/cliente.create");
     }
     public function store(ClienteFormRequest $request){
-    	$cliente=new cliente;
+    	$cliente=new Cliente;
+			$cliente->IdCliente=$request->get('IdCliente');
+			$cliente->IdActor=$request->get('IdActor');
     	$cliente->FchCrea=$request->get('FchCrea');
     	$cliente->UsrCrea=$request->get('UsrCrea');
     	$cliente->WksCrea=$request->get('WksCrea');
     	$cliente->FchMod=$request->get('FchMod');
+			$cliente->WksMod=$request->get('WksMod');
     	$cliente->UsrMod=$request->get('UsrMod');
-    	$cliente->WksMod=$request->get('WksMod');
-    	$cliente->FglEli=$request->get('FglEli');
+    	$cliente->FlgEli=1;
     	$cliente->save();
     	return Redirect::to('datos/cliente');
     }
@@ -46,14 +48,16 @@ class ClienteController extends Controller
     	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)]);
     }
     public function update(ClienteFormRequest $request,$id){
-    	$cliente=cliente::findOrFail($id);
+    	$cliente=Cliente::findOrFail($id);
+			$cliente->IdCliente=$request->get('IdCliente');
+			$cliente->IdActor=$request->get('IdActor');
     	$cliente->FchCrea=$request->get('FchCrea');
     	$cliente->UsrCrea=$request->get('UsrCrea');
     	$cliente->WksCrea=$request->get('WksCrea');
     	$cliente->FchMod=$request->get('FchMod');
+			$cliente->WksMod=$request->get('WksMod');
     	$cliente->UsrMod=$request->get('UsrMod');
-    	$cliente->WksMod=$request->get('WksMod');
-    	$cliente->FglEli=$request->get('FglEli');
+    	$cliente->FlgEli=$request->get('FlgEli');
     	$cliente->update();
     	return Redirect::to('datos/cliente');
     }

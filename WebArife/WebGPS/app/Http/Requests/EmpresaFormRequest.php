@@ -24,18 +24,19 @@ class EmpresaFormRequest extends FormRequest
     public function rules()
     {
         return [
+          'IdEmpresa'=>'required|max:11',
           'RUC'=>'required|max:11',
-          'RazonSocial',=>'required|max:100',
-          'NombreComercial',=>'required|max100',
-          'RutaLogo',=>'max:250',
-          'UsrCrea',=>'required|max:30',
-          'WksCrea',=>'required|max:30',
-          'FchCrea',=>'max:10',
-          'FchMod',=>'max:10',
-          'UsrMod',=>'required|max:30',
-          'WksMod',=>'required|max:30',
-          'FlgEli',=>'required|max:1',
-          'Respresentante'=>'max:80'
+          'RazonSocial'=>'required|max:100',
+          'NombreComercial'=>'required|max:100',
+          'RutaLogo'=>'mimes:jpeg,bmp,png',
+          'UsrCrea'=>'required|max:30',
+          'WksCrea'=>'required|max:30',
+          'FchCrea'=>'max:10',
+          'FchMod'=>'max:10',
+          'UsrMod'=>'required|max:30',
+          'WksMod'=>'required|max:30',
+          'FlgEli'=>'max:1',
+          'Representante'=>'max:80'
         ];
     }
 }

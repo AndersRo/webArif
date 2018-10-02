@@ -32,7 +32,9 @@
 							<td>{{$cat->RUC}}</td>
 							<td>{{$cat->RazonSocial}}</td>
 							<td>{{$cat->NombreComercial}}</td>
-							<td>{{$cat->RutaLogo}}</td>
+							<td>
+								<img src="{{asset('imagenes/empresa/'.$cat->RutaLogo)}}" alt="{{$cat->RazonSocial}}" height="100px" width="100px" class="img-thumbnail">
+							</td>
 							<td>{{$cat->UsrCrea}}</td>
 							<td>{{$cat->WksCrea}}</td>
 							<td>{{$cat->FchCrea}}</td>

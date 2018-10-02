@@ -24,13 +24,15 @@ class ClienteFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'FchCrea' => 'required|max:10',
-            'UsrCrea' => 'required|max:30',
-            'WksCrea' => 'required|max:30',
-            'FchMod' => 'required|max:10',
-            'WksMod' => 'required|max:30',
-            'UsrMod' => 'required|max:30',
-            'FlgEli' => 'required|max:1'
+            'IdCliente'=>'required|max:11',
+            'IdActor'=>'required|max:11',
+            'FchCrea'=>'required|max:10',
+            'UsrCrea'=>'required|max:30',
+            'WksCrea'=>'required|max:30',
+            'FchMod'=>'required|max:10',
+            'WksMod'=>'required|max:30',
+            'UsrMod'=>'required|max:30'
+            //'FlgEli'=>'max:1'
         ];
     }
 }

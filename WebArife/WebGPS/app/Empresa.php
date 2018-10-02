@@ -9,10 +9,11 @@ class Empresa extends Model
   protected $table = 'empresa';
   protected $primarykey = 'IdEmpresa';
 
-  public $timetamps=false;
+  public $timestamps=false;
 
   protected $fillable =[
-    'RUC'
+    'IdEmpresa',
+    'RUC',
     'RazonSocial',
     'NombreComercial',
     'UsrCrea',
@@ -22,10 +23,10 @@ class Empresa extends Model
     'UsrMod',
     'WksMod',
     'FlgEli',
-    'Respresentante'
+    'Representante'
   ];
 
-  protected $guarded[
+  protected $guarded=[
 
   ];
 }

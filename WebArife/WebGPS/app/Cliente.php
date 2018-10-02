@@ -8,21 +8,21 @@ class Cliente extends Model
 {
     protected $table = 'cliente';
     protected $primarykey = 'IdCliente';
-    public $timetamps=false;
+    public $timestamps=false;
 
     protected $fillable=[
+      'IdCliente',
       'IdActor',
     	'FchCrea',
     	'UsrCrea',
     	'WksCrea',
     	'FchMod',
     	'WksMod',
-    	'UsrMod',
-    	'FlgEli'
+    	'UsrMod'
+    	//'FlgEli'
     ];
 
-    protected $guarded[
+    protected $guarded=[
 
     ];
-}
 }
