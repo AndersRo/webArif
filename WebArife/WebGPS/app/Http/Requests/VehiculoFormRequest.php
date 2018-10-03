@@ -24,7 +24,7 @@ class VehiculoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'IdVehiculo'=>'required|max:11',
             'Placa'=>'required|max:15',
             'Chasis'=>'required|max:50',
             'Motor'=>'required|max:50',

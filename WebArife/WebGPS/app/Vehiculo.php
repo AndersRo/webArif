@@ -11,6 +11,7 @@ class Vehiculo extends Model
     public $timestamps=false;
 
   protected $fillable=[
+  'IdVehiculo',
   'Placa',
   'Chasis',
   'Motor',

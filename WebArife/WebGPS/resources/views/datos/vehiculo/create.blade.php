@@ -13,44 +13,89 @@
         </div>
         @endif
 
-        {!! Form::open(array('url'=>'datos/taller','method'=>'POST','autocomplete'=>'off')) !!}
+        {!! Form::open(array('url'=>'datos/vehiculo','method'=>'POST','autocomplete'=>'off')) !!}
         {{Form::token()}}
+
         <div class="form-group">
-          <label for="IdTaller">Id</label>
-          <input type="text" name="IdTaller" class="form-control" placeholder="Id">
+          <label for="IdVehiculo">Id</label>
+          <input type="text" name="IdVehiculo" class="form-control" placeholder="Id">
         </div>
+
         <div class="form-group">
-          <label for="Descripcion">Descripcion</label>
-          <input type="text" name="Descripcion" class="form-control" placeholder="Descripcion">
+          <label for="Placa">Placa</label>
+          <input type="text" name="Placa" class="form-control" placeholder="Placa">
         </div>
+
         <div class="form-group">
-          <label for="FchCrea">Fecha Creacion</label>
-          <input type="text" name="FchCrea" class="form-control" placeholder="Fecha">
+          <label for="Chasis">Chasis</label><!--la etiqueta del imput de la caja de texto-->
+          <input type="text" name="Chasis" class="form-control" placeholder="Chasis"><!--placeholder es el texto guia -->
         </div>
+
+         <div class="form-group">
+          <label for="Motor">Motor</label><!--la etiqueta del imput de la caja de texto-->
+          <input type="text" name="Motor" class="form-control" placeholder="Motor"><!--placeholder es el texto guia -->
+        </div>
+
         <div class="form-group">
-          <label for="UsrCrea">Usuario</label>
-          <input type="text" name="UsrCrea" class="form-control" placeholder="Usuario">
+          <label for="Modelo">Modelo</label>
+          <input type="text" name="Modelo" class="form-control" placeholder="Modelo">
         </div>
+
+        <div class="form.group">
+          <label for="Color">Color</label>
+          <input type="text" name="Color" class="form-control"  placeholder="Color">
+        </div>
+
+
+        <div class="form-group">
+          <label for="FchCrea">Fecha</label>
+          <input type="text" name="FchCrea" class="form-control" placeholder="FchCrea">
+        </div>
+
+        <div class="form-group">
+          <label for="UsrCrea">usuario</label>
+          <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
+        </div>
+
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
         </div>
+
         <div class="form-group">
-          <label for="FchMod">Fecha Mod</label>
+          <label for="FchMod">Mod Fecha</label>
           <input type="text" name="FchMod" class="form-control" placeholder="Fecha">
         </div>
+
+        <div class="form-group">
+          <label for="UsrMod">Modificar Usuario</label>
+          <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">
+        </div>
+
 				<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" placeholder="WorkStation">
         </div>
         <div class="form-group">
-          <label for="UsrMod">Usuario Mod</label>
-          <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">
+          <label for="RutaReferencia">Ruta Referencia</label>
+          <input type="text" name="RutaReferencia" class="form-control" placeholder="RutaReferencia">
         </div>
+
+        <div class="form-group">
+           <label for="RutaTarjeta">Ruta Tarjeta</label>
+           <input type="text" name="RutaTarjeta" class="form-control" placeholder="RutaTarjeta">
+        </div>
+
+        <div class="form-group">
+           <label for="IdEmpresa">IdEmpresa</label>
+           <input type="text" name="IdEmpresa" class="form-control" placeholder="IdEmpresa">
+        </div>
+
         <div class="form-group">
           <button class="btn btn-primary" type="submit">Guardar</button>
           <button class="btn btn-danger" type="reset">Eliminar</button>
         </div>
+
         {!! Form::close() !!}
       </div>
     </div>

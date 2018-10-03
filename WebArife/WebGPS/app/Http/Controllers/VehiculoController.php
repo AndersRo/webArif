@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Vehiculo;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\VehiculoFormRequest;
+use webGps\Http\Requests\VehiculoFormRequest;
 use DB;
 
 class VehiculoController extends Controller
@@ -29,6 +29,7 @@ public function create(){
 }
 public function store(VehiculoFormRequest $request){
   $vehiculo=new Vehiculo;
+  $vehiculo->IdVehiculo=$request->get('IdVehiculo');
   $vehiculo->Placa=$request->get('Placa');
   $vehiculo->Chasis=$request->get('Chasis');
   $vehiculo->Motor=$request->get('Motor');
@@ -55,6 +56,7 @@ public function edit($id){
 }
 public function update(VehiculoFormRequest $request,$id){
   $vehiculo=Vehiculo::findOrFail($id);
+  $vehiculo->IdVehiculo=$request->get('IdVehiculo');
   $vehiculo->Placa=$request->get('Placa');
   $vehiculo->Chasis=$request->get('Chasis');
   $vehiculo->Motor=$request->get('Motor');
