@@ -76,7 +76,7 @@ class ActorController extends Controller
       $actor->FchMod=$request->get('FchMod');
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
-      $actor->FlgEli=$request->get('FglEli');
+      $actor->FlgEli=1;
       $actor->update();
       return Redirect::to('datos/actor');
     }
