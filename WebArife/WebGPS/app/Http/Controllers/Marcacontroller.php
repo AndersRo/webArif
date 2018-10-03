@@ -28,26 +28,28 @@ public function create(){
   return view("Dispositivos/marca.create");
 }
 public function store(MarcaFormRequest $request){
-  $marca=new marca;
+  $marca=new Marca;
+  $marca->IdMarca=$request->get('IdMarca');
   $marca->Descripcion=$request->get('Descripcion');
   $marca->UsrCrea=$request->get('UsrCrea');
   $marca->WksCrea=$request->get('WksCrea');
   $marca->FchMod=$request->get('FchMod');
   $marca->UsrMod=$request->get('UsrMod');
   $marca->WksMod=$request->get('WksMod');
-  $marca->FlgEli=$1;
+  $marca->FlgEli=1;
   $marca->FchCrea=$request->get('FchCrea');
   $marca->save();
   return Redirect::to('Dispositivos/marca');
 }
 public function show($id){
-  return view("Dispositivos/marca.show", ["marca"=>marca::findOrFail($id)]);
+  return view("Dispositivos/marca.show", ["marca"=>Marca::findOrFail($id)]);
 }
 public function edit($id){
-  return view("Dispositivos/marca.edit", ["marca"=>marca::findOrFail($id)]);
+  return view("Dispositivos/marca.edit", ["marca"=>Marca::findOrFail($id)]);
 }
 public function update(MarcaFormRequest $request,$id){
-  $marca=marca::findOrFail($id);
+  $marca=Marca::findOrFail($id);
+  $marca->IdMarca=$request->get('IdMarca');
   $marca->Descripcion=$request->get('Descripcion');
   $marca->UsrCrea=$request->get('UsrCrea');
   $marca->WksCrea=$request->get(' WksCrea');
@@ -60,7 +62,7 @@ public function update(MarcaFormRequest $request,$id){
   return Redirect::to('Dispositivos/marca');
 }
 public function destroy($id){
-  $marca=marca::findOrFail($id);
+  $marca=Marca::findOrFail($id);
   $marca->FlgEli='0';
   $marca->update();
   return Redirect::to('Dispositivos/marca');

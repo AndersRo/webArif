@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Tablas;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\TablasFormRequest;
+use webGps\Http\Requests\TablasFormRequest;
 use DB;
 
 class TablasController extends Controller
@@ -28,7 +28,8 @@ public function create(){
   return view("tablas/tablas.create");
 }
 public function store(TablasFormRequest $request){
-  $tablas=new tablas;
+  $tablas=new Tablas;
+  $tablas->IdTabla=$request->get('IdTabla');
   $tablas->Descripcion=$request->get('Descripcion');
   $tablas->FchCrea=$request->get('FchCrea');
   $tablas->UsrCrea=$request->get('UsrCrea');
@@ -41,13 +42,14 @@ public function store(TablasFormRequest $request){
   return Redirect::to('tablas/tablas');
 }
 public function show($id){
-  return view("tablas/tablas.show", ["tablas"=>tablas::findOrFail($id)]);
+  return view("tablas/tablas.show", ["tablas"=>Tablas::findOrFail($id)]);
 }
 public function edit($id){
-  return view("tablas/tablas.edit", ["tablas"=>tablas::findOrFail($id)]);
+  return view("tablas/tablas.edit", ["tablas"=>Tablas::findOrFail($id)]);
 }
 public function update(TablasFormRequest $request,$id){
-  $tablas=tablas::findOrFail($id);
+  $tablas=Tablas::findOrFail($id);
+  $tablas->IdTabla=$request->get('IdTabla');
   $tablas->Descripcion=$request->get('Descripcion');
   $tablas->FchCrea=$request->get('FchCrea');
   $tablas->UsrCrea=$request->get('UsrCrea');

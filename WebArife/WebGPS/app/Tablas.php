@@ -11,6 +11,7 @@ class Tablas extends Model
       public $timestamps=false;
 
       protected $fillable =[
+        'IdTabla',
         'Descripcion',
         'FchCrea',
         'UsrCrea',

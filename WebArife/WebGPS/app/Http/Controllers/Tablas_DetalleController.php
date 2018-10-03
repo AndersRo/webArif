@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Tablas_Detalle;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\ Tablas_DetalleFormRequest;
+use webGps\Http\Requests\Tablas_DetalleFormRequest;
 use DB;
 
 class Tablas_DetalleController extends Controller
@@ -27,7 +27,8 @@ public function create(){
   return view("tablas/tablas_detalle.create");
 }
 public function store(Tablas_DetalleFormRequest $request){
-  $tablas_detalle=new tablas_detalle;
+  $tablas_detalle=new Tablas_Detalle;
+  $tablas_detalle->IdTablaDetalle=$request->get('IdTablaDetalle');
   $tablas_detalle->IdTabla=$request->get('IdTabla');
   $tablas_detalle->Descripcion=$request->get('Descripcion');
   $tablas_detalle->FchCrea=$request->get('FchCrea');
@@ -38,16 +39,17 @@ public function store(Tablas_DetalleFormRequest $request){
   $tablas_detalle->WksMod=$request->get('WksMod');
   $tablas_detalle->FlgEli=1;
   $tablas_detalle->save();
-  return Redirect::to('tablas/tablas_Detalle');
+  return Redirect::to('tablas/tablas_detalle');
 }
 public function show($id){
-  return view("tablas/tablas_detalle.show", ["tablas_Detalle"=>tablas_Detalle::findOrFail($id)]);
+  return view("tablas/tablas_detalle.show", ["tablas_Detalle"=>Tablas_Detalle::findOrFail($id)]);
 }
 public function edit($id){
-  return view("tablas/tablas_detalle.edit", ["tablas_Detalle"=>tablas_Detalle::findOrFail($id)]);
+  return view("tablas/tablas_detalle.edit", ["tablas_Detalle"=>Tablas_Detalle::findOrFail($id)]);
 }
 public function update(Tablas_DetalleFormRequest $request,$id){
-  $tablas_detalle=tablas_detalle::findOrFail($id);
+  $tablas_detalle=Tablas_Detalle::findOrFail($id);
+  $tablas_detalle->IdTablaDetalle=$request->get('IdTablaDetalle');
   $tablas_detalle->IdTabla=$request->get('IdTabla');
   $tablas_detalle->Descripcion=$request->get('Descripcion');
   $tablas_detalle->FchCrea=$request->get('FchCrea');

@@ -24,7 +24,7 @@ class TablasFormRequest extends FormRequest
     public function rules()
     {
         return [
-
+        'IdTabla'=>'required|max:11',
         'Descripcion'=>'required|max:30',
         'FchCrea'=>'required|max:10',
         'UsrCrea'=>'required|max:30',

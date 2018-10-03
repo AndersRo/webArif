@@ -1,4 +1,3 @@
-
 <?php
 
 namespace webGps;
@@ -7,12 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tablas_Detalle extends Model
 {
-    protected $table='tablas_detalle',
-    protected $primarykey='IdTablaDetalle',
-    public $timestamps=false,
+    protected $table='tablas_detalle';
+    protected $primarykey='IdTablaDetalle';
+    public $timestamps=false;
 
     protected $fillable=[
-        'IdTabla'
+        'IdTablaDetalle',
+        'IdTabla',
         'Descripcion',
         'FchCrea',
         'UsrCrea',

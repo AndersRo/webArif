@@ -7,16 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Marca extends Model
 {
   protected $table = 'marca';
-
-  protected $primarykey = 'idMarca';
-
-  //protected $foreingkey = 'IdActor';
-
+  protected $primarykey = 'IdMarca';
 
   public $timestamps=false;
 
   protected $fillable =[
-    'Descripcion'
+    'IdMarca',
+    'Descripcion',
     'UsrCrea',
     'WksCrea',
     'FchMod',

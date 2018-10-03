@@ -24,9 +24,10 @@ class ComandosFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'CodTipoComandos' => 'required|max:6',
+            'IdComandos'=>'required|max:11',
+            'CodTipoComandos'=>'required|max:6',
             'Comandos'=>'required|max:50',
-            'IdModelo'=>'required|max=11'
+            'IdModelo'=>'required|max:11'
         ];
     }
 }

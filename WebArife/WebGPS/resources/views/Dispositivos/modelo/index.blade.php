@@ -36,7 +36,9 @@
 							<td>{{$cat->UsrMod}}</td>
 							<td>{{$cat->WksMod}}</td>
 							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->FotoReferencial}}</td>
+							<td>
+								<img src="{{asset('imagenes/modelo/'.$cat->FotoReferencial)}}" alt="{{$cat->Descripcion}}" height="100px" width="100px" class="img-thumbnail">
+							</td>
 							<td>{{$cat->IdMarca}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>

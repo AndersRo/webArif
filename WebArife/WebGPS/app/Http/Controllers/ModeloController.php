@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Modelo;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
 use webGps\Http\Requests\ModeloFormRequest;
 use DB;
 class ModeloController extends Controller
@@ -27,7 +28,8 @@ public function create(){
   return view("Dispositivos/modelo.create");
 }
 public function store(ModeloFormRequest $request){
-  $modelo=new modelo;
+  $modelo=new Modelo;
+  $modelo->IdModelo=$request->get('IdModelo');
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=$request->get('FchCrea');
   $modelo->UsrCrea=$request->get('UsrCrea');
@@ -36,19 +38,24 @@ public function store(ModeloFormRequest $request){
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
   $modelo->FlgEli=1;
-  $modelo->FotoReferencial=$request->get('FotoReferencial');
+  if (Input::hasFile('FotoReferencial')) {
+    $file=Input::file('FotoReferencial');
+    $file->move(public_path().'/imagenes/modelo/',$file->getClientOriginalName());
+    $modelo->FotoReferencial=$file->getClientOriginalName();
+  }
   $modelo->IdMarca=$request->get('IdMarca');
   $modelo->save();
   return Redirect::to('Dispositivos/modelo');
 }
 public function show($id){
-  return view("Dispositivos/modelo.show", ["modelo"=>modelo::findOrFail($id)]);
+  return view("Dispositivos/modelo.show", ["modelo"=>Modelo::findOrFail($id)]);
 }
 public function edit($id){
-  return view("Dispositivos/modelo.edit", ["modelo"=>modelo::findOrFail($id)]);
+  return view("Dispositivos/modelo.edit", ["modelo"=>Modelo::findOrFail($id)]);
 }
 public function update(ModeloFormRequest $request,$id){
   $modelo=modelo::findOrFail($id);
+  $modelo->IdModelo=$request->get('IdModelo');
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=$request->get('FchCrea');
   $modelo->UsrCrea=$request->get('UsrCrea');
@@ -57,7 +64,11 @@ public function update(ModeloFormRequest $request,$id){
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
   $modelo->FlgEli=$request->get('FlgEli');
-  $modelo->FotoReferencial=$request->get('FotoReferencial');
+  if (Input::hasFile('FotoReferencial')) {
+    $file=Input::file('FotoReferencial');
+    $file->move(public_path().'/imagenes/modelo/',$file->getClientOriginalName());
+    $modelo->FotoReferencial=$file->getClientOriginalName();
+  }
   $modelo->IdMarca=$request->get('IdMarca');
   $modelo->update();
   return Redirect::to('Dispositivos/modelo');

@@ -24,16 +24,17 @@ class ModeloFormRequest extends FormRequest
     public function rules()
     {
         return [
+          'IdModelo'=>'required|max:11',
           'Descripcion'=>'required|max:100',
           'FchCrea'=>'required|max:10',
           'UsrCrea'=>'required|max:30',
           'WksCrea'=>'required|max:30',
           'FchMod'=>'required|max:10',
           'UsrMod'=>'required|max:30',
-          'WksMod'=>'required|max:30'
+          'WksMod'=>'required|max:30',
           'FlgEli'=>'max:1',
-          'FotoReferencial'=>'required|max:250',
-          'idMarca'=>'required|max:11'
+          'FotoReferencial'=>'mimes:jpeg,bmp,png',
+          'IdMarca'=>'required|max:11'
         ];
     }
 }

@@ -28,29 +28,32 @@ public function create(){
   return view("Dispositivos/comandos.create");
 }
 public function store(ComandosFormRequest $request){
-  $comandos=new comandos;
+  $comandos=new Comandos;
+  $comandos->IdComandos=$request->get('IdComandos');
   $comandos->CodTipoComandos=$request->get('CodTipoComandos');
-  $comandos->UsrCrea=$request->get('comandos');
-  $comandos->WksCrea=$request->get('IdModelo');
+  $comandos->Comandos=$request->get('Comandos');
+  $comandos->IdModelo=$request->get('IdModelo');
+  $comandos->save();
   return Redirect::to('Dispositivos/comandos');
 }
 public function show($id){
-  return view("Dispositivos/comandos.show", ["comandos"=>comandos::findOrFail($id)]);
+  return view("Dispositivos/comandos.show", ["comandos"=>Comandos::findOrFail($id)]);
 }
 public function edit($id){
 
-    return view("Dispositivos/comandos.edit", ["comandos"=>comandos::findOrFail($id)]);
+    return view("Dispositivos/comandos.edit", ["comandos"=>Comandos::findOrFail($id)]);
 }
 public function update(ComandosFormRequest $request,$id){
-  $comandos=comandos::findOrFail($id);
-  $comandos->UsrCrea=$request->get('comandos');
+  $comandos=Comandos::findOrFail($id);
+  $comandos->IdComandos=$request->get('IdComandos');
   $comandos->CodTipoComandos=$request->get('CodTipoComandos');
-  $comandos->WksCrea=$request->get('IdModelo');
+  $comandos->Comandos=$request->get('Comandos');
+  $comandos->IdModelo=$request->get('IdModelo');
   $comandos->update();
   return Redirect::to('Dispositivos/comandos');
 }
 public function destroy($id){
-  $comandos=comandos::findOrFail($id);
+  $comandos=Comandos::findOrFail($id);
   $comandos->FlgEli='0';
   $comandos->update();
   return Redirect::to('Dispositivos/comandos');

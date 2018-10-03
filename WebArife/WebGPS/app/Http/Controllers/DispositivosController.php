@@ -28,25 +28,26 @@ class DispositivosController extends Controller
       return view("Dispositivos/dispositivo.create");
     }
     public function store(DispositivosFormRequest $request){
-      $dispositivos=new dispositivos;
+      $dispositivos=new Dispositivos;
+      $dispositivos->IdDispositivo=$request->get('IdDispositivo');
       $dispositivos->Serie=$request->get('Serie');
       $dispositivos->IMEI=$request->get('IMEI');
       $dispositivos->IdModelo=$request->get('IdModelo');
       $dispositivos->NroSim=$request->get('NroSim');
       $dispositivos->NroIDN=$request->get('NroIDN');
       $dispositivos->IdEmpresa=$request->get('IdEmpresa');
-      $dispositivos->save;
-
-      return Redirect::to('dispositivos');
+      $dispositivos->save();
+      return Redirect::to('Dispositivos/dispositivo');
     }
     public function show($id){
-      return view("dispositivos.show", ["dispositivos"=>dispositivos::findOrFail($id)]);
+      return view("Dispositivos/dispositivo.show", ["dispositivo"=>Dispositivos::findOrFail($id)]);
     }
     public function edit($id){
-      return view("dispositivos.edit", ["dispositivos"=>dispositivos::findOrFail($id)]);
+      return view("Dispositivos/dispositivo.edit", ["dispositivo"=>Dispositivos::findOrFail($id)]);
     }
     public function update(DispositivosFormRequest $request,$id){
-      $dispositivos=dispositivos::findOrFail($id);
+      $dispositivos=Dispositivos::findOrFail($id);
+      $dispositivos->IdDispositivo=$request->get('IdDispositivo');
       $dispositivos->Serie=$request->get('Serie');
       $dispositivos->IMEI=$request->get('IMEI');
       $dispositivos->IdModelo=$request->get('IdModelo');
@@ -54,7 +55,7 @@ class DispositivosController extends Controller
       $dispositivos->NroIDN=$request->get('NroIDN');
       $dispositivos->IdEmpresa=$request->get('IdEmpresa');
       $dispositivos->update();
-      return Redirect::to('dispositivo');
+      return Redirect::to('Dispositivos/dispositivo');
     }
     public function destroy($id){
 

@@ -24,6 +24,7 @@ class DispositivosFormRequest extends FormRequest
     public function rules()
     {
         return [
+          'IdDispositivo'=>'required|max:11',
           'Serie'=>'required|max:100',
           'IMEI'=>'required|max:100',
           'IdModelo'=>'required|max:11',
