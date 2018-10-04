@@ -22,19 +22,19 @@
 						<th>WksMod</th>
 						<th>FlgEli</th>
 					</thead>
-					@foreach ($mecanico as $cat):
+					@foreach ($mecanico as $mec):
 						<tr>
-							<td>{{$cat->IdMecanico}}</td>
-							<td>{{$cat->IdActor}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$mec->IdMecanico}}</td>
+							<td>{{$mec->IdActor}}</td>
+							<td>{{$mec->FchCrea}}</td>
+							<td>{{$mec->UsrCrea}}</td>
+							<td>{{$mec->WksCrea}}</td>
+							<td>{{$mec->FchMod}}</td>
+							<td>{{$mec->UsrMod}}</td>
+							<td>{{$mec->WksMod}}</td>
+							<td>{{$mec->FlgEli}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('MecanicoController@edit',$mec->IdMecanico)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

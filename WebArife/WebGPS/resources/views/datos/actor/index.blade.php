@@ -31,30 +31,30 @@
 				    <th>UsrMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($actor as $cat):
+					@foreach ($actor as $act):
 						<tr>
-							<td>{{$cat->IdActor}}</td>
-							<td>{{$cat->TipoPersona}}</td>
-							<td>{{$cat->Apellido_Paterno}}</td>
-							<td>{{$cat->Apellido_Materno}}</td>
-							<td>{{$cat->PrimerNombre}}</td>
-							<td>{{$cat->SegundoNombre}}</td>
-							<td>{{$cat->RazonSocial}}</td>
-							<td>{{$cat->TipoDocumento}}</td>
-							<td>{{$cat->CodigoIdentificacion}}</td>
-							<td>{{$cat->RUC}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$act->IdActor}}</td>
+							<td>{{$act->TipoPersona}}</td>
+							<td>{{$act->Apellido_Paterno}}</td>
+							<td>{{$act->Apellido_Materno}}</td>
+							<td>{{$act->PrimerNombre}}</td>
+							<td>{{$act->SegundoNombre}}</td>
+							<td>{{$act->RazonSocial}}</td>
+							<td>{{$act->TipoDocumento}}</td>
+							<td>{{$act->CodigoIdentificacion}}</td>
+							<td>{{$act->RUC}}</td>
+							<td>{{$act->IdEmpresa}}</td>
+							<td>{{$act->FchCrea}}</td>
+							<td>{{$act->UsrCrea}}</td>
+							<td>{{$act->WksCrea}}</td>
+							<td>{{$act->FchMod}}</td>
+							<td>{{$act->UsrMod}}</td>
+							<td>{{$act->WksMod}}</td>
+							<td>{{$act->FchCrea}}</td>
+							<td>{{$act->UsrCrea}}</td>
+							<td>{{$act->FlgEli}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('ActorController@edit',$act->IdActor)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

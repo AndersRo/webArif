@@ -49,7 +49,6 @@ class ClienteController extends Controller
     }
     public function update(ClienteFormRequest $request,$id){
     	$cliente=Cliente::findOrFail($id);
-			$cliente->IdCliente=$request->get('IdCliente');
 			$cliente->IdActor=$request->get('IdActor');
     	$cliente->FchCrea=$request->get('FchCrea');
     	$cliente->UsrCrea=$request->get('UsrCrea');
@@ -57,7 +56,6 @@ class ClienteController extends Controller
     	$cliente->FchMod=$request->get('FchMod');
 			$cliente->WksMod=$request->get('WksMod');
     	$cliente->UsrMod=$request->get('UsrMod');
-    	$cliente->FlgEli=$request->get('FlgEli');
     	$cliente->update();
     	return Redirect::to('datos/cliente');
     }

@@ -20,6 +20,7 @@ class ActorController extends Controller
         $query=trim($request->get('searchText'));
         $actor=DB::table('actor')
         ->where('TipoPersona','LIKE','%'.$query.'%')
+        ->where('FlgEli','=','1')
         ->orderBy('IdActor','desc')
         ->paginate(7);
         return view ('datos/actor.index',["actor"=>$actor,"searchText"=>$query]);
@@ -52,14 +53,13 @@ class ActorController extends Controller
       return Redirect::to('datos/actor');
     }
     public function show($id){
-      return view("datos/actor.show", ["actor"=>Actor::findOrFail($id)]);
+      return view("datos.actor.show",["actor"=>Actor::findOrFail($id)]);
     }
     public function edit($id){
-      return view("datos/actor.edit", ["actor"=>Actor::findOrFail($id)]);
+      return view("datos.actor.edit",["actor"=>Actor::findOrFail($id)]);
     }
-    public function update(ActorFormRequest $request,$id){
+    public function update(ActorFormRequest $request, $id){
       $actor=Actor::findOrFail($id);
-      $actor->IdActor=$request->get('IdActor');
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
       $actor->Apellido_Materno=$request->get('Apellido_Materno');
@@ -69,14 +69,9 @@ class ActorController extends Controller
       $actor->TipoDocumento=$request->get('TipoDocumento');
       $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
       $actor->RUC=$request->get('RUC');
-      $actor->IdEmpresa=$request->get('IdEmpresa');
-      $actor->FchCrea=$request->get('FchCrea');
-      $actor->UsrCrea=$request->get('UsrCrea');
-      $actor->WksCrea=$request->get('WksCrea');
       $actor->FchMod=$request->get('FchMod');
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
-      $actor->FlgEli=1;
       $actor->update();
       return Redirect::to('datos/actor');
     }

@@ -62,18 +62,20 @@ class EmpresaController extends Controller
     }
     public function update(EmpresaFormRequest $request,$id){
       $empresa=Empresa::findOrFail($id);
-      $empresa->IdEmpresa=$request->get('IdEmpresa');
       $empresa->RUC=$request->get('RUC');
       $empresa->RazonSocial=$request->get('RazonSocial');
       $empresa->NombreComercial=$request->get('NombreComercial');
-      $empresa->RutaLogo=$request->get('RutaLogo');
+      if (Input::hasFile('RutaLogo')) {
+        $file=Input::file('RutaLogo');
+        $file->move(public_path().'/imagenes/empresa/',$file->getClientOriginalName());
+        $empresa->RutaLogo=$file->getClientOriginalName();
+      }
       $empresa->UsrCrea=$request->get('UsrCrea');
       $empresa->WksCrea=$request->get('WksCrea');
       $empresa->FchCrea=$request->get('FchCrea');
       $empresa->FchMod=$request->get('FchMod');
       $empresa->UsrMod=$request->get('UsrMod');
       $empresa->WksMod=$request->get('WksMod');
-      $empresa->FlgEli=$request->get('FlgEli');
       $empresa->Representante=$request->get('Representante');
       $empresa->update();
       return Redirect::to('datos/empresa');

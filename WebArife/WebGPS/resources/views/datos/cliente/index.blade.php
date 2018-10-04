@@ -22,19 +22,19 @@
 						<th>WksMod</th>
 						<th>FlgEli</th>
 					</thead>
-					@foreach ($cliente as $cat):
+					@foreach ($cliente as $cli):
 						<tr>
-							<td>{{$cat->IdCliente}}</td>
-							<td>{{$cat->IdActor}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$cli->IdCliente}}</td>
+							<td>{{$cli->IdActor}}</td>
+							<td>{{$cli->FchCrea}}</td>
+							<td>{{$cli->UsrCrea}}</td>
+							<td>{{$cli->WksCrea}}</td>
+							<td>{{$cli->FchMod}}</td>
+							<td>{{$cli->UsrMod}}</td>
+							<td>{{$cli->WksMod}}</td>
+							<td>{{$cli->FlgEli}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('ClienteController@edit',$cli->IdCliente)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

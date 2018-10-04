@@ -38,6 +38,6 @@ Route::resource('plataforma/AccesosPlataforma','AccesosPlataformaController');
 
 //Route::resource('seguridad/usuario','UsuarioController');
 
-Auth::routes();
+//Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -26,25 +26,25 @@
 				    <th>FlgEli</th>
 						<th>Representante</th>
 					</thead>
-					@foreach ($empresa as $cat):
+					@foreach ($empresa as $emp):
 						<tr>
-							<td>{{$cat->IdEmpresa}}</td>
-							<td>{{$cat->RUC}}</td>
-							<td>{{$cat->RazonSocial}}</td>
-							<td>{{$cat->NombreComercial}}</td>
+							<td>{{$emp->IdEmpresa}}</td>
+							<td>{{$emp->RUC}}</td>
+							<td>{{$emp->RazonSocial}}</td>
+							<td>{{$emp->NombreComercial}}</td>
 							<td>
-								<img src="{{asset('imagenes/empresa/'.$cat->RutaLogo)}}" alt="{{$cat->RazonSocial}}" height="100px" width="100px" class="img-thumbnail">
+								<img src="{{asset('imagenes/empresa/'.$emp->RutaLogo)}}" alt="{{$emp->RazonSocial}}" height="100px" width="100px" class="img-thumbnail">
 							</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->Representante}}</td>
+							<td>{{$emp->UsrCrea}}</td>
+							<td>{{$emp->WksCrea}}</td>
+							<td>{{$emp->FchCrea}}</td>
+							<td>{{$emp->FchMod}}</td>
+							<td>{{$emp->UsrMod}}</td>
+							<td>{{$emp->WksMod}}</td>
+							<td>{{$emp->FlgEli}}</td>
+							<td>{{$emp->Representante}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('EmpresaController@edit',$emp->IdEmpresa)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
