@@ -54,7 +54,7 @@
 								<a href="" data-target="#modal-delete-{{$acp->IdAcceso}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
-						@include('Plataforma.AccesosPlataforma.modal')
+						@include('plataforma.AccesosPlataforma.modal')
 					@endforeach
 				</table>
 			</div>

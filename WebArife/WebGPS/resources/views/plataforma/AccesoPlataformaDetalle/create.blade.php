@@ -13,7 +13,7 @@ vb@extends ('layouts.admin')
         </div>
         @endif
 
-        {!! Form::open(array('url'=>'datos/vehiculo','method'=>'POST','autocomplete'=>'off')) !!}
+        {!! Form::open(array('url'=>'plataforma/AccesoPlataformaDetalle','method'=>'POST','autocomplete'=>'off')) !!}
         {{Form::token()}}
 
         <div class="form-group">

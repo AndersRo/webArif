@@ -13,7 +13,7 @@
         </div>
         @endif
 
-        {!! Form::open(array('url'=>'datos/vehiculo','method'=>'POST','autocomplete'=>'off')) !!}
+        {!! Form::open(array('url'=>'documentos/contrato_anexo','method'=>'POST','autocomplete'=>'off')) !!}
         {{Form::token()}}
 
         <div class="form-group">

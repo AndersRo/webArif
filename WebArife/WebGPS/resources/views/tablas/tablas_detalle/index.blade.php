@@ -40,7 +40,7 @@
 								<a href="" data-target="#modal-delete-{{$tad->IdTablaDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
-						@include('tablas.tablas.modal')
+						@include('tablas.tablas_detalle.modal')
 					@endforeach
 				</table>
 			</div>

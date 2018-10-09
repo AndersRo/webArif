@@ -4,7 +4,7 @@ namespace webGps;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AccesoPlataformaComando extends Model
+class AccesoPlataformaComandos extends Model
 {
     protected $table='accesoplataformacomandos';
     protected $primaryKey='IdAccesoComandos';

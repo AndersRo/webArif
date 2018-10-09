@@ -4,7 +4,7 @@ namespace webGps\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AccesoPlataformaComandoFormRequest extends FormRequest
+class AccesoPlataformaComandosFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

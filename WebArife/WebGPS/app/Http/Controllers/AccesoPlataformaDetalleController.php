@@ -4,7 +4,6 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\input;
 use webGps\Http\Requests\AccesoPlataformaDetalleFormRequet;
 use webGps\AccesoPlataformaDetalle;
 use DB;
@@ -38,17 +37,17 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
       $accesoplataformadetalle->FlgEli=1;
-      $accesoplataformadetalle->save;
+      $accesoplataformadetalle->save();
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
     public function show($id){
-      return view("plataforma.AccesoPlataformaDetalle.show", ["accesoplataformadetalle"=>accesoplataformadetalle::findOrFail($id)]);
+      return view("plataforma.AccesoPlataformaDetalle.show", ["accesoplataformadetalle"=>AccesoPlataformaDetalle::findOrFail($id)]);
     }
     public function edit($id){
-      return view("plataforma.AccesoPlataformaDetalle.edit", ["accesoplataformadetalle"=>accesoplataformadetalle::findOrFail($id)]);
+      return view("plataforma.AccesoPlataformaDetalle.edit", ["accesoplataformadetalle"=>AccesoPlataformaDetalle::findOrFail($id)]);
     }
     public function update(AccesoPlataformaDetalleFormRequest $request,$id){
-      $accesoplataformadetalle=accesoplataformadetalle::findOrFail($id);
+      $accesoplataformadetalle=AccesoPlataformaDetalle::findOrFail($id);
       $accesoplataformadetalle->IdAcceso=$request->get('IdAcceso');
       $accesoplataformadetalle->IdContrato=$request->get('IdContrato');
       $accesoplataformadetalle->FchCrea=$request->get('FchCrea');
@@ -62,6 +61,9 @@ class AccesoPlataformaDetalleController extends Controller
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
     public function destroy($id){
-
+      $accesoplataformadetalle=AccesoPlataformaDetalle::findOrFail($id);
+			$accesoplataformadetalle->FlgEli='0';
+			$accesoplataformadetalle->update();
+			return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
 }

@@ -3,8 +3,9 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use webGps\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\input;
 use webGps\Http\Requests\AccesoPlataformaComandosFormRequet;
 use webGps\AccesoPlataformaComandos;
 use DB;
@@ -28,7 +29,7 @@ class AccesoPlataformaComandosController extends Controller
       return view("plataforma.AccesoPlataformaComandos.create");
     }
     public function store(AccesoPlataformaComandosFormRequest $request){
-      $accesoplataformacomandos=new accesoplataformacomandos;
+      $accesoplataformacomandos=new AccesoPlataformaComandos;
       $accesoplataformacomandos->IdAccesoDetalle=$request->get('IdAccesoDetalle');
       $accesoplataformacomandos->FchCrea=$request->get('FchCrea');
       $accesoplataformacomandos->UsrCrea=$request->get('UsrCrea');
@@ -37,17 +38,17 @@ class AccesoPlataformaComandosController extends Controller
       $accesoplataformacomandos->UsrMod=$request->get('UsrMod');
       $accesoplataformacomandos->WksMod=$request->get('WksMod');
       $accesoplataformacomandos->FlgEli=1;
-      $accesoplataformacomandos->save;
+      $accesoplataformacomandos->save();
       return Redirect::to('plataforma/AccesoPlataformaComandos');
     }
     public function show($id){
-      return view("plataforma.AccesoPlataformaComandos.show", ["accesoplataformacomandos"=>accesoplataformacomandos::findOrFail($id)]);
+      return view("plataforma.AccesoPlataformaComandos.show", ["accesoplataformacomandos"=>AccesoPlataformaComandos::findOrFail($id)]);
     }
     public function edit($id){
-      return view("plataforma.AccesoPlataformaComandos.edit", ["accesoplataformacomandos"=>accesoplataformacomandos::findOrFail($id)]);
+      return view("plataforma.AccesoPlataformaComandos.edit", ["accesoplataformacomandos"=>AccesoPlataformaComandos::findOrFail($id)]);
     }
     public function update(AccesoPlataformaComandosFormRequest $request,$id){
-      $accesoplataformacomandos=accesoplataformacomandos::findOrFail($id);
+      $accesoplataformacomandos=AccesoPlataformaComandos::findOrFail($id);
       $accesoplataformacomandos->IdAccesoDetalle=$request->get('IdAccesoDetalle');
       $accesoplataformacomandos->FchCrea=$request->get('FchCrea');
       $accesoplataformacomandos->UsrCrea=$request->get('UsrCrea');
@@ -60,6 +61,9 @@ class AccesoPlataformaComandosController extends Controller
       return Redirect::to('plataforma/AccesoPlataformaComandos');
     }
     public function destroy($id){
-
+      $accesoplataformacomandos=AccesoPlataformaComandos::findOrFail($id);
+			$accesoplataformacomandos->FlgEli='0';
+			$accesoplataformacomandos->update();
+			return Redirect::to('plataforma/AccesoPlataformaComandos');
     }
 }

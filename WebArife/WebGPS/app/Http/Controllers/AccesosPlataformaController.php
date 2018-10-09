@@ -4,7 +4,6 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\input;
 use webGps\AccesosPlataforma;
 use webGps\Http\Requests\AccesosPlataformaFormRequest;
 use DB;
@@ -76,6 +75,9 @@ class AccesosPlataformaController extends Controller
       return Redirect::to('accesosplataforma/accesosplataforma');
     }
     public function destroy($id){
-
+      $accesosplataforma=AccesosPlataforma::findOrFail($id);
+			$accesosplataforma->FlgEli='0';
+			$accesosplataforma->update();
+			return Redirect::to('plataforma/AccesosPlataforma');
     }
 }

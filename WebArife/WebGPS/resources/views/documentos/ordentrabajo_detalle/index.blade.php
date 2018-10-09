@@ -2,7 +2,7 @@
 @section ('contenido')
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>Detalle Orden de Trabajo <a href="contrato_ordenes/create"><button class="btn btn-success">Nuevo</button></a> </h3>
+			<h3>Detalle Orden de Trabajo <a href="ordentrabajo_detalle/create"><button class="btn btn-success">Nuevo</button></a> </h3>
 			@include('documentos.ordentrabajo_detalle.search')
 		</div>
 	</div>
