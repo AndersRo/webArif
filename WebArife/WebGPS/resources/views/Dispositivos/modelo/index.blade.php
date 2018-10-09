@@ -24,29 +24,29 @@
 						<th>FotoReferencial</th>
 						<th>IdMarca</th>
 					</thead>
-					@foreach ($modelo as $cat):
+					@foreach ($modelo as $mod):
 						<tr>
-							<td>{{$cat->IdModelo}}</td>
-							<td>{{$cat->Descripcion}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$mod->IdModelo}}</td>
+							<td>{{$mod->Descripcion}}</td>
+							<td>{{$mod->UsrCrea}}</td>
+							<td>{{$mod->UsrCrea}}</td>
+							<td>{{$mod->WksCrea}}</td>
+							<td>{{$mod->UsrMod}}</td>
+							<td>{{$mod->FchMod}}</td>
+							<td>{{$mod->UsrMod}}</td>
+							<td>{{$mod->WksMod}}</td>
+							<td>{{$mod->FlgEli}}</td>
 							<td>
-								<img src="{{asset('imagenes/modelo/'.$cat->FotoReferencial)}}" alt="{{$cat->Descripcion}}" height="100px" width="100px" class="img-thumbnail">
+								<img src="{{asset('imagenes/modelo/'.$mod->FotoReferencial)}}" alt="{{$mod->Descripcion}}" height="100px" width="100px" class="img-thumbnail">
 							</td>
-							<td>{{$cat->IdMarca}}</td>
+							<td>{{$mod->IdMarca}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$mod->IdModelo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('Dispositivos.modelo.modal')
 					@endforeach
-
 				</table>
 			</div>
 			{{$modelo->render()}}

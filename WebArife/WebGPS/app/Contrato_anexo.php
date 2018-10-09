@@ -8,7 +8,7 @@ class Contrato_Anexo extends Model
 {
 
   protected $table = 'contrato_anexo';
-  protected $primarykey = 'IdContrato_Anexo';
+  protected $primaryKey = 'IdContrato_Anexo';
 
   public $timestamps=false;
 

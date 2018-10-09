@@ -17,17 +17,18 @@
 						<th>Comandos</th>
 						<th>IdModelo</th>
 					</thead>
-					@foreach ($comandos as $cat):
+					@foreach ($comandos as $com):
 						<tr>
-							<td>{{$cat->IdComandos}}</td>
-							<td>{{$cat->CodTipoComandos}}</td>
-							<td>{{$cat->Comandos}}</td>
-							<td>{{$cat->IdModelo}}</td>
+							<td>{{$com->IdComandos}}</td>
+							<td>{{$com->CodTipoComandos}}</td>
+							<td>{{$com->Comandos}}</td>
+							<td>{{$com->IdModelo}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$com->IdComandos}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('Dispositivos.comandos.modal')
 					@endforeach
 
 				</table>

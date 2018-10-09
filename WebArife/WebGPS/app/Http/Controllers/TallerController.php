@@ -62,7 +62,7 @@ public function update(TallerFormRequest $request,$id){
   return Redirect::to('datos/taller');
 }
 public function destroy($id){
-  $taller=taller::findOrFail($id);
+  $taller=Taller::findOrFail($id);
   $taller->FlgEli='0';
   $taller->update();
   return Redirect::to('datos/taller');

@@ -8,7 +8,7 @@ class OrdenTrabajo extends Model
 {
     //
     protected $table = 'ordentrabajo';
-    protected $primarykey = 'IdOrden';
+    protected $primaryKey = 'IdOrden';
     public $timestamps=false;
 
     protected $fillable =[

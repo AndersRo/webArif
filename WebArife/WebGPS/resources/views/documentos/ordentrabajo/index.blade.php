@@ -29,29 +29,30 @@
 						<th>FechaRegistro</th>
 						<th>FechaProgramada</th>
 					</thead>
-					@foreach ($ordentrabajo as $cat):
+					@foreach ($ordentrabajo as $ont):
 						<tr>
-							<td>{{$cat->IdOrden}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
-							<td>{{$cat->IdMecanico}}</td>
-							<td>{{$cat->IdCliente}}</td>
-							<th>{{$cat->IdVehiculo}}</th>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->EstadoOrden}}</td>
-							<td>{{$cat->Obsvacion}}</td>
-							<td>{{$cat->FechaRegistro}}</td>
-							<th>{{$cat->FechaProgramada}}</th>
+							<td>{{$ont->IdOrden}}</td>
+							<td>{{$ont->IdEmpresa}}</td>
+							<td>{{$ont->IdMecanico}}</td>
+							<td>{{$ont->IdCliente}}</td>
+							<th>{{$ont->IdVehiculo}}</th>
+							<td>{{$ont->FchCrea}}</td>
+							<td>{{$ont->UsrCrea}}</td>
+							<td>{{$ont->WksCrea}}</td>
+							<td>{{$ont->FchMod}}</td>
+							<td>{{$ont->UsrMod}}</td>
+							<td>{{$ont->WksMod}}</td>
+							<td>{{$ont->FlgEli}}</td>
+							<td>{{$ont->EstadoOrden}}</td>
+							<td>{{$ont->Obsvacion}}</td>
+							<td>{{$ont->FechaRegistro}}</td>
+							<th>{{$ont->FechaProgramada}}</th>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$ont->IdOrden}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('documentos.ordentrabajo.modal')
 					@endforeach
 				</table>
 			</div>

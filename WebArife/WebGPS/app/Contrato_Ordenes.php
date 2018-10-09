@@ -8,14 +8,8 @@ class Contrato_Ordenes extends Model
 {
 
   protected $table = 'contrato_ordenes';
-
-
-  protected $primarykey = 'IdContrato';
-
-  //protected $foreingkey = 'IdActor';
+  protected $primaryKey = 'IdContrato';
   public $timestamps=false;
-
-
 
   protected $fillable =[
     'IdContrato',

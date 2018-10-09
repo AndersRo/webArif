@@ -22,22 +22,23 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($accesoplataformacomandos as $cat):
+					@foreach ($accesoplataformacomandos as $apc):
 						<tr>
-							<td>{{$cat->IdAccesoComandos}}</td>
-							<td>{{$cat->IdAccesoDetalle}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$apc->IdAccesoComandos}}</td>
+							<td>{{$apc->IdAccesoDetalle}}</td>
+							<td>{{$apc->FchCrea}}</td>
+							<td>{{$apc->UsrCrea}}</td>
+							<td>{{$apc->WksCrea}}</td>
+							<td>{{$apc->FchMod}}</td>
+							<td>{{$apc->UsrMod}}</td>
+							<td>{{$apc->WksMod}}</td>
+							<td>{{$apc->FlgEli}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$apc->IdAccesoComandos}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('plataforma.AccesoPlataformaComandos.modal')
 					@endforeach
 				</table>
 			</div>

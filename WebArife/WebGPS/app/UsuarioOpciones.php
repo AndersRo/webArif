@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UsuarioOpciones extends Model
 {
       protected $table = 'usuariosopciones';
-      protected $primarykey = 'IdUsuariosOpciones';
+      protected $primaryKey = 'IdUsuariosOpciones';
       public $timestamps=false;
 
       protected $fillable=[

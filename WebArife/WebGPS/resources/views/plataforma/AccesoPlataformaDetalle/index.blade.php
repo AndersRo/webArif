@@ -23,23 +23,24 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($accesoplataformadetalle as $cat):
+					@foreach ($accesoplataformadetalle as $apd):
 						<tr>
-							<td>{{$cat->IdAccesoDetalle}}</td>
-							<td>{{$cat->IdAcceso}}</td>
-							<td>{{$cat->IdContrato}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$apd->IdAccesoDetalle}}</td>
+							<td>{{$apd->IdAcceso}}</td>
+							<td>{{$apd->IdContrato}}</td>
+							<td>{{$apd->FchCrea}}</td>
+							<td>{{$apd->UsrCrea}}</td>
+							<td>{{$apd->WksCrea}}</td>
+							<td>{{$apd->FchMod}}</td>
+							<td>{{$apd->UsrMod}}</td>
+							<td>{{$apd->WksMod}}</td>
+							<td>{{$apd->FlgEli}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$apd->IdAccesoDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include(plataforma.AccesoPlataformaDetalle.modal)
 					@endforeach
 				</table>
 			</div>

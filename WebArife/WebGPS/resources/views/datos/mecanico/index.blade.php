@@ -35,11 +35,11 @@
 							<td>{{$mec->FlgEli}}</td>
 							<td>
 								<a href="{{URL::action('MecanicoController@edit',$mec->IdMecanico)}}"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$mec->IdMecanico}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('datos.mecanico.modal')
 					@endforeach
-
 				</table>
 			</div>
 			{{$mecanico->render()}}

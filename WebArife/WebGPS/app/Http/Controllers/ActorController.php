@@ -76,6 +76,9 @@ class ActorController extends Controller
       return Redirect::to('datos/actor');
     }
     public function destroy($id){
-
+      $actor=Actor::findOrFail($id);
+			$actor->FlgEli='0';
+			$actor->update();
+			return Redirect::to('datos/actor');
     }
 }

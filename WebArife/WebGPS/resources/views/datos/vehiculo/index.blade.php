@@ -29,31 +29,31 @@
 						<th>RutaTarjeta</th>
 						<th>IdEmpresa</th>
 					</thead>
-					@foreach ($vehiculo as $cat):
+					@foreach ($vehiculo as $veh):
 						<tr>
-							<td>{{$cat->IdVehiculo}}</td>
-							<td>{{$cat->Placa}}</td>
-							<td>{{$cat->Chasis}}</td>
-							<td>{{$cat->Motor}}</td>
-							<td>{{$cat->Modelo}}</td>
-							<td>{{$cat->Color}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->RutaReferencia}}</td>
-							<td>{{$cat->RutaTarjeta}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
+							<td>{{$veh->IdVehiculo}}</td>
+							<td>{{$veh->Placa}}</td>
+							<td>{{$veh->Chasis}}</td>
+							<td>{{$veh->Motor}}</td>
+							<td>{{$veh->Modelo}}</td>
+							<td>{{$veh->Color}}</td>
+							<td>{{$veh->FchCrea}}</td>
+							<td>{{$veh->UsrCrea}}</td>
+							<td>{{$veh->WksCrea}}</td>
+							<td>{{$veh->FchMod}}</td>
+							<td>{{$veh->UsrMod}}</td>
+							<td>{{$veh->WksMod}}</td>
+							<td>{{$veh->FlgEli}}</td>
+							<td>{{$veh->RutaReferencia}}</td>
+							<td>{{$veh->RutaTarjeta}}</td>
+							<td>{{$veh->IdEmpresa}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$veh->IdVehiculo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('datos.vehiculo.modal')
 					@endforeach
-
 				</table>
 			</div>
 			{{$vehiculo->render()}}

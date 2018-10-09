@@ -23,23 +23,24 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($tablas_detalle as $cat):
+					@foreach ($tablas_detalle as $tad):
 						<tr>
-							<td>{{$cat->IdTablaDetalle}}</td>
-							<td>{{$cat->IdTabla}}</td>
-							<td>{{$cat->Descripcion}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$tad->IdTablaDetalle}}</td>
+							<td>{{$tad->IdTabla}}</td>
+							<td>{{$tad->Descripcion}}</td>
+							<td>{{$tad->FchCrea}}</td>
+							<td>{{$tad->UsrCrea}}</td>
+							<td>{{$tad->WksCrea}}</td>
+							<td>{{$tad->FchMod}}</td>
+							<td>{{$tad->UsrMod}}</td>
+							<td>{{$tad->WksMod}}</td>
+							<td>{{$tad->FlgEli}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$tad->IdTablaDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('tablas.tablas.modal')
 					@endforeach
 				</table>
 			</div>

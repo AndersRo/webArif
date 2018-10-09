@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Opciones extends Model
 {
-    //
+
     protected $table = 'opciones';
-    protected $primarykey = 'IdOpciones';
+    protected $primaryKey = 'IdOpciones';
     public $timestamps=false;
 
     protected $fillable =[

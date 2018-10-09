@@ -26,26 +26,27 @@
 						<th>FechaInicio</th>
 						<th>FechaFin</th>
 					</thead>
-					@foreach ($ordentrabajo_detalle as $cat):
+					@foreach ($ordentrabajo_detalle as $odt):
 						<tr>
-							<td>{{$cat->IdOrdenDetalle}}</td>
-							<td>{{$cat->IdOrden}}</td>
-							<td>{{$cat->IdDispositivo}}</td>
-							<td>{{$cat->CodTipoTrabajo}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->FechaInicio}}</td>
-							<th>{{$cat->FechaFin}}</th>
+							<td>{{$odt->IdOrdenDetalle}}</td>
+							<td>{{$odt->IdOrden}}</td>
+							<td>{{$odt->IdDispositivo}}</td>
+							<td>{{$odt->CodTipoTrabajo}}</td>
+							<td>{{$odt->FchCrea}}</td>
+							<td>{{$odt->UsrCrea}}</td>
+							<td>{{$odt->WksCrea}}</td>
+							<td>{{$odt->FchMod}}</td>
+							<td>{{$odt->UsrMod}}</td>
+							<td>{{$odt->WksMod}}</td>
+							<td>{{$odt->FlgEli}}</td>
+							<td>{{$odt->FechaInicio}}</td>
+							<th>{{$odt->FechaFin}}</th>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$odt->IdOrdenDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('documentos.ordentrabajo_detalle.model')
 					@endforeach
 				</table>
 			</div>

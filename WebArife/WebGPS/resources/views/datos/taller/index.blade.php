@@ -22,24 +22,24 @@
 						<th>WksMod</th>
 						<th>FlgEli</th>
 					</thead>
-					@foreach ($taller as $cat):
+					@foreach ($taller as $tlr):
 						<tr>
-							<td>{{$cat->IdTaller}}</td>
-							<td>{{$cat->Descripcion}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$tlr->IdTaller}}</td>
+							<td>{{$tlr->Descripcion}}</td>
+							<td>{{$tlr->FchCrea}}</td>
+							<td>{{$tlr->UsrCrea}}</td>
+							<td>{{$tlr->WksCrea}}</td>
+							<td>{{$tlr->FchMod}}</td>
+							<td>{{$tlr->UsrMod}}</td>
+							<td>{{$tlr->WksMod}}</td>
+							<td>{{$tlr->FlgEli}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$tlr->IdTaller}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('datos.taller.modal')
 					@endforeach
-
 				</table>
 			</div>
 			{{$taller->render()}}

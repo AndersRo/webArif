@@ -55,9 +55,10 @@
 							<td>{{$act->FlgEli}}</td>
 							<td>
 								<a href="{{URL::action('ActorController@edit',$act->IdActor)}}"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$act->IdActor}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('datos.actor.modal')
 					@endforeach
 				</table>
 			</div>

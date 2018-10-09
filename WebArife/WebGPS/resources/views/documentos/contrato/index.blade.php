@@ -29,29 +29,30 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($contrato as $cat):
+					@foreach ($contrato as $cnt):
 						<tr>
-							<td>{{$cat->IdContrato}}</td>
-							<td>{{$cat->CodTipoServicio}}</td>
-							<td>{{$cat->FechaInicio}}</td>
-							<td>{{$cat->FechaFin}}</td>
-							<td>{{$cat->IdCliente}}</td>
-							<td>{{$cat->CodTipoContrato}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
-							<td>{{$cat->IdVehiculo}}</td>
-							<td>{{$cat->EstadoContrato}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$cnt->IdContrato}}</td>
+							<td>{{$cnt->CodTipoServicio}}</td>
+							<td>{{$cnt->FechaInicio}}</td>
+							<td>{{$cnt->FechaFin}}</td>
+							<td>{{$cnt->IdCliente}}</td>
+							<td>{{$cnt->CodTipoContrato}}</td>
+							<td>{{$cnt->IdEmpresa}}</td>
+							<td>{{$cnt->IdVehiculo}}</td>
+							<td>{{$cnt->EstadoContrato}}</td>
+							<td>{{$cnt->FchCrea}}</td>
+							<td>{{$cnt->UsrCrea}}</td>
+							<td>{{$cnt->WksCrea}}</td>
+							<td>{{$cnt->FchMod}}</td>
+							<td>{{$cnt->UsrMod}}</td>
+							<td>{{$cnt->WksMod}}</td>
+							<td>{{$cnt->FlgEli}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$cnt->IdContrato}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('documentos.contrato.modal')
 					@endforeach
 				</table>
 			</div>

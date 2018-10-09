@@ -22,24 +22,24 @@
 						<th>NroIDN</th>
 						<th>IdEmpresa</th>
 					</thead>
-					@foreach ($dispositivos as $cat):
+					@foreach ($dispositivos as $dsp):
 						<tr>
-							<td>{{$cat->IdDispositivo}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
-							<td>{{$cat->IdModelo}}</td>
-							<td>{{$cat->Serie}}</td>
-							<td>{{$cat->IMEI}}</td>
-							<td>{{$cat->IdModelo}}</td>
-							<td>{{$cat->NroSim}}</td>
-							<td>{{$cat->NroIDN}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
+							<td>{{$dsp->IdDispositivo}}</td>
+							<td>{{$dsp->IdEmpresa}}</td>
+							<td>{{$dsp->IdModelo}}</td>
+							<td>{{$dsp->Serie}}</td>
+							<td>{{$dsp->IMEI}}</td>
+							<td>{{$dsp->IdModelo}}</td>
+							<td>{{$dsp->NroSim}}</td>
+							<td>{{$dsp->NroIDN}}</td>
+							<td>{{$dsp->IdEmpresa}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$dsp->IdDispositivo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('Dispositivos.dispositivo.modal')
 					@endforeach
-
 				</table>
 			</div>
 			{{$dispositivos->render()}}

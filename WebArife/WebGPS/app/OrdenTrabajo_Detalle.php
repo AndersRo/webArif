@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrdenTrabajo_Detalle extends Model
 {
-    //
+
     protected $table = 'ordentrabajo_detalle';
-    protected $primarykey = 'IdOrdenDetalle';
+    protected $primaryKey = 'IdOrdenDetalle';
     public $timestamps=false;
 
     protected $fillable =[

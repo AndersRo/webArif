@@ -24,24 +24,25 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($contrato_anexo as $cat):
+					@foreach ($contrato_anexo as $cna):
 						<tr>
-							<td>{{$cat->IdContratoAnexo}}</td>
-							<td>{{$cat->IdContrato}}</td>
-							<td>{{$cat->CodDocumentoAnexo}}</td>
-							<td>{{$cat->RutaDocumento}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
+							<td>{{$cna->IdContratoAnexo}}</td>
+							<td>{{$cna->IdContrato}}</td>
+							<td>{{$cna->CodDocumentoAnexo}}</td>
+							<td>{{$cna->RutaDocumento}}</td>
+							<td>{{$cna->FchCrea}}</td>
+							<td>{{$cna->UsrCrea}}</td>
+							<td>{{$cna->WksCrea}}</td>
+							<td>{{$cna->FchMod}}</td>
+							<td>{{$cna->UsrMod}}</td>
+							<td>{{$cna->WksMod}}</td>
+							<td>{{$cna->FlgEli}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$cna->IdContratoAnexo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('documentos.contrato_anexo.modal')
 					@endforeach
 				</table>
 			</div>

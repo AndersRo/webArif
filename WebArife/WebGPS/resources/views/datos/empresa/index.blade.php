@@ -45,9 +45,10 @@
 							<td>{{$emp->Representante}}</td>
 							<td>
 								<a href="{{URL::action('EmpresaController@edit',$emp->IdEmpresa)}}"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$emp->IdEmpresa}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('datos.empresa.modal')
 					@endforeach
 				</table>
 			</div>

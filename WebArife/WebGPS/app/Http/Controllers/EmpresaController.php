@@ -81,7 +81,7 @@ class EmpresaController extends Controller
       return Redirect::to('datos/empresa');
     }
     public function destroy($id){
-       $empresa=empresa::findOrFail($id);
+       $empresa=Empresa::findOrFail($id);
        $empresa->FlgEli='0';
        $empresa->update();
        return Redirect::to('datos/empresa');

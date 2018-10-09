@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AccesosPlataforma extends Model
 {
     protected $table = 'accesosplataforma';
-    protected $primarykey = 'IdAcceso';
-
+    protected $primaryKey = 'IdAcceso';
     public $timestamps=false;
 
     protected $fillable=[

@@ -22,24 +22,24 @@
 						<th>FlgEli</th>
 						<th>FchCrea</th>
 					</thead>
-					@foreach ($marca as $cat):
+					@foreach ($marca as $mrc):
 						<tr>
-							<td>{{$cat->IdMarca}}</td>
-							<td>{{$cat->Descripcion}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->FchCrea}}</td>
+							<td>{{$mrc->IdMarca}}</td>
+							<td>{{$mrc->Descripcion}}</td>
+							<td>{{$mrc->UsrCrea}}</td>
+							<td>{{$mrc->WksCrea}}</td>
+							<td>{{$mrc->FchMod}}</td>
+							<td>{{$mrc->UsrMod}}</td>
+							<td>{{$mrc->WksMod}}</td>
+							<td>{{$mrc->FlgEli}}</td>
+							<td>{{$mrc->FchCrea}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$mrc->IdMarca}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('Dispositivos.marca.modelo')
 					@endforeach
-
 				</table>
 			</div>
 			{{$marca->render()}}

@@ -30,30 +30,31 @@
 				    <th>FlgEli</th>
 						<th>EstadoAcceso</th>
 					</thead>
-					@foreach ($accesosplataforma as $cat):
+					@foreach ($accesosplataforma as $acp):
 						<tr>
-							<td>{{$cat->IdCliente}}</td>
-							<td>{{$cat->IdAcceso}}</td>
-							<td>{{$cat->FlgAccesoApp}}</td>
-							<td>{{$cat->FlgAccesoWeb}}</td>
-							<td>{{$cat->IdEmpresa}}</td>
-							<td>{{$cat->MaxConexiones}}</td>
-							<td>{{$cat->LoginAcceso}}</td>
-							<td>{{$cat->ContrasnaPlataforma}}</td>
-							<td>{{$cat->ContrasenaComados}}</td>
-							<td>{{$cat->FchCrea}}</td>
-							<td>{{$cat->UsrCrea}}</td>
-							<td>{{$cat->WksCrea}}</td>
-							<td>{{$cat->FchMod}}</td>
-							<td>{{$cat->UsrMod}}</td>
-							<td>{{$cat->WksMod}}</td>
-							<td>{{$cat->FlgEli}}</td>
-							<td>{{$cat->EstadoAcceso}}</td>
+							<td>{{$acp->IdCliente}}</td>
+							<td>{{$acp->IdAcceso}}</td>
+							<td>{{$acp->FlgAccesoApp}}</td>
+							<td>{{$acp->FlgAccesoWeb}}</td>
+							<td>{{$acp->IdEmpresa}}</td>
+							<td>{{$acp->MaxConexiones}}</td>
+							<td>{{$acp->LoginAcceso}}</td>
+							<td>{{$acp->ContrasnaPlataforma}}</td>
+							<td>{{$acp->ContrasenaComados}}</td>
+							<td>{{$acp->FchCrea}}</td>
+							<td>{{$acp->UsrCrea}}</td>
+							<td>{{$acp->WksCrea}}</td>
+							<td>{{$acp->FchMod}}</td>
+							<td>{{$acp->UsrMod}}</td>
+							<td>{{$acp->WksMod}}</td>
+							<td>{{$acp->FlgEli}}</td>
+							<td>{{$acp->EstadoAcceso}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="#"><button class="btn btn-danger">Eliminar</button></a>
+								<a href="" data-target="#modal-delete-{{$acp->IdAcceso}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
+						@include('Plataforma.AccesosPlataforma.modal')
 					@endforeach
 				</table>
 			</div>
