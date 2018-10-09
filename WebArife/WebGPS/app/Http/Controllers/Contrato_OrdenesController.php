@@ -4,9 +4,9 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
-use webGps\app\Contrato_Anexo;
+use webGps\Contrato_Ordenes;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\Contrato_anexoFormRequest;
+use webGps\Http\Request\Contrato_OrdenesFormRequest;
 use DB;
 
 class Contrato_OrdenesController extends Controller

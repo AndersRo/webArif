@@ -46,7 +46,7 @@
 								<a href="" data-target="#modal-delete-{{$odt->IdOrdenDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
-						@include('documentos.ordentrabajo_detalle.model')
+						@include('documentos.ordentrabajo_detalle.modal')
 					@endforeach
 				</table>
 			</div>

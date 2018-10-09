@@ -9,10 +9,7 @@ use webGps\app\Opciones;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 
-
-
 use webGps\Http\Request\OpcionesFormRequest;
-
 
 class OpcionesController extends Controller
 {

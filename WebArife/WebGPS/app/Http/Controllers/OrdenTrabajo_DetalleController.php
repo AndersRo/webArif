@@ -36,7 +36,7 @@ public function store(OrdenTrabajo_DetalleFormRequest $request){
   $OrdenTrabajo_Detalle->FchMod=$request->get('FchMod');
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo_Detalle->WksMod=$request->get('WksMod');
-  $OrdenTrabajo_Detalle->FlgEli=1);
+  $OrdenTrabajo_Detalle->FlgEli=1;
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
   $OrdenTrabajo_Detalle->save();
