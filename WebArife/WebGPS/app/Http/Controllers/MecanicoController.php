@@ -2,6 +2,7 @@
 
 namespace webGps\Http\Controllers;
 
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Mecanico;
@@ -30,38 +31,35 @@ public function store(MecanicoFormRequest $request){
   $mecanico=new mecanico;
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
-  $mecanico->FchCrea=$request->get('FchCrea');
+  $mecanico->FchCrea=Carbon::now();
   $mecanico->UsrCrea=$request->get('UsrCrea');
   $mecanico->WksCrea=$request->get('WksCrea');
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->get('WksMod');
-  $mecanico->FchMod=$request->get('FchMod');
+  $mecanico->FchMod=Carbon::now();
   $mecanico->FlgEli=1;
   $mecanico->save();
   return Redirect::to('datos/mecanico');
 }
 public function show($id){
-  return view("datos/mecanico.show", ["mecanico"=>mecanico::findOrFail($id)]);
+  return view("datos/mecanico.show", ["mecanico"=>Mecanico::findOrFail($id)]);
 }
 public function edit($id){
-  return view("datos/mecanico.edit", ["mecanico"=>mecanico::findOrFail($id)]);
+  return view("datos/mecanico.edit", ["mecanico"=>Mecanico::findOrFail($id)]);
 }
 public function update(MecanicoFormRequest $request,$id){
-  $mecanico=mecanico::findOrFail($id);
+  $mecanico=Mecanico::findOrFail($id);
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
-  $mecanico->FchCrea=$request->get('FchCrea');
-  $mecanico->UsrCrea=$request->get('UsrCrea');
-  $mecanico->WksCrea=$request->get('WksCrea');
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->get('WksMod');
-  $mecanico->FchMod=$request->get('FchMod');
+  $mecanico->FchMod=Carbon::now();
   $mecanico->FlgEli=$request->get('FlgEli');
   $mecanico->update();
   return Redirect::to('datos/mecanico');
 }
 public function destroy($id){
-  $mecanico=mecanico::findOrFail($id);
+  $mecanico=Mecanico::findOrFail($id);
   $mecanico->FlgEli='0';
   $mecanico->update();
   return Redirect::to('datos/mecanico');

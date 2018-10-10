@@ -1,6 +1,8 @@
 <?php
 
 namespace webGps\Http\Controllers;
+
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\OrdenTrabajo_Detalle;
@@ -31,9 +33,10 @@ public function store(OrdenTrabajo_DetalleFormRequest $request){
   $OrdenTrabajo_Detalle->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo_Detalle->IdDispositivo=$request->get('IdDispositivo');
   $OrdenTrabajo_Detalle->CodTipoTrabajo=$request->get('CodTipoTrabajo');
-  $OrdenTrabajo_Detalle->FchCrea=$request->get('FchCrea');
+  $OrdenTrabajo_Detalle->FchCrea=Carbon::now();
   $OrdenTrabajo_Detalle->UsrCrea=$request->get('UsrCrea');
-  $OrdenTrabajo_Detalle->FchMod=$request->get('FchMod');
+  $OrdenTrabajo_Detalle->WksCrea=$request->get('WksCrea');
+  $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo_Detalle->WksMod=$request->get('WksMod');
   $OrdenTrabajo_Detalle->FlgEli=1;
@@ -54,9 +57,7 @@ public function update(OrdenTrabajo_DetalleFormRequest $request,$id){
   $OrdenTrabajo_Detalle->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo_Detalle->IdDispositivo=$request->get('IdDispositivo');
   $OrdenTrabajo_Detalle->CodTipoTrabajo=$request->get('CodTipoTrabajo');
-  $OrdenTrabajo_Detalle->FchCrea=$request->get('FchCrea');
-  $OrdenTrabajo_Detalle->UsrCrea=$request->get('UsrCrea');
-  $OrdenTrabajo_Detalle->FchMod=$request->get('FchMod');
+  $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo_Detalle->WksMod=$request->get('WksMod');
   $OrdenTrabajo_Detalle->FlgEli=$request->get('FglEli');

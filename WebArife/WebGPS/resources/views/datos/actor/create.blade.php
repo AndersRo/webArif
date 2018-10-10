@@ -59,10 +59,10 @@
           <label for="IdEmpresa">Empresa</label>
           <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="IdEmpresa">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchCrea">Fecha Creacion</label>
           <input type="text" name="FchCrea" class="form-control" required value="{{old('FchCrea')}}" placeholder="Fecha">
-        </div>
+        </div>-->
         <div class="form-group">
           <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="Usuario">
@@ -71,10 +71,10 @@
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" required value="{{old('WksCrea')}}" placeholder="WorkStation">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchMod">Fecha Mod</label>
           <input type="text" name="FchMod" class="form-control" required value="{{old('FchMod')}}" placeholder="Fecha">
-        </div>
+        </div>-->
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
           <input type="text" name="UsrMod" class="form-control" required value="{{old('UsrMod')}}" placeholder="Usuario">

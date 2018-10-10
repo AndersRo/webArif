@@ -2,6 +2,7 @@
 
 namespace webGps\Http\Controllers;
 
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\OrdenTrabajo;
@@ -32,12 +33,13 @@ public function store(OrdenTrabajoFormRequest $request){
   $OrdenTrabajo->IdMecanico=$request->get('IdMecanico');
   $OrdenTrabajo->IdCliente=$request->get('IdCliente');
   $OrdenTrabajo->IdVehiculo=$request->get('IdVehiculo');
-  $OrdenTrabajo->FchCrea=$request->get('FchCrea');
+  $OrdenTrabajo->FchCrea=Carbon::now();
+  $OrdenTrabajo->UsrCrea=$request->get('UsrCrea');
   $OrdenTrabajo->WksCrea=$request->get('WksCrea');
-  $OrdenTrabajo->FchMod=$request->get('FchMod');
+  $OrdenTrabajo->FchMod=Carbon::now();
   $OrdenTrabajo->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo->WksMod=$request->get('WksMod');
-  $OrdenTrabajo->FlgEli=$request->get('FlgEli');
+  $OrdenTrabajo->FlgEli=1;
   $OrdenTrabajo->EstadoOrden=$request->get('EstadoOrden');
   $OrdenTrabajo->Obsvacion=$request->get('Obsvacion');
   $OrdenTrabajo->FechaRegistro=$request->get('FechaRegistro');
@@ -59,12 +61,9 @@ public function update(OrdenTrabajoFormRequest $request,$id){
   $OrdenTrabajo->IdMecanico=$request->get('IdMecanico');
   $OrdenTrabajo->IdCliente=$request->get('IdCliente');
   $OrdenTrabajo->IdVehiculo=$request->get('IdVehiculo');
-  $OrdenTrabajo->FchCrea=$request->get('FchCrea');
-  $OrdenTrabajo->WksCrea=$request->get('WksCrea');
-  $OrdenTrabajo->FchMod=$request->get('FchMod');
+  $OrdenTrabajo->FchMod=Carbon::now();
   $OrdenTrabajo->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo->WksMod=$request->get('WksMod');
-  $OrdenTrabajo->FlgEli=$request->get('FlgEli');
   $OrdenTrabajo->EstadoOrden=$request->get('EstadoOrden');
   $OrdenTrabajo->Obsvacion=$request->get('Obsvacion');
   $OrdenTrabajo->FechaRegistro=$request->get('FechaRegistro');

@@ -4,6 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Empresa;
 use Illuminate\Support\Facades\Redirect;
@@ -43,8 +44,8 @@ class EmpresaController extends Controller
       }
       $empresa->UsrCrea=$request->get('UsrCrea');
       $empresa->WksCrea=$request->get('WksCrea');
-      $empresa->FchCrea=$request->get('FchCrea');
-      $empresa->FchMod=$request->get('FchMod');
+      $empresa->FchCrea=Carbon::now();
+      $empresa->FchMod=Carbon::now();
       $empresa->UsrMod=$request->get('UsrMod');
       $empresa->WksMod=$request->get('WksMod');
       $empresa->FlgEli=1;
@@ -70,10 +71,7 @@ class EmpresaController extends Controller
         $file->move(public_path().'/imagenes/empresa/',$file->getClientOriginalName());
         $empresa->RutaLogo=$file->getClientOriginalName();
       }
-      $empresa->UsrCrea=$request->get('UsrCrea');
-      $empresa->WksCrea=$request->get('WksCrea');
-      $empresa->FchCrea=$request->get('FchCrea');
-      $empresa->FchMod=$request->get('FchMod');
+      $empresa->FchMod=Carbon::now();
       $empresa->UsrMod=$request->get('UsrMod');
       $empresa->WksMod=$request->get('WksMod');
       $empresa->Representante=$request->get('Representante');

@@ -2,14 +2,13 @@
 
 namespace webGps\Http\Controllers;
 
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Contrato_Anexo;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Request\Contrato_AnexoFormRequest;
 use DB;
-
-
 
 class Contrato_AnexoController extends Controller
 {
@@ -33,10 +32,10 @@ public function store(Contrato_AnexoFormRequest $request){
   $contrato_anexo->IdContrato=$request->get('IdContrato');
   $contrato_anexo->CodDocumentoAnexo=$request->get('CodDocumentoAnexo');
   $contrato_anexo->RutaDocumento=$request->get('RutaDocumento');
-  $contrato_anexo->FchCrea=$request->get('FchCrea');
+  $contrato_anexo->FchCrea=Carbon::now();
   $contrato_anexo->UsrCrea=$request->get('UsrCrea');
   $contrato_anexo->WksCrea=$request->get('WksCrea');
-  $contrato_anexo->FchMod=$request->get('FchMod');
+  $contrato_anexo->FchMod=Carbon::now();
   $contrato_anexo->UsrMod=$request->get('UsrMod');
   $contrato_anexo->WksMod=$request->get('WksMod');
   $contrato_anexo->FglEli=$request->get('FglEli');
@@ -52,10 +51,7 @@ public function update(Contrato_AnexoFormRequest $request,$id){
   $contrato_anexo=Contrato_Anexo::findOrFail($id);
   $contrato_anexo->CodDocumentoAnexo=$request->get('CodDocumentoAnexo');
   $contrato_anexo->RutaDocumento=$request->get('RutaDocumento');
-  $contrato_anexo->FchCrea=$request->get('FchCrea');
-  $contrato_anexo->UsrCrea=$request->get('UsrCrea');
-  $contrato_anexo->WksCrea=$request->get('WksCrea');
-  $contrato_anexo->FchMod=$request->get('FchMod');
+  $contrato_anexo->FchMod=Carbon::now();
   $contrato_anexo->UsrMod=$request->get('UsrMod');
   $contrato_anexo->WksMod=$request->get('WksMod');
   $contrato_anexo->FglEli=$request->get('FglEli');
