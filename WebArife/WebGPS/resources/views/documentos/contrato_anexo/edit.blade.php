@@ -50,33 +50,33 @@
         </div>
       </div>
 
-  <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
            <div class="form-group">
              <label for="FchCrea">WorkStation</label>
              <input type="text" name="FchCrea" class="form-control" value="{{$contrato_anexo->FchCrea}}" placeholder="FchCrea">
            </div>
-         </div>
+      </div>
 
-         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
               <div class="form-group">
                 <label for="UsrCrea">Crear Usuario</label>
                 <input type="text" name="UsrCrea" class="form-control" value="{{$contrato_anexo->UsrCrea}}" placeholder="UsrCrea">
               </div>
-            </div>
+      </div>
 
    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" value="{{$contrato_anexo->WksCrea}}" placeholder="WorkStation">
         </div>
-      </div>
+    </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FchMod">Fecha Mod</label>
           <input type="text" name="FchMod" class="form-control" value="{{$contrato_anexo->FchMod}}" placeholder="Fecha">
         </div>
-      </div>
+      </div>-->
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">

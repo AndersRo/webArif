@@ -3,7 +3,7 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Tablas;
 use Illuminate\Support\Facades\Redirect;
@@ -31,10 +31,10 @@ public function store(TablasFormRequest $request){
   $tablas=new Tablas;
   $tablas->IdTabla=$request->get('IdTabla');
   $tablas->Descripcion=$request->get('Descripcion');
-  $tablas->FchCrea=$request->get('FchCrea');
+  $tablas->FchCrea=Carbon::now();
   $tablas->UsrCrea=$request->get('UsrCrea');
   $tablas->WksCrea=$request->get('WksCrea');
-  $tablas->FchMod=$request->get('FchMod');
+  $tablas->FchMod=Carbon::now();
   $tablas->UsrMod=$request->get('UsrMod');
   $tablas->WksMod=$request->get('WksMod');
   $tablas->FlgEli=1;
@@ -51,18 +51,15 @@ public function update(TablasFormRequest $request,$id){
   $tablas=Tablas::findOrFail($id);
   $tablas->IdTabla=$request->get('IdTabla');
   $tablas->Descripcion=$request->get('Descripcion');
-  $tablas->FchCrea=$request->get('FchCrea');
-  $tablas->UsrCrea=$request->get('UsrCrea');
-  $tablas->WksCrea=$request->get('WksCrea');
-  $tablas->FchMod=$request->get('FchMod');
+  $tablas->FchMod=Carbon::now();
   $tablas->UsrMod=$request->get('UsrMod');
   $tablas->WksMod=$request->get('WksMod');
-  $tablas->FlgEli=$request->get('FlgEli');
+  $tablas->FlgEli=1
   $tablas->update();
   return Redirect::to('tablas/tablas');
 }
 public function destroy($id){
-  $tablas=tablas::findOrFail($id);
+  $tablas=Tablas::findOrFail($id);
   $tablas->FlgEli='0';
   $tablas->update();
   return Redirect::to('tablas/tablas');

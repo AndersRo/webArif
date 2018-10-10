@@ -51,9 +51,6 @@ class ClienteController extends Controller
     public function update(ClienteFormRequest $request,$id){
     	$cliente=Cliente::findOrFail($id);
 			$cliente->IdActor=$request->get('IdActor');
-    	$cliente->FchCrea=$request->get('FchCrea');
-    	$cliente->UsrCrea=$request->get('UsrCrea');
-    	$cliente->WksCrea=$request->get('WksCrea');
     	$cliente->FchMod=Carbon::now();
 			$cliente->WksMod=$request->get('WksMod');
     	$cliente->UsrMod=$request->get('UsrMod');

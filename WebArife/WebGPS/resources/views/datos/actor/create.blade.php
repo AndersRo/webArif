@@ -63,14 +63,31 @@
           <label for="FchCrea">Fecha Creacion</label>
           <input type="text" name="FchCrea" class="form-control" required value="{{old('FchCrea')}}" placeholder="Fecha">
         </div>-->
-        <div class="form-group">
+
+        <!--<div class="input-group date">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
+          <script>
+            $('.date').datepicker({
+              format: 'yyyy/mm/dd',
+              startDate: '-3d',
+              language: "es",
+              autoclose: true
+            });
+          </script>
+        </div>-->
+
+        <div>
           <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="Usuario">
         </div>
-        <div class="form-group">
+
+        <!--<div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" required value="{{old('WksCrea')}}" placeholder="WorkStation">
-        </div>
+        </div>-->
         <!--<div class="form-group">
           <label for="FchMod">Fecha Mod</label>
           <input type="text" name="FchMod" class="form-control" required value="{{old('FchMod')}}" placeholder="Fecha">
@@ -79,14 +96,15 @@
           <label for="UsrMod">Usuario Mod</label>
           <input type="text" name="UsrMod" class="form-control" required value="{{old('UsrMod')}}" placeholder="Usuario">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" required value="{{old('WksMod')}}" placeholder="WorkStation">
-        </div>
+        </div>-->
         <div class="form-group">
           <button class="btn btn-primary" type="submit">Guardar</button>
           <button class="btn btn-danger" type="reset">Eliminar</button>
         </div>
+
         {!! Form::close() !!}
       </div>
     </div>

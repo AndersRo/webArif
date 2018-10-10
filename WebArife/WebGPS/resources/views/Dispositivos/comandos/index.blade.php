@@ -24,7 +24,7 @@
 							<td>{{$com->Comandos}}</td>
 							<td>{{$com->IdModelo}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('ComandosController@edit',$com->IdComandos)}}"><button class="btn btn-info">Editar</button></a>
 								<!--<a href="" data-target="#modal-delete-{{$com->IdComandos}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>-->
 							</td>
 						</tr>

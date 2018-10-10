@@ -26,13 +26,13 @@ class ClienteFormRequest extends FormRequest
         return [
             'IdCliente'=>'required|max:11',
             'IdActor'=>'required|max:11',
-            'FchCrea'=>'required|max:10',
+            'FchCrea'=>'max:19',
             'UsrCrea'=>'required|max:30',
             'WksCrea'=>'required|max:30',
-            'FchMod'=>'required|max:10',
+            'FchMod'=>'max:19',
             'WksMod'=>'required|max:30',
             'UsrMod'=>'required|max:30'
-            //'FlgEli'=>'max:1'
+            'FlgEli'=>'max:1'
         ];
     }
 }

@@ -51,12 +51,10 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle=AccesoPlataformaDetalle::findOrFail($id);
       $accesoplataformadetalle->IdAcceso=$request->get('IdAcceso');
       $accesoplataformadetalle->IdContrato=$request->get('IdContrato');
-      $accesoplataformadetalle->UsrCrea=$request->get('UsrCrea');
-      $accesoplataformadetalle->WksCrea=$request->get('WksCrea');
       $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
-      $accesoplataformadetalle->FlgEli=$request->get('FlgEli');
+      $accesoplataformadetalle->1;
       $accesoplataformadetalle->update();
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }

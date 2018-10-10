@@ -33,15 +33,15 @@
         </div>
         <div class="form-group">
           <label for="NroSim">NroSim</label>
-          <input type="text" name="NroSim" required value="{{old('IdModelo')}}" class="form-control" placeholder="Nro Sim">
+          <input type="text" name="NroSim" required value="{{old('NroSim')}}" class="form-control" placeholder="Nro Sim">
         </div>
         <div class="form-group">
           <label for="NroIDN">NroIDN</label>
-          <input type="text" name="NroIDN" required value="{{old('IdModelo')}}" class="form-control" placeholder="Nro IDN">
+          <input type="text" name="NroIDN" required value="{{old('NroIDN')}}" class="form-control" placeholder="Nro IDN">
         </div>
         <div class="form-group">
           <label for="IdEmpresa">Id Empresa</label>
-          <input type="text" name="IdEmpresa" required value="{{old('IdModelo')}}" class="form-control" placeholder="Id Empresa">
+          <input type="text" name="IdEmpresa" required value="{{old('IdEmpresa')}}" class="form-control" placeholder="Id Empresa">
         </div>
         <div class="form-group">
           <button class="btn btn-primary" type="submit">Guardar</button>

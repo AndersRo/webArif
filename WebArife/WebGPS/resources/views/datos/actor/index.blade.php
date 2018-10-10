@@ -48,8 +48,8 @@
 							<td>{{$act->UsrCrea}}</td>
 							<td>{{$act->WksCrea}}</td>
 							<td>{{$act->FchMod}}</td>
-							<td>{{$act->UsrMod}}</td>
 							<td>{{$act->WksMod}}</td>
+							<td>{{$act->UsrMod}}</td>
 							<td>{{$act->FlgEli}}</td>
 							<td>
 								<a href="{{URL::action('ActorController@edit',$act->IdActor)}}"><button class="btn btn-info">Editar</button></a>

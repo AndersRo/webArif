@@ -27,13 +27,13 @@
         </div>
 
         <div class="form-group">
-          <label for="FechaInicio">Fecha Inicio</label><!--la etiqueta del imput de la caja de texto-->
-          <input type="text" name="FechaInicio" class="form-control" placeholder="FechaInicio"><!--placeholder es el texto guia -->
+          <label for="FechaInicio">Fecha Inicio</label>
+          <input type="text" name="FechaInicio" class="form-control" placeholder="FechaInicio">
         </div>
 
        <div class="form-group">
-          <label for="FechaFin">Fecha Fin</label><!--la etiqueta del imput de la caja de texto-->
-          <input type="text" name="FechaFin" class="form-control" placeholder="FechaFin"><!--placeholder es el texto guia -->
+          <label for="FechaFin">Fecha Fin</label>
+          <input type="text" name="FechaFin" class="form-control" placeholder="FechaFin">
         </div>
 
         <div class="form-group">
@@ -61,10 +61,10 @@
        <input type ="text" name="EstadoControl" class="form-control" placeholder="EstadoControl">
      </div>
 
-      <div class="form-group">
+      <!--<div class="form-group">
           <label for="FchCrea">Fecha</label>
           <input type="text" name="FchCrea" class="form-control" placeholder="FchCrea">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <label for="UsrCrea">usuario</label>
@@ -76,10 +76,10 @@
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchMod">Mod Fecha</label>
           <input type="text" name="FchMod" class="form-control" placeholder="Fecha">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <label for="UsrMod">Modificar Usuario</label>

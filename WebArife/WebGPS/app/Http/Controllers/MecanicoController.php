@@ -54,7 +54,7 @@ public function update(MecanicoFormRequest $request,$id){
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->get('WksMod');
   $mecanico->FchMod=Carbon::now();
-  $mecanico->FlgEli=$request->get('FlgEli');
+  $mecanico->FlgEli=1;
   $mecanico->update();
   return Redirect::to('datos/mecanico');
 }

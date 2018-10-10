@@ -42,7 +42,7 @@
 							<td>{{$odt->FechaInicio}}</td>
 							<th>{{$odt->FechaFin}}</th>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('OrdenTrabajo_DetalleController@edit',$odt->IdOrdenDetalle)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$odt->IdOrdenDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

@@ -4,6 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Vehiculo;
 use Illuminate\Support\Facades\Redirect;
@@ -35,10 +36,10 @@ public function store(VehiculoFormRequest $request){
   $vehiculo->Motor=$request->get('Motor');
   $vehiculo->Modelo=$request->get('Modelo');
   $vehiculo->Color=$request->get('Color');
-  $vehiculo->FchCrea=$request->get('FchCrea');
+  $vehiculo->FchCrea=Carbon::now();
   $vehiculo->UsrCrea=$request->get('UsrCrea');
   $vehiculo->WksCrea=$request->get('WksCrea');
-  $vehiculo->FchMod=$request->get('FchMod');
+  $vehiculo->FchMod=Carbon::now();
   $vehiculo->UsrMod=$request->get('UsrMod');
   $vehiculo->WksMod=$request->get('WksMod');
   $vehiculo->FlgEli=1;
@@ -62,13 +63,10 @@ public function update(VehiculoFormRequest $request,$id){
   $vehiculo->Motor=$request->get('Motor');
   $vehiculo->Modelo=$request->get('Modelo');
   $vehiculo->Color=$request->get('Color');
-  $vehiculo->FchCrea=$request->get('FchCrea');
-  $vehiculo->UsrCrea=$request->get('UsrCrea');
-  $vehiculo->WksCrea=$request->get('WksCrea');
-  $vehiculo->FchMod=$request->get('FchMod');
+  $vehiculo->FchMod=Carbon::now();
   $vehiculo->UsrMod=$request->get('UsrMod');
   $vehiculo->WksMod=$request->get('WksMod');
-  $vehiculo->FlgEli=$request->get('FlgEli');
+  $vehiculo->FlgEli=1;
   $vehiculo->RutaReferencia=$request->get('RutaReferencia');
   $vehiculo->RutaTarjeta=$request->get('RutaTarjeta');
   $vehiculo->IdEmpresa=$request->get('IdEmpresa');
@@ -76,7 +74,7 @@ public function update(VehiculoFormRequest $request,$id){
   return Redirect::to('datos/vehiculo');
 }
 public function destroy($id){
-  $vehiculo=vehiculo::findOrFail($id);
+  $vehiculo=Vehiculo::findOrFail($id);
   $vehiculo->FlgEli='0';
   $vehiculo->update();
   return Redirect::to('datos/vehiculo');

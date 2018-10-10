@@ -60,7 +60,7 @@
           <input type="text" name="WksCrea" value="{{$empresa->WksCrea}}" class="form-control" placeholder="WorkStation">
         </div>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FchCrea">Fecha</label>
           <input type="text" name="FchCrea" value="{{$empresa->FchCrea}}" class="form-control" placeholder="Fecha">
@@ -71,7 +71,7 @@
           <label for="FchMod">Fecha Mod</label>
           <input type="text" name="FchMod" value="{{$empresa->FchMod}}" class="form-control" placeholder="Fecha">
         </div>
-      </div>
+      </div>-->
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
