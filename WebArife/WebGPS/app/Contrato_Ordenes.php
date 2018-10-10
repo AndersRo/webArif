@@ -27,5 +27,4 @@ class Contrato_Ordenes extends Model
 
   ];
 
-     }
-  }
+}

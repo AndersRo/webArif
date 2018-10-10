@@ -4,6 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\carbon;
 use webGps\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\AccesoPlataformaComandosFormRequet;
@@ -31,10 +32,10 @@ class AccesoPlataformaComandosController extends Controller
     public function store(AccesoPlataformaComandosFormRequest $request){
       $accesoplataformacomandos=new AccesoPlataformaComandos;
       $accesoplataformacomandos->IdAccesoDetalle=$request->get('IdAccesoDetalle');
-      $accesoplataformacomandos->FchCrea=$request->get('FchCrea');
+      $accesoplataformacomandos->FchCrea=Carbon::now();
       $accesoplataformacomandos->UsrCrea=$request->get('UsrCrea');
       $accesoplataformacomandos->WksCrea=$request->get('WksCrea');
-      $accesoplataformacomandos->FchMod=$request->get('FchMod');
+      $accesoplataformacomandos->FchMod=Carbon::now();
       $accesoplataformacomandos->UsrMod=$request->get('UsrMod');
       $accesoplataformacomandos->WksMod=$request->get('WksMod');
       $accesoplataformacomandos->FlgEli=1;

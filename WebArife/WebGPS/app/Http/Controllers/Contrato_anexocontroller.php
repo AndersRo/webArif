@@ -2,14 +2,13 @@
 
 namespace webGps\Http\Controllers;
 
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
-use webGps\Contrato_anexo;
+use webGps\Contrato_Anexo;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\Contrato_anexoFormRequest;
+use webGps\Http\Request\Contrato_AnexoFormRequest;
 use DB;
-
-
 
 class Contrato_AnexoController extends Controller
 {
@@ -29,28 +28,30 @@ public function create(){
   return view("documentos/contrato_anexo.create");
 }
 public function store(Contrato_AnexoFormRequest $request){
-  $contrato_anexo=new contrato_anexo;
+  $contrato_anexo=new Contrato_Anexo;
   $contrato_anexo->IdContrato=$request->get('IdContrato');
   $contrato_anexo->CodDocumentoAnexo=$request->get('CodDocumentoAnexo');
   $contrato_anexo->RutaDocumento=$request->get('RutaDocumento');
-  $contrato_anexo->FchCrea=$request->get('FchCrea');
+  $contrato_anexo->FchCrea=Carbon::now();
   $contrato_anexo->UsrCrea=$request->get('UsrCrea');
-  $contrato_anexo->FchCrea=$request->get('FchCrea');
-  $contrato_anexo->UsrCrea=$request->get('UsrCrea');
+  $contrato_anexo->WksCrea=$request->get('WksCrea');
+  $contrato_anexo->FchMod=Carbon::now();
+  $contrato_anexo->UsrMod=$request->get('UsrMod');
+  $contrato_anexo->WksMod=$request->get('WksMod');
+  $contrato_anexo->FglEli=$request->get('FglEli');
   return Redirect::to('documentos/contrato_anexo');
 }
 public function show($id){
-  return view("documentos/contrato_anexo.show", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
+  return view("documentos/contrato_anexo.show", ["contrato_anexo"=>Contrato_Anexo::findOrFail($id)]);
 }
 public function edit($id){
-  return view("documentos/contrato_anexo.edit", ["contrato_anexo"=>contrato_anexo::findOrFail($id)]);
+  return view("documentos/contrato_anexo.edit", ["contrato_anexo"=>Contrato_Anexo::findOrFail($id)]);
 }
 public function update(Contrato_AnexoFormRequest $request,$id){
-  $contrato_anexo=contrato_anexo::findOrFail($id);
-  $contrato_anexo->FchCrea=$request->get('FchCrea');
-  $contrato_anexo->UsrCrea=$request->get('UsrCrea');
-  $contrato_anexo->WksCrea=$request->get('WksCrea');
-  $contrato_anexo->FchMod=$request->get('FchMod');
+  $contrato_anexo=Contrato_Anexo::findOrFail($id);
+  $contrato_anexo->CodDocumentoAnexo=$request->get('CodDocumentoAnexo');
+  $contrato_anexo->RutaDocumento=$request->get('RutaDocumento');
+  $contrato_anexo->FchMod=Carbon::now();
   $contrato_anexo->UsrMod=$request->get('UsrMod');
   $contrato_anexo->WksMod=$request->get('WksMod');
   $contrato_anexo->FglEli=$request->get('FglEli');
@@ -58,7 +59,7 @@ public function update(Contrato_AnexoFormRequest $request,$id){
   return Redirect::to('documentos/contrato_anexo');
 }
 public function destroy($id){
-    $contrato_anexo=contrato_anexo::findOrFail($id);
+    $contrato_anexo=Contrato_Anexo::findOrFail($id);
     $contrato_anexo->FlgEli='0';
     $contrato_anexo->update();
   return Redirect::to('documentos/contrato_anexo');

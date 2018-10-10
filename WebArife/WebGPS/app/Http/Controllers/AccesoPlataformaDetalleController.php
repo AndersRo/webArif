@@ -2,6 +2,7 @@
 
 namespace webGps\Http\Controllers;
 
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\AccesoPlataformaDetalleFormRequet;
@@ -30,10 +31,10 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle=new accesoplataformadetalle;
       $accesoplataformadetalle->IdAcceso=$request->get('IdAcceso');
       $accesoplataformadetalle->IdContrato=$request->get('IdContrato');
-      $accesoplataformadetalle->FchCrea=$request->get('FchCrea');
+      $accesoplataformadetalle->FchCrea=Carbon::now();
       $accesoplataformadetalle->UsrCrea=$request->get('UsrCrea');
       $accesoplataformadetalle->WksCrea=$request->get('WksCrea');
-      $accesoplataformadetalle->FchMod=$request->get('FchMod');
+      $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
       $accesoplataformadetalle->FlgEli=1;
@@ -50,10 +51,9 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle=AccesoPlataformaDetalle::findOrFail($id);
       $accesoplataformadetalle->IdAcceso=$request->get('IdAcceso');
       $accesoplataformadetalle->IdContrato=$request->get('IdContrato');
-      $accesoplataformadetalle->FchCrea=$request->get('FchCrea');
       $accesoplataformadetalle->UsrCrea=$request->get('UsrCrea');
       $accesoplataformadetalle->WksCrea=$request->get('WksCrea');
-      $accesoplataformadetalle->FchMod=$request->get('FchMod');
+      $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->get('WksMod');
       $accesoplataformadetalle->FlgEli=$request->get('FlgEli');

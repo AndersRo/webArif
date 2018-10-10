@@ -4,6 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Cliente;
 use Illuminate\Support\Facades\Redirect;
@@ -31,10 +32,10 @@ class ClienteController extends Controller
     	$cliente=new Cliente;
 			$cliente->IdCliente=$request->get('IdCliente');
 			$cliente->IdActor=$request->get('IdActor');
-    	$cliente->FchCrea=$request->get('FchCrea');
+    	$cliente->FchCrea=Carbon::now();
     	$cliente->UsrCrea=$request->get('UsrCrea');
     	$cliente->WksCrea=$request->get('WksCrea');
-    	$cliente->FchMod=$request->get('FchMod');
+    	$cliente->FchMod=Carbon::now();
 			$cliente->WksMod=$request->get('WksMod');
     	$cliente->UsrMod=$request->get('UsrMod');
     	$cliente->FlgEli=1;
@@ -53,7 +54,7 @@ class ClienteController extends Controller
     	$cliente->FchCrea=$request->get('FchCrea');
     	$cliente->UsrCrea=$request->get('UsrCrea');
     	$cliente->WksCrea=$request->get('WksCrea');
-    	$cliente->FchMod=$request->get('FchMod');
+    	$cliente->FchMod=Carbon::now();
 			$cliente->WksMod=$request->get('WksMod');
     	$cliente->UsrMod=$request->get('UsrMod');
     	$cliente->update();

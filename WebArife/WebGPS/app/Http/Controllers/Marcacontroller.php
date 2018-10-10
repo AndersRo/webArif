@@ -4,6 +4,7 @@ namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Marca;
 use Illuminate\Support\Facades\Redirect;
@@ -33,11 +34,11 @@ public function store(MarcaFormRequest $request){
   $marca->Descripcion=$request->get('Descripcion');
   $marca->UsrCrea=$request->get('UsrCrea');
   $marca->WksCrea=$request->get('WksCrea');
-  $marca->FchMod=$request->get('FchMod');
+  $marca->FchMod=Carbon::now();
   $marca->UsrMod=$request->get('UsrMod');
   $marca->WksMod=$request->get('WksMod');
   $marca->FlgEli=1;
-  $marca->FchCrea=$request->get('FchCrea');
+  $marca->FchCrea=Carbon::now();
   $marca->save();
   return Redirect::to('Dispositivos/marca');
 }
@@ -51,13 +52,10 @@ public function update(MarcaFormRequest $request,$id){
   $marca=Marca::findOrFail($id);
   $marca->IdMarca=$request->get('IdMarca');
   $marca->Descripcion=$request->get('Descripcion');
-  $marca->UsrCrea=$request->get('UsrCrea');
-  $marca->WksCrea=$request->get(' WksCrea');
-  $marca->FchMod=$request->get('FchMod');
+  $marca->FchMod=Carbon::now();
   $marca->UsrMod=$request->get('UsrMod');
   $marca->WksMod=$request->get('WksMod');
   $marca->FlgEli=$request->get('FlgEli');
-  $marca->FchCrea=$request->get('FchCrea');
   $marca->update();
   return Redirect::to('Dispositivos/marca');
 }

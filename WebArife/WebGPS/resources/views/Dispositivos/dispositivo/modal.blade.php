@@ -1,4 +1,4 @@
-<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$dps->IdDispositivo}}">
+<div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1" id="modal-delete-{{$dsp->IdDispositivo}}">
   {{Form::Open(array('action'=>array('DispositivosController@destroy',$dsp->IdDispositivo),'method'=>'delete'))}}
     <div class="modal-dialog">
       <div class="modal-content">

@@ -2,6 +2,7 @@
 
 namespace webGps\Http\Controllers;
 
+use Carbon\carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use webGps\AccesosPlataforma;
@@ -36,10 +37,10 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->LoginAcceso=$request->get('LoginAcceso');
       $accesosplataforma->ContrasnaPlataforma=$request->get('ContrasnaPlataforma');
       $accesosplataforma->ContrasenaComandos=$request->get('ContrasenaComandos');
-      $accesosplataforma->FchCrea=$request->get('FchCrea');
+      $accesosplataforma->FchCrea=Carbon::now();
       $accesosplataforma->WksCrea=$request->get('WksCrea');
       $accesosplataforma->UsrCrea=$request->get('UsrCrea');
-      $accesosplataforma->FchMod=$request->get('FchMod');
+      $accesosplataforma->FchMod=Carbon::now();
       $accesosplataforma->WksMod=$request->get('WksMod');
       $accesosplataforma->UsrMod=$request->get('UsrMod');
       $accesosplataforma->FglEli=1;
@@ -63,10 +64,7 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->LoginAcceso=$request->get('LoginAcceso');
       $accesosplataforma->ContrasnaPlataforma=$request->get('ContrasnaPlataforma');
       $accesosplataforma->ContrasenaComandos=$request->get('ContrasenaComandos');
-      $accesosplataforma->FchCrea=$request->get('FchCrea');
-      $accesosplataforma->WksCrea=$request->get('WksCrea');
-      $accesosplataforma->UsrCrea=$request->get('UsrCrea');
-      $accesosplataforma->FchMod=$request->get('FchMod');
+      $accesosplataforma->FchMod=Carbon::now();
       $accesosplataforma->WksMod=$request->get('WksMod');
       $accesosplataforma->UsrMod=$request->get('UsrMod');
       $accesosplataforma->FglEli=$request->get('FglEli');

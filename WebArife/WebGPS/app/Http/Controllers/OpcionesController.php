@@ -3,16 +3,12 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\app\Opciones;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 
-
-
 use webGps\Http\Request\OpcionesFormRequest;
-
 
 class OpcionesController extends Controller
 {

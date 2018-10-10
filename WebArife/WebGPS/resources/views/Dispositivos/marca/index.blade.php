@@ -38,7 +38,7 @@
 								<a href="" data-target="#modal-delete-{{$mrc->IdMarca}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
-						@include('Dispositivos.marca.modelo')
+						@include('Dispositivos.marca.modal')
 					@endforeach
 				</table>
 			</div>

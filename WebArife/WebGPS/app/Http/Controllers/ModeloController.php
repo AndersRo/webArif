@@ -3,6 +3,7 @@
 namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Modelo;
 use Illuminate\Support\Facades\Redirect;
@@ -31,10 +32,10 @@ public function store(ModeloFormRequest $request){
   $modelo=new Modelo;
   $modelo->IdModelo=$request->get('IdModelo');
   $modelo->Descripcion=$request->get('Descripcion');
-  $modelo->FchCrea=$request->get('FchCrea');
+  $modelo->FchCrea=Carbon::now();
   $modelo->UsrCrea=$request->get('UsrCrea');
   $modelo->WksCrea=$request->get('WksCrea');
-  $modelo->FchMod=$request->get('FchMod');
+  $modelo->FchMod=Carbon::now();
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
   $modelo->FlgEli=1;
@@ -54,13 +55,10 @@ public function edit($id){
   return view("Dispositivos/modelo.edit", ["modelo"=>Modelo::findOrFail($id)]);
 }
 public function update(ModeloFormRequest $request,$id){
-  $modelo=modelo::findOrFail($id);
+  $modelo=Modelo::findOrFail($id);
   $modelo->IdModelo=$request->get('IdModelo');
   $modelo->Descripcion=$request->get('Descripcion');
-  $modelo->FchCrea=$request->get('FchCrea');
-  $modelo->UsrCrea=$request->get('UsrCrea');
-  $modelo->WksCrea=$request->get('WksCrea');
-  $modelo->FchMod=$request->get('FchMod');
+  $modelo->FchMod=Carbon::now();
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
   $modelo->FlgEli=$request->get('FlgEli');
@@ -74,7 +72,7 @@ public function update(ModeloFormRequest $request,$id){
   return Redirect::to('Dispositivos/modelo');
 }
 public function destroy($id){
-$modelo=modelo::findOrFail($id);
+$modelo=Modelo::findOrFail($id);
 $modelo->FlgEli='0';
 $modelo->update();
 return Redirect::to('Dispositivos/modelo');

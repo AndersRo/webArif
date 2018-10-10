@@ -35,7 +35,7 @@
 							<td>{{$dsp->IdEmpresa}}</td>
 							<td>
 								<a href="#"><button class="btn btn-info">Editar</button></a>
-								<a href="" data-target="#modal-delete-{{$dsp->IdDispositivo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
+								<!--<a href="" data-target="#modal-delete-{{$dsp->IdDispositivo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>-->
 							</td>
 						</tr>
 						@include('Dispositivos.dispositivo.modal')

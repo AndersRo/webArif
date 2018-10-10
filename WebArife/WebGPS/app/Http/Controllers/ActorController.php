@@ -5,6 +5,7 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
 use webGps\Http\Requests;
+use Carbon\carbon;
 use webGps\Actor;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\ActorFormRequest;
@@ -42,10 +43,10 @@ class ActorController extends Controller
       $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
       $actor->RUC=$request->get('RUC');
       $actor->IdEmpresa=$request->get('IdEmpresa');
-      $actor->FchCrea=$request->get('FchCrea');
+      $actor->FchCrea=Carbon::now();
       $actor->UsrCrea=$request->get('UsrCrea');
       $actor->WksCrea=$request->get('WksCrea');
-      $actor->FchMod=$request->get('FchMod');
+      $actor->FchMod=Carbon::now();
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FlgEli=1;
@@ -69,7 +70,7 @@ class ActorController extends Controller
       $actor->TipoDocumento=$request->get('TipoDocumento');
       $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
       $actor->RUC=$request->get('RUC');
-      $actor->FchMod=$request->get('FchMod');
+      $actor->FchMod=Carbon::now();
       $actor->WksMod=$request->get('WksMod');
       $actor->UsrMod=$request->get('UsrMod');
       $actor->update();

@@ -35,10 +35,10 @@ class ActorFormRequest extends FormRequest
             'CodigoIdentificacion'=>'MAX:15',
             'RUC'=>'MAX:11',
             'IdEmpresa'=>'required|MAX:11',
-            'FchCrea'=>'required',
+            'FchCrea'=>'MAX:20',
             'UsrCrea'=>'required|MAX:30',
             'WksCrea'=>'required|MAX:30',
-            'FchMod'=>'required',
+            'FchMod'=>'MAX:20',
             'WksMod'=>'required|MAX:30',
             'UsrMod'=>'required|MAX:30',
             'FlgEli'=>'MAX:1'

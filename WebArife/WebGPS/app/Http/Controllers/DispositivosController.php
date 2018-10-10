@@ -58,6 +58,9 @@ class DispositivosController extends Controller
       return Redirect::to('Dispositivos/dispositivo');
     }
     public function destroy($id){
-
+      $dispositivos=Dispositivos::findOrFail($id);
+			$dispositivos->FlgEli='0';
+			$dispositivos->update();
+			return Redirect::to('datos/cliente');
     }
 }
