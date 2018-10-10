@@ -36,7 +36,7 @@
 							<td>{{$cno->WksMod}}</td>
 							<td>{{$cno->FlgEli}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('Contrato_OrdenesController@edit',$cno->IdContratoOrdenes)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$cno->IdContratoOrdenes}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

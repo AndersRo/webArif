@@ -48,7 +48,7 @@
 							<td>{{$ont->FechaRegistro}}</td>
 							<th>{{$ont->FechaProgramada}}</th>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('OrdenTrabajoController@edit',$ont->IdOrden)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$ont->IdOrden}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

@@ -34,7 +34,7 @@
 							<td>{{$mrc->FlgEli}}</td>
 							<td>{{$mrc->FchCrea}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('MarcaController@edit',$mrc->IdMarca)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$mrc->IdMarca}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

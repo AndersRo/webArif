@@ -41,7 +41,7 @@
 							</td>
 							<td>{{$mod->IdMarca}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('Modeloontroller@edit',$mod->IdModelo)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$mod->IdModelo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

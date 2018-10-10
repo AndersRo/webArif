@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar Dispositivos: {{$Dispositivos->IdDispositivos}}</h3>
+        <h3>Editar Dispositivos: {{$dispositivo->IdDispositivo}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-        {!!Form::model($dispositivos,['method'=>'PATCH','route'=>['dispositivos.update',$dispositivos->Iddispositivos]])!!}
+        {!!Form::model($dispositivos,['method'=>'PATCH','route'=>['dispositivos.update',$dispositivo->IdDispositivo]])!!}
         {{Form::token()}}
 
     <div class="row">
