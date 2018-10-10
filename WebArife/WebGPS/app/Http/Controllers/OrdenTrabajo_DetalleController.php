@@ -60,7 +60,7 @@ public function update(OrdenTrabajo_DetalleFormRequest $request,$id){
   $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo_Detalle->WksMod=$request->get('WksMod');
-  $OrdenTrabajo_Detalle->FlgEli=$request->get('FglEli');
+  $OrdenTrabajo_Detalle->FlgEli=1;
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
   $OrdenTrabajo_Detalle->update();

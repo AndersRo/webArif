@@ -23,10 +23,10 @@
           <label for="IdMecanico">Id Mecanico</label>
           <input type="text" name="IdMecanico" class="form-control" placeholder="Mecanico">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchCrea">Fecha Creacion</label>
           <input type="text" name="FchCrea" class="form-control" placeholder="Fecha">
-        </div>
+        </div>-->
         <div class="form-group">
           <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" placeholder="Usuario">
@@ -35,10 +35,10 @@
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchMod">Fecha Mod</label>
           <input type="text" name="FchMod" class="form-control" placeholder="Fecha">
-        </div>
+        </div>-->
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
           <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">

@@ -3,7 +3,7 @@
 namespace webGps\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Taller;
 use Illuminate\Support\Facades\Redirect;
@@ -31,10 +31,10 @@ public function store(TallerFormRequest $request){
   $taller=new Taller;
   $taller->IdTaller=$request->get('IdTaller');
   $taller->Descripcion=$request->get('Descripcion');
-  $taller->FchCrea=$request->get('FchCrea');
+  $taller->FchCrea=Carbon::now();
   $taller->UsrCrea=$request->get('UsrCrea');
   $taller->WksCrea=$request->get('WksCrea');
-  $taller->FchMod=$request->get('FchMod');
+  $taller->FchMod=Carbon::now();
   $taller->UsrMod=$request->get('UsrMod');
   $taller->WksMod=$request->get('WksMod');
   $taller->FlgEli=1;
@@ -51,10 +51,7 @@ public function update(TallerFormRequest $request,$id){
   $taller=Taller::findOrFail($id);
   $taller->IdTaller=$request->get('IdTaller');
   $taller->Descripcion=$request->get('Descripcion');
-  $taller->FchCrea=$request->get('FchCrea');
-  $taller->UsrCrea=$request->get('UsrCrea');
-  $taller->WksCrea=$request->get('WksCrea');
-  $taller->FchMod=$request->get('FchMod');
+  $taller->FchMod=Carbon::now();
   $taller->UsrMod=$request->get('UsrMod');
   $taller->WksMod=$request->get('WksMod');
   $taller->FlgEli=$request->get('FlgEli');

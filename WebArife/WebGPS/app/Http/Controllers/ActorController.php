@@ -30,6 +30,7 @@ class ActorController extends Controller
     public function create(){
       return view("datos/actor.create");
     }
+    
     public function store(ActorFormRequest $request){
       $actor=new Actor;
       $actor->IdActor=$request->get('IdActor');
@@ -45,9 +46,9 @@ class ActorController extends Controller
       $actor->IdEmpresa=$request->get('IdEmpresa');
       $actor->FchCrea=Carbon::now();
       $actor->UsrCrea=$request->get('UsrCrea');
-      $actor->WksCrea=$request->get('WksCrea');
+      $actor->WksCrea=$request->ip();
       $actor->FchMod=Carbon::now();
-      $actor->WksMod=$request->get('WksMod');
+      $actor->WksMod=$request->ip();
       $actor->UsrMod=$request->get('UsrMod');
       $actor->FlgEli=1;
       $actor->save();
@@ -71,7 +72,7 @@ class ActorController extends Controller
       $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
       $actor->RUC=$request->get('RUC');
       $actor->FchMod=Carbon::now();
-      $actor->WksMod=$request->get('WksMod');
+      $actor->WksMod=$request->ip();
       $actor->UsrMod=$request->get('UsrMod');
       $actor->update();
       return Redirect::to('datos/actor');
@@ -82,4 +83,5 @@ class ActorController extends Controller
 			$actor->update();
 			return Redirect::to('datos/actor');
     }
+
 }

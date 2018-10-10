@@ -42,10 +42,10 @@
            <input type="text" name="IdVehiculo" class="form-control" placeholder="IdVehiculo">
          </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchCrea">Fecha</label>
           <input type="text" name="FchCrea" class="form-control" placeholder="FchCrea">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <label for="UsrCrea">usuario</label>
@@ -57,10 +57,10 @@
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="FchMod">Mod Fecha</label>
           <input type="text" name="FchMod" class="form-control" placeholder="Fecha">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <label for="UsrMod">Modificar Usuario</label>

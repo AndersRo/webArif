@@ -37,9 +37,9 @@ class ActorFormRequest extends FormRequest
             'IdEmpresa'=>'required|MAX:11',
             'FchCrea'=>'MAX:20',
             'UsrCrea'=>'required|MAX:30',
-            'WksCrea'=>'required|MAX:30',
+            'WksCrea'=>'MAX:30',
             'FchMod'=>'MAX:20',
-            'WksMod'=>'required|MAX:30',
+            'WksMod'=>'MAX:30',
             'UsrMod'=>'required|MAX:30',
             'FlgEli'=>'MAX:1'
         ];

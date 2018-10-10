@@ -56,14 +56,14 @@
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-        <label for="NroIDN">NroSim</label>
+        <label for="NroIDN">NroIDN</label>
         <input type="text" name="NroIDN" class="form-control" value="{{$dispositivos->NroIDN}}" placeholder="NroIDN">
         </div>
     </div>
 
   <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
       <div class="form-group">
-      <label for="IdEmpresa">NroSim</label>
+      <label for="IdEmpresa">IdEmpresa</label>
       <input type="text" name="IdEmpresa" class="form-control" value="{{$dispositivos->IdEmpresa}}" placeholder="IdEmpresa">
       </div>
   </div>

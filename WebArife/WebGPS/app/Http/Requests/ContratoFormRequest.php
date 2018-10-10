@@ -25,17 +25,17 @@ class ContratoFormRequest extends FormRequest
     {
         return [
           'CodTipoServicio'=>'required|max:6',
-          'Fechainicio'=>'required|max:10'.
-          'Fechafin'=>'required|max:10',
+          'Fechainicio'=>'required|max:19'.
+          'Fechafin'=>'max:19',
           'IdCliente'=>'required|max:11',
           'CodTipoContrato'=>'required|max:6',
-          'idEmpresa'=>'required|max:11',
-          'idVehiculo'=>'required|max:11',
+          'IdEmpresa'=>'required|max:11',
+          'IdVehiculo'=>'required|max:11',
           'EstadoContrato'=>'required|max:6',
-          'FchCrea'=>'required|max:10',
+          'FchCrea'=>'max:19',
           'UsrCrea'=>'required|max:30',
           'WksCrea'=>'required|max:30',
-          'FchMod'=>'required|max:10',
+          'FchMod'=>'max:19',
           'UsrMod'=>'required|max:30',
           'WksMod'=>'required|max:30',
           'FlgEli'=>'max:1'

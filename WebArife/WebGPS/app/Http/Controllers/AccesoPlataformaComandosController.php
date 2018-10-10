@@ -51,13 +51,10 @@ class AccesoPlataformaComandosController extends Controller
     public function update(AccesoPlataformaComandosFormRequest $request,$id){
       $accesoplataformacomandos=AccesoPlataformaComandos::findOrFail($id);
       $accesoplataformacomandos->IdAccesoDetalle=$request->get('IdAccesoDetalle');
-      $accesoplataformacomandos->FchCrea=$request->get('FchCrea');
-      $accesoplataformacomandos->UsrCrea=$request->get('UsrCrea');
-      $accesoplataformacomandos->WksCrea=$request->get('WksCrea');
       $accesoplataformacomandos->FchMod=$request->get('FchMod');
       $accesoplataformacomandos->UsrMod=$request->get('UsrMod');
       $accesoplataformacomandos->WksMod=$request->get('WksMod');
-      $accesoplataformacomandos->FlgEli=$request->get('FlgEli');
+      $accesoplataformacomandos->FlgEli=1
       $accesoplataformacomandos->update();
       return Redirect::to('plataforma/AccesoPlataformaComandos');
     }

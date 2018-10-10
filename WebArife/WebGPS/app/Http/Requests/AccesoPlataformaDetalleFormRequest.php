@@ -26,10 +26,10 @@ class AccesoPlataformaDetalleFormRequest extends FormRequest
         return [
           'IdAcceso'=>'required|max:11',
           'IdContrato'=>'required|max:11',
-          'FchCrea'=>'required|max:10',
+          'FchCrea'=>'max:19',
           'UsrCrea'=>'required|max:30',
           'WksCrea'=>'required|max:30',
-          'FchMod'=>'required|max:10',
+          'FchMod'=>'max:19',
           'UsrMod'=>'required|max:30',
           'WksMod'=>'required|max:30',
           'FlgEli'=>'max:1'
