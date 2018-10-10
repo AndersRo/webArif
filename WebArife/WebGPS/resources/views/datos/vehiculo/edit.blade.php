@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar Actor: {{$actor->PrimerNombre}}</h3>
+        <h3>Editar Vehiculo: {{$vehiculo->Chasis}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -19,75 +19,49 @@
         {{Form::token()}}
     <div class="row">
 
+
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="IdActor">Id</label>
-          <input type="text" name="IdActor" class="form-control" value="{{$actor->IdActor}}" placeholder="Id">
+          <label for="IdVehiculo">IdVehiculo</label>
+          <input type="text" name="IdVehiculo" class="form-control" value="{{$vehiculo->IdVehiculo}}" placeholder="IdVehiculo">
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-sm-  6 col-md-6 col-xs-12">
+        <div class="form-group">
+          <label for="Placa">Placa</label>
+          <input type="text" name="`Placa`" class="form-control" value="{{$vehiculo->Placa}}" placeholder="Placa">
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="TipoPersona">Tipo Persona</label>
-          <input type="text" name="TipoPersona" class="form-control" value="{{$actor->TipoPersona}}" placeholder="TipoPersona">
+          <label for="Chasis">Primer Nombre</label>
+          <input type="text" name="Chasis" class="form-control" value="{{$vehiculo->Chasis}}" placeholder="Chasis">
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="Apellido_Paterno">Apellido Paterno</label>
-          <input type="text" name="Apellido_Paterno" class="form-control" value="{{$actor->Apellido_Paterno}}" placeholder="Apellido_Paterno">
+          <label for="Motor">Motor</label>
+          <input type="text" name="Motor" class="form-control" value="{{$vehiculo->Motor}}" placeholder="Motor">
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="Apellido_Materno">Apellido Materno</label>
-          <input type="text" name="Apellido_Materno" class="form-control" value="{{$actor->Apellido_Materno}}" placeholder="Apellido_Materno">
+          <label for="Modelo">Modelo</label>
+          <input type="text" name="Modelo" class="form-control" value="{{$vehiculo->Modelo}}" placeholder="Modelo">
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="PrimerNombre">Primer Nombre</label>
-          <input type="text" name="PrimerNombre" class="form-control" value="{{$actor->PrimerNombre}}" placeholder="Primer Nombre">
+          <label for="Color">color</label>
+          <input type="text" name="Color" class="form-control" value="{{$vehiculo->Color}}" placeholder="Color">
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-          <label for="SegundoNombre">Segundo Nombre</label>
-          <input type="text" name="SegundoNombre" class="form-control" value="{{$actor->SegundoNombre}}" placeholder="Segundo Nombre">
-        </div>
-      </div>
-
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-          <label for="RazonSocial">Razon Social</label>
-          <input type="text" name="RazonSocial" class="form-control" value="{{$actor->RazonSocial}}" placeholder="RazonSocial">
-        </div>
-      </div>
-
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-          <label for="CodigoIdentificacion">Codigo Identificacion</label>
-          <input type="text" name="CodigoIdentificacion" class="form-control" value="{{$actor->CodigoIdentificacion}}" placeholder="CodigoIdentificacion">
-        </div>
-      </div>
-
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-          <label for="RUC">RUC</label>
-          <input type="text" name="RUC" class="form-control" value="{{$actor->RUC}}" placeholder="RUC">
-        </div>
-      </div>
-
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-          <label for="IdEmpresa">Empresa</label>
-          <input type="text" name="IdEmpresa" class="form-control" value="{{$actor->IdEmpresa}}" placeholder="IdEmpresa">
-        </div>
-      </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
