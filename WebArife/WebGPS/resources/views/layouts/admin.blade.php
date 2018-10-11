@@ -115,23 +115,41 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
-                <span>Compras</span>
+                <span>Documentos</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
-                <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Proveedores</a></li>
+                <li><a href="../documentos/contrato"><i class="fa fa-circle-o"></i> Contratos</a></li>
+                <li><a href="../documentos/contrato_anexo"><i class="fa fa-circle-o"></i> Anexos</a></li>
+                <li><a href="../documentos/contrato_ordenes"><i class="fa fa-circle-o"></i> Ordenes</a></li>
+                <li><a href="../documentos/ordentrabajo"><i class="fa fa-circle-o"></i> Orden de Trabajo</a></li>
+                <li><a href="../documentos/ordentrabajo_detalle"><i class="fa fa-circle-o"></i> Ord. Trabajo detalle</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Ventas</span>
+                <span>Dispositivos</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Ventas</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="../Dispositivos/comandos"><i class="fa fa-circle-o"></i> Comandos</a></li>
+                <li><a href="../Dispositivos/dispositivo"><i class="fa fa-circle-o"></i> Dispositivos</a></li>
+                <li><a href="../Dispositivos/marca"><i class="fa fa-circle-o"></i> Marcas</a></li>
+                <li><a href="../Dispositivos/modelo"><i class="fa fa-circle-o"></i> Modelos</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-shopping-cart"></i>
+                <span>Plataforma</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="../plataforma/AccesoPlataformaComandos"><i class="fa fa-circle-o"></i> Plataforma Comandos</a></li>
+                <li><a href="../plataforma/AccesoPlataformaDetalle"><i class="fa fa-circle-o"></i> Plataforma Detalle</a></li>
+                <li><a href="../plataforma/AccesosPlataforma"><i class="fa fa-circle-o"></i> Plataforma</a></li>
               </ul>
             </li>
 
@@ -142,9 +160,9 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-
               </ul>
             </li>
+
              <li>
               <a href="#">
                 <i class="fa fa-plus-square"></i> <span>Ayuda</span>

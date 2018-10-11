@@ -14,7 +14,7 @@ class Contrato extends Model
   protected $fillable =[
     'IdContrato',
     'CodTipoServicio',
-    'FechaFnicio',
+    'FechaInicio',
     'FechaFin',
     'IdCliente',
     'CodTipoContrato',
