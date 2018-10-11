@@ -13,26 +13,22 @@
 				<table class="table table-striped table-bordered table-codensed table-hover">
 					<thead>
 						<th>IdCliente</th>
-						<th>IdActor</th>
-						<th>FchCrea</th>
-						<th>UsrCrea</th>
-						<th>WksCrea</th>
-						<th>FchMod</th>
-						<th>UsrMod</th>
-						<th>WksMod</th>
-						<th>FlgEli</th>
+						<th>Tipo Persona</th>
+						<th>Primer Nombre</th>
+						<th>Apellido Paterno</th>
+						<th>Tipo Documento</th>
+						<th>Nro Documento</th>
+						<th>Razon Social</th>
 					</thead>
-					@foreach ($cliente as $cli):
+					@foreach ($cliente as $cli)
 						<tr>
 							<td>{{$cli->IdCliente}}</td>
-							<td>{{$cli->IdActor}}</td>
-							<td>{{$cli->FchCrea}}</td>
-							<td>{{$cli->UsrCrea}}</td>
-							<td>{{$cli->WksCrea}}</td>
-							<td>{{$cli->FchMod}}</td>
-							<td>{{$cli->UsrMod}}</td>
-							<td>{{$cli->WksMod}}</td>
-							<td>{{$cli->FlgEli}}</td>
+							<td>{{$cli->TipoPersona}}</td>
+							<td>{{$cli->PrimerNombre}}</td>
+							<td>{{$cli->Apellido_Paterno}}</td>
+							<td>{{$cli->TipoDocumento}}</td>
+							<td>{{$cli->CodigoIdentificacion}}</td>
+							<td>{{$cli->RazonSocial}}</td>
 							<td>
 								<a href="{{URL::action('ClienteController@edit',$cli->IdCliente)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$cli->IdCliente}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>

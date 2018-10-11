@@ -46,12 +46,12 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" value="{{$cliente->WksCrea}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
       <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
@@ -67,12 +67,12 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" value="{{$cliente->WksMod}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">

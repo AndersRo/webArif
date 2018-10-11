@@ -31,7 +31,7 @@
 				    <th>UsrMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($actor as $act):
+					@foreach ($actor as $act)
 						<tr>
 							<td>{{$act->IdActor}}</td>
 							<td>{{$act->TipoPersona}}</td>

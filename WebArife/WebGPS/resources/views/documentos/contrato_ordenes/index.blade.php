@@ -23,7 +23,7 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($contrato_ordenes as $cno):
+					@foreach ($contrato_ordenes as $cno)
 						<tr>
 							<td>{{$cno->IdContratoOrdenes}}</td>
 							<td>{{$cno->IdContrato}}</td>

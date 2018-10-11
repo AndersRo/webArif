@@ -29,7 +29,7 @@
 						<th>FechaRegistro</th>
 						<th>FechaProgramada</th>
 					</thead>
-					@foreach ($ordentrabajo as $ont):
+					@foreach ($ordentrabajo as $ont)
 						<tr>
 							<td>{{$ont->IdOrden}}</td>
 							<td>{{$ont->IdEmpresa}}</td>

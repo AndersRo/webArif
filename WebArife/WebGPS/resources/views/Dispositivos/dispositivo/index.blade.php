@@ -22,7 +22,7 @@
 						<th>NroIDN</th>
 						<th>IdEmpresa</th>
 					</thead>
-					@foreach ($dispositivos as $dsp):
+					@foreach ($dispositivos as $dsp)
 						<tr>
 							<td>{{$dsp->IdDispositivo}}</td>
 							<td>{{$dsp->IdEmpresa}}</td>

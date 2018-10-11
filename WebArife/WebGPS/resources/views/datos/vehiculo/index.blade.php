@@ -29,7 +29,7 @@
 						<th>RutaTarjeta</th>
 						<th>IdEmpresa</th>
 					</thead>
-					@foreach ($vehiculo as $veh):
+					@foreach ($vehiculo as $veh)
 						<tr>
 							<td>{{$veh->IdVehiculo}}</td>
 							<td>{{$veh->Placa}}</td>

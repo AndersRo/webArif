@@ -22,7 +22,7 @@
 						<th>WksMod</th>
 						<th>FlgEli</th>
 					</thead>
-					@foreach ($mecanico as $mec):
+					@foreach ($mecanico as $mec)
 						<tr>
 							<td>{{$mec->IdMecanico}}</td>
 							<td>{{$mec->IdActor}}</td>

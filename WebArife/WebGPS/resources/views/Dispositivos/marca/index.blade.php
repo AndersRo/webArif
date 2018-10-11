@@ -22,7 +22,7 @@
 						<th>FlgEli</th>
 						<th>FchCrea</th>
 					</thead>
-					@foreach ($marca as $mrc):
+					@foreach ($marca as $mrc)
 						<tr>
 							<td>{{$mrc->IdMarca}}</td>
 							<td>{{$mrc->Descripcion}}</td>

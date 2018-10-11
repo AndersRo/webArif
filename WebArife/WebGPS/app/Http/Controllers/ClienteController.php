@@ -20,8 +20,9 @@ class ClienteController extends Controller
     		$query=trim($request->get('searchText'));
     		$cliente=DB::table('cliente as c')
 				->join('actor as a', 'c.IdActor','=','a.IdActor')
-				->select('c.IdCliente','a.PrimerNombre','a.Apellido_Paterno','a.RazonSocial','a.CodigoIdentificacion')
-				->where('c.IdCliente','LIKE','%'.$query.'%')
+				->select('c.IdCliente','a.TipoPersona','a.PrimerNombre','a.Apellido_Paterno','a.TipoDocumento','a.CodigoIdentificacion','a.RazonSocial')
+				->where('a.PrimerNombre','LIKE','%'.$query.'%')
+				->orwhere('a.CodigoIdentificacion','LIKE','%'.$query.'%')
     		->orderBy('c.IdCliente','desc')
     		->paginate(7);
     		return view ('datos/cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
@@ -36,9 +37,9 @@ class ClienteController extends Controller
 			$cliente->IdActor=$request->get('IdActor');
     	$cliente->FchCrea=Carbon::now();
     	$cliente->UsrCrea=$request->get('UsrCrea');
-    	$cliente->WksCrea=$request->get('WksCrea');
+    	$cliente->WksCrea=$request->ip();
     	$cliente->FchMod=Carbon::now();
-			$cliente->WksMod=$request->get('WksMod');
+			$cliente->WksMod=$request->ip();
     	$cliente->UsrMod=$request->get('UsrMod');
     	$cliente->FlgEli=1;
     	$cliente->save();
@@ -54,7 +55,7 @@ class ClienteController extends Controller
     	$cliente=Cliente::findOrFail($id);
 			$cliente->IdActor=$request->get('IdActor');
     	$cliente->FchMod=Carbon::now();
-			$cliente->WksMod=$request->get('WksMod');
+			$cliente->WksMod=$request->ip();
     	$cliente->UsrMod=$request->get('UsrMod');
     	$cliente->update();
     	return Redirect::to('datos/cliente');

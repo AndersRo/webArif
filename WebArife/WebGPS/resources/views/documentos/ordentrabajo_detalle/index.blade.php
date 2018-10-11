@@ -26,7 +26,7 @@
 						<th>FechaInicio</th>
 						<th>FechaFin</th>
 					</thead>
-					@foreach ($ordentrabajo_detalle as $odt):
+					@foreach ($ordentrabajo_detalle as $odt)
 						<tr>
 							<td>{{$odt->IdOrdenDetalle}}</td>
 							<td>{{$odt->IdOrden}}</td>
