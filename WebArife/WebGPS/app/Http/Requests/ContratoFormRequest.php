@@ -13,7 +13,7 @@ class ContratoFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,20 +24,21 @@ class ContratoFormRequest extends FormRequest
     public function rules()
     {
         return [
+          'IdContrato'=>'required|max:11',
           'CodTipoServicio'=>'required|max:6',
-          'Fechainicio'=>'required|max:19'.
-          'Fechafin'=>'max:19',
+          'FechaInicio'=>'required|max:19',
+          'FechaFin'=>'max:19',
           'IdCliente'=>'required|max:11',
           'CodTipoContrato'=>'required|max:6',
           'IdEmpresa'=>'required|max:11',
           'IdVehiculo'=>'required|max:11',
           'EstadoContrato'=>'required|max:6',
           'FchCrea'=>'max:19',
-          'UsrCrea'=>'required|max:30',
-          'WksCrea'=>'required|max:30',
+          'UsrCrea'=>'max:30',
+          'WksCrea'=>'max:30',
           'FchMod'=>'max:19',
-          'UsrMod'=>'required|max:30',
-          'WksMod'=>'required|max:30',
+          'UsrMod'=>'max:30',
+          'WksMod'=>'max:30',
           'FlgEli'=>'max:1'
         ];
     }

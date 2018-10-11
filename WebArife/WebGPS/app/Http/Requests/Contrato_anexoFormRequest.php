@@ -24,16 +24,16 @@ class Contrato_AnexoFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'CodTipoServicio'=>'required|max:6',
-          'IdContrato '=>'required|max:11',
+          'IdContratoAnexo'=>'required|max:6',
+          'IdContrato'=>'required|max:11',
           'CodDocumentoAnexo'=>'required|max:6',
           'RutaDocumento'=>'required|max:250',
           'FchCrea'=>'max:19',
-          'UsrCrea'=>'required|max:30',
-          'WksCrea'=>'required|max:30',
+          'UsrCrea'=>'max:30',
+          'WksCrea'=>'max:30',
           'FchMod'=>'max:19' ,
-          'UsrMod'=>'required|max:30',
-          'WksMod'=>'required|max:30',
+          'UsrMod'=>'max:30',
+          'WksMod'=>'max:30',
           'FlgEli'=>'max:1'
         ];
     }

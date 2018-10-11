@@ -11,8 +11,9 @@ class AccesoPlataformaDetalle extends Model
   public $timestamps=false;
 
   protected $fillable=[
+    'IdAccesoDetalle',
     'IdAcceso',
-    'IdContrato'
+    'IdContrato',
     'FchCrea',
     'UsrCrea',
     'WksCrea',

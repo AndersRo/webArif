@@ -13,7 +13,7 @@ class OrdenTrabajo_DetalleFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,18 +24,19 @@ class OrdenTrabajo_DetalleFormRequest extends FormRequest
     public function rules()
     {
         return [
+            'IdOrdenDetalle'=>'required|max:11',
             'IdOrden'=>'required|MAX:11',
             'IdDispositivo'=>'required|MAX:11',
             'CodTipoTrabajo'=>'required|MAX:6',
             'FchCrea'=>'MAX:19',
-            'UsrCrea'=>'required|MAX:30',
-            'WksCrea'=>'required|MAX:30',
+            'UsrCrea'=>'MAX:30',
+            'WksCrea'=>'MAX:30',
             'FchMod'=>'MAX:19',
-            'UsrMod'=>'required|MAX:30',
-            'WksMod'=>'required|MAX:30',
+            'UsrMod'=>'MAX:30',
+            'WksMod'=>'MAX:30',
             'FlgEli'=>'MAX:1',
-            'FechaInicio'=>'required|MAX:10',
-            'FechaFin'=>'required|MAX:10'
+            'FechaInicio'=>'required|MAX:20',
+            'FechaFin'=>'required|MAX:20'
         ];
     }
 }

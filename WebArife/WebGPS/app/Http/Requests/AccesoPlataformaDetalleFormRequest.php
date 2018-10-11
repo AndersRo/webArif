@@ -24,14 +24,15 @@ class AccesoPlataformaDetalleFormRequest extends FormRequest
     public function rules()
     {
         return [
+          'IdAccesoDetalle'=>'required|max:11',
           'IdAcceso'=>'required|max:11',
           'IdContrato'=>'required|max:11',
           'FchCrea'=>'max:19',
-          'UsrCrea'=>'required|max:30',
-          'WksCrea'=>'required|max:30',
+          'UsrCrea'=>'max:30',
+          'WksCrea'=>'max:30',
           'FchMod'=>'max:19',
-          'UsrMod'=>'required|max:30',
-          'WksMod'=>'required|max:30',
+          'UsrMod'=>'max:30',
+          'WksMod'=>'max:30',
           'FlgEli'=>'max:1'
         ];
     }

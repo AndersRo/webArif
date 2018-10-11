@@ -5,11 +5,9 @@ namespace webGps\Http\Controllers;
 use Illuminate\Http\Request;
 
 use webGps\Http\Requests;
-
 use webGps\User;
 use Illuminate\Support\Facades\input;
 use Illuminate\Support\Facades\Redirect;
-
 use webGps\Http\Requests\UsuarioFormRequest;
 use DB;
 

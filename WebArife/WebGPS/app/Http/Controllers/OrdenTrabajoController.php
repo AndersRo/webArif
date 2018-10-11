@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\OrdenTrabajo;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\ OrdenTrabajoFormRequest;
+use webGps\Http\Requests\OrdenTrabajoFormRequest;
 use DB;
 
 class OrdenTrabajoController extends Controller
@@ -29,16 +29,17 @@ public function create(){
 }
 public function store(OrdenTrabajoFormRequest $request){
   $OrdenTrabajo=new OrdenTrabajo;
+  $OrdenTrabajo->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo->IdEmpresa=$request->get('IdEmpresa');
   $OrdenTrabajo->IdMecanico=$request->get('IdMecanico');
   $OrdenTrabajo->IdCliente=$request->get('IdCliente');
   $OrdenTrabajo->IdVehiculo=$request->get('IdVehiculo');
   $OrdenTrabajo->FchCrea=Carbon::now();
   $OrdenTrabajo->UsrCrea=$request->get('UsrCrea');
-  $OrdenTrabajo->WksCrea=$request->get('WksCrea');
+  $OrdenTrabajo->WksCrea=$request->ip();
   $OrdenTrabajo->FchMod=Carbon::now();
   $OrdenTrabajo->UsrMod=$request->get('UsrMod');
-  $OrdenTrabajo->WksMod=$request->get('WksMod');
+  $OrdenTrabajo->WksMod=$request->ip();
   $OrdenTrabajo->FlgEli=1;
   $OrdenTrabajo->EstadoOrden=$request->get('EstadoOrden');
   $OrdenTrabajo->Obsvacion=$request->get('Obsvacion');
@@ -57,13 +58,14 @@ public function edit($id){
 }
 public function update(OrdenTrabajoFormRequest $request,$id){
   $OrdenTrabajo=OrdenTrabajo::findOrFail($id);
+  $OrdenTrabajo->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo->IdEmpresa=$request->get('IdEmpresa');
   $OrdenTrabajo->IdMecanico=$request->get('IdMecanico');
   $OrdenTrabajo->IdCliente=$request->get('IdCliente');
   $OrdenTrabajo->IdVehiculo=$request->get('IdVehiculo');
   $OrdenTrabajo->FchMod=Carbon::now();
   $OrdenTrabajo->UsrMod=$request->get('UsrMod');
-  $OrdenTrabajo->WksMod=$request->get('WksMod');
+  $OrdenTrabajo->WksMod=$request->ip();
   $OrdenTrabajo->EstadoOrden=$request->get('EstadoOrden');
   $OrdenTrabajo->Obsvacion=$request->get('Obsvacion');
   $OrdenTrabajo->FechaRegistro=$request->get('FechaRegistro');

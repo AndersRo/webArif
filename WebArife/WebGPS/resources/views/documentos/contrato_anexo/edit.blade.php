@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar Contrato_Anexo: {{$contrato_anexo->UsrCrea}}</h3>
+        <h3>Editar Contrato_Anexo: {{$contrato_anexo->IdContratoAnexo}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -15,11 +15,9 @@
       </div>
     </div>
 
-        {!!Form::model($contrato_anexo,['method'=>'PATCH','route'=>['$contrato_anexo.update',$contrato_anexo->IdContrato_Anexo]])!!}
+        {!!Form::model($contrato_anexo,['method'=>'PATCH','route'=>['contrato_anexo.update',$contrato_anexo->IdContratoAnexo]])!!}
         {{Form::token()}}
     <div class="row">
-
-
 
      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
@@ -50,12 +48,12 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
            <div class="form-group">
-             <label for="FchCrea">WorkStation</label>
+             <label for="FchCrea">Fecha</label>
              <input type="text" name="FchCrea" class="form-control" value="{{$contrato_anexo->FchCrea}}" placeholder="FchCrea">
            </div>
-      </div>
+      </div>-->
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
               <div class="form-group">
@@ -64,12 +62,12 @@
               </div>
       </div>
 
-   <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+   <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" value="{{$contrato_anexo->WksCrea}}" placeholder="WorkStation">
         </div>
-    </div>
+    </div>-->
 
       <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
@@ -85,12 +83,12 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" value="{{$contrato_anexo->WksMod}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
   <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">

@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar Modelo: {{$Modelo->UsrCrea}}</h3>
+        <h3>Editar Modelo: {{$modelo->IdModelo}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-        {!!Form::model($modelo,['method'=>'PATCH','route'=>['$modelo.update',$modelo->IdModelo]])!!}
+        {!!Form::model($modelo,['method'=>'PATCH','route'=>['modelo.update',$modelo->IdModelo],'files'=>'true'])!!}
         {{Form::token()}}
     <div class="row">
 
@@ -25,7 +25,6 @@
           <input type="text" name="IdModelo" class="form-control" value="{{$modelo->IdModelo}}" placeholder="IdModelo">
         </div>
       </div>
-
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
@@ -76,12 +75,12 @@
         </div>
       </div>
 
-  <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-        <label for="FotoReferencial">FotoReferencial</label>
-        <input type="text" name="FotoReferencial" class="form-control" value="{{$modelo->FotoReferencial}}" placeholder="FotoReferencial">
-     </div>
-    </div>
+          <label for="FotoReferencial">FotoReferencial</label>
+          <input type="file" name="FotoReferencial" value="{{$modelo->FotoReferencial}}" class="form-control">
+        </div>
+      </div>
 
     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
       <div class="form-group">

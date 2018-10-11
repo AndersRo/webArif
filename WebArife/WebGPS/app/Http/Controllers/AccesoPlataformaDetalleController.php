@@ -4,8 +4,9 @@ namespace webGps\Http\Controllers;
 
 use Carbon\carbon;
 use Illuminate\Http\Request;
+use webGps\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Requests\AccesoPlataformaDetalleFormRequet;
+use webGps\Http\Requests\AccesoPlataformaDetalleFormRequest;
 use webGps\AccesoPlataformaDetalle;
 use DB;
 
@@ -28,15 +29,16 @@ class AccesoPlataformaDetalleController extends Controller
       return view("plataforma.AccesoPlataformaDetalle.create");
     }
     public function store(AccesoPlataformaDetalleFormRequest $request){
-      $accesoplataformadetalle=new accesoplataformadetalle;
+      $accesoplataformadetalle=new AccesoPlataformaDetalle;
+      $accesoplataformadetalle->IdAccesoDetalle=$request->get('IdAccesoDetalle');
       $accesoplataformadetalle->IdAcceso=$request->get('IdAcceso');
       $accesoplataformadetalle->IdContrato=$request->get('IdContrato');
       $accesoplataformadetalle->FchCrea=Carbon::now();
       $accesoplataformadetalle->UsrCrea=$request->get('UsrCrea');
-      $accesoplataformadetalle->WksCrea=$request->get('WksCrea');
+      $accesoplataformadetalle->WksCrea=$request->ip();
       $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
-      $accesoplataformadetalle->WksMod=$request->get('WksMod');
+      $accesoplataformadetalle->WksMod=$request->ip();
       $accesoplataformadetalle->FlgEli=1;
       $accesoplataformadetalle->save();
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
@@ -49,12 +51,13 @@ class AccesoPlataformaDetalleController extends Controller
     }
     public function update(AccesoPlataformaDetalleFormRequest $request,$id){
       $accesoplataformadetalle=AccesoPlataformaDetalle::findOrFail($id);
+      $accesoplataformadetalle->IdAccesoDetalle=$request->get('IdAccesoDetalle');
       $accesoplataformadetalle->IdAcceso=$request->get('IdAcceso');
       $accesoplataformadetalle->IdContrato=$request->get('IdContrato');
       $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
-      $accesoplataformadetalle->WksMod=$request->get('WksMod');
-      $accesoplataformadetalle->1;
+      $accesoplataformadetalle->WksMod=$request->ip();
+      $accesoplataformadetalle->FlgEli=1;
       $accesoplataformadetalle->update();
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }

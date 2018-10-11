@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar Marca: {{$Marca->UsrCrea}}</h3>
+        <h3>Editar Marca: {{$marca->IdMarca}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-        {!!Form::model($marca,['method'=>'PATCH','route'=>['$marca.update',$marca->IdMarca]])!!}
+        {!!Form::model($marca,['method'=>'PATCH','route'=>['marca.update',$marca->IdMarca]])!!}
         {{Form::token()}}
     <div class="row">
 
@@ -25,7 +25,6 @@
           <input type="text" name="IdMarca" class="form-control" value="{{$marca->IdMarca}}" placeholder="IdMarca">
         </div>
       </div>
-
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">

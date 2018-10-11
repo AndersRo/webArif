@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\carbon;
 use webGps\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Requests\AccesoPlataformaComandosFormRequet;
+use webGps\Http\Requests\AccesoPlataformaComandosFormRequest;
 use webGps\AccesoPlataformaComandos;
 use DB;
 
@@ -31,6 +31,7 @@ class AccesoPlataformaComandosController extends Controller
     }
     public function store(AccesoPlataformaComandosFormRequest $request){
       $accesoplataformacomandos=new AccesoPlataformaComandos;
+      $accesoplataformacomandos->IdAccesoComandos=$request->get('IdAccesoComandos');
       $accesoplataformacomandos->IdAccesoDetalle=$request->get('IdAccesoDetalle');
       $accesoplataformacomandos->FchCrea=Carbon::now();
       $accesoplataformacomandos->UsrCrea=$request->get('UsrCrea');
@@ -50,11 +51,12 @@ class AccesoPlataformaComandosController extends Controller
     }
     public function update(AccesoPlataformaComandosFormRequest $request,$id){
       $accesoplataformacomandos=AccesoPlataformaComandos::findOrFail($id);
+      $accesoplataformacomandos->IdAccesoComandos=$request->get('IdAccesoComandos');
       $accesoplataformacomandos->IdAccesoDetalle=$request->get('IdAccesoDetalle');
-      $accesoplataformacomandos->FchMod=$request->get('FchMod');
+      $accesoplataformacomandos->FchMod=Carbon::now();
       $accesoplataformacomandos->UsrMod=$request->get('UsrMod');
-      $accesoplataformacomandos->WksMod=$request->get('WksMod');
-      $accesoplataformacomandos->FlgEli=1
+      $accesoplataformacomandos->WksMod=$request->ip();
+      $accesoplataformacomandos->FlgEli=1;
       $accesoplataformacomandos->update();
       return Redirect::to('plataforma/AccesoPlataformaComandos');
     }

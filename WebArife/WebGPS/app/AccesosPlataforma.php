@@ -11,6 +11,7 @@ class AccesosPlataforma extends Model
     public $timestamps=false;
 
     protected $fillable=[
+      'IdAcceso',
       'IdCliente',
       'FlgAccesoApp',
       'FlgAccesoWeb',
@@ -18,7 +19,7 @@ class AccesosPlataforma extends Model
       'MaxConexiones',
       'LoginAcceso',
       'ContrasnaPlataforma',
-      'ContrasenaComados',
+      'ContrasenaComandos',
       'FchCrea',
       'WksCrea',
       'UsrCrea',

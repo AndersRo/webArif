@@ -12,6 +12,7 @@ class OrdenTrabajo extends Model
     public $timestamps=false;
 
     protected $fillable =[
+          'IdOrden',
           'IdEmpresa',
           'IdMecanico',
           'IdCliente',

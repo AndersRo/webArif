@@ -2,7 +2,7 @@ vb@extends ('layouts.admin')
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Taller</h3>
+        <h3>Plataforma Detalle</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -17,12 +17,12 @@ vb@extends ('layouts.admin')
         {{Form::token()}}
 
         <div class="form-group">
-             <label for="IdAccesoDetalle">Acesso comandos</label>
+             <label for="IdAccesoDetalle">Acesso Detalle</label>
              <input type="text" name="IdAccesoDetalle" class="form-control" placeholder="IdAccesoDetalle">
         </div>
 
        <div class="form-group">
-            <label for="IdContrato">Acesso comandos</label>
+            <label for="IdContrato">Contrato</label>
             <input type="text" name="IdContrato" class="form-control" placeholder="IdContrato">
        </div>
 

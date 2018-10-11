@@ -55,7 +55,6 @@ public function update(MarcaFormRequest $request,$id){
   $marca->FchMod=Carbon::now();
   $marca->UsrMod=$request->get('UsrMod');
   $marca->WksMod=$request->get('WksMod');
-  $marca->FlgEli=$request->get('FlgEli');
   $marca->update();
   return Redirect::to('Dispositivos/marca');
 }

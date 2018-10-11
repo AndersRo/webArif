@@ -12,6 +12,7 @@ class OrdenTrabajo_Detalle extends Model
     public $timestamps=false;
 
     protected $fillable =[
+      'IdOrdenDetalle',
       'IdOrden',
       'IdDispositivo',
       'CodTipoTrabajo',

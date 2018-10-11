@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar ordentrabajo_detalle: {{$ordentrabajo_detalle->UsrCrea}}</h3>
+        <h3>Editar ordentrabajo_detalle: {{$ordentrabajo_detalle->IdOrdenDetalle}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-        {!!Form::model($ordentrabajo_detalle,['method'=>'PATCH','route'=>['$ordentrabajo_detalle.update',$ordentrabajo_detalle->IdOrdenDetalle]])!!}
+        {!!Form::model($ordentrabajo_detalle,['method'=>'PATCH','route'=>['ordentrabajo_detalle.update',$ordentrabajo_detalle->IdOrdenDetalle]])!!}
         {{Form::token()}}
    <div class="row">
 
@@ -48,12 +48,12 @@
         </div>
 
 
-  <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
            <div class="form-group">
              <label for="FchCrea">WorkStation</label>
              <input type="text" name="FchCrea" class="form-control" value="{{$ordentrabajo_detalle->FchCrea}}" placeholder="FchCrea">
            </div>
-         </div>
+         </div>-->
 
          <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
               <div class="form-group">
@@ -62,19 +62,19 @@
               </div>
             </div>
 
-   <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+   <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" value="{{$ordentrabajo_detalle->WksCrea}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
-    <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+    <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FchMod">Fecha Mod</label>
           <input type="text" name="FchMod" class="form-control" value="{{$ordentrabajo_detalle->FchMod}}" placeholder="Fecha">
         </div>
-      </div>
+      </div>-->
 
     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
@@ -84,12 +84,12 @@
       </div>
 
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" value="{{$ordentrabajo_detalle->WksMod}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">

@@ -36,11 +36,11 @@
 							<td>{{$apd->WksMod}}</td>
 							<td>{{$apd->FlgEli}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('AccesoPlataformaDetalleController@edit',$apd->IdAccesoDetalle)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$apd->IdAccesoDetalle}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
-						@include(plataforma.AccesoPlataformaDetalle.modal)
+						@include('plataforma.AccesoPlataformaDetalle.modal')
 					@endforeach
 				</table>
 			</div>

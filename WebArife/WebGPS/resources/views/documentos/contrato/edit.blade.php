@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Editar Modelo: {{$Modelo->UsrCrea}}</h3>
+        <h3>Editar Codigo de contrato: {{$contrato->IdContrato}}</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-        {!!Form::model($contrato,['method'=>'PATCH','route'=>['$contrato.update',$contrato->IdContrato]])!!}
+        {!!Form::model($contrato,['method'=>'PATCH','route'=>['contrato.update',$contrato->IdContrato]])!!}
         {{Form::token()}}
     <div class="row">
 
@@ -26,7 +26,6 @@
         </div>
       </div>
 
-
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="CodTipoServicio">CodTipoServicio</label>
@@ -34,17 +33,55 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FechaInicio">Fecha Emision</label>
           <input type="text" name="FechaInicio" class="form-control" value="{{$contrato->FechaInicio}}" placeholder="FechaInicio">
         </div>
-      </div>
+      </div>-->
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="input-group date">
+          <label for="FechaInicio">Fecha Inicio</label>
+          <input type="text" class="form-control" value="{{$contrato->FechaInicio}}" name="FechaInicio" >
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
+          <script>
+            $('.date').datepicker({
+              format: 'yyyy/mm/dd',
+              startDate: '-3d',
+              language: "es",
+              autoclose: true
+            });
+          </script>
+        </div>
+      </div>
+
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FechaFin">Fecha Caducacion</label>
           <input type="text" name="FechaFin" class="form-control" value="{{$contrato->FechaFin}}" placeholder="FechaFin">
+        </div>
+      </div>-->
+
+
+
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="input-group date">
+          <label for="FechaFin">Fecha Fin</label>
+          <input type="text" class="form-control" name="FechaFin" value="{{$contrato->FechaFin}}">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
+          <script>
+            $('.date').datepicker({
+              format: 'yyyy/mm/dd',
+              startDate: '-3d',
+              language: "es",
+              autoclose: true
+            });
+          </script>
         </div>
       </div>
 
@@ -83,12 +120,12 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
            <div class="form-group">
-             <label for="FchCrea">WorkStation</label>
+             <label for="FchCrea">Fecha</label>
              <input type="text" name="FchCrea" class="form-control" value="{{$contrato->FchCrea}}" placeholder="FchCrea">
            </div>
-         </div>
+         </div>-->
 
          <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
             <div class="form-group">
@@ -97,12 +134,12 @@
             </div>
         </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" value="{{$contrato->WksCrea}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
       <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
@@ -118,12 +155,12 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" value="{{$contrato->WksMod}}" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
 
   <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">

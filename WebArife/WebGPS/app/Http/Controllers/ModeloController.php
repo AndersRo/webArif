@@ -61,7 +61,6 @@ public function update(ModeloFormRequest $request,$id){
   $modelo->FchMod=Carbon::now();
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->get('WksMod');
-  $modelo->FlgEli=1;
   if (Input::hasFile('FotoReferencial')) {
     $file=Input::file('FotoReferencial');
     $file->move(public_path().'/imagenes/modelo/',$file->getClientOriginalName());

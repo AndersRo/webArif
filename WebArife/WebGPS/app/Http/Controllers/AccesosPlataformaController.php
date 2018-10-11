@@ -2,8 +2,10 @@
 
 namespace webGps\Http\Controllers;
 
-use Carbon\carbon;
 use Illuminate\Http\Request;
+use Carbon\carbon;
+
+use webGps\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 use webGps\AccesosPlataforma;
 use webGps\Http\Requests\AccesosPlataformaFormRequest;
@@ -25,10 +27,11 @@ class AccesosPlataformaController extends Controller
     	}
     }
     public function create(){
-      return view("plataforma.accesosplataforma.create");
+      return view("plataforma.AccesosPlataforma.create");
     }
     public function store(AccesosPlataformaFormRequest $request){
-      $accesosplataforma=new accesosplataforma;
+      $accesosplataforma=new AccesosPlataforma;
+      $accesosplataforma->IdAcceso=$request->get('IdAcceso');
       $accesosplataforma->IdCliente=$request->get('IdCliente');
       $accesosplataforma->FlgAccesoApp=$request->get('FlgAccesoApp');
       $accesosplataforma->FlgAccesoWeb=$request->get('FlgAccesoWeb');
@@ -36,26 +39,27 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->MaxConexiones=$request->get('MaxConexiones');
       $accesosplataforma->LoginAcceso=$request->get('LoginAcceso');
       $accesosplataforma->ContrasnaPlataforma=$request->get('ContrasnaPlataforma');
-      $accesosplataforma->ContrasenaComandos=$request->get('ContrasenaComandos');
+      $accesosplataforma->ContrasenaComados=$request->get('ContrasenaComados');
       $accesosplataforma->FchCrea=Carbon::now();
-      $accesosplataforma->WksCrea=$request->get('WksCrea');
+      $accesosplataforma->WksCrea=$request->ip();
       $accesosplataforma->UsrCrea=$request->get('UsrCrea');
       $accesosplataforma->FchMod=Carbon::now();
-      $accesosplataforma->WksMod=$request->get('WksMod');
+      $accesosplataforma->WksMod=$request->ip();
       $accesosplataforma->UsrMod=$request->get('UsrMod');
-      $accesosplataforma->FglEli=1;
+      $accesosplataforma->FlgEli=1;
       $accesosplataforma->EstadoAcceso=$request->get('EstadoAcceso');
       $accesosplataforma->save();
-      return Redirect::to('accesosplataforma/accesosplataforma');
+      return Redirect::to('plataforma/AccesosPlataforma');
     }
     public function show($id){
-      return view("accesosplataforma.accesosplataforma.show", ["accesosplataforma"=>AccesosPlataforma::findOrFail($id)]);
+      return view("plataforma.AccesosPlataforma.show", ["accesosplataforma"=>AccesosPlataforma::findOrFail($id)]);
     }
     public function edit($id){
-      return view("accesosplataforma.accesosplataforma.edit", ["accesosplataforma"=>AccesosPlataforma::findOrFail($id)]);
+      return view("plataforma.AccesosPlataforma.edit", ["accesosplataforma"=>AccesosPlataforma::findOrFail($id)]);
     }
     public function update(AccesosPlataformaFormRequest $request,$id){
       $accesosplataforma=AccesosPlataforma::findOrFail($id);
+      $accesosplataforma->IdAcceso=$request->get('IdAcceso');
       $accesosplataforma->IdCliente=$request->get('IdCliente');
       $accesosplataforma->FlgAccesoApp=$request->get('FlgAccesoApp');
       $accesosplataforma->FlgAccesoWeb=$request->get('FlgAccesoWeb');
@@ -63,14 +67,14 @@ class AccesosPlataformaController extends Controller
       $accesosplataforma->MaxConexiones=$request->get('MaxConexiones');
       $accesosplataforma->LoginAcceso=$request->get('LoginAcceso');
       $accesosplataforma->ContrasnaPlataforma=$request->get('ContrasnaPlataforma');
-      $accesosplataforma->ContrasenaComandos=$request->get('ContrasenaComandos');
+      $accesosplataforma->ContrasenaComados=$request->get('ContrasenaComados');
       $accesosplataforma->FchMod=Carbon::now();
-      $accesosplataforma->WksMod=$request->get('WksMod');
+      $accesosplataforma->WksMod=$request->ip();
       $accesosplataforma->UsrMod=$request->get('UsrMod');
-      $accesosplataforma->FglEli=$request->get('FglEli');
+      $accesosplataforma->FlgEli=1;
       $accesosplataforma->EstadoAcceso=$request->get('EstadoAcceso');
       $accesosplataforma->update();
-      return Redirect::to('accesosplataforma/accesosplataforma');
+      return Redirect::to('plataforma/AccesosPlataforma');
     }
     public function destroy($id){
       $accesosplataforma=AccesosPlataforma::findOrFail($id);

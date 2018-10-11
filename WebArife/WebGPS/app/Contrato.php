@@ -12,14 +12,14 @@ class Contrato extends Model
   public $timestamps = false;
 
   protected $fillable =[
-
+    'IdContrato',
     'CodTipoServicio',
-    'Fechainicio'.
-    'Fechafin',
+    'FechaFnicio',
+    'FechaFin',
     'IdCliente',
     'CodTipoContrato',
-    'idEmpresa',
-    'idVehiculo',
+    'IdEmpresa',
+    'IdVehiculo',
     'EstadoContrato',
     'FchCrea',
     'UsrCrea',

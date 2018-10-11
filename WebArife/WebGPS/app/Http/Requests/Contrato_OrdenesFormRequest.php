@@ -13,7 +13,7 @@ class Contrato_OrdenesFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,11 +28,11 @@ class Contrato_OrdenesFormRequest extends FormRequest
       'IdContrato'=>'required|max:11|',
       'IdOrden'=>'required|max:11',
       'FchCrea'=>'max:19',
-      'UsrCrea'=>'required|max:30',
-      'WksCrea'=>'required|max:30',
+      'UsrCrea'=>'max:30',
+      'WksCrea'=>'max:30',
       'FchMod'=>'max:19',
-      'WksMod'=>'required|max:30',
-      'UsrMod'=>'required|max:30',
+      'WksMod'=>'max:30',
+      'UsrMod'=>'max:30',
       'FlgEli'=>'max:1',
 
         ];

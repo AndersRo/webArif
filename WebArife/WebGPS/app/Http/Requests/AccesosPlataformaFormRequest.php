@@ -4,7 +4,7 @@ namespace webGps\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AccesosPlataformaFormRequets extends FormRequest
+class AccesosPlataformaFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,7 @@ class AccesosPlataformaFormRequets extends FormRequest
     public function rules()
     {
         return [
+          'IdAcceso'=>'required|max:11',
           'IdCliente'=>'required|max:11',
           'FlgAccesoApp'=>'required|max:1',
           'FlgAccesoWeb'=>'required|max:1',
@@ -33,11 +34,11 @@ class AccesosPlataformaFormRequets extends FormRequest
           'ContrasnaPlataforma'=>'required|max:30',
           'ContrasenaComados'=>'required|max:30',
           'FchCrea'=>'max:19',
-          'WksCrea'=>'required|max:30',
-          'UsrCrea'=>'required|max:30',
+          'WksCrea'=>'max:30',
+          'UsrCrea'=>'max:30',
           'FchMod'=>'max:19',
-          'WksMod'=>'required|max:30',
-          'UsrMod'=>'required|max:30',
+          'WksMod'=>'max:30',
+          'UsrMod'=>'max:30',
           'FlgEli'=>'max:1',
           'EstadoAcceso'=>'required|max:18'
         ];

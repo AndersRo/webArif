@@ -28,10 +28,9 @@
 						<tr>
 							<td>{{$mod->IdModelo}}</td>
 							<td>{{$mod->Descripcion}}</td>
-							<td>{{$mod->UsrCrea}}</td>
+							<td>{{$mod->FchCrea}}</td>
 							<td>{{$mod->UsrCrea}}</td>
 							<td>{{$mod->WksCrea}}</td>
-							<td>{{$mod->UsrMod}}</td>
 							<td>{{$mod->FchMod}}</td>
 							<td>{{$mod->UsrMod}}</td>
 							<td>{{$mod->WksMod}}</td>
@@ -41,7 +40,7 @@
 							</td>
 							<td>{{$mod->IdMarca}}</td>
 							<td>
-								<a href="{{URL::action('Modeloontroller@edit',$mod->IdModelo)}}"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('ModeloController@edit',$mod->IdModelo)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$mod->IdModelo}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

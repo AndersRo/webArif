@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\OrdenTrabajo_Detalle;
 use Illuminate\Support\Facades\Redirect;
-use webGps\Http\Request\OrdenTrabajo_DetalleFormRequest;
+use webGps\Http\Requests\OrdenTrabajo_DetalleFormRequest;
 use DB;
 
 
@@ -30,15 +30,16 @@ public function create(){
 }
 public function store(OrdenTrabajo_DetalleFormRequest $request){
   $OrdenTrabajo_Detalle=new OrdenTrabajo_Detalle;
+  $OrdenTrabajo_Detalle->IdOrdenDetalle=$request->get('IdOrdenDetalle');
   $OrdenTrabajo_Detalle->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo_Detalle->IdDispositivo=$request->get('IdDispositivo');
   $OrdenTrabajo_Detalle->CodTipoTrabajo=$request->get('CodTipoTrabajo');
   $OrdenTrabajo_Detalle->FchCrea=Carbon::now();
   $OrdenTrabajo_Detalle->UsrCrea=$request->get('UsrCrea');
-  $OrdenTrabajo_Detalle->WksCrea=$request->get('WksCrea');
+  $OrdenTrabajo_Detalle->WksCrea=$request->ip();
   $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
-  $OrdenTrabajo_Detalle->WksMod=$request->get('WksMod');
+  $OrdenTrabajo_Detalle->WksMod=$request->ip();
   $OrdenTrabajo_Detalle->FlgEli=1;
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
@@ -54,12 +55,13 @@ public function edit($id){
 
 public function update(OrdenTrabajo_DetalleFormRequest $request,$id){
   $OrdenTrabajo_Detalle=OrdenTrabajo_Detalle::findOrFail($id);
+  $OrdenTrabajo_Detalle->IdOrdenDetalle=$request->get('IdOrdenDetalle');
   $OrdenTrabajo_Detalle->IdOrden=$request->get('IdOrden');
   $OrdenTrabajo_Detalle->IdDispositivo=$request->get('IdDispositivo');
   $OrdenTrabajo_Detalle->CodTipoTrabajo=$request->get('CodTipoTrabajo');
   $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
-  $OrdenTrabajo_Detalle->WksMod=$request->get('WksMod');
+  $OrdenTrabajo_Detalle->WksMod=$request->ip();
   $OrdenTrabajo_Detalle->FlgEli=1;
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');

@@ -34,7 +34,7 @@
 							<td>{{$apc->WksMod}}</td>
 							<td>{{$apc->FlgEli}}</td>
 							<td>
-								<a href="#"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('AccesoPlataformaComandosController@edit',$apc->IdAccesoComandos)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$apc->IdAccesoComandos}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>

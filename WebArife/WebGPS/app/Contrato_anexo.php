@@ -12,6 +12,7 @@ class Contrato_Anexo extends Model
   public $timestamps=false;
 
   protected $fillable =[
+      'IdContratoAnexo',
       'IdContrato',
       'CodDocumentoAnexo',
       'RutaDocumento',

@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Taller</h3>
+        <h3>Contrato Ordenes</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -17,12 +17,17 @@
         {{Form::token()}}
 
         <div class="form-group">
-          <label for="IdContrato">Id</label>
+          <label for="IdContratoOrdenes">Id Contrato Orden</label>
+          <input type="text" name="IdContratoOrdenes" class="form-control" placeholder="IdContrato">
+        </div>
+
+        <div class="form-group">
+          <label for="IdContrato">Id Contrato</label>
           <input type="text" name="IdContrato" class="form-control" placeholder="IdContrato">
         </div>
 
         <div class="form-group">
-          <label for="IdOrden">codigo documento</label>
+          <label for="IdOrden">id Orden</label>
           <input type="text" name="IdOrden" class="form-control" placeholder="IdOrden">
         </div>
 
@@ -36,10 +41,10 @@
           <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <!--<div class="form-group">
           <label for="FchMod">Mod Fecha</label>
@@ -51,10 +56,10 @@
           <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">
         </div>
 
-				<div class="form-group">
+				<!--<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
       <div class="form-group">
           <button class="btn btn-primary" type="submit">Guardar</button>

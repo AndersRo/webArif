@@ -29,9 +29,10 @@ public function create(){
 }
 public function store(ContratoFormRequest $request){
   $contrato=new Contrato;
+  $contrato->IdContrato=$request->get('IdContrato');
   $contrato->CodTipoServicio=$request->get('CodTipoServicio');
-  $contrato->Fechainicio=$request->get('Fechainicio');
-  $contrato->Fechafin=$request->get('Fechafin');
+  $contrato->FechaInicio=$request->get('FechaInicio');
+  $contrato->FechaFin=$request->get('FechaFin');
   $contrato->IdCliente=$request->get('IdCliente');
   $contrato->CodTipoContrato=$request->get('CodTipoContrato');
   $contrato->IdEmpresa=$request->get('IdEmpresa');
@@ -39,25 +40,26 @@ public function store(ContratoFormRequest $request){
   $contrato->EstadoContrato=$request->get('EstadoContrato');
   $contrato->FchCrea=Carbon::now();
   $contrato->UsrCrea=$request->get('UsrCrea');
-  $contrato->WksCrea=$request->get('WksCrea');
+  $contrato->WksCrea=$request->ip();
   $contrato->FchMod=Carbon::now();
   $contrato->UsrMod=$request->get('UsrMod');
-  $contrato->WksMod=$request->get('WksMod');
+  $contrato->WksMod=$request->ip();
   $contrato->FlgEli=1;
   $contrato->save();
   return Redirect::to('documentos/contrato');
 }
 public function show($id){
-  return view("documentos/contrato.show", ["contrato"=>"contrato"::findOrFail($id)]);
+  return view("documentos/contrato.show", ["contrato"=>Contrato::findOrFail($id)]);
 }
 public function edit($id){
-  return view("documentos/contrato.edit", ["contrato"=>contrato::findOrFail($id)]);
+  return view("documentos/contrato.edit", ["contrato"=>Contrato::findOrFail($id)]);
 }
-public function update(ContratoFormRequest $request,$id){
- $contrato=new Contrato;
+public function update(ContratoFormRequest $request,$id){;
+ $contrato=Contrato::findOrFail($id);
+ $contrato->IdContrato=$request->get('IdContrato');
  $contrato->CodTipoServicio=$request->get('CodTipoServicio');
- $contrato->Fechainicio=$request->get('Fechainicio');
- $contrato->Fechafin=$request->get('Fechafin');
+ $contrato->FechaInicio=$request->get('FechaInicio');
+ $contrato->FechaFin=$request->get('FechaFin');
  $contrato->IdCliente=$request->get('IdCliente');
  $contrato->CodTipoContrato=$request->get('CodTipoContrato');
  $contrato->IdEmpresa=$request->get('IdEmpresa');
@@ -65,13 +67,13 @@ public function update(ContratoFormRequest $request,$id){
  $contrato->EstadoContrato=$request->get('EstadoContrato');
  $contrato->FchMod=Carbon::now();
  $contrato->UsrMod=$request->get('UsrMod');
- $contrato->WksMod=$request->get('WksMod');
- $contrato->FlgEli=$request->get('FlgEli');
+ $contrato->WksMod=$request->ip();
+ $contrato->FlgEli=1;
  $contrato->update();
   return Redirect::to('documentos/contrato');
 }
 public function destroy($id){
-  $contrato=contrato::findOrFail($id);
+  $contrato=Contrato::findOrFail($id);
   $contrato->FlgEli='0';
   $contrato->update();
   return Redirect::to('documentos/contrato');

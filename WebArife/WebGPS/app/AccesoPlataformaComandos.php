@@ -11,6 +11,7 @@ class AccesoPlataformaComandos extends Model
     public $timestamps=false;
 
     protected $fillable=[
+      'IdAccesoComandos',
       'IdAccesoDetalle',
       'FchCrea',
       'UsrCrea',

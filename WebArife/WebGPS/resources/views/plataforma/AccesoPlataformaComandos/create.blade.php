@@ -2,7 +2,7 @@
 @section ('contenido')
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <h3>Taller</h3>
+        <h3>Plataforma Comandos</h3>
         @if(count($errors)>0)
         <div class="alert alert-danger">
           <ul>
@@ -17,13 +17,13 @@
         {{Form::token()}}
 
         <div class="form-group">
-             <label for="IdAccesoDetalle">Acesso comandos</label>
-             <input type="text" name="IdAccesoDetalle" class="form-control" placeholder="IdAccesoDetalle">
+             <label for="IdAccesoDetalle">Acceso Detalle</label>
+             <input type="text" name="IdAccesoDetalle" class="form-control" required value="{{old('IdAccesoDetalle')}}" placeholder="IdAccesoDetalle">
         </div>
 
        <div class="form-group">
             <label for="IdAccesoComandos">Acesso comandos</label>
-            <input type="text" name="IdAccesoComandos" class="form-control" placeholder="IdAccesoComandos">
+            <input type="text" name="IdAccesoComandos" class="form-control" required value="{{old('IdAccesoComandos')}}" placeholder="IdAccesoComandos">
        </div>
 
         <!--<div class="form-group">
@@ -33,13 +33,13 @@
 
         <div class="form-group">
           <label for="UsrCrea">usuario</label>
-          <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
+          <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="UsrCrea">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <!--<div class="form-group">
           <label for="FchMod">Mod Fecha</label>
@@ -47,14 +47,14 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrMod">Modificar Usuario</label>
-          <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">
+          <label for="UsrMod">Usuario Mod</label>
+          <input type="text" name="UsrMod" class="form-control" required value="{{old('UsrMod')}}" placeholder="Usuario">
         </div>
 
-				<div class="form-group">
+				<!--<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <button class="btn btn-primary" type="submit">Guardar</button>
