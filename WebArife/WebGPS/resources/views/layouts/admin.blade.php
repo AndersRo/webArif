@@ -104,6 +104,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li><a href="../datos/actor"><i class="fa fa-circle-o"></i> Actor</a></li>
                 <li><a href="../datos/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
                 <li><a href="../datos/empresa"><i class="fa fa-circle-o"></i> Empresa</a></li>
                 <li><a href="../datos/mecanico"><i class="fa fa-circle-o"></i> Mecanicos</a></li>
@@ -114,7 +115,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-th"></i>
+                <i class="fa fa-folder"></i>
                 <span>Documentos</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -128,7 +129,7 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-shopping-cart"></i>
+                <i class="fa fa-tablet"></i>
                 <span>Dispositivos</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -155,7 +156,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Acceso</span>
+                <i class="fa fa-user"></i> <span>Acceso</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">

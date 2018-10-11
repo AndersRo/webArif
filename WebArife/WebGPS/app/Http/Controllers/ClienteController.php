@@ -18,9 +18,11 @@ class ClienteController extends Controller
     public function index(Request $request){
     	if ($request) {
     		$query=trim($request->get('searchText'));
-    		$cliente=DB::table('cliente')->where('UsrCrea','LIKE','%'.$query.'%')
-				->where('FlgEli','=','1')
-    		->orderBy('IdCliente','desc')
+    		$cliente=DB::table('cliente as c')
+				->join('actor as a', 'c.IdActor','=','a.IdActor')
+				->select('c.IdCliente','a.PrimerNombre','a.Apellido_Paterno','a.RazonSocial','a.CodigoIdentificacion')
+				->where('c.IdCliente','LIKE','%'.$query.'%')
+    		->orderBy('c.IdCliente','desc')
     		->paginate(7);
     		return view ('datos/cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
     	}
