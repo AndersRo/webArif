@@ -33,10 +33,10 @@ public function store(TallerFormRequest $request){
   $taller->Descripcion=$request->get('Descripcion');
   $taller->FchCrea=Carbon::now();
   $taller->UsrCrea=$request->get('UsrCrea');
-  $taller->WksCrea=$request->get('WksCrea');
+  $taller->WksCrea=$request->ip();
   $taller->FchMod=Carbon::now();
   $taller->UsrMod=$request->get('UsrMod');
-  $taller->WksMod=$request->get('WksMod');
+  $taller->WksMod=$request->ip();
   $taller->FlgEli=1;
   $taller->save();
   return Redirect::to('datos/taller');
@@ -53,8 +53,8 @@ public function update(TallerFormRequest $request,$id){
   $taller->Descripcion=$request->get('Descripcion');
   $taller->FchMod=Carbon::now();
   $taller->UsrMod=$request->get('UsrMod');
-  $taller->WksMod=$request->get('WksMod');
-  $taller->FlgEli=$request->get('FlgEli');
+  $taller->WksMod=$request->ip();
+  $taller->FlgEli=1;
   $taller->update();
   return Redirect::to('datos/taller');
 }

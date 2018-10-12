@@ -55,12 +55,12 @@
           <input type="text" name="UsrCrea" required value="{{old('UsrCrea')}}" class="form-control" placeholder="Usuario">
         </div>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" required value="{{old('WorkStation')}}" class="form-control" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
       <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FchCrea">Fecha</label>
@@ -79,12 +79,12 @@
           <input type="text" name="UsrMod" required value="{{old('UsrMod')}}" class="form-control" placeholder="Usuario">
         </div>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" required value="{{old('WksMod')}}" class="form-control" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="Representante">Representante</label>

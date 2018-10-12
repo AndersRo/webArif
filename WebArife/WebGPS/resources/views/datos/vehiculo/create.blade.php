@@ -57,10 +57,10 @@
           <input type="text" name="WksCrea" class="form-control" placeholder="UsrCrea">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <!--<div class="form-group">
           <label for="FchMod">Modificar Fecha</label>
@@ -72,10 +72,10 @@
           <input type="text" name="FchMod" class="form-control" placeholder="Usuario">
         </div>
 
-				<div class="form-group">
+				<!--<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <label for="FlgEli">Usuario Mod</label>
