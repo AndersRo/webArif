@@ -28,6 +28,8 @@ public function create(){
   return view("datos/mecanico.create");
 }
 public function store(MecanicoFormRequest $request){
+
+
   $mecanico=new mecanico;
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');

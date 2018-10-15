@@ -13,9 +13,9 @@
 				<table class="table table-striped table-bordered table-codensed table-hover">
 					<thead>
 						<th>IdCliente</th>
-						<th>Tipo Persona</th>
+						<th>Paterno</th>
+						<th>Materno</th>
 						<th>Primer Nombre</th>
-						<th>Apellido Paterno</th>
 						<th>Tipo Documento</th>
 						<th>Nro Documento</th>
 						<th>Razon Social</th>
@@ -23,9 +23,9 @@
 					@foreach ($cliente as $cli)
 						<tr>
 							<td>{{$cli->IdCliente}}</td>
-							<td>{{$cli->TipoPersona}}</td>
-							<td>{{$cli->PrimerNombre}}</td>
 							<td>{{$cli->Apellido_Paterno}}</td>
+							<td>{{$cli->Apellido_Materno}}</td>
+							<td>{{$cli->PrimerNombre}}</td>
 							<td>{{$cli->TipoDocumento}}</td>
 							<td>{{$cli->CodigoIdentificacion}}</td>
 							<td>{{$cli->RazonSocial}}</td>
