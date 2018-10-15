@@ -17,7 +17,7 @@
         {{Form::token()}}
         <div class="form-group">
           <label for="IdCliente">Id</label>
-          <input type="text" name="IdCliente" class="form-control" placeholder="IdActorCliente">
+          <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="IdActorCliente">
         </div>
 
         <!--<div class="form-group">
@@ -31,7 +31,7 @@
 
         <div class="form-group">
           <label for="IdActor">Actor</label>
-          <input type="text" name="IdActor" class="form-control" placeholder="IdActorCliente">
+          <input type="text" name="IdActor" class="form-control" required value="{{old('IdActor')}}" placeholder="IdActorCliente">
         </div>
 
         <div class="form-group">
@@ -81,7 +81,7 @@
         </div>-->
         <div class="form-group">
           <label for="UsrCrea">Usuario Actor</label>
-          <input type="text" name="UsrCrea" class="form-control" placeholder="Usuario">
+          <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="Usuario">
         </div>
 
         <div>
@@ -109,7 +109,7 @@
         </div>-->
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
-          <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">
+          <input type="text" name="UsrMod" class="form-control" required value="{{old('UsrMod')}}" placeholder="Usuario">
         </div>
         <div class="form-group">
           <button class="btn btn-primary" type="submit">Guardar</button>
