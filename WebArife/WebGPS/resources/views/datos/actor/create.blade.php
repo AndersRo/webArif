@@ -21,17 +21,16 @@
         </div>
     <div class="form-group">
           <label for="TipoPersona">Tipo Persona</label>
-<<<<<<< HEAD
           <input type="text" name="TipoPersona" class="form-control" required value="{{old('TipoPersona')}}" placeholder="TipoPersona">
         </div>
       <div class="form-group">
-=======
+
           <select class="form-control" name="TipoPersona">
               <option value="naturl">Natural</option>
               <option value="jurdic">Juridica</option>
           </select>
         <div class="form-group">
->>>>>>> 57f18bedb27400274bc569596fa4d4fadd7245ed
+
           <label for="Apellido_Paterno">Apellido Paterno</label>
           <input type="text" name="Apellido_Paterno" class="form-control" required value="{{old('Apellido_Paterno')}}" placeholder="Apellido Paterno">
         </div>
@@ -53,18 +52,18 @@
         </div>
     <div class="form-group">
           <label for="TipoDocumento">Tipo Documento</label>
-<<<<<<< HEAD
+
           <input type="text" name="TipoDocumento" class="form-control" required value="{{old('TipoDocumento')}}" placeholder="TipoDocumento">
      </div>
   <div class="form-group">
-=======
+
           <select class="form-control" name="TipoPersona">
               <option value="dni">DNI</option>
               <option value="crtex">Carnet de Extrangeria</option>
               <option value="Pasprt">Pasaporte</option>
           </select>
         <div class="form-group">
->>>>>>> 57f18bedb27400274bc569596fa4d4fadd7245ed
+
           <label for="CodigoIdentificacion">Codigo Identificacion</label>
           <input type="text" name="CodigoIdentificacion" class="form-control" required value="{{old('CodigoIdentificacion')}}" placeholder="Numero de Identificacion">
         </div>
