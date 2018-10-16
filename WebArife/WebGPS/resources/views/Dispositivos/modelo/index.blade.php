@@ -24,7 +24,7 @@
 						<th>FotoReferencial</th>
 						<th>IdMarca</th>
 					</thead>
-					@foreach ($modelo as $mod):
+					@foreach ($modelo as $mod)
 						<tr>
 							<td>{{$mod->IdModelo}}</td>
 							<td>{{$mod->Descripcion}}</td>

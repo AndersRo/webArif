@@ -43,11 +43,11 @@ class EmpresaController extends Controller
         $empresa->RutaLogo=$file->getClientOriginalName();
       }
       $empresa->UsrCrea=$request->get('UsrCrea');
-      $empresa->WksCrea=$request->get('WksCrea');
+      $empresa->WksCrea=$request->ip();
       $empresa->FchCrea=Carbon::now();
       $empresa->FchMod=Carbon::now();
       $empresa->UsrMod=$request->get('UsrMod');
-      $empresa->WksMod=$request->get('WksMod');
+      $empresa->WksMod=$request->ip();
       $empresa->FlgEli=1;
       $empresa->Representante=$request->get('Representante');
       $empresa->save();
@@ -73,7 +73,7 @@ class EmpresaController extends Controller
       }
       $empresa->FchMod=Carbon::now();
       $empresa->UsrMod=$request->get('UsrMod');
-      $empresa->WksMod=$request->get('WksMod');
+      $empresa->WksMod=$request->ip();
       $empresa->Representante=$request->get('Representante');
       $empresa->update();
       return Redirect::to('datos/empresa');

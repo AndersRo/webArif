@@ -17,7 +17,7 @@
 						<th>Comandos</th>
 						<th>IdModelo</th>
 					</thead>
-					@foreach ($comandos as $com):
+					@foreach ($comandos as $com)
 						<tr>
 							<td>{{$com->IdComandos}}</td>
 							<td>{{$com->CodTipoComandos}}</td>

@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-          <label for="CodTipoServicio">tipo servicio</label>
+          <label for="CodTipoServicio">Tipo de Servicio</label>
           <input type="text" name="CodTipoServicio" class="form-control" required value="{{old('CodTipoServicio')}}" placeholder="CodTipoServicio">
         </div>
 
@@ -70,7 +70,7 @@
 
         <div class="form-group">
           <label for="IdCliente">Id Cliente</label>
-          <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="IdCliente">
+          <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="Id Cliente">
         </div>
 
         <div class="form.group">
@@ -79,13 +79,13 @@
         </div>
 
      <div class ="form-group">
-          <label for="IdEmpresa">iId empresa</label>
-          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="IdEmpresa">
+          <label for="IdEmpresa">Id Empresa</label>
+          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="Id Empresa">
      </div>
 
      <div class ="form.group">
-       <label for="IdVehiculo">id vehiculo </label>
-       <input for="'text'" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="IdVehiculo">
+       <label for="IdVehiculo">Id Vehiculo </label>
+       <input for="'text'" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="Id Vehiculo">
      </div>
 
      <div class="form-group">
@@ -99,8 +99,8 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
-          <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="UsrCrea">
+          <label for="UsrCrea">Usuario</label>
+          <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="Usuario">
         </div>
 
         <!--<div class="form-group">

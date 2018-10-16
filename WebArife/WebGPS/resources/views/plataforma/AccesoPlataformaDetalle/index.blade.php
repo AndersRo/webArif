@@ -23,7 +23,7 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($accesoplataformadetalle as $apd):
+					@foreach ($accesoplataformadetalle as $apd)
 						<tr>
 							<td>{{$apd->IdAccesoDetalle}}</td>
 							<td>{{$apd->IdAcceso}}</td>

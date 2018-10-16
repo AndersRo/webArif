@@ -22,7 +22,7 @@
 						<th>WksMod</th>
 						<th>FlgEli</th>
 					</thead>
-					@foreach ($taller as $tlr):
+					@foreach ($taller as $tlr)
 						<tr>
 							<td>{{$tlr->IdTaller}}</td>
 							<td>{{$tlr->Descripcion}}</td>

@@ -26,7 +26,7 @@
 				    <th>FlgEli</th>
 						<th>Representante</th>
 					</thead>
-					@foreach ($empresa as $emp):
+					@foreach ($empresa as $emp)
 						<tr>
 							<td>{{$emp->IdEmpresa}}</td>
 							<td>{{$emp->RUC}}</td>

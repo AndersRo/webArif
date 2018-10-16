@@ -53,14 +53,14 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
-          <input type="text" name="WksCrea" class="form-control" placeholder="UsrCrea">
+          <label for="UsrCrea">Usuario</label>
+          <input type="text" name="WksCrea" class="form-control" placeholder="Usuario">
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <!--<div class="form-group">
           <label for="FchMod">Modificar Fecha</label>
@@ -72,29 +72,29 @@
           <input type="text" name="FchMod" class="form-control" placeholder="Usuario">
         </div>
 
-				<div class="form-group">
+				<!--<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" class="form-control" placeholder="WorkStation">
-        </div>
+        </div>-->
 
         <div class="form-group">
           <label for="FlgEli">Usuario Mod</label>
-          <input type="text" name="FlgEli" class="form-control" placeholder="FlgEli">
+          <input type="text" name="FlgEli" class="form-control" placeholder="Usuario">
         </div>
 
         <div class="form-group">
           <label for="RutaReferencia">Ruta Referencia</label>
-          <input type="text" name="FlgEli" class="form-control" placeholder="RutaReferencia">
+          <input type="text" name="FlgEli" class="form-control" placeholder="Ruta Referencia">
         </div>
 
         <div class="form-group">
            <label for="RutaTarjeta">Ruta Tarjeta</label>
-           <input type="text" name="RutaTarjeta" class="form-control" placeholder="RutaTarjeta">
+           <input type="text" name="RutaTarjeta" class="form-control" placeholder="Ruta Tarjeta">
         </div>
 
         <div class="form-group">
            <label for="IdEmpresa">IdEmpresa</label>
-           <input type="text" name="IdEmpresa" class="form-control" placeholder="IdEmpresa">
+           <input type="text" name="IdEmpresa" class="form-control" placeholder="Id Empresa">
         </div>
 
         <div class="form-group">

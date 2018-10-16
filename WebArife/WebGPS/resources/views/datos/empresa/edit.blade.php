@@ -54,12 +54,12 @@
           <input type="text" name="UsrCrea" value="{{$empresa->UsrCrea}}" class="form-control" placeholder="Usuario">
         </div>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksCrea">WorkStation</label>
           <input type="text" name="WksCrea" value="{{$empresa->WksCrea}}" class="form-control" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
       <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="FchCrea">Fecha</label>
@@ -78,12 +78,12 @@
           <input type="text" name="UsrMod" value="{{$empresa->UsrMod}}" class="form-control" placeholder="Usuario">
         </div>
       </div>
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
           <input type="text" name="WksMod" value="{{$empresa->WksMod}}" class="form-control" placeholder="WorkStation">
         </div>
-      </div>
+      </div>-->
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="Representante">Representante</label>

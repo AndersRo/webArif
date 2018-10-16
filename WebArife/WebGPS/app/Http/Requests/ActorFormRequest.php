@@ -36,11 +36,11 @@ class ActorFormRequest extends FormRequest
             'RUC'=>'MAX:11',
             'IdEmpresa'=>'required|MAX:11',
             'FchCrea'=>'MAX:20',
-            'UsrCrea'=>'required|MAX:30',
+            'UsrCrea'=>'MAX:30',
             'WksCrea'=>'MAX:30',
             'FchMod'=>'MAX:20',
             'WksMod'=>'MAX:30',
-            'UsrMod'=>'required|MAX:30',
+            'UsrMod'=>'MAX:30',
             'FlgEli'=>'MAX:1'
         ];
     }

@@ -38,10 +38,10 @@ public function store(VehiculoFormRequest $request){
   $vehiculo->Color=$request->get('Color');
   $vehiculo->FchCrea=Carbon::now();
   $vehiculo->UsrCrea=$request->get('UsrCrea');
-  $vehiculo->WksCrea=$request->get('WksCrea');
+  $vehiculo->WksCrea=$request->ip();
   $vehiculo->FchMod=Carbon::now();
   $vehiculo->UsrMod=$request->get('UsrMod');
-  $vehiculo->WksMod=$request->get('WksMod');
+  $vehiculo->WksMod=$request->ip();
   $vehiculo->FlgEli=1;
   $vehiculo->RutaReferencia=$request->get('RutaReferencia');
   $vehiculo->RutaTarjeta=$request->get('RutaTarjeta');
@@ -65,7 +65,7 @@ public function update(VehiculoFormRequest $request,$id){
   $vehiculo->Color=$request->get('Color');
   $vehiculo->FchMod=Carbon::now();
   $vehiculo->UsrMod=$request->get('UsrMod');
-  $vehiculo->WksMod=$request->get('WksMod');
+  $vehiculo->WksMod=$request->ip();
   $vehiculo->FlgEli=1;
   $vehiculo->RutaReferencia=$request->get('RutaReferencia');
   $vehiculo->RutaTarjeta=$request->get('RutaTarjeta');

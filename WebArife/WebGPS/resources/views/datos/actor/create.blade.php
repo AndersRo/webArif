@@ -21,15 +21,23 @@
         </div>
     <div class="form-group">
           <label for="TipoPersona">Tipo Persona</label>
+<<<<<<< HEAD
           <input type="text" name="TipoPersona" class="form-control" required value="{{old('TipoPersona')}}" placeholder="TipoPersona">
         </div>
       <div class="form-group">
+=======
+          <select class="form-control" name="TipoPersona">
+              <option value="naturl">Natural</option>
+              <option value="jurdic">Juridica</option>
+          </select>
+        <div class="form-group">
+>>>>>>> 57f18bedb27400274bc569596fa4d4fadd7245ed
           <label for="Apellido_Paterno">Apellido Paterno</label>
-          <input type="text" name="Apellido_Paterno" class="form-control" required value="{{old('Apellido_Paterno')}}" placeholder="Apellido_Paterno">
+          <input type="text" name="Apellido_Paterno" class="form-control" required value="{{old('Apellido_Paterno')}}" placeholder="Apellido Paterno">
         </div>
         <div class="form-group">
           <label for="Apellido_Materno">Apellido Materno</label>
-          <input type="text" name="Apellido_Materno" class="form-control" required value="{{old('Apellido_Materno')}}" placeholder="Apellido_Materno">
+          <input type="text" name="Apellido_Materno" class="form-control" required value="{{old('Apellido_Materno')}}" placeholder="Apellido Materno">
         </div>
      <div class="form-group">
           <label for="PrimerNombre">Primer Nombre</label>
@@ -41,15 +49,24 @@
         </div>
     <div class="form-group">
           <label for="RazonSocial">Razon Social</label>
-          <input type="text" name="RazonSocial" class="form-control" required value="{{old('RazonSocial')}}" placeholder="RazonSocial">
+          <input type="text" name="RazonSocial" class="form-control" required value="{{old('RazonSocial')}}" placeholder="Razon Social">
         </div>
     <div class="form-group">
           <label for="TipoDocumento">Tipo Documento</label>
+<<<<<<< HEAD
           <input type="text" name="TipoDocumento" class="form-control" required value="{{old('TipoDocumento')}}" placeholder="TipoDocumento">
      </div>
   <div class="form-group">
+=======
+          <select class="form-control" name="TipoPersona">
+              <option value="dni">DNI</option>
+              <option value="crtex">Carnet de Extrangeria</option>
+              <option value="Pasprt">Pasaporte</option>
+          </select>
+        <div class="form-group">
+>>>>>>> 57f18bedb27400274bc569596fa4d4fadd7245ed
           <label for="CodigoIdentificacion">Codigo Identificacion</label>
-          <input type="text" name="CodigoIdentificacion" class="form-control" required value="{{old('CodigoIdentificacion')}}" placeholder="CodigoIdentificacion">
+          <input type="text" name="CodigoIdentificacion" class="form-control" required value="{{old('CodigoIdentificacion')}}" placeholder="Numero de Identificacion">
         </div>
     <div class="form-group">
           <label for="RUC">RUC</label>
@@ -58,7 +75,7 @@
 
        <div class="form-group">
           <label for="IdEmpresa">Empresa</label>
-          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="IdEmpresa">
+          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="Id Empresa">
         </div>
 
         <!--<div class="form-group">

@@ -28,14 +28,16 @@ public function create(){
   return view("datos/mecanico.create");
 }
 public function store(MecanicoFormRequest $request){
+
+
   $mecanico=new mecanico;
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
   $mecanico->FchCrea=Carbon::now();
   $mecanico->UsrCrea=$request->get('UsrCrea');
-  $mecanico->WksCrea=$request->get('WksCrea');
+  $mecanico->WksCrea=$request->ip();
   $mecanico->UsrMod=$request->get('UsrMod');
-  $mecanico->WksMod=$request->get('WksMod');
+  $mecanico->WksMod=$request->ip();
   $mecanico->FchMod=Carbon::now();
   $mecanico->FlgEli=1;
   $mecanico->save();
@@ -52,7 +54,7 @@ public function update(MecanicoFormRequest $request,$id){
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
   $mecanico->UsrMod=$request->get('UsrMod');
-  $mecanico->WksMod=$request->get('WksMod');
+  $mecanico->WksMod=$request->ip();
   $mecanico->FchMod=Carbon::now();
   $mecanico->FlgEli=1;
   $mecanico->update();

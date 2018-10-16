@@ -23,7 +23,7 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($tablas_detalle as $tad):
+					@foreach ($tablas_detalle as $tad)
 						<tr>
 							<td>{{$tad->IdTablaDetalle}}</td>
 							<td>{{$tad->IdTabla}}</td>

@@ -24,7 +24,7 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($contrato_anexo as $cna):
+					@foreach ($contrato_anexo as $cna)
 						<tr>
 							<td>{{$cna->IdContratoAnexo}}</td>
 							<td>{{$cna->IdContrato}}</td>

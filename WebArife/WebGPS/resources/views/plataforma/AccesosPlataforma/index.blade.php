@@ -30,7 +30,7 @@
 				    <th>FlgEli</th>
 						<th>EstadoAcceso</th>
 					</thead>
-					@foreach ($accesosplataforma as $acp):
+					@foreach ($accesosplataforma as $acp)
 						<tr>
 							<td>{{$acp->IdCliente}}</td>
 							<td>{{$acp->IdAcceso}}</td>

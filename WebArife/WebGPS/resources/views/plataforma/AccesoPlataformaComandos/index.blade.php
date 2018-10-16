@@ -22,7 +22,7 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($accesoplataformacomandos as $apc):
+					@foreach ($accesoplataformacomandos as $apc)
 						<tr>
 							<td>{{$apc->IdAccesoComandos}}</td>
 							<td>{{$apc->IdAccesoDetalle}}</td>

@@ -29,7 +29,7 @@
 				    <th>WksMod</th>
 				    <th>FlgEli</th>
 					</thead>
-					@foreach ($contrato as $cnt):
+					@foreach ($contrato as $cnt)
 						<tr>
 							<td>{{$cnt->IdContrato}}</td>
 							<td>{{$cnt->CodTipoServicio}}</td>
