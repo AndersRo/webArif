@@ -74,10 +74,25 @@ class ClienteController extends Controller
     	return view("datos/cliente.show", ["cliente"=>Cliente::findOrFail($id)]);
     }
     public function edit($id){
-    	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)]);
+    	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)], "actor"=>Actor::findOrFail($ida));
     }
-    public function update(ClienteFormRequest $request,$id){
-    	$cliente=Cliente::findOrFail($id);
+    public function update(ClienteFormRequest $request,$id,ActorFormRequest $request, $ida){
+			$actor=Actor::findOrFail($ida);
+      $actor->TipoPersona=$request->get('TipoPersona');
+      $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
+      $actor->Apellido_Materno=$request->get('Apellido_Materno');
+      $actor->PrimerNombre=$request->get('PrimerNombre');
+      $actor->SegundoNombre=$request->get('SegundoNombre');
+      $actor->RazonSocial=$request->get('RazonSocial');
+      $actor->TipoDocumento=$request->get('TipoDocumento');
+      $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
+      $actor->RUC=$request->get('RUC');
+      $actor->FchMod=Carbon::now();
+      $actor->WksMod=$request->ip();
+      $actor->UsrMod=$request->get('UsrMod');
+      $actor->update();
+
+			$cliente=Cliente::findOrFail($id);
 			$cliente->IdActor=$request->get('IdActor');
     	$cliente->FchMod=Carbon::now();
 			$cliente->WksMod=$request->ip();
