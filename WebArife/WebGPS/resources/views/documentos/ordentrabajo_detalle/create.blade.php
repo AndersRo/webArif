@@ -12,40 +12,50 @@
           </ul>
         </div>
         @endif
+      </div>
+    </div>
 
         {!! Form::open(array('url'=>'documentos/ordentrabajo_detalle','method'=>'POST','autocomplete'=>'off')) !!}
         {{Form::token()}}
-
-
-        <div class="form-group">
-          <label for="IdOrdenDetalle">Id</label>
-          <input type="text" name="IdOrdenDetalle" class="form-control" placeholder="IdOrdenDetalle">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+          <div class="form-group">
+            <label for="IdOrdenDetalle">Id</label>
+            <input type="text" name="IdOrdenDetalle" class="form-control" placeholder="IdOrdenDetalle">
+          </div>
         </div>
 
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="IdOrden">Id Empresa</label>
           <input type="text" name="IdOrden" class="form-control" placeholder="IdOrden">
         </div>
+      </div>
 
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
            <label for="IdDispositivo">Id Mecanico</label>
             <input type="text" name="IdDispositivo" class="form-control" placeholder="IdDispositivo">
         </div>
+      </div>
 
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
            <label for="CodTipoTrabajo">Id Cliente</label>
             <input type="text" name="CodTipoTrabajo" class="form-control" placeholder="CodTipoTrabajo">
         </div>
-
+      </div>
 
         <!--<div class="form-group">
           <label for="FchCrea">Fecha</label>
           <input type="text" name="FchCrea" class="form-control" placeholder="FchCrea">
         </div>-->
 
-        <div class="form-group">
-          <label for="UsrCrea">Usuario</label>
-          <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+          <div class="form-group">
+           <label for="UsrCrea">Usuario</label>
+           <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
+          </div>
         </div>
 
         <!--<div class="form-group">
@@ -58,10 +68,12 @@
           <input type="text" name="FchMod" class="form-control" placeholder="Fecha">
         </div>-->
 
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrMod">Modificar Usuario</label>
           <input type="text" name="UsrMod" class="form-control" placeholder="Usuario">
         </div>
+      </div>
 
 				<!--<div class="form-group">
           <label for="WksMod">WorkStation Mod</label>
@@ -73,6 +85,7 @@
           <input type="text" name="FechaInicio" class="form-control" placeholder="FechaInicio">
         </div>-->
 
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <div class="input-group date">
             <label for="FechaInicio">Fecha Inicio</label>
@@ -90,6 +103,7 @@
             </script>
           </div>
         </div>
+      </div>
 
 
         <!--<div class="form-group">
@@ -97,6 +111,7 @@
            <input type="text" name="FechaFin" class="form-control" placeholder="FechaFin">
         </div>-->
 
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <div class="input-group date">
             <label for="FechaFin">Fecha Fin</label>
@@ -114,15 +129,16 @@
             </script>
           </div>
         </div>
+      </div>
 
 
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
            <button class="btn btn-primary" type="submit">Guardar</button>
            <button class="btn btn-danger" type="reset">Eliminar</button>
         </div>
-
-        {!! Form::close() !!}
       </div>
     </div>
+        {!! Form::close() !!}
 
 @endsection
