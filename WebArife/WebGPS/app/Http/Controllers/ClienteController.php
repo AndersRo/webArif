@@ -24,9 +24,11 @@ class ClienteController extends Controller
 				->join('actor as a', 'c.IdActor','=','a.IdActor')
 				->select('c.IdCliente','a.Apellido_Paterno','a.Apellido_Materno' ,'a.PrimerNombre','a.TipoDocumento','a.CodigoIdentificacion','a.RazonSocial')
 				->where('a.PrimerNombre','LIKE','%'.$query.'%')
+				->where('c.FlgEli','=','1')
 				->orwhere('a.CodigoIdentificacion','LIKE','%'.$query.'%')
+				->where('a.FlgEli','=','1')
     		->orderBy('c.IdCliente','desc')
-    		->paginate(7);
+				->paginate(7);
     		return view ('datos/cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
     	}
     }
@@ -89,6 +91,11 @@ class ClienteController extends Controller
 			$cliente=Cliente::findOrFail($id);
 			$cliente->FlgEli='0';
 			$cliente->update();
+
+			$actor=Actor::findOrFail($id);
+			$actor->FlgEli='0';
+			$actor->update();
+
 			return Redirect::to('datos/cliente');
     }
 }

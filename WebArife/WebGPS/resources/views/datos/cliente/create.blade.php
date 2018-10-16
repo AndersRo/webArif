@@ -29,6 +29,14 @@
           </select>
         </div>-->
 
+        <!--<div class="form-group">
+          <label for="IdActor">Actor</label>
+          <select class="form-control" name="IdActor">
+              <option value="natural">Natural</option>
+              <option value="juridica">Juridica</option>
+          </select>
+        </div>-->
+
         <div class="form-group">
           <label for="IdActor">Actor</label>
           <input type="text" name="IdActor" class="form-control" required value="{{old('IdActor')}}" placeholder="IdActorCliente">
@@ -36,7 +44,10 @@
 
         <div class="form-group">
           <label for="TipoPersona">Tipo Persona</label>
-          <input type="text" name="TipoPersona" class="form-control" required value="{{old('TipoPersona')}}" placeholder="TipoPersona">
+            <select class="form-control" name="TipoPersona">
+                <option value="naturl">Natural</option>
+                <option value="jurdic">Juridica</option>
+            </select>
         </div>
         <div class="form-group">
           <label for="Apellido_Paterno">Apellido Paterno</label>
