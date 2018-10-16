@@ -40,9 +40,9 @@
         <!-- Logo -->
         <a href="index2.html" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>SA</b>V</span>
+          <span class="logo-mini"><img src="{{asset('imagenes/icon/icono-arife.png')}}" alt="a" height="40" width="40"></span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>SAGPS</b></span>
+          <span class="logo-lg"><img src="{{asset('imagenes/icon/icono-arife.png')}}" alt="a" height="45" width="45" align="left"><b>SAGPS</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
