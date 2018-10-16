@@ -23,17 +23,17 @@
         </div>
 
         <div class="form-group">
-          <label for="IdOrden">Id empresa</label>
+          <label for="IdOrden">Id Empresa</label>
           <input type="text" name="IdOrden" class="form-control" placeholder="IdOrden">
         </div>
 
         <div class="form-group">
-           <label for="IdDispositivo">Id mecanico</label>
+           <label for="IdDispositivo">Id Mecanico</label>
             <input type="text" name="IdDispositivo" class="form-control" placeholder="IdDispositivo">
         </div>
 
         <div class="form-group">
-           <label for="CodTipoTrabajo">Id cliente</label>
+           <label for="CodTipoTrabajo">Id Cliente</label>
             <input type="text" name="CodTipoTrabajo" class="form-control" placeholder="CodTipoTrabajo">
         </div>
 
@@ -44,7 +44,7 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
+          <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
         </div>
 

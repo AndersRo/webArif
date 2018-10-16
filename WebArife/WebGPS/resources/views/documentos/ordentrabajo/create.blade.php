@@ -19,32 +19,32 @@
 
         <div class="form-group">
           <label for="IdOrden">Id</label>
-          <input type="text" name="IdOrden" class="form-control" required value="{{old('IdOrden')}}" placeholder="IdOrden">
+          <input type="text" name="IdOrden" class="form-control" required value="{{old('IdOrden')}}" placeholder="Id Orden">
         </div>
 
         <div class="form-group">
-          <label for="IdEmpresa">Id empresa</label>
-          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="IdEmpresa">
+          <label for="IdEmpresa">Id Empresa</label>
+          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="Id Empresa">
         </div>
 
         <div class="form-group">
-           <label for="IdMecanico">Id mecanico</label>
-            <input type="text" name="IdMecanico" class="form-control" required value="{{old('IdMecanico')}}" placeholder="IdMecanico">
+           <label for="IdMecanico">Id Mecanico</label>
+            <input type="text" name="IdMecanico" class="form-control" required value="{{old('IdMecanico')}}" placeholder="Id Mecanico">
         </div>
 
         <div class="form-group">
-           <label for="IdCliente">Id cliente</label>
-            <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="IdCliente">
+           <label for="IdCliente">Id Cliente</label>
+            <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="Id Cliente">
         </div>
 
          <div class="form-group">
-           <label for="IdVehiculo">Id vehiculo</label>
-           <input type="text" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="IdVehiculo">
+           <label for="IdVehiculo">Id Vehiculo</label>
+           <input type="text" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="Id Vehiculo">
          </div>
 
          <div class="form-group">
             <label for="IdTaller">Id Taller</label>
-             <input type="text" name="IdTaller" class="form-control" required value="{{old('IdCliente')}}" placeholder="IdCliente">
+             <input type="text" name="IdTaller" class="form-control" required value="{{old('IdCliente')}}" placeholder="Id Cliente">
          </div>
 
         <!--<div class="form-group">
@@ -53,7 +53,7 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
+          <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="UsrCrea">
         </div>
 
@@ -68,7 +68,7 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrMod">Usuario mod</label>
+          <label for="UsrMod">Usuario Mod</label>
           <input type="text" name="UsrMod" class="form-control" required value="{{old('UsrMod')}}" placeholder="Usuario">
         </div>
 
@@ -83,8 +83,8 @@
         </div>
 
         <div class="form-group">
-          <label for="Obsvacion">observacion</label>
-          <input type="text" name="Obsvacion" class="form-control" required value="{{old('Obsvacion')}}" placeholder="Obsvacion">
+          <label for="Obsvacion">Observacion</label>
+          <input type="text" name="Obsvacion" class="form-control" required value="{{old('Obsvacion')}}" placeholder="Observacion">
         </div>
 
         <!--<div class="form-group">
@@ -136,7 +136,7 @@
         </div>-->
 
         <div class="input-group date">
-          <label for="FechaEjecutada">Fecha ejecutada</label>
+          <label for="FechaEjecutada">Fecha Ejecutada</label>
           <input type="text" class="form-control" name="FechaEjecutada">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>

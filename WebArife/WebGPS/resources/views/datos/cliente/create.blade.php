@@ -78,7 +78,7 @@
           </select>
         <div class="form-group">
           <label for="CodigoIdentificacion">Codigo Identificacion</label>
-          <input type="text" name="CodigoIdentificacion" class="form-control" required value="{{old('CodigoIdentificacion')}}" placeholder="Numer de Identificacion">
+          <input type="text" name="CodigoIdentificacion" class="form-control" required value="{{old('CodigoIdentificacion')}}" placeholder="Numero de Identificacion">
         </div>
         <div class="form-group">
           <label for="RUC">RUC</label>
