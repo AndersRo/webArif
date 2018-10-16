@@ -75,23 +75,23 @@ class ClienteController extends Controller
     public function show($id){
     	return view("datos/cliente.show", ["cliente"=>Cliente::findOrFail($id)]);
     }
-    public function edit($id){
+    public function edit($id, $ida){
     	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)], ["actor"=>Actor::findOrFail($ida)]);
     }
-    public function update(ClienteFormRequest $request,$id,ActorFormRequest $reqactor, $ida){
+    public function update(ClienteFormRequest $request,$id, ActorFormRequest $reqactor,$ida){
 			$actor=Actor::findOrFail($ida);
-      $actor->TipoPersona=$request->get('TipoPersona');
-      $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
-      $actor->Apellido_Materno=$request->get('Apellido_Materno');
-      $actor->PrimerNombre=$request->get('PrimerNombre');
-      $actor->SegundoNombre=$request->get('SegundoNombre');
-      $actor->RazonSocial=$request->get('RazonSocial');
-      $actor->TipoDocumento=$request->get('TipoDocumento');
-      $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
-      $actor->RUC=$request->get('RUC');
+      $actor->TipoPersona=$reqactor->get('TipoPersona');
+      $actor->Apellido_Paterno=$reqactor->get('Apellido_Paterno');
+      $actor->Apellido_Materno=$reqactor->get('Apellido_Materno');
+      $actor->PrimerNombre=$reqactor->get('PrimerNombre');
+      $actor->SegundoNombre=$reqactor->get('SegundoNombre');
+      $actor->RazonSocial=$reqactor->get('RazonSocial');
+      $actor->TipoDocumento=$reqactor->get('TipoDocumento');
+      $actor->CodigoIdentificacion=$reqactor->get('CodigoIdentificacion');
+      $actor->RUC=$reqactor->get('RUC');
       $actor->FchMod=Carbon::now();
-      $actor->WksMod=$request->ip();
-      $actor->UsrMod=$request->get('UsrMod');
+      $actor->WksMod=$reqactor->ip();
+      $actor->UsrMod=$reqactor->get('UsrMod');
       $actor->update();
 
 			$cliente=Cliente::findOrFail($id);
