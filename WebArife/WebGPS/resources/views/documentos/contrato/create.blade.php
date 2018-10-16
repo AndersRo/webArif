@@ -16,9 +16,11 @@
         {!! Form::open(array('url'=>'documentos/contrato','method'=>'POST','autocomplete'=>'off')) !!}
         {{Form::token()}}
 
-        <div class="form-group">
-          <label for="IdContrato">Id</label>
-          <input type="text" name="IdContrato" class="form-control" required value="{{old('IdContrato')}}" placeholder="Id">
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+          <div class="form-group">
+            <label for="IdContrato">Id</label>
+            <input type="text" name="IdContrato" class="form-control" required value="{{old('IdContrato')}}" placeholder="Id">
+          </div>
         </div>
 
         <div class="form-group">
