@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-          <label for="IdOrden">id Orden</label>
+          <label for="IdOrden">Id Orden</label>
           <input type="text" name="IdOrden" class="form-control" placeholder="IdOrden">
         </div>
 
@@ -37,7 +37,7 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
+          <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" placeholder="UsrCrea">
         </div>
 

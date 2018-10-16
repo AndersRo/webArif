@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-          <label for="CodTipoServicio">tipo servicio</label>
+          <label for="CodTipoServicio">Tipo de Servicio</label>
           <input type="text" name="CodTipoServicio" class="form-control" required value="{{old('CodTipoServicio')}}" placeholder="CodTipoServicio">
         </div>
 
@@ -79,12 +79,12 @@
         </div>
 
      <div class ="form-group">
-          <label for="IdEmpresa">iId empresa</label>
+          <label for="IdEmpresa">Id Empresa</label>
           <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="IdEmpresa">
      </div>
 
      <div class ="form.group">
-       <label for="IdVehiculo">id vehiculo </label>
+       <label for="IdVehiculo">Id Vehiculo </label>
        <input for="'text'" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="IdVehiculo">
      </div>
 
@@ -99,7 +99,7 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
+          <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="UsrCrea">
         </div>
 
