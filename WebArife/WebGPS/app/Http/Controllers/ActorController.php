@@ -60,7 +60,9 @@ class ActorController extends Controller
       return view("datos.actor.show",["actor"=>Actor::findOrFail($id)]);
     }
     public function edit($id){
-      return view("datos.actor.edit",["actor"=>Actor::findOrFail($id)]);
+      $empresa=DB::table('empresa')
+			->where('FlgEli','=','1')->get();
+      return view("datos.actor.edit",["actor"=>Actor::findOrFail($id)],["empresa"=>$empresa]);
     }
     public function update(ActorFormRequest $request, $id){
       $actor=Actor::findOrFail($id);
