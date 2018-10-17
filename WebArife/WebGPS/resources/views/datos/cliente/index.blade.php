@@ -30,7 +30,7 @@
 							<td>{{$cli->CodigoIdentificacion}}</td>
 							<td>{{$cli->RazonSocial}}</td>
 							<td>
-								<a href="{{URL::action('ClienteController@edit',$cli->IdCliente, $cli->IdActor)}}"><button class="btn btn-info">Editar</button></a>
+								<a href="{{URL::action('ClienteController@edit',$cli->IdCliente)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$cli->IdCliente}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
 							</td>
 						</tr>
