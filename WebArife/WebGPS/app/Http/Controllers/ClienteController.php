@@ -75,11 +75,11 @@ class ClienteController extends Controller
     public function show($id){
     	return view("datos/cliente.show", ["cliente"=>Cliente::findOrFail($id)]);
     }
-    public function edit($id, $ida){
-    	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)], ["actor"=>Actor::findOrFail($ida)]);
+    public function edit($id){
+    	return view("datos/cliente.edit", ["cliente"=>Cliente::findOrFail($id)]);
     }
-    public function update(ClienteFormRequest $request,$id){
-			$actor=Actor::findOrFail($ida);
+    public function update(ClienteFormRequest $request,$id, ActorFormRequest $reqctor, $ida){
+			$actor=Actor::findOrFail($id);
       $actor->TipoPersona=$reqactor->get('TipoPersona');
       $actor->Apellido_Paterno=$reqactor->get('Apellido_Paterno');
       $actor->Apellido_Materno=$reqactor->get('Apellido_Materno');
