@@ -28,9 +28,11 @@ class ActorController extends Controller
       }
     }
     public function create(){
-      return view("datos/actor.create");
+      $empresa=DB::table('empresa')
+			->where('FlgEli','=','1')->get();
+      return view("datos/actor.create",["empresa"=>$empresa]);
     }
-    
+
     public function store(ActorFormRequest $request){
       $actor=new Actor;
       $actor->IdActor=$request->get('IdActor');

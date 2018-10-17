@@ -34,10 +34,10 @@ public function store(ModeloFormRequest $request){
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchCrea=Carbon::now();
   $modelo->UsrCrea=$request->get('UsrCrea');
-  $modelo->WksCrea=$request->get('WksCrea');
+  $modelo->WksCrea=$request->ip();
   $modelo->FchMod=Carbon::now();
   $modelo->UsrMod=$request->get('UsrMod');
-  $modelo->WksMod=$request->get('WksMod');
+  $modelo->WksMod=$request->ip();
   $modelo->FlgEli=1;
   if (Input::hasFile('FotoReferencial')) {
     $file=Input::file('FotoReferencial');
@@ -60,7 +60,7 @@ public function update(ModeloFormRequest $request,$id){
   $modelo->Descripcion=$request->get('Descripcion');
   $modelo->FchMod=Carbon::now();
   $modelo->UsrMod=$request->get('UsrMod');
-  $modelo->WksMod=$request->get('WksMod');
+  $modelo->WksMod=$request->ip();
   if (Input::hasFile('FotoReferencial')) {
     $file=Input::file('FotoReferencial');
     $file->move(public_path().'/imagenes/modelo/',$file->getClientOriginalName());

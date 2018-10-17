@@ -33,10 +33,10 @@ public function store(MarcaFormRequest $request){
   $marca->IdMarca=$request->get('IdMarca');
   $marca->Descripcion=$request->get('Descripcion');
   $marca->UsrCrea=$request->get('UsrCrea');
-  $marca->WksCrea=$request->get('WksCrea');
+  $marca->WksCrea=$request->ip();
   $marca->FchMod=Carbon::now();
   $marca->UsrMod=$request->get('UsrMod');
-  $marca->WksMod=$request->get('WksMod');
+  $marca->WksMod=$request->ip();
   $marca->FlgEli=1;
   $marca->FchCrea=Carbon::now();
   $marca->save();
