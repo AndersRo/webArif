@@ -26,10 +26,20 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <!--<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="TipoPersona">Tipo Persona</label>
           <input type="text" name="TipoPersona" class="form-control" value="{{$actor->TipoPersona}}" placeholder="TipoPersona">
+        </div>
+      </div>-->
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="Apellido_Paterno">Tipo de Persona</label>
+          <select class="form-control" name="TipoPersona">
+              <option value="naturl">Natural</option>
+              <option value="jurdic">Juridica</option>
+          </select>
         </div>
       </div>
 
