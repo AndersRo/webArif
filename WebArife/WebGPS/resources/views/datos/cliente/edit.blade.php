@@ -78,42 +78,54 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="PrimerNombre">Primer Nombre</label>
-          <input type="text" name="PrimerNombre" class="form-control" value="{{$cliente->PrimerNombre}}" placeholder="Primer Nombre">
+          @foreach($actor as $act)
+          <input type="text" name="PrimerNombre" class="form-control" value="{{$act->PrimerNombre}}" placeholder="Primer Nombre">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="SegundoNombre">Segundo Nombre</label>
-          <input type="text" name="SegundoNombre" class="form-control" value="{{$cliente->SegundoNombre}}" placeholder="Segundo Nombre">
+          @foreach($actor as $act)
+          <input type="text" name="SegundoNombre" class="form-control" value="{{$act->SegundoNombre}}" placeholder="Segundo Nombre">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="RazonSocial">Razon Social</label>
-          <input type="text" name="RazonSocial" class="form-control" value="{{$cliente->RazonSocial}}" placeholder="RazonSocial">
+          @foreach($actor as $act)
+          <input type="text" name="RazonSocial" class="form-control" value="{{$act->RazonSocial}}" placeholder="RazonSocial">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="CodigoIdentificacion">Codigo Identificacion</label>
-          <input type="text" name="CodigoIdentificacion" class="form-control" value="{{$cliente->CodigoIdentificacion}}" placeholder="CodigoIdentificacion">
+          @foreach($actor as $act)
+          <input type="text" name="CodigoIdentificacion" class="form-control" value="{{$act->CodigoIdentificacion}}" placeholder="CodigoIdentificacion">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="RUC">RUC</label>
-          <input type="text" name="RUC" class="form-control" value="{{$cliente->RUC}}" placeholder="RUC">
+          @foreach($actor as $act)
+          <input type="text" name="RUC" class="form-control" value="{{$act->RUC}}" placeholder="RUC">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="IdEmpresa">Empresa</label>
-          <input type="text" name="IdEmpresa" class="form-control" value="{{$cliente->IdEmpresa}}" placeholder="IdEmpresa">
+          @foreach ($actor as $act)
+          <input type="text" name="IdEmpresa" class="form-control" value="{{$act->IdEmpresa}}" placeholder="IdEmpresa">
+          @endforeach
         </div>
       </div>
 
@@ -127,21 +139,27 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrCrea">Usuario</label>
-          <input type="text" name="UsrCrea" class="form-control" value="{{$cliente->UsrCrea}}" placeholder="Usuario">
+          @foreach ($actor as $act)
+          <input type="text" name="UsrCrea" class="form-control" value="{{$act->UsrCrea}}" placeholder="Usuario">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
-          <input type="text" name="UsrMod" class="form-control" value="{{$cliente->UsrMod}}" placeholder="Usuario">
+          @foreach ($actor as $act)
+          <input type="text" name="UsrMod" class="form-control" value="{{$act->UsrMod}}" placeholder="Usuario">
+          @endforeach
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrCrea">Usuario</label>
-          <input type="text" name="UsrCrea" class="form-control" value="{{$cliente->UsrCrea}}" placeholder="Usuario">
+          @foreach($actor as $act)
+          <input type="text" name="UsrCrea" class="form-control" value="{{$act->UsrCrea}}" placeholder="Usuario">
+          @endforeach
         </div>
       </div>
 
@@ -162,7 +180,9 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
-          <input type="text" name="UsrMod" class="form-control" value="{{$cliente->UsrMod}}" placeholder="Usuario">
+          @foreach($actor as $act)
+          <input type="text" name="UsrMod" class="form-control" value="{{$act->UsrMod}}" placeholder="Usuario">
+          @endforeach
         </div>
       </div>
 
