@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-          <label for="CodDocumentoAnexo">codigo documento</label>
+          <label for="CodDocumentoAnexo">Codigo Documento</label>
           <input type="text" name="CodDocumentoAnexo" class="form-control" required value="{{old('CodDocumentoAnexo')}}" placeholder="CodDocumentoAnexo">
         </div>
 
@@ -43,7 +43,7 @@
         </div>-->
 
         <div class="form-group">
-          <label for="UsrCrea">usuario</label>
+          <label for="UsrCrea">Usuario</label>
           <input type="text" name="UsrCrea" class="form-control" required value="{{old('UsrCrea')}}" placeholder="UsrCrea">
         </div>
 

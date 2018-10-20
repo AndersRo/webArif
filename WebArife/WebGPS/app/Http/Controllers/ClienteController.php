@@ -31,12 +31,17 @@ class ClienteController extends Controller
 				->paginate(7);
     		return view ('datos/cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
     	}
+
     }
     public function create(){
 			$actor=DB::table('actor')
 			->where('FlgEli','=','1')->get();
     	return view("datos/cliente.create",["actor"=>$actor]);
     }
+		public function create(){
+			$empresa=DB::table('empresa')
+			->where('FlgEli','=','1')->get($empresa);
+		}
     public function store(ClienteFormRequest $request, ActorFormRequest $reqactor){
 			$actor=new Actor;
 			$actor->IdActor=$reqactor->get('IdActor');

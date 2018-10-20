@@ -119,12 +119,24 @@
           </div>
       </div>
 
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+  <!--  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
           <label for="IdEmpresa">Empresa</label>
           <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="Id Empresa">
         </div>
+      </div>-->
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+         <label for="IdEmpresa">Empresa</label>
+           <select class="form-control" name="IdEmpresa">
+            @foreach($empresa as $emp)
+              <option value="{{$emp->IdEmpresa}}">{{$emp->NombreComercial}}</option>
+            @endforeach
+            </select>
+        </div>
       </div>
+
         <!--<div class="form-group">
           <label for="FchCrea">Fecha Creacion</label>
           <input type="text" name="FchCrea" class="form-control" placeholder="Fecha">
