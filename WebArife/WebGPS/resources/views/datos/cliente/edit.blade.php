@@ -120,12 +120,14 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
-          <label for="IdEmpresa">Empresa</label>
-          @foreach ($actor as $act)
-          <input type="text" name="IdEmpresa" class="form-control" value="{{$act->IdEmpresa}}" placeholder="IdEmpresa">
-          @endforeach
+         <label for="IdEmpresa">Empresa</label>
+           <select class="form-control" name="IdEmpresa">
+            @foreach($actor as $act)
+              <option value="{{$act->IdEmpresa}}">{{$act->NombreComercial}}</option>
+            @endforeach
+            </select>
         </div>
       </div>
 

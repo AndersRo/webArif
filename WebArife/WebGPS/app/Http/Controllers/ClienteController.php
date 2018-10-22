@@ -8,9 +8,11 @@ use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Cliente;
 use webGps\Actor;
+use webGps\Empresa;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\ClienteFormRequest;
 use webGps\Http\Requests\ActorFormRequest;
+use webGps\Http\Requests\EmpresaFormRequest;
 use DB;
 
 class ClienteController extends Controller
@@ -36,12 +38,14 @@ class ClienteController extends Controller
     public function create(){
 			$actor=DB::table('actor')
 			->where('FlgEli','=','1')->get();
-    	return view("datos/cliente.create",["actor"=>$actor]);
+			$empresa=DB::table('empresa')
+			->where('FlgEli','=','1')->get();
+    	return view("datos/cliente.create",["actor"=>$actor],["empresa"=>$empresa]);
     }
-		public function create(){
+		/*public function create(){
 			$empresa=DB::table('empresa')
 			->where('FlgEli','=','1')->get($empresa);
-		}
+		}*/
     public function store(ClienteFormRequest $request, ActorFormRequest $reqactor){
 			$actor=new Actor;
 			$actor->IdActor=$reqactor->get('IdActor');
@@ -83,25 +87,25 @@ class ClienteController extends Controller
     public function edit($id){
 			$actor=DB::table('cliente as c')
 			->join('actor as a','c.IdActor','=','a.IdActor')
-
+			->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
 			->where('a.IdActor','=',($id-1))->get();
 			//->where('a.FlgEli','=','1')->get();
-    	return view("datos/cliente.edit",["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
+    	return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
     }
-    public function update(ClienteFormRequest $request,$id, ActorFormRequest $reqctor, $ida){
-			$actor=Actor::findOrFail($ida);
-      $actor->TipoPersona=$reqactor->get('TipoPersona');
-      $actor->Apellido_Paterno=$reqactor->get('Apellido_Paterno');
-      $actor->Apellido_Materno=$reqactor->get('Apellido_Materno');
-      $actor->PrimerNombre=$reqactor->get('PrimerNombre');
-      $actor->SegundoNombre=$reqactor->get('SegundoNombre');
-      $actor->RazonSocial=$reqactor->get('RazonSocial');
-      $actor->TipoDocumento=$reqactor->get('TipoDocumento');
-      $actor->CodigoIdentificacion=$reqactor->get('CodigoIdentificacion');
-      $actor->RUC=$reqactor->get('RUC');
+    public function update(ClienteFormRequest $request,$id){
+			$actor=Actor::findOrFail($id-1);
+      $actor->TipoPersona=$request->get('TipoPersona');
+      $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
+      $actor->Apellido_Materno=$request->get('Apellido_Materno');
+      $actor->PrimerNombre=$request->get('PrimerNombre');
+      $actor->SegundoNombre=$request->get('SegundoNombre');
+      $actor->RazonSocial=$request->get('RazonSocial');
+      $actor->TipoDocumento=$request->get('TipoDocumento');
+      $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
+      $actor->RUC=$request->get('RUC');
       $actor->FchMod=Carbon::now();
-      $actor->WksMod=$reqactor->ip();
-      $actor->UsrMod=$reqactor->get('UsrMod');
+      $actor->WksMod=$request->ip();
+      $actor->UsrMod=$request->get('UsrMod');
       $actor->update();
 
 			$cliente=Cliente::findOrFail($id);
