@@ -35,6 +35,7 @@ Route::resource('documentos/ordentrabajo_detalle','OrdenTrabajo_DetalleControlle
 Route::resource('plataforma/AccesoPlataformaComandos','AccesoPlataformaComandosController');
 Route::resource('plataforma/AccesoPlataformaDetalle','AccesoPlataformaDetalleController');
 Route::resource('plataforma/AccesosPlataforma','AccesosPlataformaController');
+Route::resource('Gmaps','GmapsController');
 
 //Route::resource('seguridad/usuario','UsuarioController');
 
