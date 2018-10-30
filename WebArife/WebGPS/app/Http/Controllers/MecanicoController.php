@@ -9,6 +9,7 @@ use webGps\Mecanico;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\MecanicoFormRequest;
 use DB;
+use Excel;
 
 class MecanicoController extends Controller
 {
@@ -17,8 +18,11 @@ class MecanicoController extends Controller
 public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
-    $mecanico=DB::table('mecanico')->where('IdActor','LIKE','%'.$query.'%')
-    ->where ('FlgEli','=','1')
+    $mecanico=DB::table('mecanico as m')
+    ->join('actor as a', 'm.IdActor','=','a.IdActor')
+    ->select('m.IdMecanico','a.IdActor','a.Apellido_Paterno','a.Apellido_Materno' ,'a.PrimerNombre','a.TipoDocumento','a.CodigoIdentificacion','a.RazonSocial')
+    ->where('a.PrimerNombre','LIKE','%'.$query.'%')
+    ->where ('m.FlgEli','=','1')
     ->orderBy('IdMecanico','desc')
     ->paginate(7);
     return view ('datos/mecanico.index',["mecanico"=>$mecanico,"searchText"=>$query]);
@@ -28,8 +32,6 @@ public function create(){
   return view("datos/mecanico.create");
 }
 public function store(MecanicoFormRequest $request){
-
-
   $mecanico=new mecanico;
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
@@ -65,5 +67,14 @@ public function destroy($id){
   $mecanico->FlgEli='0';
   $mecanico->update();
   return Redirect::to('datos/mecanico');
+ }
+
+ public function excel(){
+   $mecanico = Mecanico::get()->toArray();
+   Excel::create('Mecanico', function($excel) use($mecanico){
+     $excel->sheet('Mecanico', function($sheet) use($mecanico){
+       $sheet->fromArray($mecanico);
+     });
+   })->export('xlsx');
  }
 }

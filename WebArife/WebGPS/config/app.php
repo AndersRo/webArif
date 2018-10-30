@@ -160,6 +160,7 @@ return [
         webGps\Providers\EventServiceProvider::class,
         webGps\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
 
@@ -216,6 +217,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'Gmaps' => GeneaLabs\LaravelMaps\Facades\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

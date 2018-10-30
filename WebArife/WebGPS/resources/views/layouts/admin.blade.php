@@ -15,8 +15,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
-    <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
-    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+    <link rel="apple-touch-icon" href="{{asset('imagenes/icon/icono-arife.png')}}">
+    <link rel="shortcut icon" href="{{asset('imagenes/icon/icono-arife.png')}}">
 
     <!--Datepicker Files-->
     <link rel="stylesheet" href="{{asset('datePicker/css/bootstrap.min.css')}}">
@@ -31,6 +31,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
+    <!--Gmaps-->
+    <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/HPNeo/gmaps/master/gmaps.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/HPNeo/gmaps/master/gmaps.js"></script>
+-->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc6mvuoDFAEQ1nsh_WcVry01YC6Ce09V4&callback=initMap"
+   type="text/javascript"></script>
+
+
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -38,7 +50,7 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="https://www.arifeperu.com/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><img src="{{asset('imagenes/icon/icono-arife.png')}}" alt="a" height="40" width="40"></span>
           <!-- logo for regular state and mobile devices -->

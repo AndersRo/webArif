@@ -17,13 +17,8 @@
 				    <th>RazonSocial</th>
 				    <th>NombreComercial</th>
 				    <th>RutaLogo</th>
-						<th>UsrCrea</th>
-				    <th>WksCrea</th>
 				    <th>FchCrea</th>
 						<th>FchMod</th>
-				    <th>UsrMod</th>
-				    <th>WksMod</th>
-				    <th>FlgEli</th>
 						<th>Representante</th>
 					</thead>
 					@foreach ($empresa as $emp)
@@ -35,13 +30,8 @@
 							<td>
 								<img src="{{asset('imagenes/empresa/'.$emp->RutaLogo)}}" alt="{{$emp->RazonSocial}}" height="100px" width="100px" class="img-thumbnail">
 							</td>
-							<td>{{$emp->UsrCrea}}</td>
-							<td>{{$emp->WksCrea}}</td>
 							<td>{{$emp->FchCrea}}</td>
 							<td>{{$emp->FchMod}}</td>
-							<td>{{$emp->UsrMod}}</td>
-							<td>{{$emp->WksMod}}</td>
-							<td>{{$emp->FlgEli}}</td>
 							<td>{{$emp->Representante}}</td>
 							<td>
 								<a href="{{URL::action('EmpresaController@edit',$emp->IdEmpresa)}}"><button class="btn btn-info">Editar</button></a>
