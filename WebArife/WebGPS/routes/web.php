@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('seguridad/auth.login');
 });
-Route::post('Seguridad/login','Auth\LoginController@Login');
+Route::post('seguridad/login','Auth\LoginController@login');
 Route::resource('datos/cliente','ClienteController');
 Route::resource('Dispositivos/dispositivo','DispositivosController');
 Route::resource('Dispositivos/marca','MarcaController');

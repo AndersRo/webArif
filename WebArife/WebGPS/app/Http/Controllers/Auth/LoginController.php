@@ -3,6 +3,7 @@
 namespace webGps\Http\Controllers\Auth;
 
 use Auth;
+
 use webGps\Http\Controllers\Controller;
 //use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -20,4 +21,5 @@ class LoginController extends Controller
       ->withErrors(['email'=> trans('auth.failed')])
       ->withInput(request(['email']));
   }
+
 }

@@ -11,12 +11,12 @@
             <form method="post" action="{{route('login')}}">
               {{ csrf_field() }}
               <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">Email</label>
-                <input class="form-control"
-                  type="email"
+                <label for="email">Usuario</label>
+                <input id="email" class="form-control"
+                  type="text"
                   name="email"
                   value="{{ old('email') }}"
-                  placeholder="Ingresa tu email">
+                  placeholder="Ingresa tu usuario">
                   {!! $errors->first('email','<span class="help-block">:message</span>') !!}
               </div>
               <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">

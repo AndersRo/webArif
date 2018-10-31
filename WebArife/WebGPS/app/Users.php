@@ -12,8 +12,9 @@ class Users extends Model
   public $timestamps=false;
 
   protected $fillable =[
-    'login'.
-    'password'.
+    'id',
+    'login',
+    'password',
     'createt_at',
     'updated_at',
     'IdEmpresa',
