@@ -3,23 +3,29 @@
 namespace webGps\Http\Controllers\Auth;
 
 use Auth;
-
+//use DB;
+use webGps\User;
 use webGps\Http\Controllers\Controller;
-//use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
   public function login(){
-    $credentials = $this->validate(request(),[
-      'email'=>'email|required|string',
+    $credentials = $this->validate(request(), [
+      $this->username()=>'username|string',
       'password'=>'required|string'
     ]);
     if (Auth::attempt($credentials)) {
-      return 'Tu sesion ha iniciado';
+      return 'Tu sesion ha iniciado correctamente';
     }
-      return back()
-      ->withErrors(['email'=> trans('auth.failed')])
-      ->withInput(request(['email']));
-  }
+    return back()
+      ->withErrors([$this->username() => trans('auth.failed')])
+      ->withInput(request([$this->username()]));
+    }
+
+    public function username()
+    {
+        return 'username';
+    }
 
 }

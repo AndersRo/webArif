@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('seguridad/auth.login');
+    return view('auth.login');
 });
-Route::post('seguridad/login','Auth\LoginController@login');
+Route::post('login','Auth\LoginController@login');
 Route::resource('datos/cliente','ClienteController');
 Route::resource('Dispositivos/dispositivo','DispositivosController');
 Route::resource('Dispositivos/marca','MarcaController');

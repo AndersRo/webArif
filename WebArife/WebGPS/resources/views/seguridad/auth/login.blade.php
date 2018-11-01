@@ -12,7 +12,7 @@
               {{ csrf_field() }}
               <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
                 <label for="email">Usuario</label>
-                <input id="email" class="form-control"
+                <input class="form-control"
                   type="text"
                   name="email"
                   value="{{ old('email') }}"
