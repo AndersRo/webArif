@@ -10,14 +10,14 @@
           <div class="panel-body">
             <form method="post" action="{{route('login')}}">
               {{ csrf_field() }}
-              <div class="form-group {{ $errors->has('email') ? 'has-error' : '' }}">
-                <label for="email">Usuario</label>
+              <div class="form-group {{ $errors->has('username') ? 'has-error' : '' }}">
+                <label for="username">Usuario</label>
                 <input class="form-control"
                   type="text"
-                  name="email"
-                  value="{{ old('email') }}"
+                  name="username"
+                  value="{{ old('username') }}"
                   placeholder="Ingresa tu usuario">
-                  {!! $errors->first('email','<span class="help-block">:message</span>') !!}
+                  {!! $errors->first('username','<span class="help-block">:message</span>') !!}
               </div>
               <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                 <label for="password">Contraseña</label>
