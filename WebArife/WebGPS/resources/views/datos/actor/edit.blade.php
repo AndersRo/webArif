@@ -35,7 +35,7 @@
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
-          <label for="Apellido_Paterno">Tipo de Persona</label>
+          <label for="TipoPersona">Tipo de Persona</label>
           <select class="form-control" name="TipoPersona">
               <option value="naturl">Natural</option>
               <option value="jurdic">Juridica</option>
@@ -75,6 +75,17 @@
         <div class="form-group">
           <label for="RazonSocial">Razon Social</label>
           <input type="text" name="RazonSocial" class="form-control" value="{{$actor->RazonSocial}}" placeholder="RazonSocial">
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="TipoDocumento">Tipo Documento</label>
+          <select class="form-control" name="TipoDocumento">
+            <option value="dni">DNI</option>
+            <option value="crtex">Carnet de Extrangeria</option>
+            <option value="Pasprt">Pasaporte</option>
+          </select>
         </div>
       </div>
 

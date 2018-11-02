@@ -93,7 +93,7 @@ class ClienteController extends Controller
     	return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
     }
     public function update(ClienteFormRequest $request,$id){
-			$actor=Actor::findOrFail($id-1);
+			$actor=Actor::findOrFail($id);
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
       $actor->Apellido_Materno=$request->get('Apellido_Materno');
