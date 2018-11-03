@@ -15,31 +15,17 @@ use webGps\Http\Requests\UsersFormRequest;
 class LoginController extends Controller
 {
 
-  public function showLoginForm(Request $request){
-    return view('auth/login');
-  }
-
-  public function login(Request $request){
-    $userdata = array(
-      $this->username() => 'username|string',
+  public function login(){
+    $credentials = $this->validate(request(),[
+      'email'=>'email|required|string',
       'password'=>'required|string'
-    );
-    if (Auth::attempt($userdata, true)) {
-      return 'Tu sesion ha iniciado correctamente';
+    ]);
+    if (Auth::attempt($credentials)) {
+      return 'Tu sesion ha iniciado';
     }
-    return back()
-      ->withErrors([$this->username() => trans('auth.failed')])
-      ->withInput(request([$this->username()]));
-    }
-
-    public function username()
-    {
-        return 'username';
-    }
-
-    public function getAuthPassword()
-    {
-        return $this->password;
-    }
+      return back()
+      ->withErrors(['email'=> trans('auth.failed')])
+      ->withInput(request(['email']));
+  }
 
 }
