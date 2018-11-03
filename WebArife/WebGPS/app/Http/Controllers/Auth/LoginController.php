@@ -26,25 +26,29 @@ class LoginController extends Controller
     return $credentials;*/
 
       $query=trim($request->get('email'));
-      $users=DB::table('users')
-      //->select('email','password')
+      $users=DB::table('usuarios')
+      ->select('email','password')
       ->where('email','LIKE','%'.$query.'%')
       ->orderBy('id','desc')
       ->paginate(7);
-        return $users;
+      foreach($users as $value){
+         if(!empty($value)){
+            echo 'hola';
+         }
+      }
+      //return $users;
 
 
-
-      /*$credentials = $this->validate(request(),[
+    /*  $credentials = $this->validate(request(),[
         'email'=>'required|string',
         'password'=>'required|string'
-      ]);*/
+      ]);
       //if (Auth::attempt($credentials)) {
-        //return $credentials;
+        return $credentials;
       //}
-        return back()
+        /*return back()
         ->withErrors(['email'=> trans('auth.failed')])
-        ->withInput(request(['email']));
+        ->withInput(request(['email']));*/
     }
 
 }
