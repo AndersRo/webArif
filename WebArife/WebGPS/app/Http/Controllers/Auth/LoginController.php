@@ -31,11 +31,13 @@ class LoginController extends Controller
       ->where('email','LIKE','%'.$query.'%')
       ->orderBy('id','desc')
       ->paginate(7);
-      foreach($users as $value){
-         if(!empty($value)){
-            echo 'hola';
+
+         if(implode($users)==null){
+            echo 'bien';
+         }else {
+           echo 'mal';
          }
-      }
+
       //return $users;
 
 
