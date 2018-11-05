@@ -88,7 +88,7 @@ class ClienteController extends Controller
 			$actor=DB::table('cliente as c')
 			->join('actor as a','c.IdActor','=','a.IdActor')
 			->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
-			->where('a.IdActor','=',($id))->get();
+			->where('c.IdCliente','=',($id))->get();
 			//->where('a.FlgEli','=','1')->get();
     	return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
     }

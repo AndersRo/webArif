@@ -29,9 +29,32 @@ public function index(Request $request){
   }
 }
 public function create(){
-  return view("datos/mecanico.create");
+  $empresa=DB::table('empresa')
+  ->where('FlgEli','=','1')->get();
+  return view("datos/mecanico.create",["empresa"=>$empresa]);
 }
-public function store(MecanicoFormRequest $request){
+public function store(MecanicoFormRequest $request, ActorFormRequest $reqactor){
+  $actor=new Actor;
+  $actor->IdActor=$request->get('IdActor');
+  $actor->TipoPersona=$request->get('TipoPersona');
+  $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
+  $actor->Apellido_Materno=$request->get('Apellido_Materno');
+  $actor->PrimerNombre=$request->get('PrimerNombre');
+  $actor->SegundoNombre=$request->get('SegundoNombre');
+  $actor->RazonSocial=$request->get('RazonSocial');
+  $actor->TipoDocumento=$request->get('TipoDocumento');
+  $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
+  $actor->RUC=$request->get('RUC');
+  $actor->IdEmpresa=$request->get('IdEmpresa');
+  $actor->FchCrea=Carbon::now();
+  $actor->UsrCrea=$request->get('UsrCrea');
+  $actor->WksCrea=$request->ip();
+  $actor->FchMod=Carbon::now();
+  $actor->WksMod=$request->ip();
+  $actor->UsrMod=$request->get('UsrMod');
+  $actor->FlgEli=1;
+  $actor->save();
+
   $mecanico=new mecanico;
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
@@ -49,9 +72,30 @@ public function show($id){
   return view("datos/mecanico.show", ["mecanico"=>Mecanico::findOrFail($id)]);
 }
 public function edit($id){
-  return view("datos/mecanico.edit", ["mecanico"=>Mecanico::findOrFail($id)]);
+  $actor=DB::table('mecanico as m')
+  ->join('actor as a','m.IdActor','=','a.IdActor')
+  ->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
+  ->where('m.IdCliente','=',($id))->get();
+  //->where('a.FlgEli','=','1')->get();
+  //return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
+  return view("datos/mecanico.edit", ["actor"=>$actor], ["mecanico"=>Mecanico::findOrFail($id)]);
 }
 public function update(MecanicoFormRequest $request,$id){
+  $actor=Actor::findOrFail($id);
+  $actor->TipoPersona=$request->get('TipoPersona');
+  $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
+  $actor->Apellido_Materno=$request->get('Apellido_Materno');
+  $actor->PrimerNombre=$request->get('PrimerNombre');
+  $actor->SegundoNombre=$request->get('SegundoNombre');
+  $actor->RazonSocial=$request->get('RazonSocial');
+  $actor->TipoDocumento=$request->get('TipoDocumento');
+  $actor->CodigoIdentificacion=$request->get('CodigoIdentificacion');
+  $actor->RUC=$request->get('RUC');
+  $actor->FchMod=Carbon::now();
+  $actor->WksMod=$request->ip();
+  $actor->UsrMod=$request->get('UsrMod');
+  $actor->update();
+
   $mecanico=Mecanico::findOrFail($id);
   $mecanico->IdMecanico=$request->get('IdMecanico');
   $mecanico->IdActor=$request->get('IdActor');
