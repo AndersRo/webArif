@@ -6,8 +6,10 @@ use Carbon\carbon;
 use Illuminate\Http\Request;
 use webGps\Http\Requests;
 use webGps\Mecanico;
+use webGps\Actor;
 use Illuminate\Support\Facades\Redirect;
 use webGps\Http\Requests\MecanicoFormRequest;
+use webGps\Http\Requests\ActorFormRequest;
 use DB;
 use Excel;
 
@@ -75,7 +77,7 @@ public function edit($id){
   $actor=DB::table('mecanico as m')
   ->join('actor as a','m.IdActor','=','a.IdActor')
   ->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
-  ->where('m.IdCliente','=',($id))->get();
+  ->where('m.IdMecanico','=',($id))->get();
   //->where('a.FlgEli','=','1')->get();
   //return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
   return view("datos/mecanico.edit", ["actor"=>$actor], ["mecanico"=>Mecanico::findOrFail($id)]);
