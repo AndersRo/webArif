@@ -22,13 +22,21 @@
         </div>
 
         <div class="form-group">
-          <label for="IdContrato">Id Contrato</label>
-          <input type="text" name="IdContrato" class="form-control" placeholder="IdContrato">
+          <label for="IdContrato">Contrato</label>
+          <select class="form-control selectpicker" name="IdContrato" data-live-search="true">
+            @foreach($contrato as $cnt)
+              <option value="{{$cnt->IdContrato}}">{{$cnt->CodTipoServicio}}</option>
+            @endforeach
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="IdOrden">Id Orden</label>
-          <input type="text" name="IdOrden" class="form-control" placeholder="IdOrden">
+          <label for="IdOrden">Orden</label>
+          <select class="form-control selectpicker" name="IdOrden" data-live-search="true">
+            @foreach($ordentrabajo as $odt)
+            <option value="{{$odt->IdOrden}}">{{$odt->Obsvacion}}</option>
+            @endforeach
+          </select>
         </div>
 
       <!--<div class="form-group">

@@ -26,7 +26,10 @@ public function index(Request $request){
   }
 }
 public function create(){
-  return view("documentos/ordentrabajo_detalle.create");
+  $ordentrabajo=DB::table('ordentrabajo')
+  ->where('FlgEli','=','1')->get();
+  $dispositivos=DB::table('dispositivos')->get();
+  return view("documentos/ordentrabajo_detalle.create",["dispositivos"=>$dispositivos],["ordentrabajo"=>$ordentrabajo]);
 }
 public function store(OrdenTrabajo_DetalleFormRequest $request){
   $OrdenTrabajo_Detalle=new OrdenTrabajo_Detalle;

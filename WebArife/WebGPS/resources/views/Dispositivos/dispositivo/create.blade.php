@@ -43,7 +43,11 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="form-group">
                 <label for="IdModelo">Id Modelo</label>
-                <input type="text" name="IdModelo" required value="{{old('IdModelo')}}" class="form-control" placeholder="Id Modelo">
+                <select class="form-control" name="IdModelo">
+                  @foreach($modelo as $mod)
+                  <option value="{{$mod->IdModelo}}">{{$mod->Descripcion}}</option>
+                  @endforeach
+                </select>
             </div>
       </div>
 
@@ -62,10 +66,14 @@
       </div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="form-group">
-                <label for="IdEmpresa">Id Empresa</label>
-                <input type="text" name="IdEmpresa" required value="{{old('IdEmpresa')}}" class="form-control" placeholder="Id Empresa">
-            </div>
+        <div class="form-group">
+         <label for="IdEmpresa">Empresa</label>
+           <select class="form-control" name="IdEmpresa">
+            @foreach($empresa as $emp)
+              <option value="{{$emp->IdEmpresa}}">{{$emp->NombreComercial}}</option>
+            @endforeach
+            </select>
+        </div>
       </div>
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

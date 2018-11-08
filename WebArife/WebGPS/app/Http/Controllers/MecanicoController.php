@@ -31,9 +31,11 @@ public function index(Request $request){
   }
 }
 public function create(){
+  $actor=DB::table('actor')
+  ->where('FlgEli','=','1')->get();
   $empresa=DB::table('empresa')
   ->where('FlgEli','=','1')->get();
-  return view("datos/mecanico.create",["empresa"=>$empresa]);
+  return view("datos/mecanico.create",["actor"=>$actor],["empresa"=>$empresa]);
 }
 public function store(MecanicoFormRequest $request, ActorFormRequest $reqactor){
   $actor=new Actor;
@@ -75,9 +77,9 @@ public function show($id){
 }
 public function edit($id){
   $actor=DB::table('mecanico as m')
-  ->join('actor as a','m.IdActor','=','a.IdActor')
+  ->join('actor as a','a.IdActor','=','m.IdActor')
   ->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
-  ->where('m.IdMecanico','=',($id))->get();
+    ->where('m.IdMecanico','=',($id))->get();
   //->where('a.FlgEli','=','1')->get();
   //return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
   return view("datos/mecanico.edit", ["actor"=>$actor], ["mecanico"=>Mecanico::findOrFail($id)]);

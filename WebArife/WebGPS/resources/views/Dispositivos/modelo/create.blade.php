@@ -27,8 +27,12 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div class="form-group">
-                  <label for="IdMarca">Id Marca</label>
-                  <input type="text" name="IdMarca" required value="{{old('IdMarca')}}" class="form-control" placeholder="Id Marca">
+                  <label for="IdMarca">Marca</label>
+                  <select class="form-control" name="IdMarca">
+                    @foreach($marca as $mar)
+                      <option value="{{$mar->IdMarca}}">{{$mar->Descripcion}}</option>
+                    @endforeach
+                  </select>
               </div>
         </div>
 

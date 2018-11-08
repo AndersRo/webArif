@@ -15,20 +15,20 @@
       </div>
     </div>
 
-        {!!Form::model($cliente,['method'=>'PATCH','route'=>['cliente.update',$cliente->IdCliente]])!!}
+        {!!Form::model($cliente,['method'=>'PATCH','route'=>['cliente.update',$cliente->IdActor]])!!}
         {{Form::token()}}
     <div class="row">
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="IdCliente">Id</label>
-          <input type="text" name="IdCliente" class="form-control" value="{{$cliente->IdCliente}}" placeholder="Id Cliente">
+          
+          <input type="hidden" name="IdCliente" class="form-control" value="{{$cliente->IdCliente}}" placeholder="Id Cliente">
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="IdActor">Id</label>
-          <input type="text" name="IdActor" class="form-control" value="{{$cliente->IdActor}}" placeholder="Id Actor">
+
+          <input type="hidden" name="IdActor" class="form-control" value="{{$cliente->IdActor}}" placeholder="Id Actor">
         </div>
       </div>
 
@@ -142,7 +142,7 @@
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
-         <label for="IdEmpresa">Empresa</label>
+         <label for="IdEmpresa">Cliente</label>
            <select class="form-control" name="IdEmpresa">
             @foreach($actor as $act)
               <option value="{{$act->IdEmpresa}}">{{$act->NombreComercial}}</option>

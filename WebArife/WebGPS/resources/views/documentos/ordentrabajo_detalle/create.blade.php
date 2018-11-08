@@ -25,24 +25,36 @@
           </div>
         </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-          <label for="IdOrden">Id Empresa</label>
-          <input type="text" name="IdOrden" class="form-control" placeholder="IdOrden">
-        </div>
-      </div>
+        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+           <div class="form-group">
+             <label for="IdOrden">Orden</label>
+             <select class="form-control selectpicker" name="IdOrden" data-live-search="true">
+               @foreach($ordentrabajo as $ord)
+               <option value="{{$ord->IdOrden}}">{{$ord->IdOrden}}</option>
+               @endforeach
+             </select>
+           </div>
+         </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-        <div class="form-group">
-           <label for="IdDispositivo">Id Mecanico</label>
-            <input type="text" name="IdDispositivo" class="form-control" placeholder="IdDispositivo">
-        </div>
-      </div>
+         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+            <div class="form-group">
+              <label for="IdDispositivo">Dispositivo GPS</label>
+              <select class="form-control selectpicker" name="IdDispositivo" data-live-search="true">
+                @foreach($dispositivos as $dis)
+                <option value="{{$dis->IdDispositivo}}">{{$dis->NroSim}}</option>
+                @endforeach
+              </select>
+            </div>
+          </div>
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-           <label for="CodTipoTrabajo">Id Cliente</label>
-            <input type="text" name="CodTipoTrabajo" class="form-control" placeholder="CodTipoTrabajo">
+           <label for="CodTipoTrabajo">Tipo de Trabajo</label>
+           <select class="form-control" name="CodTipoTrabajo">
+             <option value="#" selected>SELECCIONE...</option>
+             <option value="Instal">NUEVA INSTALACION</option>
+             <option value="Renova">RENOVACION</option>
+           </select>
         </div>
       </div>
 
@@ -98,8 +110,12 @@
                 format: 'yyyy/mm/dd',
                 startDate: '-3d',
                 language: "es",
-                autoclose: true
-              });
+                autoclose: true,
+                orientation: "auto left",
+                forceParse: false,
+                todayHighlight: true,
+                toggleActive: true
+              }).datepicker("setDate", new Date());
             </script>
           </div>
         </div>
@@ -124,7 +140,11 @@
                 format: 'yyyy/mm/dd',
                 startDate: '-3d',
                 language: "es",
-                autoclose: true
+                autoclose: true,
+                orientation: "auto left",
+                forceParse: false,
+                todayHighlight: true,
+                toggleActive: true
               });
             </script>
           </div>

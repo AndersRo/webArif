@@ -17,15 +17,33 @@ class ContratoController extends Controller
 public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
-    $contrato=DB::table('contrato')->where('CodTipoServicio','LIKE','%'.$query.'%')
-    ->where ('FlgEli','=','1')
-    ->orderBy('IdContrato','desc')
+    $contrato=DB::table('contrato as con')->where('CodTipoServicio','LIKE','%'.$query.'%')
+    ->join('cliente as cli','cli.IdCliente','=','con.IdCliente')
+    ->join('actor as a','a.IdActor','=','cli.IdActor')
+    ->join('empresa as e','e.IdEmpresa','=','con.IdEmpresa')
+    ->join('vehiculo as v','v.IdVehiculo','=','con.IdVehiculo')
+    ->select('con.IdContrato','con.CodTipoServicio',
+    'con.FechaInicio','con.FechaFin',
+    'a.PrimerNombre','con.CodTipoContrato',
+    'e.RazonSocial','v.Placa','con.EstadoContrato','con.FchCrea',
+    'con.UsrCrea','con.WksCrea','con.FchMod','con.UsrMod',
+    'con.WksMod','con.FlgEli')
+    ->where ('con.FlgEli','=','1')
+    ->orderBy('con.IdContrato','desc')
     ->paginate(7);
     return view ('documentos/contrato.index',["contrato"=>$contrato,"searchText"=>$query]);
   }
 }
 public function create(){
-  return view("documentos/contrato.create");
+  $cliente=DB::table('cliente as c')
+  ->join('actor as a','a.IdActor','=','c.IdActor')
+  #->select(DB::raw('CONCAT(a.PrimerNombre," ",a.Apellido_Paterno) as Persona','IdCliente'))
+  ->where('c.FlgEli','=','1')->get();
+  $empresa=DB::table('empresa')
+  ->where('FlgEli','=','1')->get();
+  $vehiculo=DB::table('vehiculo')
+  ->where('FlgEli','=','1')->get();
+  return view("documentos/contrato.create",['cliente'=>$cliente,'empresa'=>$empresa,'vehiculo'=>$vehiculo]);
 }
 public function store(ContratoFormRequest $request){
   $contrato=new Contrato;

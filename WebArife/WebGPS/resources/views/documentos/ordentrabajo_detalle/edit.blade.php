@@ -28,21 +28,29 @@
 
      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="IdOrden">Id Orden</label>
-          <input type="text" name="IdOrden" class="form-control" value="{{$ordentrabajo_detalle->IdOrden}}" placeholder="IdOrden">
+          <label for="IdOrden">Orden</label>
+          <select class="form-control" name="IdOrden">
+            @foreach($ordentrabajo as $ord)
+            <option value="{{$ord->IdOrden}}">{{$ord->IdOrden}}</option>
+            @endforeach
+          </select>
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
          <div class="form-group">
-           <label for="IdDispositivo">Id Dispositivo</label>
-           <input type="text" name="IdDispositivo" class="form-control" value="{{$ordentrabajo_detalle->IdDispositivo}}" placeholder="IdOrden">
+           <label for="IdDispositivo">Dispositivo</label>
+           <select class="form-control" name="IdDispositivo">
+             @foreach($dispositivo as $dis)
+             <option value="{{$dis->IdDispositivo}}">{{$dis->NroSim}}</option>
+             @endforeach
+           </select>
          </div>
        </div>
 
        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
           <div class="form-group">
-            <label for="CodTipoTrabajo">Cod TipoTrabajo</label>
+            <label for="CodTipoTrabajo">CodTipoTrabajo</label>
             <input type="text" name="CodTipoTrabajo" class="form-control" value="{{$ordentrabajo_detalle->CodTipoTrabajo}}" placeholder="CodTipoTrabajo">
           </div>
         </div>

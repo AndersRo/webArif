@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Carbon\carbon;
 use webGps\Http\Requests;
 use webGps\Modelo;
+use webGps\Marca;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use webGps\Http\Requests\ModeloFormRequest;
+use webGps\Http\Requests\MarcaFormRequest;
 use DB;
 class ModeloController extends Controller
 {
@@ -26,9 +28,12 @@ public function index(Request $request){
 }
 }
 public function create(){
-  return view("Dispositivos/modelo.create");
+  $marca=DB::table('marca')
+  ->where('FlgEli','=','1')->get();
+  return view("Dispositivos/modelo.create",['marca'=>$marca]);
 }
 public function store(ModeloFormRequest $request){
+
   $modelo=new Modelo;
   $modelo->IdModelo=$request->get('IdModelo');
   $modelo->Descripcion=$request->get('Descripcion');

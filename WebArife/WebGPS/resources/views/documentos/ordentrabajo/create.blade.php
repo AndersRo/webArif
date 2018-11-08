@@ -24,38 +24,58 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
-          <label for="IdEmpresa">Id Empresa</label>
-          <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="Id Empresa">
+         <label for="IdEmpresa">Empresa</label>
+           <select class="form-control selectpicker" name="IdEmpresa" data-live-search="true">
+            @foreach($empresa as $emp)
+              <option value="{{$emp->IdEmpresa}}">{{$emp->NombreComercial}}</option>
+            @endforeach
+            </select>
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-           <label for="IdMecanico">Id Mecanico</label>
-            <input type="text" name="IdMecanico" class="form-control" required value="{{old('IdMecanico')}}" placeholder="Id Mecanico">
+           <label for="IdMecanico">Mecanico</label>
+           <select class="form-control selectpicker" name="IdMecanico" data-live-search="true">
+             @foreach($mecanico as $mec)
+             <option value="{{$mec->IdMecanico}}">{{$mec->PrimerNombre}}</option>
+             @endforeach
+           </select>
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-           <label for="IdCliente">Id Cliente</label>
-            <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="Id Cliente">
+           <label for="IdCliente">Cliente</label>
+           <select class="form-control selectpicker" name="IdCliente" data-live-search="true">
+             @foreach($cliente as $cli)
+             <option value="{{$cli->IdCliente}}">{{$cli->PrimerNombre}}</option>
+             @endforeach
+           </select>
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
          <div class="form-group">
-           <label for="IdVehiculo">Id Vehiculo</label>
-           <input type="text" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="Id Vehiculo">
+           <label for="IdVehiculo">Vehiculo</label>
+           <select class="form-control selectpicker" name="IdVehiculo" data-live-search="true">
+             @foreach($vehiculo as $veh)
+             <option value="{{$veh->IdVehiculo}}">{{$veh->Placa}}</option>
+             @endforeach
+           </select>
          </div>
        </div>
 
        <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
          <div class="form-group">
-            <label for="IdTaller">Id Taller</label>
-             <input type="text" name="IdTaller" class="form-control" required value="{{old('IdCliente')}}" placeholder="Id Cliente">
+            <label for="IdTaller">Taller</label>
+            <select class="form-control selectpicker" name="IdTaller" data-live-search="true">
+              @foreach($taller as $tal)
+              <option value="{{$tal->IdTaller}}">{{$tal->Descripcion}}</option>
+              @endforeach
+            </select>
          </div>
        </div>
 
@@ -120,8 +140,12 @@
               format: 'yyyy/mm/dd',
               startDate: '-3d',
               language: "es",
-              autoclose: true
-            });
+              autoclose: true,
+              orientation: "auto left",
+              forceParse: false,
+              todayHighlight: true,
+              toggleActive: true
+            }).datepicker("setDate", new Date());
           </script>
         </div>
       </div>
@@ -143,8 +167,12 @@
               format: 'yyyy/mm/dd',
               startDate: '-3d',
               language: "es",
-              autoclose: true
-            });
+              autoclose: true,
+              orientation: "auto left",
+              forceParse: false,
+              todayHighlight: true,
+              toggleActive: true
+            }).datepicker("setDate", new Date());;
           </script>
         </div>
       </div>

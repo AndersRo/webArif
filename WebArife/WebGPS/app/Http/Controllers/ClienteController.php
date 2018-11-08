@@ -93,6 +93,7 @@ class ClienteController extends Controller
     	return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
     }
     public function update(ClienteFormRequest $request,$id){
+
 			$actor=Actor::findOrFail($id);
       $actor->TipoPersona=$request->get('TipoPersona');
       $actor->Apellido_Paterno=$request->get('Apellido_Paterno');
@@ -108,8 +109,7 @@ class ClienteController extends Controller
       $actor->UsrMod=$request->get('UsrMod');
       $actor->update();
 
-			$cliente=Cliente::findOrFail($id);
-			$cliente->IdActor=$request->get('IdActor');
+			$cliente=Cliente::findOrFail($request->get('IdCliente'));
     	$cliente->FchMod=Carbon::now();
 			$cliente->WksMod=$request->ip();
     	$cliente->UsrMod=$request->get('UsrMod');
