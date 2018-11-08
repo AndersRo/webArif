@@ -86,7 +86,7 @@ class ClienteController extends Controller
     }
     public function edit($id){
 			$actor=DB::table('cliente as c')
-			->join('actor as a','c.IdActor','=','a.IdActor')
+			->join('actor as a','a.IdActor','=','c.IdActor')
 			->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
 			->where('c.IdCliente','=',($id))->get();
 			//->where('a.FlgEli','=','1')->get();
