@@ -45,10 +45,17 @@ class LoginController extends Controller
         'email'=>'required|string',
         'password'=>'required|string'
       ]);
+<<<<<<< HEAD
+      if (Auth::attempt($credentials)) {
+        return $credentials;
+      }
+      /*  return back()
+=======
       //if (Auth::attempt($credentials)) {
         return $credentials;
       //}
         /*return back()
+>>>>>>> 9d2a2d22b8a2e56c15347e9947148d8a261311ea
         ->withErrors(['email'=> trans('auth.failed')])
         ->withInput(request(['email']));*/
     }
