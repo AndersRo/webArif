@@ -24,11 +24,11 @@ class LoginController extends Controller
         'password'=>'required|string'
       ]);
       if (Auth::attempt($credentials)) {
-        return 'Tu sesion ha iniciado';
+        return $credentials;
       }
-        return back()
+      /*  return back()
         ->withErrors(['email'=> trans('auth.failed')])
-        ->withInput(request(['email']));
+        ->withInput(request(['email']));*/
     }
 
 }
