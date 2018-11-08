@@ -15,20 +15,20 @@
       </div>
     </div>
 
-        {!!Form::model($cliente,['method'=>'PATCH','route'=>['cliente.update',$cliente->IdCliente]])!!}
+        {!!Form::model($cliente,['method'=>'PATCH','route'=>['cliente.update',$cliente->IdActor]])!!}
         {{Form::token()}}
     <div class="row">
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="IdCliente">Id</label>
-          <input type="text" name="IdCliente" class="form-control" value="{{$cliente->IdCliente}}" placeholder="Id Cliente">
+          
+          <input type="hidden" name="IdCliente" class="form-control" value="{{$cliente->IdCliente}}" placeholder="Id Cliente">
         </div>
       </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-          <label for="IdActor">Id</label>
-          <input type="text" name="IdActor" class="form-control" value="{{$cliente->IdActor}}" placeholder="Id Actor">
+
+          <input type="hidden" name="IdActor" class="form-control" value="{{$cliente->IdActor}}" placeholder="Id Actor">
         </div>
       </div>
 
@@ -102,7 +102,7 @@
         </div>
       </div>
 
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <!--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
           <label for="TipoDocumento">Tipo Documento</label>
           <select class="form-control" name="TipoDocumento">
@@ -110,6 +110,15 @@
             <option value="crtex">Carnet de Extrangeria</option>
             <option value="Pasprt">Pasaporte</option>
           </select>
+        </div>
+      </div>-->
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label for="TipoDocumento">Tipo Documento</label>
+          @foreach($actor as $act)
+          <input type="text" name="TipoDocumento" class="form-control" value="{{$act->TipoDocumento}}" placeholder="TipoDocumento" readonly>
+          @endforeach
         </div>
       </div>
 
@@ -133,7 +142,7 @@
 
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="form-group">
-         <label for="IdEmpresa">Empresa</label>
+         <label for="IdEmpresa">Cliente</label>
            <select class="form-control" name="IdEmpresa">
             @foreach($actor as $act)
               <option value="{{$act->IdEmpresa}}">{{$act->NombreComercial}}</option>
@@ -162,7 +171,7 @@
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
           @foreach ($actor as $act)
-          <input type="text" name="UsrMod" class="form-control" value="{{$act->UsrMod}}" placeholder="Usuario">
+          <input type="text" name="UsrMod" class="form-control" value="{{$cliente->UsrMod}}" placeholder="Usuario">
           @endforeach
         </div>
       </div>
@@ -170,9 +179,9 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrCrea">Usuario</label>
-          @foreach($actor as $act)
+          <!--@foreach($actor as $act)-->
           <input type="text" name="UsrCrea" class="form-control" value="{{$act->UsrCrea}}" placeholder="Usuario">
-          @endforeach
+          <!--@endforeach-->
         </div>
       </div>
 
@@ -193,9 +202,9 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="UsrMod">Usuario Mod</label>
-          @foreach($actor as $act)
-          <input type="text" name="UsrMod" class="form-control" value="{{$act->UsrMod}}" placeholder="Usuario">
-          @endforeach
+          <!--@foreach($actor as $act)-->
+          <input type="text" name="UsrMod" class="form-control" value="{{$cliente->UsrMod}}" placeholder="Usuario">
+          <!--@endforeach-->
         </div>
       </div>
 

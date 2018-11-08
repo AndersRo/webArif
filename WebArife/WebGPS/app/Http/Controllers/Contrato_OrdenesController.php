@@ -25,7 +25,11 @@ if ($request) {
 }
 }
 public function create(){
-  return view("documentos/contrato_ordenes.create");
+  $contrato=DB::table('contrato')
+  ->where('FlgEli','=','1')->get();
+  $ordentrabajo=DB::table('ordentrabajo')
+  ->where('FlgEli','=','1')->get();
+  return view("documentos/contrato_ordenes.create",["contrato"=>$contrato,"ordentrabajo"=>$ordentrabajo]);
 }
 public function store(Contrato_OrdenesFormRequest $request){
   $Contrato_Ordenes=new Contrato_Ordenes;

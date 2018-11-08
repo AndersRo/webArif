@@ -33,55 +33,15 @@
           </div>
           </div>
 
-          <!--<div class="form-group">
-            <label for="FechaInicio">Fecha Inicio</label>
-            <input type="text" name="FechaInicio" class="form-control" placeholder="FechaInicio">
-          </div>-->
           <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-                  <div class="input-group date">
-            <label for="FechaInicio">Fecha Inicio</label>
-            <input type="text" class="form-control" name="FechaInicio" required value="{{old('FechaInicio')}}">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-th"></span>
+            <div class="form-group">
+               <label for="IdCliente">Cliente</label>
+               <select class="form-control selectpicker" name="IdCliente" data-live-search="true">
+                 @foreach($cliente as $cli)
+                 <option value="{{$cli->IdCliente}}">{{$cli->PrimerNombre}} {{$cli->Apellido_Paterno}}</option>
+                 @endforeach
+               </select>
             </div>
-            <script>
-              $('.date').datepicker({
-                format: 'yyyy/mm/dd',
-                startDate: '-3d',
-                language: "es",
-                autoclose: true
-              });
-            </script>
-          </div>
-          </div>
-
-         <!--<div class="form-group">
-            <label for="FechaFin">Fecha Fin</label>
-            <input type="text" name="FechaFin" class="form-control" placeholder="FechaFin">
-          </div>-->
-          <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-          <div class="input-group date">
-            <label for="FechaFin">Fecha Fin</label>
-            <input type="text" class="form-control" name="FechaFin" required value="{{old('FechaFin')}}">
-            <div class="input-group-addon">
-              <span class="glyphicon glyphicon-th"></span>
-            </div>
-            <script>
-              $('.date').datepicker({
-                format: 'yyyy/mm/dd',
-                startDate: '-3d',
-                language: "es",
-                autoclose: true
-              });
-            </script>
-          </div>
-          </div>
-
-          <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-           <div class="form-group">
-            <label for="IdCliente">Id Cliente</label>
-            <input type="text" name="IdCliente" class="form-control" required value="{{old('IdCliente')}}" placeholder="Id Cliente">
-          </div>
           </div>
 
           <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
@@ -91,19 +51,79 @@
           </div>
           </div>
 
-          <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-            <div class ="form-group">
-            <label for="IdEmpresa">Id Empresa</label>
-            <input type="text" name="IdEmpresa" class="form-control" required value="{{old('IdEmpresa')}}" placeholder="Id Empresa">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+             <label for="IdEmpresa">Empresa</label>
+               <select class="form-control selectpicker" name="IdEmpresa" data-live-search="true">
+                @foreach($empresa as $emp)
+                  <option value="{{$emp->IdEmpresa}}">{{$emp->NombreComercial}}</option>
+                @endforeach
+                </select>
+            </div>
           </div>
-        </div>
 
         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-       <div class ="form-group">
-         <label for="IdVehiculo">Id Vehiculo </label>
-         <input for="'text'" name="IdVehiculo" class="form-control" required value="{{old('IdVehiculo')}}" placeholder="Id Vehiculo">
-       </div>
-     </div>
+           <div class="form-group">
+             <label for="IdVehiculo">Vehiculo</label>
+             <select class="form-control selectpicker" name="IdVehiculo" data-live-search="true">
+               @foreach($vehiculo as $veh)
+               <option value="{{$veh->IdVehiculo}}">{{$veh->Placa}}</option>
+               @endforeach
+             </select>
+           </div>
+         </div>
+
+         <!--<div class="form-group">
+           <label for="FechaInicio">Fecha Inicio</label>
+           <input type="text" name="FechaInicio" class="form-control" placeholder="FechaInicio">
+         </div>-->
+         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+           <div class="input-group date">
+             <label for="FechaInicio">Fecha Inicio</label>
+             <input type="text" class="form-control" name="FechaInicio" required value="{{old('FechaInicio')}}">
+             <div class="input-group-addon">
+               <span class="glyphicon glyphicon-th"></span>
+             </div>
+             <script>
+               $('.date').datepicker({
+                 format: 'yyyy/mm/dd',
+                 startDate: '-3d',
+                 language: "es",
+                 autoclose: true,
+                 orientation: "auto left",
+                 forceParse: false,
+                 todayHighlight: true,
+                 toggleActive: true
+               }).datepicker("setDate", new Date());
+             </script>
+         </div>
+         </div>
+
+        <!--<div class="form-group">
+           <label for="FechaFin">Fecha Fin</label>
+           <input type="text" name="FechaFin" class="form-control" placeholder="FechaFin">
+         </div>-->
+         <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+         <div class="input-group date">
+           <label for="FechaFin">Fecha Fin</label>
+           <input type="text" class="form-control" name="FechaFin" required value="{{old('FechaFin')}}">
+           <div class="input-group-addon">
+             <span class="glyphicon glyphicon-th"></span>
+           </div>
+           <script>
+             $('.date').datepicker({
+               format: 'yyyy/mm/dd',
+               startDate: '-3d',
+               language: "es",
+               autoclose: true,
+               orientation: "auto left",
+               forceParse: false,
+               todayHighlight: true,
+               toggleActive: true
+             }).datepicker("setDate", new Date());
+           </script>
+         </div>
+         </div>
 
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
        <div class="form-group">

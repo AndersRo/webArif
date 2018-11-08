@@ -3,7 +3,7 @@
 namespace webGps\Http\Controllers\Auth;
 
 use Auth;
-//use DB;
+use DB;
 use webGps\User;
 use Illuminate\Http\Request;
 use webGps\Http\Controllers\Controller;
@@ -18,15 +18,44 @@ class LoginController extends Controller
   public function showLoginForm(Request $request){
     return view('auth/login');
   }
-  public function login(){
-      $credentials = $this->validate(request(),[
-        'email'=>'email|required|string',
+  public function login(Request $request){
+    /*$credentials = array(
+      $usr= $request->input('email'),
+      $pass= $request->input('password')
+    );
+    return $credentials;*/
+
+      $query=trim($request->get('email'));
+      $users=DB::table('usuarios')
+      ->select('email','password')
+      ->where('email','LIKE','%'.$query.'%')
+      ->orderBy('id','desc')
+      ->paginate(7);
+
+         if(implode($users)==null){
+            echo 'bien';
+         }else {
+           echo 'mal';
+         }
+
+      //return $users;
+
+
+    /*  $credentials = $this->validate(request(),[
+        'email'=>'required|string',
         'password'=>'required|string'
       ]);
+<<<<<<< HEAD
       if (Auth::attempt($credentials)) {
         return $credentials;
       }
       /*  return back()
+=======
+      //if (Auth::attempt($credentials)) {
+        return $credentials;
+      //}
+        /*return back()
+>>>>>>> 9d2a2d22b8a2e56c15347e9947148d8a261311ea
         ->withErrors(['email'=> trans('auth.failed')])
         ->withInput(request(['email']));*/
     }

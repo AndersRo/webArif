@@ -116,10 +116,14 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <div class="form-group">
-                  <label for="IdEmpresa">IdEmpresa</label>
-                  <input type="text" name="IdEmpresa" class="form-control" placeholder="Id Empresa">
-              </div>
+          <div class="form-group">
+           <label for="IdEmpresa">Empresa</label>
+             <select class="form-control selectpicker" name="IdEmpresa" data-live-search="true">
+              @foreach($empresa as $emp)
+                <option value="{{$emp->IdEmpresa}}">{{$emp->NombreComercial}}</option>
+              @endforeach
+              </select>
+          </div>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

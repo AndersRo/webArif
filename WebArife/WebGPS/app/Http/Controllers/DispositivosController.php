@@ -25,7 +25,11 @@ class DispositivosController extends Controller
       }
     }
     public function create(){
-      return view("Dispositivos/dispositivo.create");
+      $modelo=DB::table('modelo')
+			->where('FlgEli','=','1')->get();
+      $empresa=DB::table('empresa')
+			->where('FlgEli','=','1')->get();
+      return view("Dispositivos/dispositivo.create",["modelo"=>$modelo,"empresa"=>$empresa]);
     }
     public function store(DispositivosFormRequest $request){
       $dispositivos=new Dispositivos;

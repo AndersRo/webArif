@@ -13,17 +13,10 @@
 				<table class="table table-striped table-bordered table-codensed table-hover">
 					<thead>
 						<th>IdOrden</th>
-						<th>IdEmpresa</th>
+						<th>Empresa</th>
 				    <th>IdMecanico</th>
-						<th>IdCliente</th>
-						<th>IdVehiculo</th>
-						<th>FchCrea</th>
-						<th>UsrCrea</th>
-				    <th>WksCrea</th>
-						<th>FchMod</th>
-						<th>UsrMod</th>
-				    <th>WksMod</th>
-				    <th>FlgEli</th>
+						<th>Cliente</th>
+						<th>Vehiculo</th>
 						<th>EstadoOrden</th>
 						<th>Obsvacion</th>
 						<th>FechaRegistro</th>
@@ -32,18 +25,11 @@
 					@foreach ($ordentrabajo as $ont)
 						<tr>
 							<td>{{$ont->IdOrden}}</td>
-							<td>{{$ont->IdEmpresa}}</td>
+							<td>{{$ont->RazonSocial}}</td>
 							<td>{{$ont->IdMecanico}}</td>
-							<td>{{$ont->IdCliente}}</td>
-							<th>{{$ont->IdVehiculo}}</th>
-							<td>{{$ont->FchCrea}}</td>
-							<td>{{$ont->UsrCrea}}</td>
-							<td>{{$ont->WksCrea}}</td>
-							<td>{{$ont->FchMod}}</td>
-							<td>{{$ont->UsrMod}}</td>
-							<td>{{$ont->WksMod}}</td>
-							<td>{{$ont->FlgEli}}</td>
-							<td>{{$ont->EstadoOrden}}</td>
+							<td>{{$ont->NomCli}}</td>
+							<th>{{$ont->Placa}}</th>
+							<td><small class="label pull-center bg-green">{{$ont->EstadoOrden}}</small></td>
 							<td>{{$ont->Obsvacion}}</td>
 							<td>{{$ont->FechaRegistro}}</td>
 							<th>{{$ont->FechaProgramada}}</th>

@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<h3>Listado de Mecanicos <a href="mecanico/create"><button class="btn btn-success"> Nuevo</button></a>
-				<a href="{{url('/')}}/views/excel"><button class="btn btn-success">Exportar</button></a>
+				<!--<a href="{{url('/')}}/views/excel"><button class="btn btn-success">Exportar</button></a>-->
 			</h3>
 			@include('datos/mecanico.search')
 		</div>

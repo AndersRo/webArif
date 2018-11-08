@@ -25,7 +25,9 @@ public function index(Request $request){
   }
 }
 public function create(){
-  return view("documentos/contrato_anexo.create");
+  $contrato=DB::table('contrato')
+  ->where('FlgEli','=','1')->get();
+  return view("documentos/contrato_anexo.create",["contrato"=>$contrato]);
 }
 public function store(Contrato_AnexoFormRequest $request){
   $contrato_anexo=new Contrato_Anexo;

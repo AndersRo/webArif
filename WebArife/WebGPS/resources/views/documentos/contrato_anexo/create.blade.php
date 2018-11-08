@@ -23,7 +23,11 @@
 
         <div class="form-group">
           <label for="IdContrato">Contrato</label>
-          <input type="text" name="IdContrato" class="form-control" required value="{{old('IdContrato')}}" placeholder="IdContrato">
+          <select class="form-control selectpicker" name="IdContrato" data-live-search="true">
+            @foreach($contrato as $cnt)
+              <option value="{{$cnt->IdContrato}}">{{$cnt->CodTipoContrato}}</option>
+            @endforeach
+          </select>
         </div>
 
         <div class="form-group">

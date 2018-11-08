@@ -17,16 +17,38 @@ class OrdenTrabajoController extends Controller
 public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
-    $OrdenTrabajo=DB::table('ordentrabajo')->where('UsrCrea','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
-    ->orderBy('IdOrden','desc')
+    $OrdenTrabajo=DB::table('ordentrabajo as o')->where('o.UsrCrea','LIKE','%'.$query.'%')
+    ->join('empresa as e','e.IdEmpresa','=','o.IdEmpresa')
+    ->join('cliente as c','c.IdCliente','=','o.IdCliente')
+    #->join('mecanico as m','m.IdMecanico','=','o.IdMecanico')
+    ->join('actor as a','a.IdActor','=','c.IdActor')
+    ->join('vehiculo as v','v.IdVehiculo','=','o.IdVehiculo')
+    ->select('o.IdOrden','e.RazonSocial',
+    'a.PrimerNombre as NomCli','o.IdMecanico','v.Placa',
+    'o.FchCrea','o.UsrCrea','o.WksCrea','o.FchMod','o.UsrMod','o.WksMod',
+    'o.FlgEli','o.EstadoOrden','o.Obsvacion','o.FechaRegistro','o.FechaProgramada')
+    ->where('o.FlgEli','=','1')
+    ->orderBy('o.IdOrden','desc')
     ->paginate(7);
     return view ('documentos/ordentrabajo.index',["ordentrabajo"=>$OrdenTrabajo,"searchText"=>$query]);
   }
 }
 public function create(){
-  return view("documentos/ordentrabajo.create");
+  $empresa=DB::table('empresa')
+  ->where('FlgEli','=','1')->get();
+  $mecanico=DB::table('mecanico as m')
+  ->join('actor as a','a.IdActor','=','m.IdActor')
+  ->where('m.FlgEli','=','1')->get();
+  $cliente=DB::table('cliente as c')
+  ->join('actor as a','a.IdActor','=','c.IdActor')
+  ->where('c.FlgEli','=','1')->get();
+  $vehiculo=DB::table('vehiculo')
+  ->where('FlgEli','=','1')->get();
+  $taller=DB::table('taller')
+  ->where('FlgEli','=','1')->get();
+  return view("documentos/ordentrabajo.create",["empresa"=>$empresa,"mecanico"=>$mecanico,"cliente"=>$cliente,"vehiculo"=>$vehiculo,"taller"=>$taller]);
 }
+
 public function store(OrdenTrabajoFormRequest $request){
   $OrdenTrabajo=new OrdenTrabajo;
   $OrdenTrabajo->IdOrden=$request->get('IdOrden');

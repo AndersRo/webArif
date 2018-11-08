@@ -26,7 +26,9 @@ public function index(Request $request){
 }
 }
 public function create(){
-  return view("datos/vehiculo.create");
+  $empresa=DB::table('empresa')
+  ->where('FlgEli','=','1')->get();
+  return view("datos/vehiculo.create",['empresa'=>$empresa]);
 }
 public function store(VehiculoFormRequest $request){
   $vehiculo=new Vehiculo;
