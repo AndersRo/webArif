@@ -60,9 +60,9 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
            <label for="Apellido_Paterno">Apellido Paterno</label>
-           <!--@foreach($actor as $act)-->
-             <input type="text" name="Apellido_Paterno" class="form-control" value="{{$actor->Apellido_Paterno}}" placeholder="Apellido_Paterno">
-           <!--@endforeach-->
+           @foreach($actor as $act)
+             <input type="text" name="Apellido_Paterno" class="form-control" value="{{$act->Apellido_Paterno}}" placeholder="Apellido_Paterno">
+           @endforeach
         </div>
       </div>
 
@@ -134,9 +134,9 @@
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
           <label for="RUC">RUC</label>
-          <!--@foreach($actor as $act)-->
-          <input type="text" name="RUC" class="form-control" value="{{$actor->RUC}}" placeholder="RUC">
-          <!--@endforeach-->
+          @foreach($actor as $act)
+          <input type="text" name="RUC" class="form-control" value="{{$act ->RUC}}" placeholder="RUC">
+          @endforeach
         </div>
       </div>
 

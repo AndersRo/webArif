@@ -79,7 +79,7 @@ public function edit($id){
   $actor=DB::table('mecanico as m')
   ->join('actor as a','a.IdActor','=','m.IdActor')
   ->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
-    ->where('m.IdMecanico','=',($id))->get();
+    ->where('m.IdMecanico','=',$id)->get();
   //->where('a.FlgEli','=','1')->get();
   //return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
   return view("datos/mecanico.edit", ["actor"=>$actor], ["mecanico"=>Mecanico::findOrFail($id)]);
