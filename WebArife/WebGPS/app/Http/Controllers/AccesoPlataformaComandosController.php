@@ -14,8 +14,7 @@ use DB;
 class AccesoPlataformaComandosController extends Controller
 {
   public function __construct(){
-
-  }
+}
     public function index(Request $request){
       if ($request) {
         $query=trim($request->get('searchText'));
@@ -66,4 +65,4 @@ class AccesoPlataformaComandosController extends Controller
 			$accesoplataformacomandos->update();
 			return Redirect::to('plataforma/AccesoPlataformaComandos');
     }
-}
+  }
