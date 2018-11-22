@@ -20,11 +20,12 @@ public function index(Request $request){
     $OrdenTrabajo=DB::table('ordentrabajo as o')->where('o.UsrCrea','LIKE','%'.$query.'%')
     ->join('empresa as e','e.IdEmpresa','=','o.IdEmpresa')
     ->join('cliente as c','c.IdCliente','=','o.IdCliente')
-    #->join('mecanico as m','m.IdMecanico','=','o.IdMecanico')
+    ->join('mecanico as m','m.IdMecanico','=','o.IdMecanico')
     ->join('actor as a','a.IdActor','=','c.IdActor')
+    ->join('actor as ma','ma.IdActor','=','m.IdActor')
     ->join('vehiculo as v','v.IdVehiculo','=','o.IdVehiculo')
     ->select('o.IdOrden','e.RazonSocial',
-    'a.PrimerNombre as NomCli','o.IdMecanico','v.Placa',
+    'a.PrimerNombre as NomCli','ma.PrimerNombre as NomMec','v.Placa',
     'o.FchCrea','o.UsrCrea','o.WksCrea','o.FchMod','o.UsrMod','o.WksMod',
     'o.FlgEli','o.EstadoOrden','o.Obsvacion','o.FechaRegistro','o.FechaProgramada')
     ->where('o.FlgEli','=','1')

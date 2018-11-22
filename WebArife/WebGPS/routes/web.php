@@ -43,6 +43,10 @@ Route::resource('Gmaps','GmapsController');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('mecanico/index', 'MecanicoController@index');
+Route::get('mecanico/index/excel', 'MecanicoController@excel')->name('index.excel');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

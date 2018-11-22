@@ -79,7 +79,11 @@ public function edit($id){
   $actor=DB::table('mecanico as m')
   ->join('actor as a','a.IdActor','=','m.IdActor')
   ->join('empresa as e','e.IdEmpresa','=','a.IdEmpresa')
+  ->select('a.Apellido_Paterno','a.Apellido_Materno','a.PrimerNombre','a.SegundoNombre',
+  'a.RazonSocial','a.TipoDocumento','a.CodigoIdentificacion','a.RUC as Rem','a.IdEmpresa','e.NombreComercial',
+  'a.UsrCrea','a.UsrMod','m.UsrCrea','m.UsrMod')
     ->where('m.IdMecanico','=',$id)->get();
+
   //->where('a.FlgEli','=','1')->get();
   //return view("datos/cliente.edit", ["actor"=>$actor], ["cliente"=>Cliente::findOrFail($id)]);
   return view("datos/mecanico.edit", ["actor"=>$actor], ["mecanico"=>Mecanico::findOrFail($id)]);
@@ -100,9 +104,7 @@ public function update(MecanicoFormRequest $request,$id){
   $actor->UsrMod=$request->get('UsrMod');
   $actor->update();
 
-  $mecanico=Mecanico::findOrFail($id);
-  $mecanico->IdMecanico=$request->get('IdMecanico');
-  $mecanico->IdActor=$request->get('IdActor');
+  $mecanico=Mecanico::findOrFail($request->get('IdMecanico'));
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->ip();
   $mecanico->FchMod=Carbon::now();
@@ -118,11 +120,28 @@ public function destroy($id){
  }
 
  public function excel(){
-   $mecanico = Mecanico::get()->toArray();
-   Excel::create('Mecanico', function($excel) use($mecanico){
-     $excel->sheet('Mecanico', function($sheet) use($mecanico){
-       $sheet->fromArray($mecanico);
-     });
-   })->export('xlsx');
+   $mecanico = DB::table('mecanico')->get()->toArray();
+   $mecanico_array[] = array('IdActor','IdMecanico','FchCrea',
+   'UsrCrea','WksCrea','FchMod','UsrMod','WksMod','FlgEli');
+   foreach($mecanico as $mec){
+     $mecanico_array[] = array(
+       'IdActor' => $mec->IdActor,
+       'IdMecanico' => $mec->IdMecanico,
+       'FchCrea' => $mec->FchCrea,
+       'UsrCrea' => $mec->UsrCrea,
+       'WksCrea' => $mec->WksCrea,
+       'FchMod' => $mec->FchMod,
+       'UsrMod' => $mec->UsrMod,
+       'WksMod' => $mec->WksMod,
+       'FlgEli' => $mec->FlgEli
+     );
+   }
+   Excel::create('Mecanico', function($excel) use($mecanico_array){
+     $excel->setTitle('Mecanicos');
+     $excel->sheet('Mecanico', function($sheet)
+     use ($mecanico_array){
+      $sheet->fromArray($mecanico_array, null, 'A1', false, false);
+    });
+  })->download('xlsx');
  }
 }

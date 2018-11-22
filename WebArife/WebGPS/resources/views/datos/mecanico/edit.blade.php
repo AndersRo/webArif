@@ -15,21 +15,23 @@
       </div>
     </div>
 
-        {!!Form::model($mecanico,['method'=>'PATCH','route'=>['mecanico.update',$mecanico->IdMecanico]])!!}
+        {!!Form::model($mecanico,['method'=>'PATCH','route'=>['mecanico.update',$mecanico->IdActor]])!!}
         {{Form::token()}}
         <div class="row">
 
+
+
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <div class="form-group">
-              <label for="IdActor">Id</label>
-              <input type="text" name="IdActor" value="{{$mecanico->IdActor}}" class="form-control" placeholder="Id">
+    				<div class="form-group">
+              <!--<label for="IdMecanico">Mecanico</label>-->
+              <input type="hidden" name="IdMecanico" value="{{$mecanico->IdMecanico}}" class="form-control" placeholder="Mecanico">
             </div>
           </div>
 
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-    				<div class="form-group">
-              <label for="IdMecanico">Id Mecanico</label>
-              <input type="text" name="IdMecanico" value="{{$mecanico->IdMecanico}}" class="form-control" placeholder="Mecanico">
+            <div class="form-group">
+              <!--<label for="IdActor">Actor</label>-->
+              <input type="hidden" name="IdActor" value="{{$mecanico->IdActor}}" class="form-control" placeholder="Actor">
             </div>
           </div>
 
@@ -115,7 +117,7 @@
             <div class="form-group">
               <label for="RUC">RUC</label>
               @foreach($actor as $act)
-              <input type="text" name="RUC" class="form-control" value="{{$act->RUC}}" placeholder="RUC">
+              <input type="text" name="RUC" class="form-control" value="{{$act->Rem}}" placeholder="RUC">
               @endforeach
             </div>
           </div>

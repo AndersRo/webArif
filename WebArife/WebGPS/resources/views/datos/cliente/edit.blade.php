@@ -135,7 +135,7 @@
         <div class="form-group">
           <label for="RUC">RUC</label>
           @foreach($actor as $act)
-          <input type="text" name="RUC" class="form-control" value="{{$act ->RUC}}" placeholder="RUC">
+          <input type="text" name="RUC" class="form-control" value="{{$act ->Rem}}" placeholder="RUC">
           @endforeach
         </div>
       </div>

@@ -32,7 +32,19 @@ public function create(){
   ->where('FlgEli','=','1')->get();
   return view("Dispositivos/modelo.create",['marca'=>$marca]);
 }
-public function store(ModeloFormRequest $request){
+public function store(ModeloFormRequest $request, MarcaFormRequest $reqmar){
+
+  $marca=new Marca;
+  $marca->IdMarca=$reqmar->get('IdMarca');
+  $marca->Descripcion=$reqmar->get('Descripcion');
+  $marca->UsrCrea=$reqmar->get('UsrCrea');
+  $marca->WksCrea=$reqmar->ip();
+  $marca->FchMod=Carbon::now();
+  $marca->UsrMod=$reqmar->get('UsrMod');
+  $marca->WksMod=$reqmar->ip();
+  $marca->FlgEli=1;
+  $marca->FchCrea=Carbon::now();
+  $marca->save();
 
   $modelo=new Modelo;
   $modelo->IdModelo=$request->get('IdModelo');

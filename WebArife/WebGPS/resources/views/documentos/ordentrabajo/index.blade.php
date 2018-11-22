@@ -14,7 +14,7 @@
 					<thead>
 						<th>IdOrden</th>
 						<th>Empresa</th>
-				    <th>IdMecanico</th>
+				    <th>Mecanico</th>
 						<th>Cliente</th>
 						<th>Vehiculo</th>
 						<th>EstadoOrden</th>
@@ -26,7 +26,7 @@
 						<tr>
 							<td>{{$ont->IdOrden}}</td>
 							<td>{{$ont->RazonSocial}}</td>
-							<td>{{$ont->IdMecanico}}</td>
+							<td>{{$ont->NomMec}}</td>
 							<td>{{$ont->NomCli}}</td>
 							<th>{{$ont->Placa}}</th>
 							<td><small class="label pull-center bg-green">{{$ont->EstadoOrden}}</small></td>

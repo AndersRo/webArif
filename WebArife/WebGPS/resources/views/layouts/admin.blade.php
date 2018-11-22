@@ -15,7 +15,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
+
          folder instead of downloading all of them to reduce the load. -->
+
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="apple-touch-icon" href="{{asset('imagenes/icon/icono-arife.png')}}">
     <link rel="shortcut icon" href="{{asset('imagenes/icon/icono-arife.png')}}">
@@ -43,6 +45,12 @@
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc6mvuoDFAEQ1nsh_WcVry01YC6Ce09V4&callback=initMap"
    type="text/javascript"></script>
+   <?php
+header("Content-type: application/vnd.ms-excel; name='excel'");
+header("Content-Disposition: filename=Mecanico.xls");
+?>
+
+
 
 
   </head>
@@ -245,7 +253,6 @@
         <strong>Copyright &copy; 2018-2020 <a href="www.arifeperu.com">ArifePeru</a>.</strong> All rights reserved.
       </footer>
 
-
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
@@ -255,7 +262,7 @@
     <!--Bootstrap Select -->
     <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
 
-    </select> -->
+    </select>
 
 
 
