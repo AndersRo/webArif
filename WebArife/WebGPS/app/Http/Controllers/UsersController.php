@@ -18,7 +18,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $users=DB::table('users')->where('password','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('Id','desc')
     ->paginate(7);
     return view ('users.index',["users"=>$users,"searchText"=>$query]);
@@ -57,7 +57,7 @@ public function update(UsersFormRequest $request,$id){
 }
 public function destroy($id){
   $users=users::findOrFail($id);
-  $users->FlgEli='0';
+  $users->FlgEli='1';
   $users->update();
   return Redirect::to('users');
 }

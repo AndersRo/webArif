@@ -18,7 +18,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $tablas_detalle=DB::table('tablas_detalle')->where('UsrCrea','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdTablaDetalle','desc')
     ->paginate(7);
     return view ('tablas/tablas_detalle.index',["tablas_detalle"=>$tablas_detalle,"searchText"=>$query]);
@@ -38,7 +38,7 @@ public function store(Tablas_DetalleFormRequest $request){
   $tablas_detalle->FchMod=FchCrea=Carbon::now();
   $tablas_detalle->UsrMod=$request->get('UsrMod');
   $tablas_detalle->WksMod=$request->get('WksMod');
-  $tablas_detalle->FlgEli=1;
+  $tablas_detalle->FlgEli=0;
   $tablas_detalle->save();
   return Redirect::to('tablas/tablas_detalle');
 }
@@ -56,13 +56,13 @@ public function update(Tablas_DetalleFormRequest $request,$id){
   $tablas_detalle->FchMod=Carbon::now();
   $tablas_detalle->UsrMod=$request->get('UsrMod');
   $tablas_detalle->WksMod=$request->get('WksMod');
-  $tablas_detalle->FlgEli=1;
+  $tablas_detalle->FlgEli=0;
   $tablas_detalle->update();
   return Redirect::to('tablas/tablas_detalle');
   }
 public function destroy($id){
   $tablas_detalle=tablas_detalle::findOrFail($id);
-  $tablas_detalle->FlgEli='0';
+  $tablas_detalle->FlgEli='1';
   $tablas_detalle->update();
   return Redirect::to('tablas/tablas_detalle');
   }

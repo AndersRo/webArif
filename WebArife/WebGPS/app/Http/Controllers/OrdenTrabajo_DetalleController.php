@@ -19,7 +19,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $OrdenTrabajo_Detalle=DB::table('ordentrabajo_detalle')->where('UsrCrea','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdOrdenDetalle','desc')
     ->paginate(7);
     return view ('documentos/ordentrabajo_detalle.index',["ordentrabajo_detalle"=>$OrdenTrabajo_Detalle,"searchText"=>$query]);
@@ -27,7 +27,7 @@ public function index(Request $request){
 }
 public function create(){
   $ordentrabajo=DB::table('ordentrabajo')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   $dispositivos=DB::table('dispositivos')->get();
   return view("documentos/ordentrabajo_detalle.create",["dispositivos"=>$dispositivos],["ordentrabajo"=>$ordentrabajo]);
 }
@@ -43,7 +43,7 @@ public function store(OrdenTrabajo_DetalleFormRequest $request){
   $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo_Detalle->WksMod=$request->ip();
-  $OrdenTrabajo_Detalle->FlgEli=1;
+  $OrdenTrabajo_Detalle->FlgEli=0;
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
   $OrdenTrabajo_Detalle->save();
@@ -65,7 +65,7 @@ public function update(OrdenTrabajo_DetalleFormRequest $request,$id){
   $OrdenTrabajo_Detalle->FchMod=Carbon::now();
   $OrdenTrabajo_Detalle->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo_Detalle->WksMod=$request->ip();
-  $OrdenTrabajo_Detalle->FlgEli=1;
+  $OrdenTrabajo_Detalle->FlgEli=0;
   $OrdenTrabajo_Detalle->FechaInicio=$request->get('FechaInicio');
   $OrdenTrabajo_Detalle->FechaFin=$request->get('FechaFin');
   $OrdenTrabajo_Detalle->update();
@@ -73,7 +73,7 @@ public function update(OrdenTrabajo_DetalleFormRequest $request,$id){
 }
 public function destroy($id){
    $OrdenTrabajo_Detalle=OrdenTrabajo_Detalle::findOrFail($id);
-   $OrdenTrabajo_Detalle->FlgEli='0';
+   $OrdenTrabajo_Detalle->FlgEli='1';
    $OrdenTrabajo_Detalle->update();
    return Redirect::to('documentos/ordentrabajo_detalle');
   }

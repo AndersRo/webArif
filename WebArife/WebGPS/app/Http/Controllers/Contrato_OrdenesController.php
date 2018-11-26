@@ -18,7 +18,7 @@ public function index(Request $request){
 if ($request) {
   $query=trim($request->get('searchText'));
   $Contrato_Ordenes=DB::table('contrato_ordenes')->where('IdOrden','LIKE','%'.$query.'%')
-  ->where('FlgEli','=','1')
+  ->where('FlgEli','=','0')
   ->orderBy('IdContratoOrdenes','desc')
   ->paginate(7);
   return view ('documentos/contrato_ordenes.index',["contrato_ordenes"=>$Contrato_Ordenes,"searchText"=>$query]);
@@ -26,9 +26,9 @@ if ($request) {
 }
 public function create(){
   $contrato=DB::table('contrato')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   $ordentrabajo=DB::table('ordentrabajo')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("documentos/contrato_ordenes.create",["contrato"=>$contrato,"ordentrabajo"=>$ordentrabajo]);
 }
 public function store(Contrato_OrdenesFormRequest $request){
@@ -42,7 +42,7 @@ public function store(Contrato_OrdenesFormRequest $request){
   $Contrato_Ordenes->FchMod=Carbon::now();
   $Contrato_Ordenes->WksMod=$request->ip();
   $Contrato_Ordenes->UsrMod=$request->get('UsrMod');
-  $Contrato_Ordenes->FlgEli=1;
+  $Contrato_Ordenes->FlgEli=0;
   $Contrato_Ordenes->save();
   return Redirect::to('documentos/contrato_ordenes');
 }
@@ -60,13 +60,13 @@ public function update(Contrato_OrdenesFormRequest $request,$id){
   $Contrato_Ordenes->FchMod=Carbon::now();
   $Contrato_Ordenes->WksMod=$request->ip();
   $Contrato_Ordenes->UsrMod=$request->get('UsrMod');
-  $Contrato_Ordenes->FlgEli=1;
+  $Contrato_Ordenes->FlgEli=0;
   $Contrato_Ordenes->update();
   return Redirect::to('documentos/contrato_ordenes');
 }
 public function destroy($id){
   $Contrato_Ordenes=Contrato_Ordenes::findOrFail($id);
-  $Contrato_Ordenes->FlgEli='0';
+  $Contrato_Ordenes->FlgEli='1';
   $Contrato_Ordenes->update();
   return Redirect::to('documentos/contrato_ordenes');
 }

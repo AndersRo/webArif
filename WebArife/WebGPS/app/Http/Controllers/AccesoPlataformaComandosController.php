@@ -19,7 +19,7 @@ class AccesoPlataformaComandosController extends Controller
       if ($request) {
         $query=trim($request->get('searchText'));
         $accesoplataformacomandos=DB::table('accesoplataformacomandos')->where('FchCrea','LIKE','%'.$query.'%')
-        ->where('FlgEli','=','1')
+        ->where('FlgEli','=','0')
         ->orderBy('IdAccesoComandos','desc')
         ->paginate(7);
         return view ('plataforma.AccesoPlataformaComandos.index',["accesoplataformacomandos"=>$accesoplataformacomandos,"searchText"=>$query]);
@@ -55,13 +55,13 @@ class AccesoPlataformaComandosController extends Controller
       $accesoplataformacomandos->FchMod=Carbon::now();
       $accesoplataformacomandos->UsrMod=$request->get('UsrMod');
       $accesoplataformacomandos->WksMod=$request->ip();
-      $accesoplataformacomandos->FlgEli=1;
+      $accesoplataformacomandos->FlgEli=0;
       $accesoplataformacomandos->update();
       return Redirect::to('plataforma/AccesoPlataformaComandos');
     }
     public function destroy($id){
       $accesoplataformacomandos=AccesoPlataformaComandos::findOrFail($id);
-			$accesoplataformacomandos->FlgEli='0';
+			$accesoplataformacomandos->FlgEli='1';
 			$accesoplataformacomandos->update();
 			return Redirect::to('plataforma/AccesoPlataformaComandos');
     }

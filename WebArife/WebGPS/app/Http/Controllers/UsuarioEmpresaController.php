@@ -12,7 +12,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $usuarioempresa=DB::table('usuarioempresa')->where('Id','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdUsuarioEmpresa','desc')
     ->paginate(7);
     return view ('usuarioempresa.index',["usuarioempresa"=>$usuarioempresa,"searchText"=>$query]);
@@ -41,7 +41,7 @@ public function update(UsuarioEmpresaFormRequest $request,$id){
 }
 public function destroy($id){
   $usuarioempresa=UsuarioEmpresa::findOrFail($id);
-  $usuarioempresa->FlgEli='0';
+  $usuarioempresa->FlgEli='1';
   $usuarioempresa->update();
   return Redirect::to('usuarioempresa');
   }

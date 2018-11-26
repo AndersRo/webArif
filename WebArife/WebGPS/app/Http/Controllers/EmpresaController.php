@@ -21,7 +21,7 @@ class EmpresaController extends Controller
       if ($request) {
         $query=trim($request->get('searchText'));
         $empresa=DB::table('empresa')->where('RazonSocial','LIKE','%'.$query.'%')
-        ->where('FlgEli','=','1')
+        ->where('FlgEli','=','0')
         ->orderBy('IdEmpresa','desc')
         ->paginate(7);
         return view ('datos/empresa.index',["empresa"=>$empresa,"searchText"=>$query]);
@@ -48,7 +48,7 @@ class EmpresaController extends Controller
       $empresa->FchMod=Carbon::now();
       $empresa->UsrMod=$request->get('UsrMod');
       $empresa->WksMod=$request->ip();
-      $empresa->FlgEli=1;
+      $empresa->FlgEli=0;
       $empresa->Representante=$request->get('Representante');
       $empresa->save();
       return Redirect::to('datos/empresa');
@@ -80,7 +80,7 @@ class EmpresaController extends Controller
     }
     public function destroy($id){
        $empresa=Empresa::findOrFail($id);
-       $empresa->FlgEli='0';
+       $empresa->FlgEli='1';
        $empresa->update();
        return Redirect::to('datos/empresa');
     }

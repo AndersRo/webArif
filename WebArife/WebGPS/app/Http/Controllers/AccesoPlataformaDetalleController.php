@@ -19,7 +19,7 @@ class AccesoPlataformaDetalleController extends Controller
       if ($request) {
         $query=trim($request->get('searchText'));
         $accesoplataformadetalle=DB::table('accesoplataformadetalle')->where('UsrCrea','LIKE','%'.$query.'%')
-        ->where('FlgEli','=','1')
+        ->where('FlgEli','=','0')
         ->orderBy('IdAccesoDetalle','desc')
         ->paginate(7);
         return view ('plataforma.AccesoPlataformaDetalle.index',["accesoplataformadetalle"=>$accesoplataformadetalle,"searchText"=>$query]);
@@ -39,7 +39,7 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->ip();
-      $accesoplataformadetalle->FlgEli=1;
+      $accesoplataformadetalle->FlgEli=0;
       $accesoplataformadetalle->save();
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
@@ -57,13 +57,13 @@ class AccesoPlataformaDetalleController extends Controller
       $accesoplataformadetalle->FchMod=Carbon::now();
       $accesoplataformadetalle->UsrMod=$request->get('UsrMod');
       $accesoplataformadetalle->WksMod=$request->ip();
-      $accesoplataformadetalle->FlgEli=1;
+      $accesoplataformadetalle->FlgEli=0;
       $accesoplataformadetalle->update();
       return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }
     public function destroy($id){
       $accesoplataformadetalle=AccesoPlataformaDetalle::findOrFail($id);
-			$accesoplataformadetalle->FlgEli='0';
+			$accesoplataformadetalle->FlgEli='1';
 			$accesoplataformadetalle->update();
 			return Redirect::to('plataforma/AccesoPlataformaDetalle');
     }

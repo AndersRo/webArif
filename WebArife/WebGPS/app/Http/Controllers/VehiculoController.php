@@ -19,7 +19,7 @@ public function index(Request $request){
    if ($request) {
    $query=trim($request->get('searchText'));
    $vehiculo=DB::table('vehiculo')->where('UsrCrea','LIKE','%'.$query.'%')
-  ->where('FlgEli','=','1')
+  ->where('FlgEli','=','0')
   ->orderBy('IdVehiculo','desc')
   ->paginate(7);
   return view ('datos/vehiculo.index',["vehiculo"=>$vehiculo,"searchText"=>$query]);
@@ -27,7 +27,7 @@ public function index(Request $request){
 }
 public function create(){
   $empresa=DB::table('empresa')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("datos/vehiculo.create",['empresa'=>$empresa]);
 }
 public function store(VehiculoFormRequest $request){
@@ -44,7 +44,7 @@ public function store(VehiculoFormRequest $request){
   $vehiculo->FchMod=Carbon::now();
   $vehiculo->UsrMod=$request->get('UsrMod');
   $vehiculo->WksMod=$request->ip();
-  $vehiculo->FlgEli=1;
+  $vehiculo->FlgEli=0;
   $vehiculo->RutaReferencia=$request->get('RutaReferencia');
   $vehiculo->RutaTarjeta=$request->get('RutaTarjeta');
   $vehiculo->IdEmpresa=$request->get('IdEmpresa');
@@ -68,7 +68,7 @@ public function update(VehiculoFormRequest $request,$id){
   $vehiculo->FchMod=Carbon::now();
   $vehiculo->UsrMod=$request->get('UsrMod');
   $vehiculo->WksMod=$request->ip();
-  $vehiculo->FlgEli=1;
+  $vehiculo->FlgEli=0;
   $vehiculo->RutaReferencia=$request->get('RutaReferencia');
   $vehiculo->RutaTarjeta=$request->get('RutaTarjeta');
   $vehiculo->IdEmpresa=$request->get('IdEmpresa');
@@ -77,7 +77,7 @@ public function update(VehiculoFormRequest $request,$id){
 }
 public function destroy($id){
   $vehiculo=Vehiculo::findOrFail($id);
-  $vehiculo->FlgEli='0';
+  $vehiculo->FlgEli='1';
   $vehiculo->update();
   return Redirect::to('datos/vehiculo');
   }

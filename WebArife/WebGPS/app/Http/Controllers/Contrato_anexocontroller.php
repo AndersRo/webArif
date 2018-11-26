@@ -18,7 +18,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $contrato_anexo=DB::table('contrato_anexo')->where('CodDocumentoAnexo','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdContratoAnexo','desc')
     ->paginate(7);
     return view ('documentos/contrato_anexo.index',["contrato_anexo"=>$contrato_anexo,"searchText"=>$query]);
@@ -26,7 +26,7 @@ public function index(Request $request){
 }
 public function create(){
   $contrato=DB::table('contrato')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("documentos/contrato_anexo.create",["contrato"=>$contrato]);
 }
 public function store(Contrato_AnexoFormRequest $request){
@@ -41,7 +41,7 @@ public function store(Contrato_AnexoFormRequest $request){
   $contrato_anexo->FchMod=Carbon::now();
   $contrato_anexo->UsrMod=$request->get('UsrMod');
   $contrato_anexo->WksMod=$request->ip();
-  $contrato_anexo->FlgEli=1;
+  $contrato_anexo->FlgEli=0;
   $contrato_anexo->save();
   return Redirect::to('documentos/contrato_anexo');
 }
@@ -60,13 +60,13 @@ public function update(Contrato_AnexoFormRequest $request,$id){
   $contrato_anexo->FchMod=Carbon::now();
   $contrato_anexo->UsrMod=$request->get('UsrMod');
   $contrato_anexo->WksMod=$request->ip();
-  $contrato_anexo->FlgEli=1;
+  $contrato_anexo->FlgEli=0;
   $contrato_anexo->update();
   return Redirect::to('documentos/contrato_anexo');
 }
 public function destroy($id){
     $contrato_anexo=Contrato_Anexo::findOrFail($id);
-    $contrato_anexo->FlgEli='0';
+    $contrato_anexo->FlgEli='1';
     $contrato_anexo->update();
   return Redirect::to('documentos/contrato_anexo');
   }

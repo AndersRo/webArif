@@ -28,7 +28,7 @@ public function index(Request $request){
     'e.RazonSocial','v.Placa','con.EstadoContrato','con.FchCrea',
     'con.UsrCrea','con.WksCrea','con.FchMod','con.UsrMod',
     'con.WksMod','con.FlgEli')
-    ->where ('con.FlgEli','=','1')
+    ->where ('con.FlgEli','=','0')
     ->orderBy('con.IdContrato','desc')
     ->paginate(7);
     return view ('documentos/contrato.index',["contrato"=>$contrato,"searchText"=>$query]);
@@ -38,11 +38,11 @@ public function create(){
   $cliente=DB::table('cliente as c')
   ->join('actor as a','a.IdActor','=','c.IdActor')
   #->select(DB::raw('CONCAT(a.PrimerNombre," ",a.Apellido_Paterno) as Persona','IdCliente'))
-  ->where('c.FlgEli','=','1')->get();
+  ->where('c.FlgEli','=','0')->get();
   $empresa=DB::table('empresa')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   $vehiculo=DB::table('vehiculo')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("documentos/contrato.create",['cliente'=>$cliente,'empresa'=>$empresa,'vehiculo'=>$vehiculo]);
 }
 public function store(ContratoFormRequest $request){
@@ -62,7 +62,7 @@ public function store(ContratoFormRequest $request){
   $contrato->FchMod=Carbon::now();
   $contrato->UsrMod=$request->get('UsrMod');
   $contrato->WksMod=$request->ip();
-  $contrato->FlgEli=1;
+  $contrato->FlgEli=0;
   $contrato->save();
   return Redirect::to('documentos/contrato');
 }
@@ -86,13 +86,13 @@ public function update(ContratoFormRequest $request,$id){;
  $contrato->FchMod=Carbon::now();
  $contrato->UsrMod=$request->get('UsrMod');
  $contrato->WksMod=$request->ip();
- $contrato->FlgEli=1;
+ $contrato->FlgEli=0;
  $contrato->update();
   return Redirect::to('documentos/contrato');
 }
 public function destroy($id){
   $contrato=Contrato::findOrFail($id);
-  $contrato->FlgEli='0';
+  $contrato->FlgEli='1';
   $contrato->update();
   return Redirect::to('documentos/contrato');
  }

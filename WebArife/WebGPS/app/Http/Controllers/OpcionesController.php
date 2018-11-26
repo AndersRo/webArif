@@ -18,7 +18,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $opciones=DB::table('opciones')->where('Idparent','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdOpciones','desc')
     ->paginate(7);
     return view ('opciones.index',["opciones"=>$opciones,"searchText"=>$query]);
@@ -53,7 +53,7 @@ public function update(OpcionesFormRequest $request,$id){
 }
 public function destroy($id){
   $opciones=Opciones::findOrFail($id);
-  $opciones->FlgEli='0';
+  $opciones->FlgEli='1';
   $opciones->update();
   return Redirect::to('opciones');
   }

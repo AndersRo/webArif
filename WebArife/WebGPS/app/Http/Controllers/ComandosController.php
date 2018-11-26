@@ -54,7 +54,7 @@ public function update(ComandosFormRequest $request,$id){
 }
 public function destroy($id){
   $comandos=Comandos::findOrFail($id);
-  $comandos->FlgEli='0';
+  $comandos->FlgEli='1';
   $comandos->update();
   return Redirect::to('Dispositivos/comandos');
  }

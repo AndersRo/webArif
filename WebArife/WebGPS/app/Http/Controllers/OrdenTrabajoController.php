@@ -28,7 +28,7 @@ public function index(Request $request){
     'a.PrimerNombre as NomCli','ma.PrimerNombre as NomMec','v.Placa',
     'o.FchCrea','o.UsrCrea','o.WksCrea','o.FchMod','o.UsrMod','o.WksMod',
     'o.FlgEli','o.EstadoOrden','o.Obsvacion','o.FechaRegistro','o.FechaProgramada')
-    ->where('o.FlgEli','=','1')
+    ->where('o.FlgEli','=','0')
     ->orderBy('o.IdOrden','desc')
     ->paginate(7);
     return view ('documentos/ordentrabajo.index',["ordentrabajo"=>$OrdenTrabajo,"searchText"=>$query]);
@@ -36,17 +36,17 @@ public function index(Request $request){
 }
 public function create(){
   $empresa=DB::table('empresa')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   $mecanico=DB::table('mecanico as m')
   ->join('actor as a','a.IdActor','=','m.IdActor')
-  ->where('m.FlgEli','=','1')->get();
+  ->where('m.FlgEli','=','0')->get();
   $cliente=DB::table('cliente as c')
   ->join('actor as a','a.IdActor','=','c.IdActor')
-  ->where('c.FlgEli','=','1')->get();
+  ->where('c.FlgEli','=','0')->get();
   $vehiculo=DB::table('vehiculo')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   $taller=DB::table('taller')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("documentos/ordentrabajo.create",["empresa"=>$empresa,"mecanico"=>$mecanico,"cliente"=>$cliente,"vehiculo"=>$vehiculo,"taller"=>$taller]);
 }
 
@@ -63,7 +63,7 @@ public function store(OrdenTrabajoFormRequest $request){
   $OrdenTrabajo->FchMod=Carbon::now();
   $OrdenTrabajo->UsrMod=$request->get('UsrMod');
   $OrdenTrabajo->WksMod=$request->ip();
-  $OrdenTrabajo->FlgEli=1;
+  $OrdenTrabajo->FlgEli=0;
   $OrdenTrabajo->EstadoOrden=$request->get('EstadoOrden');
   $OrdenTrabajo->Obsvacion=$request->get('Obsvacion');
   $OrdenTrabajo->FechaRegistro=$request->get('FechaRegistro');
@@ -100,7 +100,7 @@ public function update(OrdenTrabajoFormRequest $request,$id){
 }
 public function destroy($id){
   $OrdenTrabajo=OrdenTrabajo::findOrFail($id);
-  $OrdenTrabajo->FlgEli='0';
+  $OrdenTrabajo->FlgEli='1';
   $OrdenTrabajo->update();
   return Redirect::to('documentos/ordentrabajo');
 }

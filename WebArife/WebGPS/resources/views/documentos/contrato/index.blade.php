@@ -33,7 +33,6 @@
 							<td>{{$cnt->RazonSocial}}</td>
 							<td>{{$cnt->Placa}}</td>
 							<td>{{$cnt->EstadoContrato}}</td>
-							<td><a href="boton excel"><button class="btn btn-success">Nuevo</button></a></td>
 							<td>
 								<a href="{{URL::action('ContratoController@edit',$cnt->IdContrato)}}"><button class="btn btn-info">Editar</button></a>
 								<a href="" data-target="#modal-delete-{{$cnt->IdContrato}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>

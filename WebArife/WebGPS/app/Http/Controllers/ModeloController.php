@@ -21,7 +21,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $modelo=DB::table('modelo')->where('Descripcion','LIKE','%'.$query.'%')
-    ->where ('FlgEli','=','1')
+    ->where ('FlgEli','=','0')
     ->orderBy('IdModelo','desc')
     ->paginate(7);
     return view ('Dispositivos/modelo.index',["modelo"=>$modelo,"searchText"=>$query]);
@@ -29,7 +29,7 @@ public function index(Request $request){
 }
 public function create(){
   $marca=DB::table('marca')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("Dispositivos/modelo.create",['marca'=>$marca]);
 }
 public function store(ModeloFormRequest $request, MarcaFormRequest $reqmar){
@@ -42,7 +42,7 @@ public function store(ModeloFormRequest $request, MarcaFormRequest $reqmar){
   $marca->FchMod=Carbon::now();
   $marca->UsrMod=$reqmar->get('UsrMod');
   $marca->WksMod=$reqmar->ip();
-  $marca->FlgEli=1;
+  $marca->FlgEli=0;
   $marca->FchCrea=Carbon::now();
   $marca->save();
 
@@ -55,7 +55,7 @@ public function store(ModeloFormRequest $request, MarcaFormRequest $reqmar){
   $modelo->FchMod=Carbon::now();
   $modelo->UsrMod=$request->get('UsrMod');
   $modelo->WksMod=$request->ip();
-  $modelo->FlgEli=1;
+  $modelo->FlgEli=0;
   if (Input::hasFile('FotoReferencial')) {
     $file=Input::file('FotoReferencial');
     $file->move(public_path().'/imagenes/modelo/',$file->getClientOriginalName());
@@ -89,7 +89,7 @@ public function update(ModeloFormRequest $request,$id){
 }
 public function destroy($id){
 $modelo=Modelo::findOrFail($id);
-$modelo->FlgEli='0';
+$modelo->FlgEli='1';
 $modelo->update();
 return Redirect::to('Dispositivos/modelo');
  }

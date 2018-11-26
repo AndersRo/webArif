@@ -20,7 +20,7 @@ class UsuarioController extends Controller
     if ($request) {
       $query=trim($request->get('searchText'));
       $usuario=DB::table('users')->where('login','LIKE','%'.$query."%")
-      ->where('FlgEli','=','1')
+      ->where('FlgEli','=','0')
       ->orderBy('id','desc')
       ->paginate(7);
       return view('seguridad.usuario.index',["usuarios"=>$usuario,"searchText"=>$query]);

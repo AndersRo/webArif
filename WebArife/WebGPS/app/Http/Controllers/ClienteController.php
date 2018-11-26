@@ -26,9 +26,9 @@ class ClienteController extends Controller
 				->join('actor as a', 'c.IdActor','=','a.IdActor')
 				->select('c.IdCliente','a.Apellido_Paterno','a.Apellido_Materno' ,'a.PrimerNombre','a.TipoDocumento','a.CodigoIdentificacion','a.RazonSocial')
 				->where('a.PrimerNombre','LIKE','%'.$query.'%')
-				->where('c.FlgEli','=','1')
+				->where('c.FlgEli','=','0')
 				->orwhere('a.CodigoIdentificacion','LIKE','%'.$query.'%')
-				->where('a.FlgEli','=','1')
+				->where('a.FlgEli','=','0')
     		->orderBy('c.IdCliente','desc')
 				->paginate(7);
     		return view ('datos/cliente.index',["cliente"=>$cliente,"searchText"=>$query]);
@@ -37,9 +37,9 @@ class ClienteController extends Controller
     }
     public function create(){
 			$actor=DB::table('actor')
-			->where('FlgEli','=','1')->get();
+			->where('FlgEli','=','0')->get();
 			$empresa=DB::table('empresa')
-			->where('FlgEli','=','1')->get();
+			->where('FlgEli','=','0')->get();
     	return view("datos/cliente.create",["actor"=>$actor],["empresa"=>$empresa]);
     }
 		/*public function create(){
@@ -65,7 +65,7 @@ class ClienteController extends Controller
 			$actor->FchMod=Carbon::now();
 			$actor->WksMod=$reqactor->ip();
 			$actor->UsrMod=$reqactor->get('UsrMod');
-			$actor->FlgEli=1;
+			$actor->FlgEli=0;
 			$actor->save();
 
 			$cliente=new Cliente;
@@ -77,7 +77,7 @@ class ClienteController extends Controller
     	$cliente->FchMod=Carbon::now();
 			$cliente->WksMod=$request->ip();
     	$cliente->UsrMod=$request->get('UsrMod');
-			$cliente->FlgEli=1;
+			$cliente->FlgEli=0;
 			$cliente->save();
     	return Redirect::to('datos/cliente');
     }
@@ -121,11 +121,11 @@ class ClienteController extends Controller
     }
     public function destroy($id){
 			$cliente=Cliente::findOrFail($id);
-			$cliente->FlgEli='0';
+			$cliente->FlgEli='1';
 			$cliente->update();
 
 			$actor=Actor::findOrFail($id);
-			$actor->FlgEli='0';
+			$actor->FlgEli='1';
 			$actor->update();
 
 			return Redirect::to('datos/cliente');

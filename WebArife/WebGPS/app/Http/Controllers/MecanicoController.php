@@ -24,7 +24,7 @@ public function index(Request $request){
     ->join('actor as a', 'm.IdActor','=','a.IdActor')
     ->select('m.IdMecanico','a.IdActor','a.Apellido_Paterno','a.Apellido_Materno' ,'a.PrimerNombre','a.TipoDocumento','a.CodigoIdentificacion','a.RazonSocial')
     ->where('a.PrimerNombre','LIKE','%'.$query.'%')
-    ->where ('m.FlgEli','=','1')
+    ->where ('m.FlgEli','=','0')
     ->orderBy('IdMecanico','desc')
     ->paginate(7);
     return view ('datos/mecanico.index',["mecanico"=>$mecanico,"searchText"=>$query]);
@@ -32,9 +32,9 @@ public function index(Request $request){
 }
 public function create(){
   $actor=DB::table('actor')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   $empresa=DB::table('empresa')
-  ->where('FlgEli','=','1')->get();
+  ->where('FlgEli','=','0')->get();
   return view("datos/mecanico.create",["actor"=>$actor],["empresa"=>$empresa]);
 }
 public function store(MecanicoFormRequest $request, ActorFormRequest $reqactor){
@@ -56,7 +56,7 @@ public function store(MecanicoFormRequest $request, ActorFormRequest $reqactor){
   $actor->FchMod=Carbon::now();
   $actor->WksMod=$request->ip();
   $actor->UsrMod=$request->get('UsrMod');
-  $actor->FlgEli=1;
+  $actor->FlgEli=0;
   $actor->save();
 
   $mecanico=new mecanico;
@@ -68,7 +68,7 @@ public function store(MecanicoFormRequest $request, ActorFormRequest $reqactor){
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->ip();
   $mecanico->FchMod=Carbon::now();
-  $mecanico->FlgEli=1;
+  $mecanico->FlgEli=0;
   $mecanico->save();
   return Redirect::to('datos/mecanico');
 }
@@ -108,13 +108,13 @@ public function update(MecanicoFormRequest $request,$id){
   $mecanico->UsrMod=$request->get('UsrMod');
   $mecanico->WksMod=$request->ip();
   $mecanico->FchMod=Carbon::now();
-  $mecanico->FlgEli=1;
+  $mecanico->FlgEli=0;
   $mecanico->update();
   return Redirect::to('datos/mecanico');
 }
 public function destroy($id){
   $mecanico=Mecanico::findOrFail($id);
-  $mecanico->FlgEli='0';
+  $mecanico->FlgEli='1';
   $mecanico->update();
   return Redirect::to('datos/mecanico');
  }

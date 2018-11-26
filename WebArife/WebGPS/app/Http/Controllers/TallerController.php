@@ -18,7 +18,7 @@ public function index(Request $request){
    if ($request) {
      $query=trim($request->get('searchText'));
      $taller=DB::table('taller')->where('UsrCrea','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdTaller','desc')
     ->paginate(7);
     return view ('datos/taller.index',["taller"=>$taller,"searchText"=>$query]);
@@ -37,7 +37,7 @@ public function store(TallerFormRequest $request){
   $taller->FchMod=Carbon::now();
   $taller->UsrMod=$request->get('UsrMod');
   $taller->WksMod=$request->ip();
-  $taller->FlgEli=1;
+  $taller->FlgEli=0;
   $taller->save();
   return Redirect::to('datos/taller');
 }
@@ -54,13 +54,13 @@ public function update(TallerFormRequest $request,$id){
   $taller->FchMod=Carbon::now();
   $taller->UsrMod=$request->get('UsrMod');
   $taller->WksMod=$request->ip();
-  $taller->FlgEli=1;
+  $taller->FlgEli=0;
   $taller->update();
   return Redirect::to('datos/taller');
 }
 public function destroy($id){
   $taller=Taller::findOrFail($id);
-  $taller->FlgEli='0';
+  $taller->FlgEli='1';
   $taller->update();
   return Redirect::to('datos/taller');
 }

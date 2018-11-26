@@ -18,7 +18,7 @@ class TablasController extends Controller
      if ($request) {
      $query=trim($request->get('searchText'));
      $tablas=DB::table('tablas')->where('UsrCrea','LIKE','%'.$query.'%')
-    ->where('FlgEli','=','1')
+    ->where('FlgEli','=','0')
     ->orderBy('IdTabla','desc')
     ->paginate(7);
     return view ('tablas/tablas.index',["tablas"=>$tablas,"searchText"=>$query]);
@@ -37,7 +37,7 @@ public function store(TablasFormRequest $request){
   $tablas->FchMod=Carbon::now();
   $tablas->UsrMod=$request->get('UsrMod');
   $tablas->WksMod=$request->get('WksMod');
-  $tablas->FlgEli=1;
+  $tablas->FlgEli=0;
   $tablas->save();
   return Redirect::to('tablas/tablas');
 }
@@ -54,13 +54,13 @@ public function update(TablasFormRequest $request,$id){
   $tablas->FchMod=Carbon::now();
   $tablas->UsrMod=$request->get('UsrMod');
   $tablas->WksMod=$request->get('WksMod');
-  $tablas->FlgEli=1
+  $tablas->FlgEli=0;
   $tablas->update();
   return Redirect::to('tablas/tablas');
 }
 public function destroy($id){
   $tablas=Tablas::findOrFail($id);
-  $tablas->FlgEli='0';
+  $tablas->FlgEli='1';
   $tablas->update();
   return Redirect::to('tablas/tablas');
 }

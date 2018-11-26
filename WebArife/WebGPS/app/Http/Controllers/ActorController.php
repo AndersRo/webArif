@@ -21,7 +21,7 @@ class ActorController extends Controller
         $query=trim($request->get('searchText'));
         $actor=DB::table('actor')
         ->where('TipoPersona','LIKE','%'.$query.'%')
-        ->where('FlgEli','=','1')
+        ->where('FlgEli','=','0')
         ->orderBy('IdActor','desc')
         ->paginate(7);
         return view ('datos/actor.index',["actor"=>$actor,"searchText"=>$query]);
@@ -29,7 +29,7 @@ class ActorController extends Controller
     }
     public function create(){
       $empresa=DB::table('empresa')
-			->where('FlgEli','=','1')->get();
+			->where('FlgEli','=','0')->get();
       return view("datos/actor.create",["empresa"=>$empresa]);
     }
 
@@ -61,7 +61,7 @@ class ActorController extends Controller
     }
     public function edit($id){
       $empresa=DB::table('empresa')
-			->where('FlgEli','=','1')->get();
+			->where('FlgEli','=','0')->get();
       return view("datos.actor.edit",["actor"=>Actor::findOrFail($id)],["empresa"=>$empresa]);
     }
     public function update(ActorFormRequest $request, $id){
@@ -83,7 +83,7 @@ class ActorController extends Controller
     }
     public function destroy($id){
       $actor=Actor::findOrFail($id);
-			$actor->FlgEli='0';
+			$actor->FlgEli='1';
 			$actor->update();
 			return Redirect::to('datos/actor');
     }

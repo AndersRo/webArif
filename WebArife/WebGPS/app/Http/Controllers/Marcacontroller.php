@@ -19,7 +19,7 @@ public function index(Request $request){
   if ($request) {
     $query=trim($request->get('searchText'));
     $marca=DB::table('marca')->where('Descripcion','LIKE','%'.$query.'%')
-    ->where ('FlgEli','=','1')
+    ->where ('FlgEli','=','0')
     ->orderBy('IdMarca','desc')
     ->paginate(7);
     return view ('Dispositivos/marca.index',["marca"=>$marca,"searchText"=>$query]);
@@ -37,7 +37,7 @@ public function store(MarcaFormRequest $request){
   $marca->FchMod=Carbon::now();
   $marca->UsrMod=$request->get('UsrMod');
   $marca->WksMod=$request->ip();
-  $marca->FlgEli=1;
+  $marca->FlgEli=0S;
   $marca->FchCrea=Carbon::now();
   $marca->save();
   return Redirect::to('Dispositivos/marca');
@@ -60,7 +60,7 @@ public function update(MarcaFormRequest $request,$id){
 }
 public function destroy($id){
   $marca=Marca::findOrFail($id);
-  $marca->FlgEli='0';
+  $marca->FlgEli='1';
   $marca->update();
   return Redirect::to('Dispositivos/marca');
  }

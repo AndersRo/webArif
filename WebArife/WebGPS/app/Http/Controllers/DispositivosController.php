@@ -26,9 +26,9 @@ class DispositivosController extends Controller
     }
     public function create(){
       $modelo=DB::table('modelo')
-			->where('FlgEli','=','1')->get();
+			->where('FlgEli','=','0')->get();
       $empresa=DB::table('empresa')
-			->where('FlgEli','=','1')->get();
+			->where('FlgEli','=','0')->get();
       return view("Dispositivos/dispositivo.create",["modelo"=>$modelo,"empresa"=>$empresa]);
     }
     public function store(DispositivosFormRequest $request){
@@ -63,7 +63,7 @@ class DispositivosController extends Controller
     }
     public function destroy($id){
       $dispositivos=Dispositivos::findOrFail($id);
-			$dispositivos->FlgEli='0';
+			$dispositivos->FlgEli='1';
 			$dispositivos->update();
 			return Redirect::to('datos/cliente');
     }
